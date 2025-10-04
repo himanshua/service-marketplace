@@ -10,7 +10,8 @@ export default function UserSignup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("usernormal");
+  // Role is fixed for this signup variant; no need for state
+  const role = "usernormal";
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState("");
@@ -32,7 +33,7 @@ export default function UserSignup() {
       name: name.trim(),
       email: email.trim(),
       password: password.trim(),
-      role: role,
+      role,
     };
 
     if (data.name.length === 0) {
