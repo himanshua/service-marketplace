@@ -1,0 +1,23 @@
+{
+  "name": "service-marketplace",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev:frontend": "npm --workspace frontend run dev",
+    "dev:backend": "npm --workspace backend run dev",
+    "dev": "concurrently 'npm:dev:backend' 'npm:dev:frontend'",
+    "build": "npm --workspace frontend run build",
+    "lint": "npm --workspaces run lint",
+    "test": "npm --workspaces run test"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "packageManager": "npm@10.8.1",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
