@@ -1,110 +1,30 @@
 "use client";
-import React, { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
+import React from "react";
 import { MdErrorOutline } from "react-icons/md";
+import useSignupForm from "../hooks/useSignupForm";
 
 // Minimal styling reuse: we assume global CSS or parent styles; could import a shared CSS if needed.
 export default function BuyerSignup() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [nameError, setNameError] = useState("");
-
-  const nameInputRef = useRef(null);
-  const emailInputRef = useRef(null);
-  const passwordInputRef = useRef(null);
-
-  const router = useRouter();
-  const API_Base = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-
-  const validatePassword = (val) => {
-    if (val.length === 0) return "Password cannot be empty";
-    if (val.length < 8) return "Password must be at least 8 characters long";
-    if (!/[A-Z]/.test(val)) return "Password must contain at least one uppercase letter";
-    if (!/[a-z]/.test(val)) return "Password must contain at least one lowercase letter";
-    if (!/[0-9]/.test(val)) return "Password must contain at least one number";
-    if (!/[!@#$%^&*]/.test(val)) return "Password must contain at least one special character";
-    if (/\s/.test(val)) return "Password must not contain spaces";
-    return "";
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setMessage("");
-
-    const trimmedName = name.trim();
-    const trimmedEmail = email.trim();
-    const trimmedPassword = password.trim();
-
-    if (trimmedName.length === 0) {
-      setNameError("Name cannot be empty");
-      nameInputRef.current?.focus();
-      return;
-    }
-    setNameError("");
-
-    if (trimmedEmail.length === 0) {
-      setEmailError("Email cannot be empty");
-      emailInputRef.current?.focus();
-      return;
-    }
-    const parts = trimmedEmail.split("@");
-    if (
-      parts.length !== 2 ||
-      parts[0].length === 0 ||
-      parts[1].length === 0 ||
-      !parts[1].includes(".")
-    ) {
-      setEmailError("Please enter a valid email");
-      emailInputRef.current?.focus();
-      return;
-    }
-    setEmailError("");
-
-    const pwdErr = validatePassword(trimmedPassword);
-    if (pwdErr) {
-      setPasswordError(pwdErr);
-      passwordInputRef.current?.focus();
-      return;
-    }
-    setPasswordError("");
-
-    setLoading(true);
-    try {
-      const res = await fetch(`${API_Base}/api/auth/signup`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: trimmedName,
-          email: trimmedEmail,
-          password: trimmedPassword,
-          role: "buyer",
-        }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setMessage("✅ Signup successful! Redirecting to login...");
-        setTimeout(() => router.push("/login"), 1500);
-        setName("");
-        setEmail("");
-        setPassword("");
-      } else {
-        setMessage(data.message || "❌ Signup failed");
-        if (res.status === 400) {
-          setEmailError(data.message || "User already exists");
-          emailInputRef.current?.focus();
-        }
-      }
-    } catch (err) {
-      setMessage("⚠️ Network error: " + err.message);
-    } finally {
-      setTimeout(() => setLoading(false), 500);
-    }
-  };
+  const {
+    name,
+    email,
+    password,
+    message,
+    loading,
+    emailError,
+    passwordError,
+    nameError,
+    setName,
+    setEmail,
+    setPassword,
+    setEmailError,
+    setNameError,
+    nameInputRef,
+    emailInputRef,
+    passwordInputRef,
+    handleSubmit,
+    validatePassword,
+  } = useSignupForm({ role: "buyer" });
 
   return (
     <main className="form-container">
@@ -152,21 +72,15 @@ export default function BuyerSignup() {
             onChange={(e) => {
               const value = e.target.value;
               setEmail(value);
-              if (value.length === 0) {
-                setEmailError("Email cannot be empty");
-              } else {
-                const parts = value.split("@");
-                if (
-                  parts.length !== 2 ||
-                  parts[0].length === 0 ||
-                  parts[1].length === 0 ||
-                  !parts[1].includes(".")
-                ) {
-                  setEmailError("Please enter a valid email");
-                } else {
-                  setEmailError("");
-                }
-              }
+              // live validation reused
+              const err =
+                value === ""
+                  ? "Email cannot be empty"
+                  : value.includes("@")
+                    ? ""
+                    : "Please enter a valid email";
+              if (err) setEmailError(err);
+              else setEmailError("");
             }}
             value={email}
           />

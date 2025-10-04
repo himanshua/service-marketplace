@@ -1,134 +1,31 @@
 "use client";
-import { useState } from "react";
-import { useRef } from "react";
-import { useRouter } from "next/navigation";
+// (All state handled inside shared hook)
+import useSignupForm from "../hooks/useSignupForm";
 import "./page.css";
 import { MdErrorOutline } from "react-icons/md";
 import React from "react";
 
 export default function UserSignup() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  // Role is fixed for this signup variant; no need for state
-  const role = "usernormal";
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [nameError, setNameError] = useState("");
-  const nameInputRef = useRef(null);
-  const emailInputRef = useRef(null);
-  const passwordInputRef = useRef(null);
-
-  const router = useRouter();
-
-  const API_Base = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setMessage("");
-
-    const data = {
-      name: name.trim(),
-      email: email.trim(),
-      password: password.trim(),
-      role,
-    };
-
-    if (data.name.length === 0) {
-      setNameError("Name cannot be empty");
-      nameInputRef.current.focus();
-      return;
-    }
-    setNameError("");
-
-    if (data.email.length === 0) {
-      setEmailError("Email cannot be empty");
-      emailInputRef.current.focus();
-      return;
-    }
-    const parts = data.email.split("@");
-    if (
-      parts.length !== 2 ||
-      parts[0].length === 0 ||
-      parts[1].length === 0 ||
-      !parts[1].includes(".")
-    ) {
-      setEmailError("Please enter a valid email");
-      emailInputRef.current.focus();
-      return;
-    }
-    setEmailError("");
-
-    if (data.password.length === 0) {
-      setPasswordError("Password cannot be empty");
-      passwordInputRef.current.focus();
-      return;
-    }
-    if (data.password.length < 8) {
-      setPasswordError("Password must be at least 8 characters long");
-      passwordInputRef.current.focus();
-      return;
-    }
-    if (!/[A-Z]/.test(data.password)) {
-      setPasswordError("Password must contain at least one uppercase letter");
-      passwordInputRef.current.focus();
-      return;
-    }
-    if (!/[a-z]/.test(data.password)) {
-      setPasswordError("Password must contain at least one lowercase letter");
-      passwordInputRef.current.focus();
-      return;
-    }
-    if (!/[0-9]/.test(data.password)) {
-      setPasswordError("Password must contain at least one number");
-      passwordInputRef.current.focus();
-      return;
-    }
-    if (!/[!@#$%^&*]/.test(data.password)) {
-      setPasswordError("Password must contain at least one special character");
-      passwordInputRef.current.focus();
-      return;
-    }
-    if (/\s/.test(data.password)) {
-      setPasswordError("Password must not contain spaces");
-      passwordInputRef.current.focus();
-      return;
-    }
-    setPasswordError("");
-
-    // Only set loading true after validation passes
-    setLoading(true);
-    try {
-      const res = await fetch(`${API_Base}/api/auth/signup`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password, role }),
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        setMessage("✅ Signup successful! Redirecting to login...");
-        setTimeout(() => router.push("/login"), 1500);
-        setName("");
-        setEmail("");
-        setPassword("");
-      } else {
-        setMessage(data.message || "❌ Signup failed");
-      }
-      if (res.status === 400) {
-        setEmailError(data.message || "User already exists");
-        emailInputRef.current.focus();
-        return;
-      }
-    } catch (err) {
-      setMessage("⚠️ Network error: " + err.message);
-    } finally {
-      setTimeout(() => setLoading(false), 500);
-    }
-  };
+  const {
+    name,
+    email,
+    password,
+    message,
+    loading,
+    emailError,
+    passwordError,
+    nameError,
+    setName,
+    setEmail,
+    setPassword,
+    setEmailError,
+    setNameError,
+    nameInputRef,
+    emailInputRef,
+    passwordInputRef,
+    handleSubmit,
+    validatePassword,
+  } = useSignupForm({ role: "usernormal" });
 
   return (
     <main className="form-container">
@@ -148,8 +45,9 @@ export default function UserSignup() {
             placeholder="Name"
             className={nameError ? "form-input error-input" : "form-input"}
             onChange={(e) => {
-              setName(e.target.value);
-              if (e.target.value === "") setNameError("Name cannot be empty");
+              const value = e.target.value;
+              setName(value);
+              if (value === "") setNameError("Name cannot be empty");
               else setNameError("");
             }}
             value={name}
@@ -175,23 +73,9 @@ export default function UserSignup() {
             onChange={(e) => {
               const value = e.target.value;
               setEmail(value);
-
-              // Real-time validation
-              if (value.length === 0) {
-                setEmailError("Email cannot be empty");
-              } else {
-                const parts = value.split("@");
-                if (
-                  parts.length !== 2 ||
-                  parts[0].length === 0 ||
-                  parts[1].length === 0 ||
-                  !parts[1].includes(".")
-                ) {
-                  setEmailError("Please enter a valid email");
-                } else {
-                  setEmailError(""); // Clear error if valid
-                }
-              }
+              if (value.length === 0) setEmailError("Email cannot be empty");
+              else if (!value.includes("@")) setEmailError("Please enter a valid email");
+              else setEmailError("");
             }}
             value={email || ""}
           />
@@ -213,9 +97,11 @@ export default function UserSignup() {
             placeholder="Password"
             className={passwordError ? "form-input error-input" : "form-input"}
             onChange={(e) => {
-              setPassword(e.target.value);
-              if (e.target.value === "") setPasswordError("Password cannot be empty");
-              else setPasswordError("");
+              const value = e.target.value;
+              setPassword(value);
+              // basic live feedback using shared validator
+              const err = validatePassword(value);
+              setPasswordError(err);
             }}
             value={password}
           />
