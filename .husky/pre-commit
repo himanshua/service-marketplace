@@ -1,0 +1,19 @@
+#!/bin/sh
+# Husky pre-commit hook (shell variant for maximum portability on Windows Git)
+. "$(dirname "$0")/_/husky.sh"
+
+echo "[husky] Running pre-commit checks..."
+
+# Stop on first failure
+set -e
+
+echo "[husky] Format check"
+npm run format:check
+
+echo "[husky] Lint"
+npm run lint
+
+echo "[husky] Tests"
+NODE_ENV=test npm test
+
+echo "[husky] All checks passed."
