@@ -1,19 +1,12 @@
-#!/bin/sh
-# Husky pre-commit hook (shell variant for maximum portability on Windows Git)
-. "$(dirname "$0")/_/husky.sh"
+#!/usr/bin/env sh
+# Lightweight pre-commit hook using lint-staged
+echo "[husky] pre-commit: lint-staged"
 
-echo "[husky] Running pre-commit checks..."
-
-# Stop on first failure
-set -e
-
-echo "[husky] Format check"
-npm run format:check
-
-echo "[husky] Lint"
-npm run lint
-
-echo "[husky] Tests"
-NODE_ENV=test npm test
-
-echo "[husky] All checks passed."
+# Use npx explicitly; bail on failure
+npx --no-install lint-staged
+status=$?
+if [ $status -ne 0 ]; then
+  echo "[husky] lint-staged failed (exit $status)"
+  exit $status
+fi
+echo "[husky] pre-commit done"

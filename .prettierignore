@@ -1,0 +1,10 @@
+# Ignore lockfiles and build artifacts
+package-lock.json
+frontend/package-lock.json
+backend/package-lock.json
+
+# Coverage and build outputs
+coverage
+build
+dist
+.next
