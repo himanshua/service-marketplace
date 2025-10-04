@@ -2,6 +2,7 @@
 import React from "react";
 import { MdErrorOutline } from "react-icons/md";
 import useSignupForm from "../hooks/useSignupForm";
+// lint-staged test: this comment will be formatted by Prettier if needed
 
 // Minimal styling reuse: we assume global CSS or parent styles; could import a shared CSS if needed.
 export default function BuyerSignup() {
