@@ -7,5 +7,4 @@ module.exports = {
   moduleNameMapper: {
     "\\.css$": "identity-obj-proxy",
   },
-  testPathIgnorePatterns: ["/buyer/", "buyerSignup.test.js"],
 };
