@@ -1,4 +1,4 @@
-# Buyer Signup Form Documentation
+# User Signup Form Documentation
 
 ## Features
 

@@ -34,7 +34,7 @@ export default function Login() {
         // Redirect based on role
         if (data.user.role === "admin") router.push("/admin/dashboard");
         else if (data.user.role === "provider") router.push("/provider/dashboard");
-        else router.push("/buyer/dashboard");
+        else router.push("/user/dashboard");
       } else {
         setMessage(data.message || "❌ Invalid credentials");
       }

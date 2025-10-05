@@ -1,12 +1,12 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("buyer"); // default role
+  const [role, setRole] = useState("usernormal"); // default role unified
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -65,10 +65,10 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <select value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="buyer">Buyer</option>
+        <select aria-label="role" value={role} onChange={(e) => setRole(e.target.value)}>
           <option value="provider">Provider</option>
           <option value="admin">Admin</option>
+          <option value="usernormal">User</option>
         </select>
         <button type="submit" disabled={loading}>
           {loading ? "Signing up..." : "Signup"}
