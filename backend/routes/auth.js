@@ -10,7 +10,7 @@ const router = express.Router();
  */
 router.post("/signup", async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    let { name, email, password, role } = req.body;
 
     if (!name || !email || !password) {
       return res.status(400).json({ message: "All fields are required" });
@@ -20,11 +20,13 @@ router.post("/signup", async (req, res) => {
     if (existingUser) return res.status(400).json({ message: "User already exists" });
 
     // Create user, pre-save hook hashes password
+    // Normalize legacy role values
+    if (!role || role === "buyer") role = "usernormal";
     const newUser = new User({
       name,
       email,
       password,
-      role: role || "buyer",
+      role,
     });
 
     await newUser.save();
