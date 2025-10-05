@@ -20,8 +20,8 @@ router.post("/signup", async (req, res) => {
     if (existingUser) return res.status(400).json({ message: "User already exists" });
 
     // Create user, pre-save hook hashes password
-    // Normalize legacy role values
-    if (!role || role === "buyer") role = "usernormal";
+    // Default role if missing
+    if (!role) role = "usernormal";
     const newUser = new User({
       name,
       email,
