@@ -1,5 +1,5 @@
 "use client";
-// Buyer signup page removed after consolidation to unified Signup page.
-export default function RemovedBuyerSignupPlaceholder() {
+// (Deprecated) buyer signup page removed; file kept empty pending full deletion.
+export default function _RemovedBuyerPage() {
   return null;
 }
