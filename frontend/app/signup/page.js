@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function Signup() {
   const [name, setName] = useState("");
@@ -8,44 +7,31 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const role = "usernormal";
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
-  const API_Base = process.env.NEXT_PUBLIC_API_URL;
 
-  const handleSubmit = async (e) => {
+  const backendReady = !!process.env.NEXT_PUBLIC_API_URL;
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setMessage("");
-    setLoading(true);
-    try {
-      const res = await fetch(`${API_Base}/api/auth/signup`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password, role }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setMessage("Signup successful. Redirecting...");
-        setTimeout(() => router.push("/login"), 1500);
-      } else {
-        setMessage(data.message || "Signup failed");
-      }
-    } catch (err) {
-      setMessage("Network error: " + err.message);
-    } finally {
-      setLoading(false);
+    if (!backendReady) {
+      setMessage("Backend not deployed yet.");
+      return;
     }
+    setMessage("Attempting signup (backend to be added)...");
   };
 
   return (
-    <main style={{ maxWidth: 420, margin: "60px auto", padding: 24, background: "#fff", borderRadius: 8 }}>
+    <main style={{ maxWidth: 420, margin: "60px auto", padding: 24, background: "#fff", borderRadius: 8, fontFamily: "sans-serif" }}>
       <h1>Signup</h1>
+      {!backendReady && (
+        <div style={{ background: "#fff3cd", padding: 10, border: "1px solid #ffe58f", borderRadius: 4, marginBottom: 12 }}>
+          Backend not deployed yet. Form will not submit.
+        </div>
+      )}
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <input required placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
         <input required type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input required type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button disabled={loading} type="submit">
-          {loading ? "Signing up..." : "Signup"}
-        </button>
+        <button type="submit">Signup</button>
       </form>
       {message && <p style={{ marginTop: 12 }}>{message}</p>}
     </main>

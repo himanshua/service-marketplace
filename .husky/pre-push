@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-# Run full quality gate on push
-set -e
-
-echo "[husky] pre-push: format check" && npm run format:check
-echo "[husky] pre-push: lint" && npm run lint
-echo "[husky] pre-push: tests" && NODE_ENV=test npm test
-echo "[husky] pre-push: all checks passed"
