@@ -14,7 +14,7 @@
     "test": "npm --workspaces run test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky install"
+    "prepare": "node -e \"if(process.env.CI){console.log('Skipping husky in CI');process.exit(0)} else {require('child_process').spawnSync('npx',{stdio:'inherit',shell:true,args:['husky','install']})}\""
   },
   "engines": {
     "node": ">=18.18.0"
