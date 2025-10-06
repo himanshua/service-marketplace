@@ -1,12 +1,4 @@
 #!/usr/bin/env sh
-# Lightweight pre-commit hook using lint-staged
-echo "[husky] pre-commit: lint-staged"
+. "$(dirname -- "$0")/_/husky.sh"
 
-# Use npx explicitly; bail on failure
-npx --no-install lint-staged
-status=$?
-if [ $status -ne 0 ]; then
-  echo "[husky] lint-staged failed (exit $status)"
-  exit $status
-fi
-echo "[husky] pre-commit done"
+npx lint-staged

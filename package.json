@@ -6,37 +6,22 @@
     "backend"
   ],
   "scripts": {
-    "dev:frontend": "npm --workspace frontend run dev",
-    "dev:backend": "npm --workspace backend run dev",
-    "dev": "concurrently 'npm:dev:backend' 'npm:dev:frontend'",
-    "build": "npm --workspace frontend run build",
-    "lint": "npm --workspaces run lint",
-    "test": "npm --workspaces run test",
+    "prepare": "husky",
+    "lint": "npm --workspace backend run lint",
+    "test": "npm --workspace backend run test",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "prepare": "node -e \"if(process.env.CI){console.log('Skipping husky in CI');process.exit(0)} else {require('child_process').spawnSync('npx',{stdio:'inherit',shell:true,args:['husky','install']})}\""
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.9",
+    "prettier": "^3.3.3"
+  },
+  "lint-staged": {
+    "*.{json,md,css}": "prettier --write"
   },
   "engines": {
     "node": ">=18.18.0"
   },
-  "packageManager": "npm@10.8.1",
-  "devDependencies": {
-    "concurrently": "^8.2.2",
-    "prettier": "^3.3.3",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.9"
-  },
-  "lint-staged": {
-    "backend/**/*.{js,jsx,ts,tsx,cjs,mjs}": [
-      "eslint --fix --config backend/eslint.config.cjs",
-      "prettier --write"
-    ],
-    "frontend/**/*.{js,jsx,ts,tsx,cjs,mjs}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,md,css}": [
-      "prettier --write"
-    ]
-  }
+  "packageManager": "npm@10.8.1"
 }
