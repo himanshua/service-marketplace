@@ -10,7 +10,7 @@ export default function Signup() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const API_Base = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const API_Base = process.env.NEXT_PUBLIC_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
