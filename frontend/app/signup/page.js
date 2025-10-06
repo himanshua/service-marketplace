@@ -6,7 +6,7 @@ export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("usernormal"); // default role unified
+  const role = "usernormal"; // fixed role
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -65,11 +65,7 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <select aria-label="role" value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="provider">Provider</option>
-          <option value="admin">Admin</option>
-          <option value="usernormal">User</option>
-        </select>
+        {/* role select removed (fixed to usernormal) */}
         <button type="submit" disabled={loading}>
           {loading ? "Signing up..." : "Signup"}
         </button>
