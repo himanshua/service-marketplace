@@ -32,7 +32,7 @@
       "prettier --write"
     ],
     "frontend/**/*.{js,jsx,ts,tsx,cjs,mjs}": [
-      "eslint --fix --config frontend/eslint.config.mjs",
+      "eslint --fix",
       "prettier --write"
     ],
     "*.{json,md,css}": [
