@@ -6,29 +6,25 @@ export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const role = "usernormal"; // fixed role
+  const role = "usernormal";
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-
   const router = useRouter();
   const API_Base = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setMessage("");
-
+    setLoading(true);
     try {
       const res = await fetch(`${API_Base}/api/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password, role }),
       });
-
       const data = await res.json();
-
       if (res.ok) {
-        setMessage("✅ Signup successful! Redirecting to login...");
+        setMessage("✅ Signup successful! Redirecting...");
         setTimeout(() => router.push("/login"), 1500);
       } else {
         setMessage(data.message || "❌ Signup failed");
@@ -41,9 +37,18 @@ export default function Signup() {
   };
 
   return (
-    <main style={{ padding: "20px", maxWidth: "400px", margin: "50px auto" }}>
-      <h1>Signup</h1>
-      <form onSubmit={handleSubmit}>
+    <main
+      style={{
+        padding: 20,
+        maxWidth: 400,
+        margin: "60px auto",
+        background: "#fff",
+        borderRadius: 8,
+        boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+      }}
+    >
+      <h1 style={{ marginTop: 0 }}>Signup</h1>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <input
           type="text"
           placeholder="Name"
@@ -65,12 +70,11 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {/* role select removed (fixed to usernormal) */}
         <button type="submit" disabled={loading}>
           {loading ? "Signing up..." : "Signup"}
         </button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p style={{ marginTop: 16 }}>{message}</p>}
     </main>
   );
 }
