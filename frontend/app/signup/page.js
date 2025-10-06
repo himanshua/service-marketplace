@@ -24,57 +24,30 @@ export default function Signup() {
       });
       const data = await res.json();
       if (res.ok) {
-        setMessage("✅ Signup successful! Redirecting...");
+        setMessage("Signup successful. Redirecting...");
         setTimeout(() => router.push("/login"), 1500);
       } else {
-        setMessage(data.message || "❌ Signup failed");
+        setMessage(data.message || "Signup failed");
       }
     } catch (err) {
-      setMessage("⚠️ Network error: " + err.message);
+      setMessage("Network error: " + err.message);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <main
-      style={{
-        padding: 20,
-        maxWidth: 400,
-        margin: "60px auto",
-        background: "#fff",
-        borderRadius: 8,
-        boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-      }}
-    >
-      <h1 style={{ marginTop: 0 }}>Signup</h1>
+    <main style={{ maxWidth: 420, margin: "60px auto", padding: 24, background: "#fff", borderRadius: 8 }}>
+      <h1>Signup</h1>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" disabled={loading}>
+        <input required placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input required type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input required type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button disabled={loading} type="submit">
           {loading ? "Signing up..." : "Signup"}
         </button>
       </form>
-      {message && <p style={{ marginTop: 16 }}>{message}</p>}
+      {message && <p style={{ marginTop: 12 }}>{message}</p>}
     </main>
   );
 }
