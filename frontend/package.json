@@ -6,15 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "echo \"(skipped frontend tests)\"",
+    "test": "jest --passWithNoTests",
     "lint": "eslint ."
   },
   "dependencies": {
-    "next": "14.2.5",
+    "next": "15.5.3",
     "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
-    "eslint": "8.57.0"
+    "babel-jest": "^29.7.0",
+    "eslint": "8.57.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "whatwg-url": "^14.0.0",
+    "@testing-library/react": "^14.3.1",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/user-event": "^14.5.2"
   }
 }
