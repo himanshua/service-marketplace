@@ -1,14 +1,11 @@
 // app/layout.js
 import React from "react";
-export const metadata = {
-  title: "Service Marketplace",
-  description: "Service Marketplace App",
-};
+export const metadata = { title: "Service Marketplace" };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={{ fontFamily: "sans-serif", background: "#f7f7f7", margin: 0 }}>{children}</body>
+      <body style={{ margin: 0, fontFamily: "sans-serif" }}>{children}</body>
     </html>
   );
 }
