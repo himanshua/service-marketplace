@@ -20,11 +20,12 @@ function signToken(user) {
 }
 
 router.get("/me", requireAuth, async (req, res) => {
-  try {
-    const user = await User.findById(req.auth.id).select("_id name email role");
+ try {
+    // Use req.user.id, not req.auth.id
+    const user = await User.findById(req.user.id).select("_id name email role");
     if (!user) return res.status(404).json({ message: "User not found" });
     res.json({ user: { id: user._id, name: user.name, email: user.email, role: user.role } });
-  } catch {
+  } catch (err) {
     console.error("Error in /api/auth/me:", err);
     res.status(500).json({ message: "Internal server error" });
   }
