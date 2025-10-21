@@ -1,0 +1,72 @@
+"use client"; // Client-side component
+
+import { useEffect, useState } from "react"; // React hooks
+import Link from "next/link"; // Next.js link
+
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL
+
+export default function ServicesPage() {
+  const [services, setServices] = useState([]); // State for services list
+  const [loading, setLoading] = useState(true); // Loading state
+  const [err, setErr] = useState(""); // Error state
+  const [user, setUser] = useState(null); // Add state for user
+
+  useEffect(() => { // Fetch services and check auth
+    (async () => {
+      try {
+        const res = await fetch(`${API}/api/services`); // GET /api/services
+        const data = await res.json();
+        if (!res.ok) throw new Error("Failed to fetch services");
+        setServices(data); // Set services
+      } catch (e) {
+        setErr(e.message); // Set error
+      } finally {
+        setLoading(false); // Stop loading
+      }
+    })();
+
+    // Check if user is logged in
+    const token = localStorage.getItem("token");
+    if (token) {
+      (async () => {
+        try {
+          const res = await fetch(`${API}/api/auth/me`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          const data = await res.json();
+          if (res.ok) setUser(data.user); // Set user if logged in
+        } catch (e) {
+          console.error("Auth check failed:", e);
+        }
+      })();
+    }
+  }, []);
+
+  if (loading) return <main style={{ padding: 20 }}>Loading services…</main>; // Loading
+  if (err) return <main style={{ padding: 20, color: "crimson" }}>{err}</main>; // Error
+
+  return (
+    <main style={{ padding: 20, maxWidth: 800, margin: "40px auto" }}>
+      <h1>Services</h1>
+      {user && ( // Show create link if logged in
+        <p><Link href="/services/create">+ Create New Service</Link></p>
+      )}
+      {services.length === 0 ? ( // If no services
+        <p>No services available.</p>
+      ) : (
+        <ul style={{ listStyle: "none", padding: 0 }}> {/* List services */}
+          {services.map((service) => (
+            <li key={service._id} style={{ border: "1px solid #ccc", padding: 16, marginBottom: 16 }}>
+              <h3>{service.title}</h3> {/* Service title */}
+              <p>{service.description}</p> {/* Description */}
+              <p>Price: ${service.price}</p> {/* Price */}
+              <p>Category: {service.category}</p> {/* Category */}
+              <p>Provider: {service.provider.name} ({service.provider.email})</p> {/* Provider */}
+              <Link href={`/services/${service._id}`}>View Details</Link> {/* Link to detail page */}
+            </li>
+          ))}
+        </ul>
+      )}
+    </main>
+  );
+}

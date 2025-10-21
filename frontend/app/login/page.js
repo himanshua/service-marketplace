@@ -1,5 +1,6 @@
-"use client";
-import React, { useState } from "react";
+"use client"; // This tells Next.js this is a client-side component (runs in the browser, not server)
+
+import React, { useState } from "react"; // Import React and useState hook for managing component state
 import { useRouter } from "next/navigation";
 
 export default function Login() {
@@ -17,23 +18,27 @@ export default function Login() {
     setMessage("");
 
     try {
-      const res = await fetch(`${API_Base}/api/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        // Make POST request to backend login endpoint
+        const res = await fetch(`${API_Base}/api/auth/login`, {
+        method: "POST", // HTTP method
+        headers: { "Content-Type": "application/json" }, // Tell server we're sending JSON string
+        body: JSON.stringify({ email, password }), // Convert form data to JSON string
       });
 
       const data = await res.json();
 
       if (res.ok) {
         setMessage("✅ Login successful");
+        // Store authentication data in browser localStorage
+
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.user.role);
+        localStorage.setItem("user", JSON.stringify(data.user)); // store user too
 
-        // Redirect based on role
-        if (data.user.role === "admin") router.push("/admin/dashboard");
-        else if (data.user.role === "provider") router.push("/provider/dashboard");
-        else router.push("/user/dashboard");
+        // Redirect based on backend roles: useradmin | userexpert | usernormal
+        if (data.user.role === "useradmin") router.push("/admin/dashboard");
+        else if (data.user.role === "userexpert") router.push("/expert/dashboard");
+        else router.push("/profile");
       } else {
         setMessage(data.message || "❌ Invalid credentials");
       }

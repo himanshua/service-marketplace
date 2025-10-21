@@ -1,36 +1,108 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-require("dotenv").config();
+/**
+ * Backend entry point
+ */
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import authRoutes from "./routes/auth.js";
+import serviceRoutes from "./routes/services.js";
+import cors from "cors";
+import swaggerUi from "swagger-ui-express";
+import swaggerJsdoc from "swagger-jsdoc";
+import morgan from "morgan";
+import rateLimit from "express-rate-limit";
+dotenv.config();
 
-// Initialize Express
 const app = express();
-app.use(cors());
-app.use(express.json()); // to parse JSON requests
+app.use(express.json());
+app.use(morgan("dev"));
 
-// import auth routes
-const authRoutes = require("./routes/auth");
-
-// connect auth routes
-app.use("/api/auth", authRoutes); // prefix all auth routes with /api/auth
-
-// Health route
-app.get("/", (req, res) => {
-  res.send("Backend is running!");
+// Simple request log to verify routing
+app.use((req, _res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
 });
 
-// Mongo connection only if not in test
+const allowedOrigins = [process.env.FRONTEND_URL || "http://localhost:3000"];
+
+// Core middlewares
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+app.use(express.json()); // Must be before routes
+
+// Rate limiting middleware
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+app.use(limiter);
+
+// Health
+app.get("/api/health", (_req, res) => res.json({ ok: true }));
+
+// Mount auth routes
+app.use("/api/auth", authRoutes);
+console.log("Auth routes mounted at /api/auth");
+
+// Mount services routes
+app.use("/api/services", serviceRoutes);
+console.log("Services routes mounted at /api/services");
+
+// Swagger setup
+const swaggerSpec = swaggerJsdoc({
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Service Marketplace API",
+      version: "1.0.0",
+    },
+  },
+  apis: ["./routes/*.js"], // Path to your route files
+});
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Connect to the database
 if (process.env.NODE_ENV !== "test") {
   mongoose
-    .connect(process.env.MONGO_URI)
-    .then(() => console.log("MongoDB connected"))
-    .catch((err) => console.error("MongoDB connection error:", err));
+    .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("Connected to MongoDB"))
+    .catch((err) => console.error("Error connecting to MongoDB:", err));
 }
 
-// Start server only if not under test
-if (process.env.NODE_ENV !== "test") {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Start + DB connect
+async function start() {
+  if (process.env.NODE_ENV === "test") return;
+  const mongoUri = process.env.MONGO_URI;
+  if (!mongoUri) {
+    console.error("FATAL ERROR: MONGO_URI not set in env");
+    process.exit(1);
+  }
+  try {
+    await mongoose.connect(mongoUri);
+    console.log("MongoDB connected");
+    const port = process.env.PORT || 5000;
+    app.listen(port, () => console.log(`API listening on port ${port}`));
+  } catch (err) {
+    console.error("FATAL ERROR: Failed to connect to MongoDB", err.message);
+    process.exit(1);
+  }
 }
+start();
 
-module.exports = app;
+app.get("/", (req, res) => {
+  res.send("Service Marketplace API is running.");
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).json({
+    message: err.message || "Internal Server Error",
+  });
+});
+
+export default app;

@@ -1,75 +1,148 @@
-const express = require("express");
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+import express from "express";
+import jwt from "jsonwebtoken";
+import User from "../models/User.js";
+import { requireAuth, requireRole } from "../middleware/auth.js";
+
 
 const router = express.Router();
+const allowedRoles = ["usernormal", "userexpert", "useradmin"];
 
-/**
- * POST /api/auth/signup
- * Create a new user with role
- */
-router.post("/signup", async (req, res) => {
+// Optional: GET /api/auth to verify router is mounted
+router.get("/", (_req, res) => {
+  res.json({ ok: true, endpoints: ["POST /signup", "POST /login"] });
+});
+
+// Sign JWT with user id + role
+function signToken(user) {
+  const secret = process.env.JWT_SECRET;
+  if (!secret) throw new Error("Missing JWT_SECRET");
+  return jwt.sign({ id: user._id, role: user.role }, secret, { expiresIn: "7d" });
+}
+
+router.get("/me", requireAuth, async (req, res) => {
   try {
-    let { name, email, password, role } = req.body;
-
-    if (!name || !email || !password) {
-      return res.status(400).json({ message: "All fields are required" });
-    }
-
-    const existingUser = await User.findOne({ email });
-    if (existingUser) return res.status(400).json({ message: "User already exists" });
-
-    // Create user, pre-save hook hashes password
-    // Default role if missing
-    if (!role) role = "usernormal";
-    const newUser = new User({
-      name,
-      email,
-      password,
-      role,
-    });
-
-    await newUser.save();
-
-    res.status(201).json({ message: "User created successfully" });
-  } catch (err) {
-    console.error("Signup Error:", err);
+    const user = await User.findById(req.auth.id).select("_id name email role");
+    if (!user) return res.status(404).json({ message: "User not found" });
+    res.json({ user: { id: user._id, name: user.name, email: user.email, role: user.role } });
+  } catch {
     res.status(500).json({ message: "Internal server error" });
   }
 });
 
-/**
- * POST /api/auth/login
- * Login user and return JWT + role
- */
+// Admin-only ping
+router.get("/admin/ping", requireAuth, requireRole("useradmin"), (_req, res) => {
+  res.json({ ok: true, scope: "admin" });
+});
+
+// Expert-only ping
+router.get("/expert/ping", requireAuth, requireRole("userexpert"), (_req, res) => {
+  res.json({ ok: true, scope: "expert" });
+});
+
+// General authenticated ping
+router.get("/ping", requireAuth, (_req, res) => {
+  res.json({ ok: true, scope: "any-authenticated-user" });
+});
+
+// POST /api/auth/signup
+router.post("/signup", async (req, res) => {
+  try {
+    const { name, email, password, role } = req.body;
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "Name, email, and password are required" });
+    }
+    if (role && !allowedRoles.includes(role)) {
+      return res.status(400).json({ message: "Invalid role" });
+    }
+
+    const exists = await User.findOne({ email });
+    if (exists) return res.status(409).json({ message: "Email already registered" });
+
+    const user = await User.create({
+      name,
+      email,
+      password, // hashed by model pre-save hook
+      role: role || "usernormal"
+    });
+
+    const token = signToken(user);
+    return res.status(201).json({
+      user: { id: user._id, name: user.name, email: user.email, role: user.role },
+      token
+    });
+  } catch (err) {
+    console.error("Signup Error:", err);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// POST /api/auth/login
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password)
-      return res.status(400).json({ message: "Email and password required" });
+      return res.status(400).json({ message: "Email and password are required" });
 
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: "Invalid credentials" });
+    if (!user) return res.status(401).json({ message: "Invalid email or password" });
 
-    const isMatch = await user.matchPassword(password);
-    if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
+    // Support either method name from your model
+    const cmp = user.comparePassword || user.matchPassword;
+    const ok = cmp ? await cmp.call(user, password) : false;
+    if (!ok) return res.status(401).json({ message: "Invalid email or password" });
 
-    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
-
-    res.status(200).json({
-      token,
-      user: {
-        name: user.name,
-        email: user.email,
-        role: user.role,
-      },
+    const token = signToken(user);
+    return res.json({
+      user: { id: user._id, name: user.name, email: user.email, role: user.role },
+      token
     });
   } catch (err) {
     console.error("Login Error:", err);
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 });
 
-module.exports = router;
+/**
+ * @swagger
+ * /api/auth/register:
+ *   post:
+ *     summary: Register a new user
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: User registered successfully
+ *       400:
+ *         description: Invalid input
+ *
+ * /api/auth/login:
+ *   post:
+ *     summary: Login a user
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Login successful
+ *       401:
+ *         description: Unauthorized
+ */
+
+export default router;
