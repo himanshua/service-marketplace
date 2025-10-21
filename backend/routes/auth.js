@@ -25,8 +25,8 @@ router.get("/me", requireAuth, async (req, res) => {
     if (!user) return res.status(404).json({ message: "User not found" });
     res.json({ user: { id: user._id, name: user.name, email: user.email, role: user.role } });
   } catch {
-    res.status(500).json({ message: "Internal server error" });
     console.error("Error in /api/auth/me:", err);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 
