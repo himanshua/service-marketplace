@@ -23,8 +23,12 @@ app.use((req, _res, next) => {
   next();
 });
 
-const allowedOrigins = [process.env.FRONTEND_URL || "http://localhost:3000"];
-
+const allowedOrigins = [
+  process.env.FRONTEND_URL || "http://localhost:3000",
+  "https://service-marketplace-frontend-7x28.vercel.app",
+  "https://service-marketplace-frontend-7x28-c343rasid-himanshuas-projects.vercel.app"
+  // Add more preview domains as needed
+];
 // Core middlewares
 app.use(cors({
   origin: allowedOrigins,
