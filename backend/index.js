@@ -31,6 +31,11 @@ app.use(cors({
 }));
 app.use(express.json()); // Must be before routes
 
+app.options("*", cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+
 // Simple request log to verify routing
 app.use((req, _res, next) => {
   console.log(`${req.method} ${req.url}`);
