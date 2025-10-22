@@ -22,35 +22,27 @@ const allowedOrigins = [
   "https://service-marketplace-frontend-7x28.vercel.app",
 ];
 
+function dynamicCorsOrigin(origin, callback) {
+  // Allow requests with no origin (like curl, Postman, etc.)
+  if (!origin) return callback(null, true);
+  // Allow production and any Vercel preview domain
+  if (
+    allowedOrigins.includes(origin) ||
+    /^https:\/\/service-marketplace-frontend-7x28-[a-z0-9]+-himanshuas-projects\.vercel\.app$/.test(origin)
+  ) {
+    return callback(null, true);
+  }
+  return callback(new Error("Not allowed by CORS"));
+}
+
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps, curl, etc.)
-    if (!origin) return callback(null, true);
-    // Allow production and all Vercel preview domains
-    if (
-      allowedOrigins.includes(origin) ||
-      /\.vercel\.app$/.test(origin)
-    ) {
-      return callback(null, true);
-    }
-    return callback(new Error("Not allowed by CORS"));
-  },
+  origin: dynamicCorsOrigin,
   credentials: true,
 }));
-app.use(express.json()); // Must be before routes
 
 // Also handle preflight requests
 app.options("*", cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (
-      allowedOrigins.includes(origin) ||
-      /\.vercel\.app$/.test(origin)
-    ) {
-      return callback(null, true);
-    }
-    return callback(new Error("Not allowed by CORS"));
-  },
+  origin: dynamicCorsOrigin,
   credentials: true,
 }));
 
