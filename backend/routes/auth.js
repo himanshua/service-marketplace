@@ -20,8 +20,7 @@ function signToken(user) {
 }
 
 router.get("/me", requireAuth, async (req, res) => {
- try {
-    // Use req.user.id, not req.auth.id
+  try {
     const user = await User.findById(req.user.id).select("_id name email role");
     if (!user) return res.status(404).json({ message: "User not found" });
     res.json({ user: { id: user._id, name: user.name, email: user.email, role: user.role } });
@@ -81,8 +80,6 @@ router.post("/signup", async (req, res) => {
 // POST /api/auth/login
 router.post("/login", async (req, res) => {
   try {
-        console.log("Login attempt:", req.body); // Log the login attempt
-
     const { email, password } = req.body;
     if (!email || !password)
       return res.status(400).json({ message: "Email and password are required" });
@@ -101,8 +98,8 @@ router.post("/login", async (req, res) => {
       token
     });
   } catch (err) {
-    console.error("Login Error:", err);
-    return res.status(500).json({ message: "Internal server error" });
+    console.error("Login error:", err);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 

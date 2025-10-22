@@ -17,9 +17,10 @@ export const requireAuth = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded; // Set the decoded token payload to req.user
+    req.user = { id: decoded.id, role: decoded.role }; // Make sure this matches your JWT payload
     next();
   } catch (err) {
+    console.error("JWT verification failed:", err);
     return res.status(401).json({ message: "Unauthorized: Invalid token" });
   }
 };

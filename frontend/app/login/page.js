@@ -1,6 +1,6 @@
 "use client"; // This tells Next.js this is a client-side component (runs in the browser, not server)
 
-import React, { useState } from "react"; // Import React and useState hook for managing component state
+import React, { useState, useEffect } from "react"; // Import React and useState hook for managing component state
 import { useRouter } from "next/navigation";
 
 export default function Login() {
@@ -8,9 +8,16 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(null); // null = unknown
 
   const router = useRouter();
   const API_Base = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+
+  useEffect(() => {
+    // Only runs on client
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,8 +25,8 @@ export default function Login() {
     setMessage("");
 
     try {
-        // Make POST request to backend login endpoint
-        const res = await fetch(`${API_Base}/api/auth/login`, {
+      // Make POST request to backend login endpoint
+      const res = await fetch(`${API_Base}/api/auth/login`, {
         method: "POST", // HTTP method
         headers: { "Content-Type": "application/json" }, // Tell server we're sending JSON string
         body: JSON.stringify({ email, password }), // Convert form data to JSON string
@@ -48,6 +55,15 @@ export default function Login() {
       setLoading(false);
     }
   };
+
+  // Don't render anything until we know if user is logged in
+  if (isLoggedIn === null) {
+    return null; // or <main>Loading...</main>
+  }
+
+  if (isLoggedIn) {
+    return <main><h1>Welcome!</h1></main>;
+  }
 
   return (
     <main style={{ padding: "20px", maxWidth: "400px", margin: "50px auto" }}>
