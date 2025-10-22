@@ -17,28 +17,26 @@ const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
 
+
+
+const allowedOrigins = [
+  process.env.FRONTEND_URL || "http://localhost:3000",
+  "https://service-marketplace-frontend-7x28.vercel.app",
+  "https://service-marketplace-frontend-7x28-18z8w2dwa-himanshuas-projects.vercel.app"
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+app.use(express.json()); // Must be before routes
+
 // Simple request log to verify routing
 app.use((req, _res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
 });
 
-const allowedOrigins = [
-  process.env.FRONTEND_URL || "http://localhost:3000",
-  "https://service-marketplace-frontend-7x28.vercel.app",
-];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-}));
-app.use(express.json()); // Must be before routes
 
 // Rate limiting middleware
 const limiter = rateLimit({
