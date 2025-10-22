@@ -17,22 +17,40 @@ const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
 
-
-
 const allowedOrigins = [
   process.env.FRONTEND_URL || "http://localhost:3000",
   "https://service-marketplace-frontend-7x28.vercel.app",
-  "https://service-marketplace-frontend-7x28-18z8w2dwa-himanshuas-projects.vercel.app"
 ];
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    // Allow production and all Vercel preview domains
+    if (
+      allowedOrigins.includes(origin) ||
+      /\.vercel\.app$/.test(origin)
+    ) {
+      return callback(null, true);
+    }
+    return callback(new Error("Not allowed by CORS"));
+  },
   credentials: true,
 }));
 app.use(express.json()); // Must be before routes
 
+// Also handle preflight requests
 app.options("*", cors({
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (
+      allowedOrigins.includes(origin) ||
+      /\.vercel\.app$/.test(origin)
+    ) {
+      return callback(null, true);
+    }
+    return callback(new Error("Not allowed by CORS"));
+  },
   credentials: true,
 }));
 
