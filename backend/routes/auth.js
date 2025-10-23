@@ -114,6 +114,39 @@ router.get("/admin/users", requireAuth, requireRole("useradmin"), async (req, re
   }
 });
 
+// DELETE /api/auth/admin/users/:id - Delete a user (admin only)
+router.delete("/admin/users/:id", requireAuth, requireRole("useradmin"), async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    if (!user) return res.status(404).json({ message: "User not found" });
+    res.json({ message: "User deleted" });
+  } catch (err) {
+    console.error("Admin delete user error:", err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// PATCH /api/auth/admin/users/:id/role - Change a user's role (admin only)
+router.patch("/admin/users/:id/role", requireAuth, requireRole("useradmin"), async (req, res) => {
+  try {
+    const { role } = req.body;
+    const allowedRoles = ["usernormal", "userexpert", "useradmin"];
+    if (!allowedRoles.includes(role)) {
+      return res.status(400).json({ message: "Invalid role" });
+    }
+    const user = await User.findByIdAndUpdate(
+      req.params.id,
+      { role },
+      { new: true }
+    ).select("_id name email role");
+    if (!user) return res.status(404).json({ message: "User not found" });
+    res.json({ user });
+  } catch (err) {
+    console.error("Admin change user role error:", err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 /**
  * @swagger
  * /api/auth/register:
