@@ -107,6 +107,7 @@ router.post("/login", async (req, res) => {
 router.get("/admin/users", requireAuth, requireRole("useradmin"), async (req, res) => {
   try {
     const users = await User.find().select("_id name email role");
+    // Always return an array, even if empty
     res.json({ users });
   } catch (err) {
     console.error("Admin get users error:", err);

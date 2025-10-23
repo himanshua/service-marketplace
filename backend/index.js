@@ -39,13 +39,13 @@ app.use(cors({
   origin: dynamicCorsOrigin,
   credentials: true,
 }));
-
+/*
 // Also handle preflight requests
-app.options("*", cors({
+app.options("/*", cors({
   origin: dynamicCorsOrigin,
   credentials: true,
 }));
-
+*/
 // Simple request log to verify routing
 app.use((req, _res, next) => {
   console.log(`${req.method} ${req.url}`);
