@@ -103,6 +103,17 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// GET /api/auth/admin/users - List all users (admin only)
+router.get("/admin/users", requireAuth, requireRole("useradmin"), async (req, res) => {
+  try {
+    const users = await User.find().select("_id name email role");
+    res.json({ users });
+  } catch (err) {
+    console.error("Admin get users error:", err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 /**
  * @swagger
  * /api/auth/register:
