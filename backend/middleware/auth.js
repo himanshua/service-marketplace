@@ -6,35 +6,33 @@ import jwt from "jsonwebtoken";
  * - Verifies JWT with JWT_SECRET
  * - Attaches { id, role } to req.user
  */
-export const requireAuth = (req, res, next) => {
+export function requireAuth(req, res, next) {
   const authHeader = req.headers.authorization;
-
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).json({ message: "Unauthorized: No token provided" });
+    return res.status(401).json({ message: "Unauthorized" });
   }
-
   const token = authHeader.split(" ")[1];
-
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = { id: decoded.id, role: decoded.role }; // Make sure this matches your JWT payload
+    req.user = { id: decoded.id, role: decoded.role };
     next();
   } catch (err) {
-    console.error("JWT verification failed:", err);
-    return res.status(401).json({ message: "Unauthorized: Invalid token" });
+    return res.status(401).json({ message: "Unauthorized" });
   }
-};
+}
 
 /**
  * requireRole(...roles)
  * - Allows only users whose role is in the provided list
  * - Use after requireAuth
  */
-export function requireRole(...roles) {
+export function requireRole(role) {
   return (req, res, next) => {
-    if (!req.auth || !roles.includes(req.auth.role)) {
-      return res.status(403).json({ message: "Forbidden" });
+    console.log("User role:", req.user.role, "Required role:", role); // Add this line.user.role, "Required role:", role); // Add this line
+    if (req.user.role !== role) {
+      return res.status(403).json({ message: "Forbidden" }); return res.status(403).json({ message: "Forbidden" });
     }
-    next();
-  };
-}
+    next();next();
+  }; };
+}}
+
