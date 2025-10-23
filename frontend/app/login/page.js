@@ -43,8 +43,8 @@ export default function Login() {
         localStorage.setItem("user", JSON.stringify(data.user)); // store user too
 
         // Redirect based on backend roles: useradmin | userexpert | usernormal
-        if (data.user.role === "useradmin") router.push("/admin/dashboard");
-        else if (data.user.role === "userexpert") router.push("/expert/dashboard");
+        if (data.user.role === "useradmin") router.push("/admin");
+        else if (data.user.role === "userexpert") router.push("/expert");
         else router.push("/profile");
       } else {
         setMessage(data.message || "❌ Invalid credentials");
