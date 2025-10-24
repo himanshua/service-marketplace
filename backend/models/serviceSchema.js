@@ -32,7 +32,13 @@ const serviceSchema = new mongoose.Schema( // Define schema for Service
             enum: ["available", "unavailable"], // Ensure "available" is included
             default: "available",
         },
+        approved: { // Approval status
+            type: Boolean,
+            default: false,
+        },
     },
     { timestamps: true } // Add createdAt and updatedAt fields
 );
-export default mongoose.model("Service", serviceSchema); // Export Service model
+const Service = mongoose.model("Service", serviceSchema);
+
+export default Service;
