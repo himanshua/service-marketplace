@@ -93,12 +93,14 @@ router.delete("/:id", requireAuth, async (req, res) => {
 
 // GET /api/services/admin - List all services (admin only)
 router.get("/admin", requireAuth, requireRole("useradmin"), async (req, res) => {
-  console.log("Admin GET /api/services/admin route hit"); // Add this line
+  console.log("Admin GET /api/services/admin route hit");
   try {
+    console.log("About to call Service.find()");
     const services = await Service.find();
+    console.log("Service.find() returned:", services);
     res.json({ services });
   } catch (err) {
-    console.error("Admin get services error:", err); // This should print the error details
+    console.error("Admin get services error:", err && (err.stack || err.message || err));
     res.status(500).json({ message: "Internal server error" });
   }
 });
