@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import Service from "../models/serviceSchema.js";
-import { requireAuth } from "../middleware/auth.js";
+import { requireAuth, requireRole } from "../middleware/auth.js";
 const router = express.Router(); // Create router
 
 /**
@@ -88,6 +88,63 @@ router.delete("/:id", requireAuth, async (req, res) => {
     res.json({ message: "Service deleted" }); // Success
   } catch (err) {
     res.status(500).json({ message: "Server error" }); // Error
+  }
+});
+
+// GET /api/services/admin - List all services (admin only)
+router.get("/admin", requireAuth, requireRole("useradmin"), async (req, res) => {
+  try {
+    const services = await Service.find();
+    res.json({ services });
+  } catch (err) {
+    console.error("Admin get services error:", err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// PATCH /api/services/admin/:id/approve - Approve/unapprove a service (admin only)
+router.patch("/admin/:id/approve", requireAuth, requireRole("useradmin"), async (req, res) => {
+  try {
+    const { approved } = req.body; // expects { approved: true/false }
+    const service = await Service.findByIdAndUpdate(
+      req.params.id,
+      { approved },
+      { new: true }
+    );
+    if (!service) return res.status(404).json({ message: "Service not found" });
+    res.json({ service });
+  } catch (err) {
+    console.error("Admin approve service error:", err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// DELETE /api/services/admin/:id - Delete a service (admin only)
+router.delete("/admin/:id", requireAuth, requireRole("useradmin"), async (req, res) => {
+  try {
+    const service = await Service.findByIdAndDelete(req.params.id);
+    if (!service) return res.status(404).json({ message: "Service not found" });
+    res.json({ message: "Service deleted" });
+  } catch (err) {
+    console.error("Admin delete service error:", err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// PATCH /api/services/admin/:id - Edit a service (admin only)
+router.patch("/admin/:id", requireAuth, requireRole("useradmin"), async (req, res) => {
+  try {
+    const { title, description } = req.body; // Add other fields as needed
+    const service = await Service.findByIdAndUpdate(
+      req.params.id,
+      { title, description },
+      { new: true }
+    );
+    if (!service) return res.status(404).json({ message: "Service not found" });
+    res.json({ service });
+  } catch (err) {
+    console.error("Admin edit service error:", err);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 
