@@ -98,7 +98,7 @@ router.get("/admin", requireAuth, requireRole("useradmin"), async (req, res) => 
     res.json({ services });
   } catch (err) {
     console.error("Admin get services error:", err);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "1.Internal server error" });
   }
 });
 
