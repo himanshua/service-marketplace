@@ -35,11 +35,13 @@ router.get("/admin", requireAuth, requireRole("useradmin"), async (req, res) => 
 // GET /api/services - Get all active services (public)
 router.get("/", async (req, res) => {
   try {
-    console.log("GET /api/services called"); // Log when the route is hit
-    const services = await Service.find(); // Fetch services from the database
+    const { provider } = req.query;
+    const query = {};
+    if (provider) query.provider = provider;
+    const services = await Service.find(query);
     res.status(200).json(services);
   } catch (err) {
-    console.error("Error in GET /api/services:", err); // Log the error
+    console.error("Error in GET /api/services:", err);
     res.status(500).json({ message: "Server error" });
   }
 });
