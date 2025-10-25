@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
  * - Attaches { id, role } to req.user
  */
 export function requireAuth(req, res, next) {
+  console.log("requireAuth called");
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     console.log("No or invalid Authorization header");
@@ -15,7 +16,7 @@ export function requireAuth(req, res, next) {
   const token = authHeader.split(" ")[1];
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log("Decoded JWT:", decoded); // Add this line
+    console.log("Decoded JWT:", decoded);
     req.user = { id: decoded.id, role: decoded.role };
     next();
   } catch (err) {
@@ -25,13 +26,13 @@ export function requireAuth(req, res, next) {
 }
 
 /**
- * requireRole(...roles)
- * - Allows only users whose role is in the provided list
+ * requireRole(role)
+ * - Allows only users whose role matches the provided role
  * - Use after requireAuth
  */
 export function requireRole(role) {
   return (req, res, next) => {
-    console.log("User role:", req.user.role, "Required role:", role); // Add this line
+    console.log("requireRole called, user role:", req.user?.role, "required:", role);
     if (req.user.role !== role) {
       return res.status(403).json({ message: "Forbidden" });
     }

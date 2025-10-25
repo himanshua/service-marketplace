@@ -1,8 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
+console.log("About to import Service model");
 import Service from "../models/serviceSchema.js";
+console.log("Service model imported:", typeof Service);
 import { requireAuth, requireRole } from "../middleware/auth.js";
 const router = express.Router(); // Create router
+console.log("Loaded routes/services.js");
+
 
 /**
  * @swagger
@@ -13,6 +17,21 @@ const router = express.Router(); // Create router
  *       200:
  *         description: List of services
  */
+
+// GET /api/services/admin - List all services (admin only)
+router.get("/admin", requireAuth, requireRole("useradmin"), async (req, res) => {
+  console.log("Admin GET /api/services/admin route hit");
+  try {
+    console.log("About to call Service.find()");
+    const services = await Service.find();
+    console.log("Service.find() returned:", services);
+    res.json({ services });
+  } catch (err) {
+    console.error("Admin get services error:", err && (err.stack || err.message || err));
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 // GET /api/services - Get all active services (public)
 router.get("/", async (req, res) => {
   try {
@@ -24,6 +43,8 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
+
 
 // GET /api/services/:id - Get a single service (public)
 router.get("/:id", async (req, res) => {
@@ -61,6 +82,8 @@ router.post("/", requireAuth, async (req, res) => {
   }
 });
 
+
+
 // PUT /api/services/:id - Update a service (only provider or admin)
 router.put("/:id", requireAuth, async (req, res) => {
   try {
@@ -91,19 +114,7 @@ router.delete("/:id", requireAuth, async (req, res) => {
   }
 });
 
-// GET /api/services/admin - List all services (admin only)
-router.get("/admin", requireAuth, requireRole("useradmin"), async (req, res) => {
-  console.log("Admin GET /api/services/admin route hit");
-  try {
-    console.log("About to call Service.find()");
-    const services = await Service.find();
-    console.log("Service.find() returned:", services);
-    res.json({ services });
-  } catch (err) {
-    console.error("Admin get services error:", err && (err.stack || err.message || err));
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
+
 
 // PATCH /api/services/admin/:id/approve - Approve/unapprove a service (admin only)
 router.patch("/admin/:id/approve", requireAuth, requireRole("useradmin"), async (req, res) => {

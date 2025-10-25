@@ -19,8 +19,9 @@ app.use(morgan("dev"));
 app.set('trust proxy', 1);
 
 const allowedOrigins = [
-  process.env.FRONTEND_URL || "http://localhost:3000",
+  "http://localhost:3000",
   "https://service-marketplace-frontend-7x28.vercel.app",
+  // Add any other Vercel preview domains you use
 ];
 
 function dynamicCorsOrigin(origin, callback) {
@@ -29,7 +30,7 @@ function dynamicCorsOrigin(origin, callback) {
   // Allow production and any Vercel preview domain
   if (
     allowedOrigins.includes(origin) ||
-    /^https:\/\/service-marketplace-frontend-7x28-[a-z0-9]+-himanshuas-projects\.vercel\.app$/.test(origin)
+    /\.vercel\.app$/.test(origin)
   ) {
     return callback(null, true);
   }
@@ -121,6 +122,7 @@ app.get("/", (req, res) => {
 
 // Error handling middleware
 app.use((err, req, res, next) => {
+  console.error("Global error handler:", err);
   console.error(err.stack);
   res.status(err.status || 500).json({
     message: err.message || "Internal Server Error",
