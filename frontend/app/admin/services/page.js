@@ -86,8 +86,7 @@ export default function AdminServices() {
 
   const fetchServicesByUser = async () => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-    const res = await fetch(`${apiUrl}/api/services?provider=${userId}`);
-    const data = await res.json();
+    const res = await fetch("https://service-marketplace-backend.onrender.com/api/services?provider=" + userId);
     setServices(data);
   };
 
