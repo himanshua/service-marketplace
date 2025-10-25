@@ -9,6 +9,7 @@ export default function AdminServices() {
   const [editId, setEditId] = useState(null);
   const [editTitle, setEditTitle] = useState("");
   const [editDesc, setEditDesc] = useState("");
+  const [userId, setUserId] = useState("");
 
   const fetchServices = () => {
     const token = localStorage.getItem("token");
@@ -83,12 +84,33 @@ export default function AdminServices() {
     }
   };
 
+  const fetchServicesByUser = async () => {
+    const res = await fetch(`/api/services?provider=${userId}`);
+    const data = await res.json();
+    setServices(data);
+  };
+
   if (loading) return <main>Loading...</main>;
   if (error) return <main>Error: {error}</main>;
 
   return (
     <main>
       <h1>Admin Service Management</h1>
+      <div>
+        <h2>View Services by User</h2>
+        <input
+          type="text"
+          placeholder="Enter User ID"
+          value={userId}
+          onChange={e => setUserId(e.target.value)}
+        />
+        <button onClick={fetchServicesByUser}>Fetch Services</button>
+        <ul>
+          {services.map(s => (
+            <li key={s._id}>{s.title} - {s.category}</li>
+          ))}
+        </ul>
+      </div>
       <table>
         <thead>
           <tr>
