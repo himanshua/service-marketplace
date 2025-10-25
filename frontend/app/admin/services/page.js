@@ -85,7 +85,8 @@ export default function AdminServices() {
   };
 
   const fetchServicesByUser = async () => {
-    const res = await fetch(`/api/services?provider=${userId}`);
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+    const res = await fetch(`${apiUrl}/api/services?provider=${userId}`);
     const data = await res.json();
     setServices(data);
   };
