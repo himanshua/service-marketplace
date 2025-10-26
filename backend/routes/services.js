@@ -24,7 +24,7 @@ router.get("/admin", requireAuth, requireRole("useradmin"), async (req, res) => 
   try {
     console.log("About to call Service.find()");
     //const services = await Service.find();
-    const services = await Service.find().populate("provider", "name email");
+    const services = await Service.find().populate("provider", "name email role");
     console.log("Service.find() returned:", services);
     res.json({ services });
   } catch (err) {
@@ -40,7 +40,7 @@ router.get("/", async (req, res) => {
     const query = {};
     if (provider) query.provider = provider;
     //const services = await Service.find(query);
-    const services = await Service.find(query).populate("provider", "name email");
+    const services = await Service.find(query).populate("provider", "name email role");
     res.status(200).json(services);
   } catch (err) {
     console.error("Error in GET /api/services:", err);
@@ -53,7 +53,7 @@ router.get("/", async (req, res) => {
 // GET /api/services/:id - Get a single service (public)
 router.get("/:id", async (req, res) => {
   try {
-    const service = await Service.findById(req.params.id).populate("provider", "name email "); // Fetch service by ID
+    const service = await Service.findById(req.params.id).populate("provider", "name email role"); // Fetch service by ID
     if (!service) return res.status(404).json({ message: "Service not found" }); // Not found
     res.json(service); // Return service
   } catch (err) {
