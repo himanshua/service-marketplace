@@ -51,7 +51,7 @@ router.get("/", async (req, res) => {
 // GET /api/services/:id - Get a single service (public)
 router.get("/:id", async (req, res) => {
   try {
-    const service = await Service.findById(req.params.id).populate("provider", "name email"); // Fetch service by ID
+    const service = await Service.findById(req.params.id).populate("provider", "name email "); // Fetch service by ID
     if (!service) return res.status(404).json({ message: "Service not found" }); // Not found
     res.json(service); // Return service
   } catch (err) {

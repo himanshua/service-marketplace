@@ -109,7 +109,7 @@ export default function AdminServices() {
         <button onClick={fetchServicesByUser}>Fetch Services</button>
         <ul>
           {services.map(s => (
-            <li key={s._id}>{s.title} - {s.category}</li>
+            <li key={s._id}>{s.title} - {s.category} - {s.description} - {s.price} - {s.status}</li>
           ))}
         </ul>
       </div>
@@ -120,6 +120,9 @@ export default function AdminServices() {
             <th>Description</th>
             <th>Owner</th>
             <th>Approved</th>
+            <th>Status</th>
+            <th>Price</th>
+            <th>Category </th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -146,8 +149,15 @@ export default function AdminServices() {
                   s.description
                 )}
               </td>
-              <td>{s.owner}</td>
+              <td>
+                {s.provider && typeof s.provider === "object"
+                  ? `${s.provider.name} (${s.provider.email})`
+                  : s.provider || "N/A"}
+              </td>
               <td>{s.approved ? "Yes" : "No"}</td>
+              <td>{s.status}</td>
+              <td>{s.price}</td>
+              <td>{s.category}</td>
               <td>
                 <button onClick={() => handleDelete(s._id)}>Delete</button>
                 {editId === s._id ? (
