@@ -39,7 +39,8 @@ router.get("/", async (req, res) => {
     const { provider } = req.query;
     const query = {};
     if (provider) query.provider = provider;
-    const services = await Service.find(query);
+    //const services = await Service.find(query);
+    const services = await Service.find(query).populate("provider", "name email");
     res.status(200).json(services);
   } catch (err) {
     console.error("Error in GET /api/services:", err);
