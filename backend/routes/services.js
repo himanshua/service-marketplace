@@ -23,7 +23,8 @@ router.get("/admin", requireAuth, requireRole("useradmin"), async (req, res) => 
   console.log("Admin GET /api/services/admin route hit");
   try {
     console.log("About to call Service.find()");
-    const services = await Service.find();
+    //const services = await Service.find();
+    const services = await Service.find().populate("provider", "name email");
     console.log("Service.find() returned:", services);
     res.json({ services });
   } catch (err) {
