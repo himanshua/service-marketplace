@@ -105,14 +105,15 @@ export default function CreateServicePage() {
           onChange={handleChange}
         />
         {errors.category && <p style={{ color: "crimson", marginTop: 4 }}>{errors.category}</p>}
-        <input
-       name="status"
-       type="text"
-       placeholder="Status (available/unavailable)"
-       value={form.status}
-       onChange={handleChange}
-      />
-      {errors.status && <p style={{ color: "crimson", marginTop: 4 }}>{errors.status}</p>}
+        <select
+      name="status"
+      value={form.status}
+      onChange={handleChange}
+    >
+    <option value="available">Available</option>
+    <option value="unavailable">Unavailable</option>
+    </select>
+    {errors.status && <p style={{ color: "crimson", marginTop: 4 }}>{errors.status}</p>}
 
       <select
       name="approved"
