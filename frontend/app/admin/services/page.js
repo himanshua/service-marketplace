@@ -151,7 +151,7 @@ export default function AdminServices() {
               </td>
               <td>
                 {s.provider && typeof s.provider === "object"
-                  ? `${s.provider.name} (${s.provider.email})`
+                  ? `${s.provider.name} (${s.provider.email}) [${s.provider._id}]`
                   : s.provider || "N/A"}
               </td>
               <td>{s.approved ? "Yes" : "No"}</td>
