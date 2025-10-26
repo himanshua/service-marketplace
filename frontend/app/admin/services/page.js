@@ -85,9 +85,12 @@ export default function AdminServices() {
   };
 
   const fetchServicesByUser = async () => {
-    //const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-    const data = await fetch("https://service-marketplace-backend.onrender.com/api/services?provider=" + userId);
-    setServices(data);
+   const res = await fetch("https://service-marketplace-backend.onrender.com/api/services?provider=" + userId);
+  const result = await res.json();
+  // If your backend returns { services: [...] }
+  setServices(result.services);
+  // If your backend returns an array directly, use:
+  setServices(result);
   };
 
   if (loading) return <main>Loading...</main>;
