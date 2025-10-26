@@ -64,7 +64,7 @@ router.get("/:id", async (req, res) => {
 // POST /api/services - Create a new service (authenticated users)
 router.post("/", requireAuth, async (req, res) => {
   try {
-    const { title, description, price, category } = req.body;
+    const { title, description, price, category, status, approved } = req.body;
 
     if (!title || !description || price === undefined || !category) {
       return res.status(400).json({ message: "All fields are required" });
@@ -76,7 +76,8 @@ router.post("/", requireAuth, async (req, res) => {
       price,
       category,
       provider: req.user.id,
-      status: "available",
+      status,
+      approved
     });
 
     res.status(201).json(service);
