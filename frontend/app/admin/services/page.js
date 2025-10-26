@@ -85,10 +85,9 @@ export default function AdminServices() {
   };
 
   const fetchServicesByUser = async () => {
-   const res = await fetch("https://service-marketplace-backend.onrender.com/api/services?provider=" + userId);
+  const res = await fetch("https://service-marketplace-backend.onrender.com/api/services?provider=" + userId);
   const result = await res.json();
-  // If your backend returns { services: [...] }
-  setServices(result.services);
+  
   // If your backend returns an array directly, use:
   setServices(result);
   };
