@@ -105,9 +105,30 @@ export default function CreateServicePage() {
           onChange={handleChange}
         />
         {errors.category && <p style={{ color: "crimson", marginTop: 4 }}>{errors.category}</p>}
-        <button type="submit" disabled={loading}>
-          {loading ? "Creating..." : "Create Service"}
-        </button>
+        <input
+       name="status"
+       type="text"
+       placeholder="Status (available/unavailable)"
+       value={form.status}
+       onChange={handleChange}
+      />
+      {errors.status && <p style={{ color: "crimson", marginTop: 4 }}>{errors.status}</p>}
+
+      <select
+      name="approved"
+      value={form.approved}
+      onChange={e => setForm({ ...form, approved: e.target.value === "true" })}
+      >
+      <option value="false">Not Approved</option>
+      <option value="true">Approved</option>
+      </select>
+      {errors.approved && <p style={{ color: "crimson", marginTop: 4 }}>{errors.approved}</p>}
+        
+        
+        
+      <button type="submit" disabled={loading}>
+      {loading ? "Creating..." : "Create Service"}
+      </button>
       </form>
       {message && (
         <p style={{ color: message.startsWith("✅") ? "green" : "crimson", marginTop: 12 }}>
