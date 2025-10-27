@@ -107,11 +107,7 @@ export default function AdminServices() {
           onChange={e => setUserId(e.target.value)}
         />
         <button onClick={fetchServicesByUser}>Fetch Services</button>
-        <ul>
-          {services.map(s => (
-            <li key={s._id}>{s.title} - {s.category} - {s.description} - {s.price} - {s.status}</li>
-          ))}
-        </ul>
+        
       </div>
       <table>
         <thead>
