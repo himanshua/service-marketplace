@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default function AdminServices() {
   const [services, setServices] = useState([]);
+  const [users, setUsers] = useState([]); // <-- Add this
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [editId, setEditId] = useState(null);
@@ -16,6 +17,16 @@ export default function AdminServices() {
   const [editPrice, setEditPrice] = useState("");
   const [editCategory, setEditCategory] = useState("");
   const [userId, setUserId] = useState("");
+
+  // Fetch all users for dropdown
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(res => res.json())
+      .then(data => setUsers(data.users || []));
+  }, []);
 
   const fetchServices = () => {
     const token = localStorage.getItem("token");
@@ -118,7 +129,7 @@ export default function AdminServices() {
     <main>
       <h1>Admin Service Management</h1>
       <Link href="/services/create" style={{ marginBottom: 16, display: "inline-block" }}>
-      <button>Create New Service</button>
+        <button>Create New Service</button>
       </Link>
       <div>
         <h2>View Services by User</h2>
@@ -158,7 +169,13 @@ export default function AdminServices() {
               </td>
               <td>
                 {editId === s._id ? (
-                  <input value={editOwner} onChange={e => setEditOwner(e.target.value)} />
+                  <select value={editOwner} onChange={e => setEditOwner(e.target.value)}>
+                    {users.map(u => (
+                      <option key={u._id} value={u._id}>
+                        {u.name} - {u.role} ({u.email}) [{u._id}]
+                      </option>
+                    ))}
+                  </select>
                 ) : (
                   s.provider && typeof s.provider === "object"
                     ? `${s.provider.name} - ${s.provider.role} (${s.provider.email}) [${s.provider._id}]`

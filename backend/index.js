@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
 import serviceRoutes from "./routes/services.js";
+import userRoutes from "./routes/users.js";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsdoc from "swagger-jsdoc";
@@ -74,6 +75,10 @@ console.log("Auth routes mounted at /api/auth");
 // Mount services routes
 app.use("/api/services", serviceRoutes);
 console.log("Services routes mounted at /api/services");
+
+// Mount users routes
+app.use("/api/users", userRoutes);
+console.log("Users routes mounted at /api/users");
 
 // Swagger setup
 const swaggerSpec = swaggerJsdoc({
