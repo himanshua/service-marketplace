@@ -153,17 +153,23 @@ router.delete("/admin/:id", requireAuth, requireRole("useradmin"), async (req, r
 // PATCH /api/services/admin/:id - Edit a service (admin only)
 router.patch("/admin/:id", requireAuth, requireRole("useradmin"), async (req, res) => {
   try {
-    const { title, description } = req.body; // Add other fields as needed
-    const service = await Service.findByIdAndUpdate(
+    const updated = await Service.findByIdAndUpdate(
       req.params.id,
-      { title, description },
+      {
+        title: req.body.title,
+        description: req.body.description,
+        provider: req.body.provider,
+        approved: req.body.approved,
+        status: req.body.status,
+        price: req.body.price,
+        category: req.body.category,
+      },
       { new: true }
-    );
-    if (!service) return res.status(404).json({ message: "Service not found" });
-    res.json({ service });
+    ).populate("provider", "name email role");
+    res.json({ service: updated });
   } catch (err) {
     console.error("Admin edit service error:", err);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Server error" });
   }
 });
 
