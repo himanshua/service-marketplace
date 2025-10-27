@@ -131,7 +131,6 @@ export default function AdminDashboard() {
                 <select
                   value={u.role}
                   onChange={e => handleRoleChange(u._id, e.target.value)}
-                  disabled={editId === u._id}
                 >
                   {ROLES.map(role => (
                     <option key={role} value={role}>{role}</option>
