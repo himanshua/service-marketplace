@@ -8,6 +8,9 @@ export default function AdminDashboard() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [editId, setEditId] = useState(null);
+  const [editName, setEditName] = useState("");
+  const [editEmail, setEditEmail] = useState("");
 
   const fetchUsers = () => {
     const token = localStorage.getItem("token");
@@ -30,6 +33,34 @@ export default function AdminDashboard() {
     fetchUsers();
     // eslint-disable-next-line
   }, []);
+
+  const startEdit = (user) => {
+    setEditId(user._id);
+    setEditName(user.name);
+    setEditEmail(user.email);
+  };
+
+  const handleSave = async (id) => {
+    const token = localStorage.getItem("token");
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/auth/admin/users/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ name: editName, email: editEmail }),
+      }
+    );
+    const data = await res.json();
+    if (res.ok) {
+      setUsers(users.map(u => (u._id === id ? { ...u, name: editName, email: editEmail } : u)));
+      setEditId(null);
+    } else {
+      alert(data.message || "Failed to update user.");
+    }
+  };
 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
@@ -86,12 +117,21 @@ export default function AdminDashboard() {
         <tbody>
           {users.map(u => (
             <tr key={u._id}>
-              <td>{u.name}</td>
-              <td>{u.email}</td>
+              <td>
+                {editId === u._id ? (
+                  <input value={editName} onChange={e => setEditName(e.target.value)} />
+                ) : u.name}
+              </td>
+              <td>
+                {editId === u._id ? (
+                  <input value={editEmail} onChange={e => setEditEmail(e.target.value)} />
+                ) : u.email}
+              </td>
               <td>
                 <select
                   value={u.role}
                   onChange={e => handleRoleChange(u._id, e.target.value)}
+                  disabled={editId === u._id}
                 >
                   {ROLES.map(role => (
                     <option key={role} value={role}>{role}</option>
@@ -99,7 +139,17 @@ export default function AdminDashboard() {
                 </select>
               </td>
               <td>
-                <button onClick={() => handleDelete(u._id)}>Delete</button>
+                {editId === u._id ? (
+                  <>
+                    <button onClick={() => handleSave(u._id)}>Save</button>
+                    <button onClick={() => setEditId(null)}>Cancel</button>
+                  </>
+                ) : (
+                  <>
+                    <button onClick={() => startEdit(u)}>Edit</button>
+                    <button onClick={() => handleDelete(u._id)}>Delete</button>
+                  </>
+                )}
               </td>
             </tr>
           ))}

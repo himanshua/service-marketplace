@@ -148,6 +148,23 @@ router.patch("/admin/users/:id/role", requireAuth, requireRole("useradmin"), asy
   }
 });
 
+// PATCH /api/auth/admin/users/:id - Update name/email (admin only)
+router.patch("/admin/users/:id", requireAuth, requireRole("useradmin"), async (req, res) => {
+  try {
+    const { name, email } = req.body;
+    const user = await User.findByIdAndUpdate(
+      req.params.id,
+      { name, email },
+      { new: true }
+    ).select("_id name email role");
+    if (!user) return res.status(404).json({ message: "User not found" });
+    res.json({ user });
+  } catch (err) {
+    console.error("Admin update user error:", err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 /**
  * @swagger
  * /api/auth/register:
