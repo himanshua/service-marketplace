@@ -177,9 +177,11 @@ export default function AdminServices() {
                     ))}
                   </select>
                 ) : (
-                  s.provider && typeof s.provider === "object"
-                    ? `${s.provider.name} - ${s.provider.role} (${s.provider.email}) [${s.provider._id}]`
-                    : s.provider || "N/A"
+                  s.provider && typeof s.provider === "object" ? (
+                    <Link href={`/admin/users/${s.provider._id}`}>
+                      {s.provider.name} - {s.provider.role} ({s.provider.email}) [{s.provider._id}]
+                    </Link>
+                  ) : s.provider || "N/A"
                 )}
               </td>
               <td>
