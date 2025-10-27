@@ -184,6 +184,17 @@ router.post("/admin/users", requireAuth, requireRole("useradmin"), async (req, r
   }
 });
 
+// GET /api/auth/admin/users/:id - Get a single user by ID (admin only)
+router.get("/admin/users/:id", requireAuth, requireRole("useradmin"), async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id, "name email role _id");
+    if (!user) return res.status(404).json({ message: "User not found" });
+    res.json({ user });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 /**
  * @swagger
  * /api/auth/register:
