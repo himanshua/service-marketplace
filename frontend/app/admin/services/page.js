@@ -116,6 +116,9 @@ export default function AdminServices() {
   return (
     <main>
       <h1>Admin Service Management</h1>
+      <Link href="/services/create" style={{ marginBottom: 16, display: "inline-block" }}>
+      <button>Create New Service</button>
+      </Link>
       <div>
         <h2>View Services by User</h2>
         <input

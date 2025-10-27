@@ -79,8 +79,11 @@ export default function RootLayout({ children }) { // Main layout component
             <>
               <span> | </span>
               <span>Welcome, {user.name} ({user.role})</span>
+
               <span> | </span>
               <Link href="/profile">Dashboard</Link>
+              <span> | </span>
+              <Link href="/services/create">Create Service</Link>
               <span> | </span>
               <button onClick={logout}>Logout</button>
             </>
