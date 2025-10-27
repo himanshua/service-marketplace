@@ -85,6 +85,9 @@ export default function RootLayout({ children }) { // Main layout component
               <span> | </span>
               <Link href="/services/create">Create Service</Link>
               <span> | </span>
+              <Link href="/admin/services" style={{ marginRight: 16 }}>Admin Services</Link>
+              <span> | </span>
+              <Link href="/admin/">Admin Dashboard</Link>
               <button onClick={logout}>Logout</button>
             </>
           ) : (
