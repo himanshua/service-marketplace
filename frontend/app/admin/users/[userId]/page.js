@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 
 export default function EditUserPage() {
   const { userId } = useParams();
@@ -61,6 +62,10 @@ export default function EditUserPage() {
 
   return (
     <main>
+      <nav style={{ marginBottom: 24 }}>
+        <Link href="/admin/services" style={{ marginRight: 16 }}>Admin Services</Link>
+        <Link href="/admin/">Admin Dashboard</Link>
+      </nav>
       <h1>Edit User</h1>
       <form onSubmit={handleSave}>
         <input
