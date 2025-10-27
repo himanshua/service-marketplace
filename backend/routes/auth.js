@@ -165,6 +165,25 @@ router.patch("/admin/users/:id", requireAuth, requireRole("useradmin"), async (r
   }
 });
 
+// POST /api/auth/admin/users - Create user (admin only)
+router.post("/admin/users", requireAuth, requireRole("useradmin"), async (req, res) => {
+  try {
+    const { name, email, password, role } = req.body;
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "Name, email, and password are required." });
+    }
+    const exists = await User.findOne({ email });
+    if (exists) {
+      return res.status(400).json({ message: "Email already exists." });
+    }
+    const user = new User({ name, email, password, role });
+    await user.save();
+    res.status(201).json({ user });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 /**
  * @swagger
  * /api/auth/register:
