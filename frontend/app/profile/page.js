@@ -47,7 +47,7 @@ export default function Profile() {
 
   return (
     <main className="profile-main">
-      <h1>User Dashboard dashboard</h1>
+      <h1>User Dashboard</h1>
             {user ? (
         <div className="profile-card">
           <h2>Profile Information</h2>
@@ -65,7 +65,7 @@ export default function Profile() {
           </div>
           <div className="profile-row">
             <span className="profile-label">User ID:</span>
-            <span>{user._id}</span>
+            <span>{user.id}</span>
           </div>
           <button className="profile-logout" onClick={logout}>
             Logout
