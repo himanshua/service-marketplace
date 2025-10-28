@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react"; // React hooks: useEffect for side effects, useState for state
 import { useRouter } from "next/navigation"; // Next.js hook for navigation
-import "./profile.css"; // Import local styles for profile page
-import "./global.css"; // Import local styles for profile page
+import "../profile.css"; // Import local styles for profile page
+import "../global.css"; // Import local styles for profile page
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL from env, fallback to localhost
 
@@ -48,7 +48,7 @@ export default function Profile() {
   return (
     <main className="profile-main">
       <h1>User Dashboard dashboard</h1>
-      {user ? (
+            {user ? (
         <div className="profile-card">
           <h2>Profile Information</h2>
           <div className="profile-row">
