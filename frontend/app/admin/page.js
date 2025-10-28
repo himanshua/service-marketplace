@@ -17,6 +17,8 @@ export default function AdminDashboard() {
   const [createPassword, setCreatePassword] = useState("");
   const [createError, setCreateError] = useState("");
   const [createSuccess, setCreateSuccess] = useState("");
+  const [sortBy, setSortBy] = useState("name");
+  const [sortOrder, setSortOrder] = useState("asc");
 
   const fetchUsers = () => {
     const token = localStorage.getItem("token");
@@ -146,6 +148,16 @@ export default function AdminDashboard() {
     }
   };
 
+  const sortedUsers = [...users].sort((a, b) => {
+    let valA = a[sortBy] || "";
+    let valB = b[sortBy] || "";
+    if (typeof valA === "string") valA = valA.toLowerCase();
+    if (typeof valB === "string") valB = valB.toLowerCase();
+    if (valA < valB) return sortOrder === "asc" ? -1 : 1;
+    if (valA > valB) return sortOrder === "asc" ? 1 : -1;
+    return 0;
+  });
+
   if (loading) return <main>Loading...</main>;
   if (error) return <main>Error: {error}</main>;
 
@@ -192,11 +204,38 @@ export default function AdminDashboard() {
       <table>
         <thead>
           <tr>
-            <th>Name</th><th>Email</th><th>Role</th><th>Actions</th>
+            <th
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                setSortBy("name");
+                setSortOrder(sortBy === "name" && sortOrder === "asc" ? "desc" : "asc");
+              }}
+            >
+              Name {sortBy === "name" ? (sortOrder === "asc" ? "↑" : "↓") : ""}
+            </th>
+            <th
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                setSortBy("email");
+                setSortOrder(sortBy === "email" && sortOrder === "asc" ? "desc" : "asc");
+              }}
+            >
+              Email {sortBy === "email" ? (sortOrder === "asc" ? "↑" : "↓") : ""}
+            </th>
+            <th
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                setSortBy("role");
+                setSortOrder(sortBy === "role" && sortOrder === "asc" ? "desc" : "asc");
+              }}
+            >
+              Role {sortBy === "role" ? (sortOrder === "asc" ? "↑" : "↓") : ""}
+            </th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {users.map(u => (
+          {sortedUsers.map(u => (
             <tr key={u._id}>
               <td>
                 {editId === u._id ? (
