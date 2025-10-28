@@ -1,20 +1,25 @@
 {
   "name": "service-marketplace",
   "private": true,
-  "workspaces": ["frontend","backend"],
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "type": "module",
   "jest": {
-  "transform": {}
-},
+    "transform": {}
+  },
   "overrides": {
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "scripts": {
-  "test": "node --experimental-vm-modules ../../node_modules/.bin/jest",
-
+    "test": "node --experimental-vm-modules ../../node_modules/.bin/jest",
     "prepare": "echo skip prepare"
-
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.16"
   }
-  
 }
