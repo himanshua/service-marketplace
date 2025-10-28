@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"; // React hooks: useEffect for side effects, useState for state
 import { useRouter } from "next/navigation"; // Next.js hook for navigation
-import "../profile.css"; // Import local styles for profile page
+import "./profile.css"; // Import local styles for profile page
 import "../globals.css"; // Import local styles for profile page
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL from env, fallback to localhost
