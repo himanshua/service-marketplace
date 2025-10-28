@@ -46,7 +46,7 @@ export default function Profile() {
 
   return (
     <main className="profile-main">
-      <h1>User Dashboard</h1>
+      <h1>User Dashboard dashboard</h1>
       {user ? (
         <div className="profile-card">
           <h2>Profile Information</h2>
