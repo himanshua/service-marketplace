@@ -151,6 +151,12 @@ export default function AdminDashboard() {
   const sortedUsers = [...users].sort((a, b) => {
     let valA = a[sortBy] || "";
     let valB = b[sortBy] || "";
+    if (sortBy === "role") {
+      // Sort by role order in ROLES array
+      return (sortOrder === "asc"
+        ? ROLES.indexOf(valA) - ROLES.indexOf(valB)
+        : ROLES.indexOf(valB) - ROLES.indexOf(valA));
+    }
     if (typeof valA === "string") valA = valA.toLowerCase();
     if (typeof valB === "string") valB = valB.toLowerCase();
     if (valA < valB) return sortOrder === "asc" ? -1 : 1;
