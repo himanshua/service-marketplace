@@ -5,6 +5,7 @@
 import { useEffect, useState } from "react"; // React hooks 
 import Link from "next/link"; // Next.js Link component for navigation
 import { useRouter, usePathname } from "next/navigation"; // Navigation hooks
+import "./globals.css"; // Import global styles
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL
 

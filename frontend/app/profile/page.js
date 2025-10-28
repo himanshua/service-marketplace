@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"; // React hooks: useEffect for side effects, useState for state
 import { useRouter } from "next/navigation"; // Next.js hook for navigation
+import "./profile.css"; // Import local styles for profile page
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL from env, fallback to localhost
 
@@ -41,20 +42,36 @@ export default function Profile() {
     router.replace("/login"); // Redirect to login page
   }
 
-  if (!user && !err) return <main style={{ padding: 20 }}>Loading…</main>; // Show loading while fetching
+  if (!user && !err) return <main className="profile-main">Loading…</main>; // Show loading while fetching
 
   return (
-    <main style={{ padding: 20, maxWidth: 480, margin: "40px auto" }}>
-      <h1>User Dashboard</h1> {/* Changed title to Dashboard */}
+    <main className="profile-main">
+      <h1>User Dashboard</h1>
       {user ? (
-        <>
-          <p>Welcome, {user.name}!</p> {/* Personalized welcome */}
-          <pre>{JSON.stringify(user, null, 2)}</pre> {/* Pretty-print user JSON */}
-          <button onClick={logout}>Logout</button> {/* Logout button */}
-          {/* Add more dashboard features here, e.g., user services, settings */}
-        </>
+        <div className="profile-card">
+          <h2>Profile Information</h2>
+          <div className="profile-row">
+            <span className="profile-label">Name:</span>
+            <span>{user.name}</span>
+          </div>
+          <div className="profile-row">
+            <span className="profile-label">Email:</span>
+            <span>{user.email}</span>
+          </div>
+          <div className="profile-row">
+            <span className="profile-label">Role:</span>
+            <span>{user.role}</span>
+          </div>
+          <div className="profile-row">
+            <span className="profile-label">User ID:</span>
+            <span>{user._id}</span>
+          </div>
+          <button className="profile-logout" onClick={logout}>
+            Logout
+          </button>
+        </div>
       ) : (
-        <p style={{ color: "crimson" }}>{err}</p> // Show error if no user
+        <p className="profile-error">{err}</p>
       )}
     </main>
   );
