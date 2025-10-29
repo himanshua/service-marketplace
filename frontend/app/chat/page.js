@@ -13,17 +13,23 @@ export default function ChatPage() {
   const [expertName, setExpertName] = useState("");
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     async function fetchExpert() {
-      if (expertId) {
-        const res = await fetch(`${API}/api/auth/experts/${expertId}`);
+      if (expertId && token) {
+        const res = await fetch(`${API}/api/auth/experts/${expertId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
         const data = await res.json();
         setExpertName(data.expert?.name || "Expert");
       }
     }
     fetchExpert();
-  }, [expertId]);
+  }, [expertId, token]);
 
   function sendMessage() {
     if (!message.trim()) return;
@@ -32,35 +38,43 @@ export default function ChatPage() {
   }
 
   return (
-    <main style={{
-      minHeight: "100vh",
-      width: "100vw",
-      padding: 0,
-      margin: 0,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      background: "#f7f7f7"
-    }}>
-      <div style={{
-        width: "100%",
-        maxWidth: 700,
-        marginTop: 40,
-        background: "#fff",
-        borderRadius: 8,
-        boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-        padding: 32
-      }}>
+    <main
+      style={{
+        minHeight: "100vh",
+        width: "100vw",
+        padding: 0,
+        margin: 0,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        background: "#f7f7f7",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: 700,
+          marginTop: 40,
+          background: "#fff",
+          borderRadius: 8,
+          boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+          padding: 32,
+        }}
+      >
         <h1>Chat with {expertName}</h1>
-        <h2 style={{ fontWeight: 400, color: "#555" }}>{serviceTitle ? `Service: ${serviceTitle}` : ""}</h2>
-        <div style={{
-          border: "1px solid #ccc",
-          padding: 16,
-          minHeight: 300,
-          marginBottom: 16,
-          background: "#fafafa",
-          borderRadius: 4
-        }}>
+        <h2 style={{ fontWeight: 400, color: "#555" }}>
+          {serviceTitle ? `Service: ${serviceTitle}` : ""}
+        </h2>
+        <div
+          style={{
+            border: "1px solid #ccc",
+            padding: 16,
+            minHeight: 300,
+            marginBottom: 16,
+            background: "#fafafa",
+            borderRadius: 4,
+          }}
+        >
           {chat.length === 0 ? (
             <p>No messages yet.</p>
           ) : (
@@ -75,11 +89,26 @@ export default function ChatPage() {
           <input
             type="text"
             value={message}
-            onChange={e => setMessage(e.target.value)}
+            onChange={(e) => setMessage(e.target.value)}
             placeholder="Type your message…"
-            style={{ flex: 1, padding: 12, marginRight: 8, borderRadius: 4, border: "1px solid #ccc" }}
+            style={{
+              flex: 1,
+              padding: 12,
+              marginRight: 8,
+              borderRadius: 4,
+              border: "1px solid #ccc",
+            }}
           />
-          <button onClick={sendMessage} style={{ padding: "12px 24px", borderRadius: 4, background: "#1976d2", color: "#fff", border: "none" }}>
+          <button
+            onClick={sendMessage}
+            style={{
+              padding: "12px 24px",
+              borderRadius: 4,
+              background: "#1976d2",
+              color: "#fff",
+              border: "none",
+            }}
+          >
             Send
           </button>
         </div>
