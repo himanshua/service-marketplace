@@ -46,7 +46,13 @@ export default function Home() {
       {user ? ( // If logged in, show user info
         <>
           <p>Welcome, {user.name} ({user.role})!</p>
-          <Link href="/profile">View Profile</Link> | <button onClick={() => { localStorage.clear(); router.push("/login"); }}>Logout</button>
+          <Link href="/profile">View Profile</Link>
+          {" | "}
+          <Link href="/services">
+            <button style={{ marginLeft: 8 }}>View Chat/Call Services</button>
+          </Link>
+          {" | "}
+          <button onClick={() => { localStorage.clear(); router.push("/login"); }}>Logout</button>
         </>
       ) : ( // If not logged in, show links
         <>
