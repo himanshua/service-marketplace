@@ -18,3 +18,15 @@ button {
 h1, h2 {
   color: #1976d2;
 }
+
+.profile-btn {
+  margin-left: 8px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}

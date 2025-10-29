@@ -46,7 +46,7 @@ export default function Home() {
       {user ? ( // If logged in, show user info
         <>
           <p>Welcome, {user.name} ({user.role})!</p>
-          <Link href="/profile">View Profile</Link>
+          <Link href="/profile" className="profile-btn">View Profile</Link>
           {" | "}
           <Link href="/services">
             <button style={{ marginLeft: 8 }}>View Chat/Call Services</button>
