@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"; // React hooks
 import Link from "next/link"; // Next.js link
+import { useRouter } from "next/navigation"; // Next.js router
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL
 
@@ -10,6 +11,7 @@ export default function ServicesPage() {
   const [loading, setLoading] = useState(true); // Loading state
   const [err, setErr] = useState(""); // Error state
   const [user, setUser] = useState(null); // Add state for user
+  const router = useRouter(); // Initialize router
 
   useEffect(() => { // Fetch services and check auth
     (async () => {
@@ -42,6 +44,16 @@ export default function ServicesPage() {
     }
   }, []);
 
+  function handleStartChat(service) {
+    router.push("/chat", {
+      state: {
+        expertName: service.provider.name,
+        serviceTitle: service.title,
+        userName: /* get from auth context or localStorage */,
+      },
+    });
+  }
+
   if (loading) return <main style={{ padding: 20 }}>Loading services…</main>; // Loading
   if (err) return <main style={{ padding: 20, color: "crimson" }}>{err}</main>; // Error
 
@@ -64,9 +76,12 @@ export default function ServicesPage() {
               <p>Provider: {service.provider.name} ({service.provider.email})</p>
               <Link href={`/services/${service._id}`}>View Details</Link>
               {" | "}
-              <Link href={`/chat?expert=${service.provider._id}`}>
-                <button style={{ marginLeft: 8 }}>Start Chat</button>
-              </Link>
+              <button
+                style={{ marginLeft: 8 }}
+                onClick={() => handleStartChat(service)}
+              >
+                Start Chat
+              </button>
             </li>
           ))}
         </ul>
