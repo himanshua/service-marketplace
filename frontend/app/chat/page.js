@@ -2,7 +2,6 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import Link from "next/link";
 
 export default function ChatPage() {
   const searchParams = useSearchParams();
@@ -70,11 +69,6 @@ export default function ChatPage() {
             Send
           </button>
         </div>
-        <Link
-          href={`/chat?expertName=${encodeURIComponent(service.provider.name)}&serviceTitle=${encodeURIComponent(service.title)}&userName=${encodeURIComponent(user.name)}`}
-        >
-          <button style={{ marginLeft: 8 }}>Start Chat</button>
-        </Link>
       </div>
     </main>
   );
