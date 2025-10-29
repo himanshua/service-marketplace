@@ -25,6 +25,7 @@ export default function ChatPage() {
           },
         });
         const data = await res.json();
+        console.log("Expert API response:", data); // <-- Add this line
         setExpertName(data.expert?.name || "Expert");
       }
     }
