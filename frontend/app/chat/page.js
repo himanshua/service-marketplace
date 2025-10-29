@@ -1,15 +1,36 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 export default function ChatPage() {
   const searchParams = useSearchParams();
-  const expertName = searchParams.get("expertName");
-  const serviceTitle = searchParams.get("serviceTitle");
+  const expertId = searchParams.get("expertId");
+  const serviceId = searchParams.get("serviceId");
   const userName = searchParams.get("userName");
+  const [expertName, setExpertName] = useState("");
+  const [serviceTitle, setServiceTitle] = useState("");
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
+
+  useEffect(() => {
+    // Fetch expert and service details from backend
+    async function fetchDetails() {
+      if (expertId) {
+        const res = await fetch(`${API}/api/experts/${expertId}`);
+        const data = await res.json();
+        setExpertName(data.name || "Expert");
+      }
+      if (serviceId) {
+        const res = await fetch(`${API}/api/services/${serviceId}`);
+        const data = await res.json();
+        setServiceTitle(data.title || "");
+      }
+    }
+    fetchDetails();
+  }, [expertId, serviceId]);
 
   function sendMessage() {
     if (!message.trim()) return;
@@ -37,7 +58,7 @@ export default function ChatPage() {
         boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
         padding: 32
       }}>
-        <h1>Welcome! Chat with {expertName || "Expert"}</h1>
+        <h1>Welcome! Chat with {expertName}</h1>
         <h2 style={{ fontWeight: 400, color: "#555" }}>{serviceTitle ? `Service: ${serviceTitle}` : ""}</h2>
         <div style={{
           border: "1px solid #ccc",
