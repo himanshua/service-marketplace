@@ -29,5 +29,5 @@ h1, h2 {
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  height: fit-content;
+  height: 50px;
 }
