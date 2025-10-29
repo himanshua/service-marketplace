@@ -198,12 +198,12 @@ router.get("/admin/users/:id", requireAuth, requireRole("useradmin"), async (req
 // GET /api/auth/experts/:id - Get a single expert by ID (authenticated users)
 router.get("/experts/:id", requireAuth, async (req, res) => {
   console.log("Fetching expert with ID:", req.params.id);
-  const user = await User.findById(req.params.id).select("_id name email role");s.id).select("_id name email role");
+  const user = await User.findById(req.params.id).select("_id name email role");
   console.log("Expert found:", user);
-  if (!user || user.role !== "userexpert") {f (!user || user.role !== "userexpert") {
+  if (!user || user.role !== "userexpert") {
     return res.status(404).json({ message: "Expert not found" });
   }
-  res.json({ expert: { id: user._id, name: user.name, email: user.email, role: user.role } });  res.json({ expert: { id: user._id, name: user.name, email: user.email, role: user.role } });
+  res.json({ expert: { id: user._id, name: user.name, email: user.email, role: user.role } });
 });
 
 /**
@@ -251,4 +251,4 @@ router.get("/experts/:id", requireAuth, async (req, res) => {
 
 
 
-export default router;export default router;
+export default router;
