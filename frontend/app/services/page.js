@@ -57,12 +57,16 @@ export default function ServicesPage() {
         <ul style={{ listStyle: "none", padding: 0 }}> {/* List services */}
           {services.map((service) => (
             <li key={service._id} style={{ border: "1px solid #ccc", padding: 16, marginBottom: 16 }}>
-              <h3>{service.title}</h3> {/* Service title */}
-              <p>{service.description}</p> {/* Description */}
-              <p>Price: ${service.price}</p> {/* Price */}
-              <p>Category: {service.category}</p> {/* Category */}
-              <p>Provider: {service.provider.name} ({service.provider.email})</p> {/* Provider */}
-              <Link href={`/services/${service._id}`}>View Details</Link> {/* Link to detail page */}
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <p>Price: ${service.price}</p>
+              <p>Category: {service.category}</p>
+              <p>Provider: {service.provider.name} ({service.provider.email})</p>
+              <Link href={`/services/${service._id}`}>View Details</Link>
+              {" | "}
+              <Link href={`/chat?expert=${service.provider._id}`}>
+                <button style={{ marginLeft: 8 }}>Start Chat</button>
+              </Link>
             </li>
           ))}
         </ul>
