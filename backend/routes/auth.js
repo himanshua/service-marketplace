@@ -197,54 +197,58 @@ router.get("/admin/users/:id", requireAuth, requireRole("useradmin"), async (req
 
 // GET /api/auth/experts/:id - Get a single expert by ID (authenticated users)
 router.get("/experts/:id", requireAuth, async (req, res) => {
-  const user = await User.findById(req.params.id).select("_id name email role");
-  if (!user || user.role !== "userexpert") {
+  console.log("Fetching expert with ID:", req.params.id);
+  const user = await User.findById(req.params.id).select("_id name email role");s.id).select("_id name email role");
+  console.log("Expert found:", user);
+  if (!user || user.role !== "userexpert") {f (!user || user.role !== "userexpert") {
     return res.status(404).json({ message: "Expert not found" });
   }
-  res.json({ expert: { id: user._id, name: user.name, email: user.email, role: user.role } });
+  res.json({ expert: { id: user._id, name: user.name, email: user.email, role: user.role } });  res.json({ expert: { id: user._id, name: user.name, email: user.email, role: user.role } });
 });
 
 /**
- * @swagger
+ * @swaggerr
  * /api/auth/register:
  *   post:
- *     summary: Register a new user
- *     requestBody:
+ *     summary: Register a new userr a new user
+ *     requestBody:y:
  *       required: true
  *       content:
- *         application/json:
+ *         application/json::
  *           schema:
- *             type: object
+ *             type: objectject
  *             properties:
  *               email:
  *                 type: string
- *               password:
- *                 type: string
+ *               password:password:
+ *                 type: string      type: string
  *     responses:
  *       201:
- *         description: User registered successfully
- *       400:
- *         description: Invalid input
+ *         description: User registered successfullyed successfully
+ *       400:       400:
+ *         description: Invalid inpution: Invalid input
  *
  * /api/auth/login:
  *   post:
- *     summary: Login a user
- *     requestBody:
+ *     summary: Login a user user
+ *     requestBody:y:
  *       required: true
  *       content:
- *         application/json:
+ *         application/json::
  *           schema:
- *             type: object
+ *             type: objectject
  *             properties:
  *               email:
  *                 type: string
- *               password:
- *                 type: string
+ *               password:password:
+ *                 type: string      type: string
  *     responses:
  *       200:
- *         description: Login successful
- *       401:
- *         description: Unauthorized
+ *         description: Login successfulsful
+ *       401:      401:
+ *         description: Unauthorized *         description: Unauthorized
  */
 
-export default router;
+
+
+export default router;export default router;

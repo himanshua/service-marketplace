@@ -7,20 +7,19 @@ import jwt from "jsonwebtoken";
  * - Attaches { id, role } to req.user
  */
 export function requireAuth(req, res, next) {
-  console.log("requireAuth called");
   const authHeader = req.headers.authorization;
+  console.log("Authorization header:", authHeader);
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    console.log("No or invalid Authorization header");
     return res.status(401).json({ message: "Unauthorized" });
   }
   const token = authHeader.split(" ")[1];
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     console.log("Decoded JWT:", decoded);
-    req.user = { id: decoded.id, role: decoded.role };
+    req.user = decoded;
     next();
   } catch (err) {
-    console.log("JWT verification failed:", err.message);
+    console.log("JWT error:", err);
     return res.status(401).json({ message: "Unauthorized" });
   }
 }
