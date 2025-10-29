@@ -45,11 +45,12 @@ export default function ServicesPage() {
   }, []);
 
   function handleStartChat(service) {
+    const user = JSON.parse(localStorage.getItem("user"));
     router.push("/chat", {
       state: {
         expertName: service.provider.name,
         serviceTitle: service.title,
-        userName: /* get from auth context or localStorage */,
+        userName: user?.name || "",
       },
     });
   }
