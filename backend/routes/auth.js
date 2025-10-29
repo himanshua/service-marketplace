@@ -195,6 +195,19 @@ router.get("/admin/users/:id", requireAuth, requireRole("useradmin"), async (req
   }
 });
 
+// GET /api/auth/experts/:id - Get a single expert by ID (authenticated users)
+router.get("/experts/:id", requireAuth, async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).select("_id name email role");
+    if (!user || user.role !== "userexpert") {
+      return res.status(404).json({ message: "Expert not found" });
+    }
+    res.json({ expert: { id: user._id, name: user.name, email: user.email, role: user.role } });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 /**
  * @swagger
  * /api/auth/register:

@@ -8,29 +8,22 @@ const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 export default function ChatPage() {
   const searchParams = useSearchParams();
   const expertId = searchParams.get("expertId");
-  const serviceId = searchParams.get("serviceId");
+  const serviceTitle = searchParams.get("serviceTitle");
   const userName = searchParams.get("userName");
   const [expertName, setExpertName] = useState("");
-  const [serviceTitle, setServiceTitle] = useState("");
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
 
   useEffect(() => {
-    // Fetch expert and service details from backend
-    async function fetchDetails() {
+    async function fetchExpert() {
       if (expertId) {
-        const res = await fetch(`${API}/api/experts/${expertId}`);
+        const res = await fetch(`${API}/api/auth/experts/${expertId}`);
         const data = await res.json();
-        setExpertName(data.name || "Expert");
-      }
-      if (serviceId) {
-        const res = await fetch(`${API}/api/services/${serviceId}`);
-        const data = await res.json();
-        setServiceTitle(data.title || "");
+        setExpertName(data.expert?.name || "Expert");
       }
     }
-    fetchDetails();
-  }, [expertId, serviceId]);
+    fetchExpert();
+  }, [expertId]);
 
   function sendMessage() {
     if (!message.trim()) return;
