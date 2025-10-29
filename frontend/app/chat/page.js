@@ -46,7 +46,7 @@ export default function ChatPage() {
         boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
         padding: 32
       }}>
-        <h1>Chat with {expertName || "Expert"}</h1>
+        <h1>Welcome! Chat with {expertName || "Expert"}</h1>
         <h2 style={{ fontWeight: 400, color: "#555" }}>{serviceTitle ? `Service: ${serviceTitle}` : ""}</h2>
         <div style={{
           border: "1px solid #ccc",
