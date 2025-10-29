@@ -1,24 +1,16 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import { useState } from "react";
+import Link from "next/link";
 
 export default function ChatPage() {
-  const router = useRouter();
-  const [expertName, setExpertName] = useState("");
-  const [serviceTitle, setServiceTitle] = useState("");
-  const [userName, setUserName] = useState("");
+  const searchParams = useSearchParams();
+  const expertName = searchParams.get("expertName");
+  const serviceTitle = searchParams.get("serviceTitle");
+  const userName = searchParams.get("userName");
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
-
-  useEffect(() => {
-    // Read state from router
-    if (window.history.state && window.history.state.usr) {
-      setExpertName(window.history.state.usr.expertName || "");
-      setServiceTitle(window.history.state.usr.serviceTitle || "");
-      setUserName(window.history.state.usr.userName || "");
-    }
-  }, []);
 
   function sendMessage() {
     if (!message.trim()) return;
@@ -78,6 +70,11 @@ export default function ChatPage() {
             Send
           </button>
         </div>
+        <Link
+          href={`/chat?expertName=${encodeURIComponent(service.provider.name)}&serviceTitle=${encodeURIComponent(service.title)}&userName=${encodeURIComponent(user.name)}`}
+        >
+          <button style={{ marginLeft: 8 }}>Start Chat</button>
+        </Link>
       </div>
     </main>
   );
