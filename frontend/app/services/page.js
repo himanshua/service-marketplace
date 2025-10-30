@@ -77,12 +77,13 @@ export default function ServicesPage() {
               <p>Provider: {service.provider.name} ({service.provider.email})</p>
               <Link href={`/services/${service._id}`}>View Details</Link>
               {" | "}
-              <button
-                style={{ marginLeft: 8 }}
-                onClick={() => handleStartChat(service)}
-              >
-                Start Chat
-              </button>
+              {user && (
+                <Link
+                  href={`/chat?expertId=${service.provider._id}&serviceTitle=${encodeURIComponent(service.title)}`}
+                >
+                  <button>Start Chat</button>
+                </Link>
+              )}
             </li>
           ))}
         </ul>

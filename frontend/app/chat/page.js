@@ -9,14 +9,19 @@ export default function ChatPage() {
   const searchParams = useSearchParams();
   const expertId = searchParams.get("expertId");
   const serviceTitle = searchParams.get("serviceTitle");
-  const userName = searchParams.get("userName");
   const [expertName, setExpertName] = useState("");
+  const [userName, setUserName] = useState(""); // <-- get from backend
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
   const token = localStorage.getItem("token");
 
   useEffect(() => {
+    console.log("ChatPage useEffect called");
+    console.log("expertId:", expertId);
+    console.log("token:", token);
+
     async function fetchExpert() {
+      console.log("Inside fetchExpert");
       if (expertId && token) {
         const res = await fetch(`${API}/api/auth/experts/${expertId}`, {
           headers: {
@@ -25,16 +30,30 @@ export default function ChatPage() {
           },
         });
         const data = await res.json();
-        console.log("Expert API response:", data); // <-- Add this line
+        console.log("Expert API response:", data);
         setExpertName(data.expert?.name || "Expert");
       }
     }
     fetchExpert();
   }, [expertId, token]);
 
+  useEffect(() => {
+    async function fetchUser() {
+      if (token) {
+        const res = await fetch(`${API}/api/auth/me`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const data = await res.json();
+        console.log("User API response:", data);
+        setUserName(data.user?.name || "You");
+      }
+    }
+    fetchUser();
+  }, [token]);
+
   function sendMessage() {
     if (!message.trim()) return;
-    setChat([...chat, { sender: userName || "You", text: message }]);
+    setChat([...chat, { sender: userName, text: message }]);
     setMessage("");
   }
 

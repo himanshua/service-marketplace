@@ -201,7 +201,7 @@ router.get("/experts/:id", requireAuth, async (req, res) => {
   const user = await User.findById(req.params.id).select("_id name email role");
   console.log("Expert found:", user);
   if (!user || user.role !== "userexpert") {
-    return res.status(404).json({ message: "Expert not found" });
+    //return res.status(404).json({ message: "Expert not found" });
   }
   res.json({ expert: { id: user._id, name: user.name, email: user.email, role: user.role } });
 });
