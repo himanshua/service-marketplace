@@ -11,6 +11,7 @@ export default function ServicesPage() {
   const [loading, setLoading] = useState(true); // Loading state
   const [err, setErr] = useState(""); // Error state
   const [user, setUser] = useState(null); // Add state for user
+  const [userRole, setUserRole] = useState(""); // State for user role
   const router = useRouter(); // Initialize router
 
   useEffect(() => { // Fetch services and check auth
@@ -36,7 +37,10 @@ export default function ServicesPage() {
             headers: { Authorization: `Bearer ${token}` },
           });
           const data = await res.json();
-          if (res.ok) setUser(data.user); // Set user if logged in
+          if (res.ok) {
+            setUser(data.user); // Set user if logged in
+            setUserRole(data.user.role); // Set user role
+          } // Set user role
         } catch (e) {
           console.error("Auth check failed:", e);
         }
@@ -61,7 +65,7 @@ export default function ServicesPage() {
   return (
     <main style={{ padding: 20, maxWidth: 800, margin: "40px auto" }}>
       <h1>Services</h1>
-      {user && ( // Show create link if logged in
+      {userRole === "useradmin" && ( // Show create link if user is admin
         <p><Link href="/services/create">+ Create New Service</Link></p>
       )}
       {services.length === 0 ? ( // If no services
