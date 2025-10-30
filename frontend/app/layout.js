@@ -80,15 +80,18 @@ export default function RootLayout({ children }) { // Main layout component
             <>
               <span> | </span>
               <span>Welcome, {user.name} ({user.role})</span>
-
               <span> | </span>
               <Link href="/profile">Dashboard</Link>
-              <span> | </span>
-              <Link href="/services/create">Create Service</Link>
-              <span> | </span>
-              <Link href="/admin/services" >Admin Services</Link>
-              <span> | </span>
-              <Link href="/admin/">Admin Dashboard</Link>
+              {user.role === "useradmin" && (
+                <>
+                  <span> | </span>
+                  <Link href="/services/create">Create Service</Link>
+                  <span> | </span>
+                  <Link href="/admin/services">Admin Services</Link>
+                  <span> | </span>
+                  <Link href="/admin/">Admin Dashboard</Link>
+                </>
+              )}
               <span> | </span>
               <button onClick={logout}>Logout</button>
             </>
