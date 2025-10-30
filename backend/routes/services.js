@@ -62,7 +62,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // POST /api/services - Create a new service (authenticated users)
-router.post("/", requireAuth, async (req, res) => {
+router.post("/", requireAuth, requireRole("useradmin"), async (req, res) => {
   try {
     const { title, description, price, category, status, approved } = req.body;
 
@@ -82,7 +82,7 @@ router.post("/", requireAuth, async (req, res) => {
 
     res.status(201).json(service);
   } catch (err) {
-    console.error("Error in POST /api/services:", err); // Log the error
+    console.error("Error in POST /api/services:", err);
     res.status(500).json({ message: "Server error" });
   }
 });
