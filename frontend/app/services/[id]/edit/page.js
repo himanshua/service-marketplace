@@ -7,10 +7,16 @@ const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 export default function EditServicePage() {
   const { id } = useParams();
   const router = useRouter();
-  const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState("");
-  const [form, setForm] = useState({ title: "", description: "", price: "", category: "" });
+  const [form, setForm] = useState({
+    title: "",
+    description: "",
+    price: "",
+    category: "",
+    status: "draft",
+    approved: false
+  });
 
   useEffect(() => {
     if (!id) return;
@@ -19,12 +25,13 @@ export default function EditServicePage() {
         const res = await fetch(`${API}/api/services/${id}`);
         const data = await res.json();
         if (!res.ok) throw new Error(data.message || "Service not found");
-        setService(data);
         setForm({
-          title: data.title,
-          description: data.description,
-          price: data.price,
-          category: data.category,
+          title: data.title ?? "",
+          description: data.description ?? "",
+          price: data.price ?? "",
+          category: data.category ?? "",
+          status: data.status ?? "draft",
+          approved: data.approved ?? false
         });
       } catch (e) {
         setErr(e.message);
@@ -36,20 +43,32 @@ export default function EditServicePage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setErr("");
     const token = localStorage.getItem("token");
-    const res = await fetch(`${API}/api/services/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(form),
-    });
-    if (res.ok) {
-      router.push(`/services/${id}`);
-    } else {
-      const data = await res.json();
-      setErr(data.message || "Failed to update service");
+    if (!token) {
+      setErr("You must be logged in.");
+      return;
+    }
+    try {
+      const res = await fetch(`${API}/api/services/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          ...form,
+          price: Number(form.price)
+        })
+      });
+      if (res.ok) {
+        router.push(`/services/${id}`);
+      } else {
+        const data = await res.json();
+        setErr(data.message || "Failed to update service");
+      }
+    } catch (error) {
+      setErr("Server error");
     }
   }
 
@@ -62,22 +81,62 @@ export default function EditServicePage() {
       <form onSubmit={handleSubmit}>
         <label>
           Title:
-          <input value={form.title} onChange={e => setForm({ ...form, title: e.target.value })} required />
+          <input
+            value={form.title}
+            onChange={(e) => setForm({ ...form, title: e.target.value })}
+            required
+          />
         </label>
         <br />
         <label>
           Description:
-          <textarea value={form.description} onChange={e => setForm({ ...form, description: e.target.value })} required />
+          <textarea
+            value={form.description}
+            onChange={(e) => setForm({ ...form, description: e.target.value })}
+            required
+          />
         </label>
         <br />
         <label>
           Price:
-          <input type="number" value={form.price} onChange={e => setForm({ ...form, price: e.target.value })} required />
+          <input
+            type="number"
+            step="0.01"
+            value={form.price}
+            onChange={(e) => setForm({ ...form, price: e.target.value })}
+            required
+          />
         </label>
         <br />
         <label>
           Category:
-          <input value={form.category} onChange={e => setForm({ ...form, category: e.target.value })} required />
+          <input
+            value={form.category}
+            onChange={(e) => setForm({ ...form, category: e.target.value })}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          Status:
+          <select
+            value={form.status}
+            onChange={(e) => setForm({ ...form, status: e.target.value })}
+          >
+            <option value="draft">Draft</option>
+            <option value="active">Active</option>
+            <option value="paused">Paused</option>
+            <option value="archived">Archived</option>
+          </select>
+        </label>
+        <br />
+        <label>
+          Approved:
+          <input
+            type="checkbox"
+            checked={form.approved}
+            onChange={(e) => setForm({ ...form, approved: e.target.checked })}
+          />
         </label>
         <br />
         <button type="submit">Save Changes</button>
