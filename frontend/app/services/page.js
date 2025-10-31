@@ -88,6 +88,35 @@ export default function ServicesPage() {
                   <button>Start Chat</button>
                 </Link>
               )}
+              {/* Only show Edit/Delete for admins */}
+              {userRole === "useradmin" && (
+                <>
+                  {" | "}
+                  <Link href={`/services/${service._id}/edit`}>
+                    <button>Edit</button>
+                  </Link>
+                  {" | "}
+                  <button
+                    onClick={async () => {
+                      if (confirm("Are you sure you want to delete this service?")) {
+                        const token = localStorage.getItem("token");
+                        const res = await fetch(`${API}/api/services/${service._id}`, {
+                          method: "DELETE",
+                          headers: { Authorization: `Bearer ${token}` },
+                        });
+                        if (res.ok) {
+                          // Remove deleted service from state
+                          setServices(services.filter(s => s._id !== service._id));
+                        } else {
+                          alert("Failed to delete service");
+                        }
+                      }
+                    }}
+                  >
+                    Delete
+                  </button>
+                </>
+              )}
             </li>
           ))}
         </ul>
