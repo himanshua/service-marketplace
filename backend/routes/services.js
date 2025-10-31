@@ -92,15 +92,32 @@ router.post("/", requireAuth, requireRole("useradmin"), async (req, res) => {
 // PUT /api/services/:id - Update a service (only provider or admin)
 router.put("/:id", requireAuth, async (req, res) => {
   try {
-    const service = await Service.findById(req.params.id); // Find service
-    if (!service) return res.status(404).json({ message: "Service not found" }); // Not found
-    if (service.provider.toString() !== req.auth.id && req.auth.role !== "useradmin") { // Check ownership or admin
-      return res.status(403).json({ message: "Forbidden" }); // Forbidden
+    const service = await Service.findById(req.params.id);
+    if (!service) return res.status(404).json({ message: "Service not found" });
+
+    const requester = req.user; // comes from requireAuth
+    if (
+      service.provider.toString() !== requester.id &&
+      requester.role !== "useradmin"
+    ) {
+      return res.status(403).json({ message: "Forbidden" });
     }
-    const updated = await Service.findByIdAndUpdate(req.params.id, req.body, { new: true }); // Update
-    res.json(updated); // Return updated service
+
+    const allowed = ["title", "description", "price", "category", "status", "approved"];
+    const updates = Object.fromEntries(
+      Object.entries(req.body).filter(([key]) => allowed.includes(key))
+    );
+
+    const updated = await Service.findByIdAndUpdate(
+      req.params.id,
+      { $set: updates },
+      { new: true, runValidators: true }
+    );
+
+    res.json(updated);
   } catch (err) {
-    res.status(500).json({ message: "Server error" }); // Error
+    console.error("PUT /api/services/:id error:", err);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
