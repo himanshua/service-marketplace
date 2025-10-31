@@ -27,10 +27,10 @@ const serviceSchema = new mongoose.Schema( // Define schema for Service
             ref: "User",
             required: true,
         },
-        status: { // Service status
+        status: {
             type: String,
-            enum: ["available", "unavailable"], // Ensure "available" is included
-            default: "available",
+            enum: ["draft", "active", "paused", "archived"], // add "active" if you need it
+            default: "draft"
         },
         approved: { // Approval status
             type: Boolean,

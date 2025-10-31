@@ -117,7 +117,7 @@ router.put("/:id", requireAuth, async (req, res) => {
     res.json(updated);
   } catch (err) {
     console.error("PUT /api/services/:id error:", err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: "Server error" +err });
   }
 });
 
