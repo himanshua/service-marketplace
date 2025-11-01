@@ -5,6 +5,7 @@ import Link from "next/link"; // Next.js link
 import { useRouter } from "next/navigation"; // Next.js router
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL
+const defaultAvatar = "/images/default-avatar.png"; // place this file in /public/images
 
 export default function ServicesPage() {
   const [services, setServices] = useState([]); // State for services list
@@ -74,49 +75,60 @@ export default function ServicesPage() {
         <ul style={{ listStyle: "none", padding: 0 }}> {/* List services */}
           {services.map((service) => (
             <li key={service._id} style={{ border: "1px solid #ccc", padding: 16, marginBottom: 16 }}>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-              <p>Price: ${service.price}</p>
-              <p>Category: {service.category}</p>
-              <p>Provider: {service.provider.name} ({service.provider.email})</p>
-              <Link href={`/services/${service._id}`}>View Details</Link>
-              {" | "}
-              {user && (
-                <Link
-                  href={`/chat?expertId=${service.provider._id}&serviceTitle=${encodeURIComponent(service.title)}`}
-                >
-                  <button>Start Chat</button>
-                </Link>
-              )}
-              {/* Only show Edit/Delete for admins */}
-              {userRole === "useradmin" && (
-                <>
+              <div style={{ display: "flex", gap: 16 }}>
+                <img
+                  src={service.provider.avatarUrl || defaultAvatar}
+                  alt={`${service.provider.name} avatar`}
+                  style={{ width: 72, height: 72, borderRadius: "50%", objectFit: "cover", border: "1px solid #ddd" }}
+                />
+                <div style={{ flex: 1 }}>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <p>Price: ${service.price}</p>
+                  <p>Category: {service.category}</p>
+                  <p>Provider: {service.provider.name} ({service.provider.email})</p>
+                  {userRole === "useradmin" && (
+                    <p>
+                      <Link href={`/admin/providers/${service.provider._id}/image`}>Add / Update Image</Link>
+                    </p>
+                  )}
+                  <Link href={`/services/${service._id}`}>View Details</Link>
                   {" | "}
-                  <Link href={`/services/${service._id}/edit`}>
-                    <button>Edit</button>
-                  </Link>
-                  {" | "}
-                  <button
-                    onClick={async () => {
-                      if (confirm("Are you sure you want to delete this service?")) {
-                        const token = localStorage.getItem("token");
-                        const res = await fetch(`${API}/api/services/${service._id}`, {
-                          method: "DELETE",
-                          headers: { Authorization: `Bearer ${token}` },
-                        });
-                        if (res.ok) {
-                          alert("Service deleted");
-                          setServices(services.filter((s) => s._id !== service._id));
-                        } else {
-                          alert("Failed to delete service");
-                        }
-                      }
-                    }}
-                  >
-                    Delete
-                  </button>
-                </>
-              )}
+                  {user && (
+                    <Link href={`/chat?expertId=${service.provider._id}&serviceTitle=${encodeURIComponent(service.title)}`}>
+                      <button>Start Chat</button>
+                    </Link>
+                  )}
+                  {userRole === "useradmin" && (
+                    <>
+                      {" | "}
+                      <Link href={`/services/${service._id}/edit`}>
+                        <button>Edit</button>
+                      </Link>
+                      {" | "}
+                      <button
+                        onClick={async () => {
+                          if (confirm("Are you sure you want to delete this service?")) {
+                            const token = localStorage.getItem("token");
+                            const res = await fetch(`${API}/api/services/${service._id}`, {
+                              method: "DELETE",
+                              headers: { Authorization: `Bearer ${token}` },
+                            });
+                            if (res.ok) {
+                              alert("Service deleted");
+                              setServices(services.filter((s) => s._id !== service._id));
+                            } else {
+                              alert("Failed to delete service");
+                            }
+                          }
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
             </li>
           ))}
         </ul>
