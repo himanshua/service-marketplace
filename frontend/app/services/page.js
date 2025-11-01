@@ -80,8 +80,8 @@ export default function ServicesPage() {
                   src={service.provider.avatarUrl || defaultAvatar}
                   alt={`${service.provider.name} avatar`}
                   style={{
-                    width: 120,
-                    height: 120,
+                    width: 220,
+                    height: 220,
                     borderRadius: "8px",
                     objectFit: "cover",
                     border: "1px solid #ddd",
