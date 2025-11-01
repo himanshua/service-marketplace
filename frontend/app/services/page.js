@@ -72,20 +72,27 @@ export default function ServicesPage() {
       {services.length === 0 ? ( // If no services
         <p>No services available.</p>
       ) : (
-        <ul style={{ listStyle: "none", padding: 0 }}> {/* List services */}
+        <ul
+          style={{
+            listStyle: "none",
+            padding: 0,
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))",
+            gap: 20,
+          }}
+        >
           {services.map((service) => (
-            <li key={service._id} style={{ border: "1px solid #ccc", padding: 16, marginBottom: 16 }}>
-              <div style={{ display: "flex", gap: 16 }}>
+            <li key={service._id} style={{ border: "1px solid #ccc", padding: 16 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <img
                   src={service.provider.avatarUrl || defaultAvatar}
                   alt={`${service.provider.name} avatar`}
                   style={{
-                    width: 220,
-                    height: 220,
-                    borderRadius: "8px",
+                    width: "100%",
+                    maxHeight: 240,
+                    borderRadius: 12,
                     objectFit: "cover",
                     border: "1px solid #ddd",
-                    flexShrink: 0
                   }}
                 />
                 <div style={{ flex: 1 }}>
