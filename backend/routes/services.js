@@ -124,15 +124,21 @@ router.put("/:id", requireAuth, async (req, res) => {
 // DELETE /api/services/:id - Delete a service (only provider or admin)
 router.delete("/:id", requireAuth, async (req, res) => {
   try {
-    const service = await Service.findById(req.params.id); // Find service
-    if (!service) return res.status(404).json({ message: "Service not found" }); // Not found
-    if (service.provider.toString() !== req.auth.id && req.auth.role !== "useradmin") { // Check ownership or admin
-      return res.status(403).json({ message: "Forbidden" }); // Forbidden
+    const service = await Service.findById(req.params.id);
+    if (!service) return res.status(404).json({ message: "Service not found" });
+
+    if (
+      service.provider.toString() !== req.user.id &&
+      req.user.role !== "useradmin"
+    ) {
+      return res.status(403).json({ message: "Forbidden" });
     }
-    await Service.findByIdAndDelete(req.params.id); // Delete
-    res.json({ message: "Service deleted" }); // Success
+
+    await service.deleteOne();
+    res.json({ message: "Service deleted" });
   } catch (err) {
-    res.status(500).json({ message: "Server error" }); // Error
+    console.error("DELETE /api/services/:id error:", err);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
