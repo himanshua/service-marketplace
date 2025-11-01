@@ -95,7 +95,7 @@ export default function ServicesPage() {
                     border: "1px solid #ddd",
                   }}
                 />
-                <div style={{ flex: 1 }}>
+                <div>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                   <p>Price: ${service.price}</p>
