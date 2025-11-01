@@ -79,7 +79,14 @@ export default function ServicesPage() {
                 <img
                   src={service.provider.avatarUrl || defaultAvatar}
                   alt={`${service.provider.name} avatar`}
-                  style={{ width: 72, height: 72, borderRadius: "50%", objectFit: "cover", border: "1px solid #ddd" }}
+                  style={{
+                    width: 120,
+                    height: 120,
+                    borderRadius: "8px",
+                    objectFit: "cover",
+                    border: "1px solid #ddd",
+                    flexShrink: 0
+                  }}
                 />
                 <div style={{ flex: 1 }}>
                   <h3>{service.title}</h3>
