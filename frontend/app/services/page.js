@@ -105,8 +105,8 @@ export default function ServicesPage() {
                           headers: { Authorization: `Bearer ${token}` },
                         });
                         if (res.ok) {
-                          // Remove deleted service from state
-                          setServices(services.filter(s => s._id !== service._id));
+                          alert("Service deleted");
+                          setServices(services.filter((s) => s._id !== service._id));
                         } else {
                           alert("Failed to delete service");
                         }
