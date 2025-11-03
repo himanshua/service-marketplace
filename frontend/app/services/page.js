@@ -105,28 +105,40 @@ export default function ServicesPage() {
                     border: "1px solid #ddd",
                   }}
                 />
-                <div
-                  onClick={(e) => e.stopPropagation()}
-                >
+                <div>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                   <p>Price: ${service.price}</p>
                   <p>Category: {service.category}</p>
                   <p>Provider: {service.provider.name} ({service.provider.email})</p>
+
                   {userRole === "useradmin" && (
                     <p>
-                      <Link href={`/admin/providers/${service.provider._id}/image`}>Add / Update Image</Link>
+                      <Link
+                        href={`/admin/providers/${service.provider._id}/image`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Add / Update Image
+                      </Link>
                     </p>
                   )}
+
                   {user && (
-                    <Link href={`/chat?expertId=${service.provider._id}&serviceTitle=${encodeURIComponent(service.title)}`}>
-                      <button>Start Chat</button>
+                    <Link
+                      href={`/chat?expertId=${service.provider._id}&serviceTitle=${encodeURIComponent(service.title)}`}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <button>Chat | {service.price}/MIN</button>
                     </Link>
                   )}
+
                   {userRole === "useradmin" && (
                     <>
                       {" | "}
-                      <Link href={`/services/${service._id}/edit`}>
+                      <Link
+                        href={`/services/${service._id}/edit`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
                         <button>Edit</button>
                       </Link>
                       {" | "}
