@@ -82,7 +82,17 @@ export default function ServicesPage() {
           }}
         >
           {services.map((service) => (
-            <li key={service._id} style={{ border: "1px solid #ccc", padding: 16 }}>
+            <li
+              key={service._id}
+              onClick={() => router.push(`/services/${service._id}`)}
+              style={{
+                border: "1px solid #ccc",
+                padding: 16,
+                cursor: "pointer",
+                borderRadius: 12,
+                background: "#fff",
+              }}
+            >
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <img
                   src={service.provider.avatarUrl || defaultAvatar}
@@ -95,7 +105,9 @@ export default function ServicesPage() {
                     border: "1px solid #ddd",
                   }}
                 />
-                <div>
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                   <p>Price: ${service.price}</p>
@@ -106,8 +118,6 @@ export default function ServicesPage() {
                       <Link href={`/admin/providers/${service.provider._id}/image`}>Add / Update Image</Link>
                     </p>
                   )}
-                  <Link href={`/services/${service._id}`}>View Details</Link>
-                  {" | "}
                   {user && (
                     <Link href={`/chat?expertId=${service.provider._id}&serviceTitle=${encodeURIComponent(service.title)}`}>
                       <button>Start Chat</button>
@@ -121,7 +131,8 @@ export default function ServicesPage() {
                       </Link>
                       {" | "}
                       <button
-                        onClick={async () => {
+                        onClick={async (e) => {
+                          e.stopPropagation();
                           if (confirm("Are you sure you want to delete this service?")) {
                             const token = localStorage.getItem("token");
                             const res = await fetch(`${API}/api/services/${service._id}`, {
