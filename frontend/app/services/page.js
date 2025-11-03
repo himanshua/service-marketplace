@@ -128,7 +128,9 @@ export default function ServicesPage() {
                       href={`/chat?expertId=${service.provider._id}&serviceTitle=${encodeURIComponent(service.title)}`}
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <button>Chat | {service.price}/MIN</button>
+                      <button style={{ width: "100%", marginTop: 12 }}>
+                        Chat | {service.price}/MIN
+                      </button>
                     </Link>
                   )}
 
