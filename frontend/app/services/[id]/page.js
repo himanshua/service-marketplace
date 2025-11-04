@@ -13,6 +13,7 @@ export default function ServiceDetailPage() {
   const [loading, setLoading] = useState(true); // Loading state
   const [err, setErr] = useState(""); // Error state
   const [userRole, setUserRole] = useState(""); // User role state
+  const [currentUser, setCurrentUser] = useState(null);
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : ""; // Token from localStorage
 
   useEffect(() => {
@@ -38,13 +39,13 @@ export default function ServiceDetailPage() {
   }, [id]);
 
   useEffect(() => {
-    // Fetch user role
     async function fetchUser() {
       if (token) {
         const res = await fetch(`${API}/api/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
+        setCurrentUser(data.user || null);
         setUserRole(data.user?.role || "");
       }
     }
@@ -78,7 +79,7 @@ export default function ServiceDetailPage() {
       <p>Category: {service.category}</p> {/* Category */}
       <p>Provider: {service.provider.name} ({service.provider.email})</p> {/* Provider */}
       <p>Status: {service.status}</p>
-      {user && (
+      {currentUser && (
         <Link
           href={`/chat?expertId=${service.provider._id}&serviceTitle=${encodeURIComponent(service.title)}`}
         >
