@@ -77,7 +77,16 @@ export default function ServiceDetailPage() {
       <p>Price: ${service.price}</p> {/* Price */}
       <p>Category: {service.category}</p> {/* Category */}
       <p>Provider: {service.provider.name} ({service.provider.email})</p> {/* Provider */}
-      <p>Status: {service.status}</p> {/* Status */}
+      <p>Status: {service.status}</p>
+      {user && (
+        <Link
+          href={`/chat?expertId=${service.provider._id}&serviceTitle=${encodeURIComponent(service.title)}`}
+        >
+          <button style={{ width: "100%", marginTop: 16 }}>
+            Chat | {service.price}/MIN
+          </button>
+        </Link>
+      )}
       {/* Only show for admins */}
       {userRole === "useradmin" && (
         <>
