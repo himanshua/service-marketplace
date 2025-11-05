@@ -22,6 +22,8 @@ app.set('trust proxy', 1);
 const allowedOrigins = [
   "http://localhost:3000",
   "https://service-marketplace-frontend-7x28.vercel.app",
+  "https://aheadterra.com",
+  "https://www.aheadterra.com"
   // Add any other Vercel preview domains you use
 ];
 
