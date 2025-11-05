@@ -14,15 +14,25 @@ router.get("/:expertId", requireAuth, async (req, res) => {
 
 router.post("/:expertId", requireAuth, async (req, res) => {
   const { text } = req.body;
-  if (!text?.trim()) return res.status(400).json({ message: "Message required" });
+  if (!text?.trim()) {
+    return res.status(400).json({ message: "Message required" });
+  }
 
-  const message = await ChatMessage.create({
+  const customerMessage = await ChatMessage.create({
     expert: req.params.expertId,
     customer: req.user.id,
-    text,
+    sender: "customer",
+    text: text.trim(),
   });
 
-  res.status(201).json({ message });
+  const expertMessage = await ChatMessage.create({
+    expert: req.params.expertId,
+    customer: req.user.id,
+    sender: "expert",
+    text: "You will receive the answer within 24 hours here and at your email address.",
+  });
+
+  res.status(201).json({ customerMessage, expertMessage });
 });
 
 export default router;

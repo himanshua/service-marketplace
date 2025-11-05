@@ -58,7 +58,7 @@ export default function ChatPage() {
     async function fetchMessages() {
       if (expertId && token) {
         const res = await fetch(`${API}/api/chat/${expertId}`, {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
         setMessages(data.messages ?? []);
@@ -69,27 +69,22 @@ export default function ChatPage() {
 
   async function sendMessage() {
     if (!message.trim()) return;
-    const outgoing = { text: message, sender: userName || "You" };
-    setMessages((prev) => [...prev, outgoing]);
-
-    // clear input
+    const content = message.trim();
     setMessage("");
 
-    await fetch(`${API}/api/chat/${expertId}`, {
+    const res = await fetch(`${API}/api/chat/${expertId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`
       },
-      body: JSON.stringify({ text: outgoing.text }),
+      body: JSON.stringify({ text: content })
     });
 
-    // immediate auto-reply from expert
-    const autoReply = {
-      text: "You will receive the answer within 24 hours here and at your email address.",
-      sender: expertName || "Expert",
-    };
-    setMessages((prev) => [...prev, autoReply]);
+    if (res.ok) {
+      const data = await res.json();
+      setMessages((prev) => [...prev, data.customerMessage, data.expertMessage]);
+    }
   }
 
   return (
@@ -135,11 +130,13 @@ export default function ChatPage() {
           ) : (
             messages.map((msg, idx) => (
               <div key={idx} style={{ marginBottom: 8 }}>
-                <strong>{msg.sender}:</strong> {msg.text}
+                <strong>
+                  {msg.sender === "expert" ? expertName || "Expert" : userName || "You"}:
+                </strong>{" "}
+                {msg.text}
               </div>
             ))
-          )
-          }
+          )}
         </div>
         <div style={{ display: "flex" }}>
           <input
