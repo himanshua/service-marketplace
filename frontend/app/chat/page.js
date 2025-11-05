@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -13,7 +14,9 @@ export default function ChatPage() {
   const [userName, setUserName] = useState(""); // <-- get from backend
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
+  const [messages, setMessages] = useState([]);
   const token = localStorage.getItem("token");
+  const router = useRouter();
 
   useEffect(() => {
     console.log("ChatPage useEffect called");
@@ -51,10 +54,32 @@ export default function ChatPage() {
     fetchUser();
   }, [token]);
 
-  function sendMessage() {
+  useEffect(() => {
+    async function fetchMessages() {
+      if (expertId && token) {
+        const res = await fetch(`${API}/api/chat/${expertId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const data = await res.json();
+        setMessages(data.messages ?? []);
+      }
+    }
+    fetchMessages();
+  }, [expertId, token]);
+
+  async function sendMessage() {
     if (!message.trim()) return;
-    setChat([...chat, { sender: userName, text: message }]);
+    setMessages((prev) => [...prev, { text: message, sender: userName }]);
     setMessage("");
+    await fetch(`${API}/api/chat/${expertId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ text: message }),
+    });
+    // optional: refetch to sync timestamps
   }
 
   return (
@@ -95,10 +120,10 @@ export default function ChatPage() {
             borderRadius: 4,
           }}
         >
-          {chat.length === 0 ? (
+          {messages.length === 0 ? (
             <p>No messages yet.</p>
           ) : (
-            chat.map((msg, idx) => (
+            messages.map((msg, idx) => (
               <div key={idx} style={{ marginBottom: 8 }}>
                 <strong>{msg.sender}:</strong> {msg.text}
               </div>

@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
 import serviceRoutes from "./routes/services.js";
 import userRoutes from "./routes/users.js";
+import chatRoutes from "./routes/chat.js";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsdoc from "swagger-jsdoc";
@@ -81,6 +82,10 @@ console.log("Services routes mounted at /api/services");
 // Mount users routes
 app.use("/api/users", userRoutes);
 console.log("Users routes mounted at /api/users");
+
+// Mount chat routes
+app.use("/api/chat", chatRoutes);
+console.log("Chat routes mounted at /api/chat");
 
 // Swagger setup
 const swaggerSpec = swaggerJsdoc({
