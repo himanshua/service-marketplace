@@ -198,7 +198,7 @@ export default function ChatPage() {
                 fontWeight: 600,
               }}
             >
-              Pay $3 with PayPal
+              Pay $3 with PayPal to get answers from {expertName || "the Expert"} 
             </button>
           </form>
         )}
