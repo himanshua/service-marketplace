@@ -69,17 +69,27 @@ export default function ChatPage() {
 
   async function sendMessage() {
     if (!message.trim()) return;
-    setMessages((prev) => [...prev, { text: message, sender: userName }]);
+    const outgoing = { text: message, sender: userName || "You" };
+    setMessages((prev) => [...prev, outgoing]);
+
+    // clear input
     setMessage("");
+
     await fetch(`${API}/api/chat/${expertId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ text: message }),
+      body: JSON.stringify({ text: outgoing.text }),
     });
-    // optional: refetch to sync timestamps
+
+    // immediate auto-reply from expert
+    const autoReply = {
+      text: "You will receive the answer within 24 hours here and at your email address.",
+      sender: expertName || "Expert",
+    };
+    setMessages((prev) => [...prev, autoReply]);
   }
 
   return (
@@ -128,7 +138,8 @@ export default function ChatPage() {
                 <strong>{msg.sender}:</strong> {msg.text}
               </div>
             ))
-          )}
+          )
+          }
         </div>
         <div style={{ display: "flex" }}>
           <input
