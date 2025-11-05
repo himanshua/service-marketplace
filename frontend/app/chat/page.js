@@ -61,7 +61,11 @@ export default function ChatPage() {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
-        setMessages(data.messages ?? []);
+        const normalized = (data.messages ?? []).filter(Boolean).map((msg) => ({
+          sender: msg.sender ?? (msg.expert ? "expert" : "customer"),
+          text: msg.text ?? "",
+        }));
+        setMessages(normalized);
       }
     }
     fetchMessages();
@@ -131,7 +135,7 @@ export default function ChatPage() {
             messages.map((msg, idx) => (
               <div key={idx} style={{ marginBottom: 8 }}>
                 <strong>
-                  {msg.sender === "expert" ? expertName || "Expert" : userName || "You"}:
+                  {(msg.sender ?? "customer") === "expert" ? expertName || "Expert" : userName || "You"}:
                 </strong>{" "}
                 {msg.text}
               </div>
