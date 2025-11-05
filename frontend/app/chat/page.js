@@ -169,6 +169,39 @@ export default function ChatPage() {
             Send
           </button>
         </div>
+
+        {messages.length > 0 && (
+          <form
+            action="https://www.paypal.com/cgi-bin/webscr"
+            method="post"
+            target="_blank"
+            style={{ marginTop: 16 }}
+          >
+            <input type="hidden" name="cmd" value="_xclick" />
+            <input type="hidden" name="business" value="btech.lucknow@gmail.com" />
+            <input
+              type="hidden"
+              name="item_name"
+              value={`Consultation with ${expertName || "Expert"}`}
+            />
+            <input type="hidden" name="currency_code" value="USD" />
+            <input type="hidden" name="amount" value="3.00" />
+            <button
+              type="submit"
+              style={{
+                width: "100%",
+                padding: "12px 24px",
+                borderRadius: 4,
+                background: "#ffc439",
+                color: "#111",
+                border: "none",
+                fontWeight: 600,
+              }}
+            >
+              Pay $3 with PayPal
+            </button>
+          </form>
+        )}
       </div>
     </main>
   );
