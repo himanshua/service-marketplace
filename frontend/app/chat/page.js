@@ -122,7 +122,7 @@ export default function ChatPage() {
         <p style={{ marginTop: 12, color: "#444", lineHeight: 1.5 }}>
           Kindly provide your birth details and question below. I will respond to your inquiry as quickly as possible.
           <br />
-          Please also remit the $3 fee via PayPal to complete your request.
+          Please also remit the $3 fee via PayPal to complete your request soon.
         </p>
         <div
           style={{
