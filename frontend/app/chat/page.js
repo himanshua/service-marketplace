@@ -115,10 +115,15 @@ export default function ChatPage() {
           padding: 32,
         }}
       >
-        <h1>Chat with {expertName}</h1>
+        <h1>Chat/Ask with {expertName}</h1>
         <h2 style={{ fontWeight: 400, color: "#555" }}>
           {serviceTitle ? `Service: ${serviceTitle}` : ""}
         </h2>
+        <p style={{ marginTop: 12, color: "#444", lineHeight: 1.5 }}>
+          Kindly provide your birth details and question below. I will respond to your inquiry as quickly as possible.
+          <br />
+          Please also remit the $3 fee via PayPal to complete your request.
+        </p>
         <div
           style={{
             border: "1px solid #ccc",
@@ -140,7 +145,7 @@ export default function ChatPage() {
                 {msg.text}
               </div>
             ))
-          )}
+          }
         </div>
         <div style={{ display: "flex" }}>
           <input
