@@ -145,7 +145,7 @@ export default function ChatPage() {
                 {msg.text}
               </div>
             ))
-          }
+          )}
         </div>
         <div style={{ display: "flex" }}>
           <input
