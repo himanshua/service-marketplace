@@ -1,6 +1,7 @@
 "use client";
 
-import { Suspense, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -145,7 +146,7 @@ function ChatContent() {
                 {msg.text}
               </div>
             ))
-          )}
+          }
         </div>
         <div style={{ display: "flex" }}>
           <input
