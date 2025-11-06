@@ -46,56 +46,60 @@ export default function Profile() {
   if (!user && !err) return <main className="profile-main">Loading…</main>; // Show loading while fetching
 
   return (
-    <main className="profile-main">
-      <div
+    <main
+      className="profile-main"
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "24px",
+        alignItems: "flex-start",
+        justifyContent: "center",
+        padding: "20px 0",
+      }}
+    >
+      <img
+        src="/images/Himanshu Tiwari.jpg"
+        alt="Himanshu Tiwari"
         style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "20px",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          marginBottom: "1.5rem",
+          width: 300,
+          height: 450,
+          objectFit: "cover",
+          borderRadius: "16px",
+          boxShadow: "0 10px 20px rgba(0,0,0,0.18)",
+          flexShrink: 0,
         }}
-      >
-        <img
-          src="/images/Himanshu Tiwari.jpg"
-          alt="Himanshu Tiwari"
-          style={{
-            width: 120,
-            height: 120,
-            borderRadius: "12px",
-            objectFit: "cover",
-            boxShadow: "0 6px 12px rgba(0,0,0,0.15)",
-          }}
-        />
-        <h1 style={{ margin: 0, color: "#2c3e50" }}>User Dashboard</h1>
+      />
+
+      <div style={{ maxWidth: 480, flex: "1 1 320px" }}>
+        <h1 style={{ marginBottom: "1.5rem", color: "#2c3e50" }}>User Dashboard</h1>
+
+        {user ? (
+          <div className="profile-card">
+            <h2>Profile Information</h2>
+            <div className="profile-row">
+              <span className="profile-label">Name:</span>
+              <span>{user.name}</span>
+            </div>
+            <div className="profile-row">
+              <span className="profile-label">Email:</span>
+              <span>{user.email}</span>
+            </div>
+            <div className="profile-row">
+              <span className="profile-label">Role:</span>
+              <span>{user.role}</span>
+            </div>
+            <div className="profile-row">
+              <span className="profile-label">User ID:</span>
+              <span>{user.id}</span>
+            </div>
+            <button className="profile-logout" onClick={logout}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <p className="profile-error">{err}</p>
+        )}
       </div>
-      {user ? (
-        <div className="profile-card">
-          <h2>Profile Information</h2>
-          <div className="profile-row">
-            <span className="profile-label">Name:</span>
-            <span>{user.name}</span>
-          </div>
-          <div className="profile-row">
-            <span className="profile-label">Email:</span>
-            <span>{user.email}</span>
-          </div>
-          <div className="profile-row">
-            <span className="profile-label">Role:</span>
-            <span>{user.role}</span>
-          </div>
-          <div className="profile-row">
-            <span className="profile-label">User ID:</span>
-            <span>{user.id}</span>
-          </div>
-          <button className="profile-logout" onClick={logout}>
-            Logout
-          </button>
-        </div>
-      ) : (
-        <p className="profile-error">{err}</p>
-      )}
     </main>
   );
 }
