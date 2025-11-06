@@ -50,6 +50,20 @@ export default function Profile() {
       <img className="hero-image" src="/images/Himanshu Tiwari.jpg" alt="Himanshu Tiwari" />
       <div className="profile-content">
         <h1>User Dashboard</h1>
+        <button
+          style={{ marginBottom: "1.5rem", padding: "10px 18px" }}
+          onClick={() => {
+            const shareData = {
+              title: "Terra – Psychic & Jyotishvidya Readings",
+              text: "Discover Terra and connect with the best online psychic.",
+              url: "https://aheadterra.com",
+            };
+            if (navigator.share) navigator.share(shareData).catch(console.error);
+            else navigator.clipboard.writeText(shareData.url).then(() => alert("Link copied."));
+          }}
+        >
+          Share Terra
+        </button>
         {user ? (
           <div className="profile-card">
             <h2>Profile Information</h2>
