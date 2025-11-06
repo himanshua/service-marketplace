@@ -12,7 +12,7 @@ export const metadata = {
     siteName: "Terra",
     images: [
       {
-        url: "/images/himanshu-tiwari-og.jpg", // add this file in /public/images
+        url: "https://aheadterra.com/images/himanshu-tiwari-og.jpg",
         width: 1200,
         height: 630,
         alt: "Himanshu Tiwari – Terra Psychic Reading",
@@ -24,7 +24,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Terra – Psychic & Jyotishvidya Readings",
     description: "Discover Terra and connect with the best online psychic.",
-    images: ["/images/himanshu-tiwari-og.jpg"],
+    images: ["https://aheadterra.com/images/himanshu-tiwari-og.jpg"],
   },
 };
 
