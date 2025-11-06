@@ -11,48 +11,43 @@ export default function NavBar() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const sync = () => {
-      const stored = localStorage.getItem("user");
-      setUser(stored ? JSON.parse(stored) : null);
-    };
-    sync();
-
-    const token = localStorage.getItem("token");
-    if (!token) return;
-
-    (async () => {
+    const fetchUser = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        setUser(null);
+        return;
+      }
       try {
         const res = await fetch(`${API}/api/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        if (!res.ok) {
-          localStorage.clear();
-          setUser(null);
-          router.push("/login");
-          return;
-        }
+        if (!res.ok) throw new Error("unauthorized");
         const data = await res.json();
         setUser(data.user);
         localStorage.setItem("user", JSON.stringify(data.user));
-      } catch (err) {
-        console.error("Auth check failed:", err);
+      } catch {
+        localStorage.clear();
+        setUser(null);
+        router.push("/login");
       }
-    })();
+    };
+
+    fetchUser();
+
+    const sync = () => {
+      const stored = localStorage.getItem("user");
+      setUser(stored ? JSON.parse(stored) : null);
+    };
 
     window.addEventListener("storage", sync);
     return () => window.removeEventListener("storage", sync);
-  }, [router]);
+  }, [router, pathname]);
 
-  useEffect(() => {
-    const stored = localStorage.getItem("user");
-    setUser(stored ? JSON.parse(stored) : null);
-  }, [pathname]);
-
-  function logout() {
+  const logout = () => {
     localStorage.clear();
     setUser(null);
     router.push("/login");
-  }
+  };
 
   return (
     <nav style={{ padding: "10px", borderBottom: "1px solid #ccc" }}>
@@ -62,9 +57,7 @@ export default function NavBar() {
       {user ? (
         <>
           <span> | </span>
-          <span>
-            Welcome, {user.name} ({user.role})
-          </span>
+          <span>Welcome, {user.name} ({user.role})</span>
           <span> | </span>
           <Link href="/profile">Dashboard</Link>
           {user.role === "useradmin" && (
