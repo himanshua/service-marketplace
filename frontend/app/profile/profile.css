@@ -1,18 +1,15 @@
 .profile-layout {
   display: grid;
-  grid-template-columns: minmax(240px, 300px) minmax(320px, 1fr);
+  grid-template-columns: minmax(280px, 320px) minmax(320px, 1fr);
   gap: 32px;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  justify-items: center;
-  max-width: 960px;
-  margin: 40px auto;
-  padding: 0 20px;
+  padding: 40px 20px;
 }
 
 .profile-portrait {
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
   height: 450px;
   object-fit: cover;
   border-radius: 16px;
@@ -20,14 +17,14 @@
 }
 
 .profile-content {
+  max-width: 520px;
   width: 100%;
-  text-align: left;
 }
 
 @media (max-width: 768px) {
   .profile-layout {
     grid-template-columns: 1fr;
-    gap: 20px;
+    text-align: center;
   }
 
   .profile-portrait {
@@ -35,7 +32,7 @@
   }
 
   .profile-content {
-    text-align: center;
+    justify-self: center;
   }
 }
 
