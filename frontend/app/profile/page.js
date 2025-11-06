@@ -47,8 +47,30 @@ export default function Profile() {
 
   return (
     <main className="profile-main">
-      <h1>User Dashboard</h1>
-            {user ? (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "20px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          marginBottom: "1.5rem",
+        }}
+      >
+        <img
+          src="/images/Himanshu Tiwari.jpg"
+          alt="Himanshu Tiwari"
+          style={{
+            width: 120,
+            height: 120,
+            borderRadius: "12px",
+            objectFit: "cover",
+            boxShadow: "0 6px 12px rgba(0,0,0,0.15)",
+          }}
+        />
+        <h1 style={{ margin: 0, color: "#2c3e50" }}>User Dashboard</h1>
+      </div>
+      {user ? (
         <div className="profile-card">
           <h2>Profile Information</h2>
           <div className="profile-row">
