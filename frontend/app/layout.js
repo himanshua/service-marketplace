@@ -89,7 +89,8 @@ export default function RootLayout({ children }) { // Main layout component
     setUser(stored ? JSON.parse(stored) : null);
   }, [pathname]);
 
-  function logout() { // Logout function
+  function logout() { // Logout func
+  
     localStorage.clear(); // Clear local storage
     setUser(null); // Clear user state
     router.push("/login"); // Redirect to login
