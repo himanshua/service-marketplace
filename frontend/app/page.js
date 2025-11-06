@@ -44,11 +44,10 @@ export default function Home() {
     <main style={{ padding: 20, maxWidth: 700, margin: "40px auto" }}>
       <div
         style={{
-          display: "flex",
+          display: "grid",
+          gridTemplateColumns: "minmax(220px, 240px) 1fr",
           alignItems: "center",
           gap: "24px",
-          flexWrap: "wrap",
-          justifyContent: "center",
           marginBottom: "1.5rem",
         }}
       >
@@ -56,21 +55,22 @@ export default function Home() {
           src="/images/Himanshu Tiwari.jpg"
           alt="Himanshu Tiwari"
           style={{
-            width: 140,
-            height: 140,
+            width: 240,
+            height: 360,
             borderRadius: "12px",
             objectFit: "cover",
             boxShadow: "0 6px 12px rgba(0,0,0,0.15)",
+            justifySelf: "start",
           }}
         />
         <h1
           style={{
             fontSize: "2.4rem",
             fontWeight: 700,
-            textAlign: "center",
             margin: 0,
             color: "#2c3e50",
             lineHeight: 1.3,
+            textAlign: "left",
           }}
         >
           Get Your Unique Psychic and Jyotishvidya Reading
