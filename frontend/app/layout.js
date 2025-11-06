@@ -99,7 +99,7 @@ export default function RootLayout({ children }) { // Main layout component
     <html lang="en">
       <body>
         <NavBar />
-        {loading ? <main style={{ padding: 20 }}>Loading…</main> : children}
+        <main style={{ minHeight: "100vh" }}>{loading ? <main style={{ padding: 20 }}>Loading…</main> : children}</main>
       </body>
     </html>
   );
