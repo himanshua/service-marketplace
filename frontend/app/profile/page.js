@@ -43,27 +43,35 @@ export default function Profile() {
     router.replace("/login"); // Redirect to login page
   }
 
-  if (!user && !err) return <main className="profile-main">Loading…</main>;
+  if (!user && !err) return <main className="profile-main">Loading…</main>; // Show loading while fetching
 
   return (
-    <main className="hero-grid">
-      <img className="hero-image" src="/images/Himanshu Tiwari.jpg" alt="Himanshu Tiwari" />
-      <div className="profile-content">
-        <h1>User Dashboard</h1>
-        <button
-          style={{ marginBottom: "1.5rem", padding: "10px 18px" }}
-          onClick={() => {
-            const shareData = {
-              title: "Terra – Psychic & Jyotishvidya Readings",
-              text: "Discover Terra and connect with the best online psychic.",
-              url: "https://aheadterra.com",
-            };
-            if (navigator.share) navigator.share(shareData).catch(console.error);
-            else navigator.clipboard.writeText(shareData.url).then(() => alert("Link copied."));
-          }}
-        >
-          Share Terra
-        </button>
+    <main
+      className="profile-main"
+      style={{
+        display: "grid",
+        gridTemplateColumns: "minmax(280px, 320px) minmax(320px, 1fr)",
+        gap: "32px",
+        alignItems: "start",
+        justifyContent: "center",
+        padding: "40px 20px",
+      }}
+    >
+      <img
+        src="/images/Himanshu Tiwari.jpg"
+        alt="Himanshu Tiwari"
+        style={{
+          width: "100%",
+          maxWidth: 320,
+          height: 450,
+          objectFit: "cover",
+          borderRadius: "16px",
+          boxShadow: "0 10px 20px rgba(0,0,0,0.18)",
+        }}
+      />
+
+      <div style={{ maxWidth: 520 }}>
+        <h1 style={{ marginBottom: "1.5rem", color: "#2c3e50" }}>User Dashboard</h1>
         {user ? (
           <div className="profile-card">
             <h2>Profile Information</h2>
