@@ -42,7 +42,20 @@ export default function Home() {
 
   return (
     <main style={{ padding: 20, maxWidth: 600, margin: "40px auto" }}>
-      <h1>Service Marketplace</h1>
+      <h1
+        style={{
+          fontSize: "2.4rem",
+          fontWeight: 700,
+          textAlign: "center",
+          marginBottom: "1.5rem",
+          color: "#2c3e50",
+          lineHeight: 1.3,
+        }}
+      >
+        Get Your Unique Psychic and Jyotishvidya Reading
+        <br />
+        offered by the Best Online Psychic Himanshu Tiwari
+      </h1>
       {user ? ( // If logged in, show user info
         <>
           <p>Welcome, {user.name} ({user.role})!</p>
