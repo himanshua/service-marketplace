@@ -46,22 +46,24 @@ export default function Home() {
         <img className="hero-image" src="/images/Himanshu Tiwari.jpg" alt="Himanshu Tiwari" />
         <h1>Get Your Unique Psychic and Jyotishvidya Reading<br />offered by the Best Online Psychic Himanshu Tiwari</h1>
       </div>
-      {user ? ( // If logged in, show user info
-        <>
+      {user ? (
+        <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
           <p>Welcome, {user.name} ({user.role})!</p>
           <Link href="/profile" className="profile-btn">View Profile</Link>
           {" | "}
           <Link href="/services">
-            <button style={{ marginLeft: 8 }}>View Chat/Call Services</button>
+            <button style={{ margin: "0 8px" }}>View Chat/Call Services</button>
           </Link>
           {" | "}
-          <button onClick={() => { localStorage.clear(); router.push("/login"); }}>Logout</button>
-        </>
-      ) : ( // If not logged in, show links
-        <>
+          <button onClick={() => { localStorage.clear(); router.push("/login"); }}>
+            Logout
+          </button>
+        </div>
+      ) : (
+        <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
           <p>Please log in or sign up.</p>
           <Link href="/login">Login</Link> | <Link href="/signup">Signup</Link>
-        </>
+        </div>
       )}
     </main>
   );
