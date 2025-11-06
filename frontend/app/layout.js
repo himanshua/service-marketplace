@@ -8,8 +8,6 @@ import { useRouter, usePathname } from "next/navigation"; // Navigation hooks
 import "./globals.css";
 import NavBar from "./components/NavBar";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL
-
 export const metadata = {
   title: "Terra – Psychic & Jyotishvidya Readings",
   description: "Get your unique reading from Himanshu Tiwari.",
@@ -100,7 +98,7 @@ export default function RootLayout({ children }) { // Main layout component
     <html lang="en">
       <body>
         <NavBar />
-        <main style={{ minHeight: "100vh" }}>{loading ? <main style={{ padding: 20 }}>Loading…</main> : children}</main>
+        <main style={{ minHeight: "100vh" }}>{children}</main>
       </body>
     </html>
   );

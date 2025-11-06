@@ -9,55 +9,28 @@ export default function NavBar() {
   const router = useRouter();
   const pathname = usePathname();
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(() => {
-    if (typeof window === "undefined") return true;
-    return !!window.localStorage.getItem("token");
-  });
 
   useEffect(() => {
-    const sync = () => {
-      const stored = localStorage.getItem("user");
-      setUser(stored ? JSON.parse(stored) : null);
-    };
-
-    sync();
-
     const token = localStorage.getItem("token");
-    if (token) {
-      (async () => {
-        try {
-          const res = await fetch(`${API}/api/auth/me`, {
-            headers: { Authorization: `Bearer ${token}` },
-          });
-          const data = await res.json();
-          if (res.ok) setUser(data.user);
-          else if (res.status === 401) {
-            localStorage.clear();
-            setUser(null);
-            router.push("/login");
-          }
-        } catch (err) {
-          console.error("Auth check failed:", err);
-        } finally {
-          setLoading(false);
-        }
-      })();
-    } else {
-      setLoading(false);
+    if (!token) {
+      setUser(null);
+      return;
     }
-
-    window.addEventListener("storage", sync);
-    window.addEventListener("auth-storage", sync);
-    return () => {
-      window.removeEventListener("storage", sync);
-      window.removeEventListener("auth-storage", sync);
-    };
-  }, [router]);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("user");
-    setUser(stored ? JSON.parse(stored) : null);
-  }, [pathname]);
+    (async () => {
+      const res = await fetch(`${API}/api/auth/me`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) {
+        localStorage.clear();
+        setUser(null);
+        router.push("/login");
+        return;
+      }
+      const data = await res.json();
+      setUser(data.user);
+      localStorage.setItem("user", JSON.stringify(data.user));
+    })();
+  }, [router, pathname]);
 
   function logout() {
     localStorage.clear();
@@ -66,63 +39,60 @@ export default function NavBar() {
   }
 
   return (
-    <>
-      <nav
+    <nav
+      style={{
+        padding: "10px 20px",
+        borderBottom: "1px solid #ccc",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: "20px",
+      }}
+    >
+      <span
         style={{
-          padding: "10px 20px",
-          borderBottom: "1px solid #ccc",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "20px",
+          fontSize: "1.5rem",
+          fontWeight: 700,
+          color: "#1976d2",
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
         }}
       >
-        <span
-          style={{
-            fontSize: "1.5rem",
-            fontWeight: 700,
-            color: "#1976d2",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-          }}
-        >
-          Terra
-        </span>
+        Terra
+      </span>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
-          <Link href="/">Home</Link>
-          <span>|</span>
-          <Link href="/services">Services</Link>
-          {user ? (
-            <>
-              <span>|</span>
-              <span>Welcome, {user.name} ({user.role})</span>
-              <span>|</span>
-              <Link href="/profile">Dashboard</Link>
-              {user.role === "useradmin" && (
-                <>
-                  <span>|</span>
-                  <Link href="/services/create">Create Service</Link>
-                  <span>|</span>
-                  <Link href="/admin/services">Admin Services</Link>
-                  <span>|</span>
-                  <Link href="/admin/">Admin Dashboard</Link>
-                </>
-              )}
-              <span>|</span>
-              <button onClick={logout}>Logout</button>
-            </>
-          ) : (
-            <>
-              <span>|</span>
-              <Link href="/login">Login</Link>
-              <span>|</span>
-              <Link href="/signup">Signup</Link>
-            </>
-          )}
-        </div>
-      </nav>
-      {loading ? <main style={{ padding: 20 }}>Loading…</main> : null}
-    </>
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+        <Link href="/">Home</Link>
+        <span>|</span>
+        <Link href="/services">Services</Link>
+        {user ? (
+          <>
+            <span>|</span>
+            <span>Welcome, {user.name} ({user.role})</span>
+            <span>|</span>
+            <Link href="/profile">Dashboard</Link>
+            {user.role === "useradmin" && (
+              <>
+                <span>|</span>
+                <Link href="/services/create">Create Service</Link>
+                <span>|</span>
+                <Link href="/admin/services">Admin Services</Link>
+                <span>|</span>
+                <Link href="/admin/">Admin Dashboard</Link>
+              </>
+            )}
+            <span>|</span>
+            <button onClick={logout}>Logout</button>
+          </>
+        ) : (
+          <>
+            <span>|</span>
+            <Link href="/login">Login</Link>
+            <span>|</span>
+            <Link href="/signup">Signup</Link>
+          </>
+        )}
+      </div>
+    </nav>
   );
 }
