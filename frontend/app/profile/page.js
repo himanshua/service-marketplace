@@ -46,13 +46,8 @@ export default function Profile() {
   if (!user && !err) return <main className="profile-main">Loading…</main>;
 
   return (
-    <main className="profile-main profile-layout">
-      <img
-        src="/images/Himanshu Tiwari.jpg"
-        alt="Himanshu Tiwari"
-        className="profile-portrait"
-      />
-
+    <main className="hero-grid">
+      <img className="hero-image" src="/images/Himanshu Tiwari.jpg" alt="Himanshu Tiwari" />
       <div className="profile-content">
         <h1>User Dashboard</h1>
         <button
