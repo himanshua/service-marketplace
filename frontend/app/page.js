@@ -41,21 +41,43 @@ export default function Home() {
   if (loading) return <main style={{ padding: 20 }}>Loading…</main>; // Show loading
 
   return (
-    <main style={{ padding: 20, maxWidth: 600, margin: "40px auto" }}>
-      <h1
+    <main style={{ padding: 20, maxWidth: 700, margin: "40px auto" }}>
+      <div
         style={{
-          fontSize: "2.4rem",
-          fontWeight: 700,
-          textAlign: "center",
+          display: "flex",
+          alignItems: "center",
+          gap: "24px",
+          flexWrap: "wrap",
+          justifyContent: "center",
           marginBottom: "1.5rem",
-          color: "#2c3e50",
-          lineHeight: 1.3,
         }}
       >
-        Get Your Unique Psychic and Jyotishvidya Reading
-        <br />
-        offered by the Best Online Psychic Himanshu Tiwari
-      </h1>
+        <img
+          src="/images/Himanshu Tiwari.jpg"
+          alt="Himanshu Tiwari"
+          style={{
+            width: 140,
+            height: 140,
+            borderRadius: "12px",
+            objectFit: "cover",
+            boxShadow: "0 6px 12px rgba(0,0,0,0.15)",
+          }}
+        />
+        <h1
+          style={{
+            fontSize: "2.4rem",
+            fontWeight: 700,
+            textAlign: "center",
+            margin: 0,
+            color: "#2c3e50",
+            lineHeight: 1.3,
+          }}
+        >
+          Get Your Unique Psychic and Jyotishvidya Reading
+          <br />
+          offered by the Best Online Psychic Himanshu Tiwari
+        </h1>
+      </div>
       {user ? ( // If logged in, show user info
         <>
           <p>Welcome, {user.name} ({user.role})!</p>
