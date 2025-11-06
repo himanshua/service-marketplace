@@ -172,7 +172,7 @@ function ChatContent() {
               border: "none",
             }}
           >
-            Send
+            Send!
           </button>
         </div>
 
