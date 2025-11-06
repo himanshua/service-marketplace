@@ -1,12 +1,12 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { Suspense, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
-export default function ChatPage() {
+function ChatContent() {
   const searchParams = useSearchParams();
   const expertId = searchParams.get("expertId");
   const serviceTitle = searchParams.get("serviceTitle");
@@ -209,5 +209,13 @@ export default function ChatPage() {
         )}
       </div>
     </main>
+  );
+}
+
+export default function ChatPage() {
+  return (
+    <Suspense fallback={<main style={{ padding: 20 }}>Loading…</main>}>
+      <ChatContent />
+    </Suspense>
   );
 }
