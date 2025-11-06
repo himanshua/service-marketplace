@@ -9,6 +9,31 @@ import "./globals.css"; // Import global styles
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL
 
+export const metadata = {
+  title: "Terra – Psychic & Jyotishvidya Readings",
+  description: "Get your unique reading from Himanshu Tiwari.",
+  openGraph: {
+    title: "Terra – Psychic & Jyotishvidya Readings",
+    description: "Discover Terra and connect with the best online psychic.",
+    url: "https://aheadterra.com",
+    siteName: "Terra",
+    images: [
+      {
+        url: "https://aheadterra.com/images/Himanshu%20Tiwari.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terra – Psychic & Jyotishvidya Readings",
+    description: "Discover Terra and connect with the best online psychic.",
+    images: ["https://aheadterra.com/images/Himanshu%20Tiwari.jpg"],
+  },
+};
+
 export default function RootLayout({ children }) { // Main layout component
   const router = useRouter(); // Hook for navigation
   const pathname = usePathname();
