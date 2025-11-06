@@ -1,6 +1,6 @@
 // app/layout.js
 
-"use client"; // Client-side component for dynamic navigation
+//"use client"; // Client-side component for dynamic navigation
 
 import { useEffect, useState } from "react"; // React hooks 
 import Link from "next/link"; // Next.js Link component for navigation
