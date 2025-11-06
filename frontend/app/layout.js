@@ -5,7 +5,8 @@
 import { useEffect, useState } from "react"; // React hooks 
 import Link from "next/link"; // Next.js Link component for navigation
 import { useRouter, usePathname } from "next/navigation"; // Navigation hooks
-import "./globals.css"; // Import global styles
+import "./globals.css";
+import NavBar from "./components/NavBar";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL
 
@@ -97,61 +98,7 @@ export default function RootLayout({ children }) { // Main layout component
   return (
     <html lang="en">
       <body>
-        <nav
-          style={{
-            padding: "10px 20px",
-            borderBottom: "1px solid #ccc",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "20px",
-          }}
-        >
-          <span
-            style={{
-              fontSize: "1.5rem",
-              fontWeight: 700,
-              color: "#1976d2",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-            }}
-          >
-            Terra
-          </span>
-
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
-            <Link href="/">Home</Link>
-            <span>|</span>
-            <Link href="/services">Services</Link>
-            {user ? (
-              <>
-                <span>|</span>
-                <span>Welcome, {user.name} ({user.role})</span>
-                <span>|</span>
-                <Link href="/profile">Dashboard</Link>
-                {user.role === "useradmin" && (
-                  <>
-                    <span>|</span>
-                    <Link href="/services/create">Create Service</Link>
-                    <span>|</span>
-                    <Link href="/admin/services">Admin Services</Link>
-                    <span>|</span>
-                    <Link href="/admin/">Admin Dashboard</Link>
-                  </>
-                )}
-                <span>|</span>
-                <button onClick={logout}>Logout</button>
-              </>
-            ) : (
-              <>
-                <span>|</span>
-                <Link href="/login">Login</Link>
-                <span>|</span>
-                <Link href="/signup">Signup</Link>
-              </>
-            )}
-          </div>
-        </nav>
+        <NavBar />
         {loading ? <main style={{ padding: 20 }}>Loading…</main> : children}
       </body>
     </html>
