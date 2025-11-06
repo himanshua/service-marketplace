@@ -49,30 +49,29 @@ export default function Profile() {
     <main
       className="profile-main"
       style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "24px",
-        alignItems: "flex-start",
+        display: "grid",
+        gridTemplateColumns: "minmax(280px, 320px) minmax(320px, 1fr)",
+        gap: "32px",
+        alignItems: "start",
         justifyContent: "center",
-        padding: "20px 0",
+        padding: "40px 20px",
       }}
     >
       <img
         src="/images/Himanshu Tiwari.jpg"
         alt="Himanshu Tiwari"
         style={{
-          width: 300,
+          width: "100%",
+          maxWidth: 320,
           height: 450,
           objectFit: "cover",
           borderRadius: "16px",
           boxShadow: "0 10px 20px rgba(0,0,0,0.18)",
-          flexShrink: 0,
         }}
       />
 
-      <div style={{ maxWidth: 480, flex: "1 1 320px" }}>
+      <div style={{ maxWidth: 520 }}>
         <h1 style={{ marginBottom: "1.5rem", color: "#2c3e50" }}>User Dashboard</h1>
-
         {user ? (
           <div className="profile-card">
             <h2>Profile Information</h2>
