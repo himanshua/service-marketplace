@@ -1,7 +1,3 @@
-"use client"; // Client-side component for authenticated user dashboard
-
-import { useEffect, useState } from "react"; // React hooks: useEffect for side effects, useState for state
-import { useRouter } from "next/navigation"; // Next.js hook for navigation
 import "./profile.css"; // Import local styles for profile page
 import "../globals.css"; // Import local styles for profile page
 import ProfileClient from "./ProfileClient";
