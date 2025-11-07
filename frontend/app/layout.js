@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 export const metadata = {
   metadataBase: new URL("https://aheadterra.com"),
   title: "Terra – Psychic & Jyotishvidya Readings",
-  description: "Get your unique reading from Himanshu Tiwari.",
+  description: "Get your unique reading from Himanshu Tiwari! Connect now.",
   openGraph: {
     title: "Terra – Psychic & Jyotishvidya Readings",
     description: "Discover Terra and connect with the best online psychic.",
