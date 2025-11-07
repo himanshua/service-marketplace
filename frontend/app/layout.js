@@ -38,8 +38,7 @@ export default function RootLayout({ children }) {
             borderBottom: "1px solid #ccc",
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
-            gap: "20px",
+            gap: "12px",
           }}
         >
           <span
@@ -53,39 +52,36 @@ export default function RootLayout({ children }) {
           >
             Terra
           </span>
-
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
-            <Link href="/">Home</Link>
-            <span>|</span>
-            <Link href="/services">Services</Link>
-            {user ? (
-              <>
-                <span>|</span>
-                <span>Welcome, {user.name} ({user.role})</span>
-                <span>|</span>
-                <Link href="/profile">Dashboard</Link>
-                {user.role === "useradmin" && (
-                  <>
-                    <span>|</span>
-                    <Link href="/services/create">Create Service</Link>
-                    <span>|</span>
-                    <Link href="/admin/services">Admin Services</Link>
-                    <span>|</span>
-                    <Link href="/admin/">Admin Dashboard</Link>
-                  </>
-                )}
-                <span>|</span>
-                <button onClick={logout}>Logout</button>
-              </>
-            ) : (
-              <>
-                <span>|</span>
-                <Link href="/login">Login</Link>
-                <span>|</span>
-                <Link href="/signup">Signup</Link>
-              </>
-            )}
-          </div>
+          <Link href="/">Home</Link>
+          <span> | </span>
+          <Link href="/services">Services</Link>
+          {user ? (
+            <>
+              <span>|</span>
+              <span>Welcome, {user.name} ({user.role})</span>
+              <span>|</span>
+              <Link href="/profile">Dashboard</Link>
+              {user.role === "useradmin" && (
+                <>
+                  <span>|</span>
+                  <Link href="/services/create">Create Service</Link>
+                  <span>|</span>
+                  <Link href="/admin/services">Admin Services</Link>
+                  <span>|</span>
+                  <Link href="/admin/">Admin Dashboard</Link>
+                </>
+              )}
+              <span>|</span>
+              <button onClick={logout}>Logout</button>
+            </>
+          ) : (
+            <>
+              <span>|</span>
+              <Link href="/login">Login</Link>
+              <span>|</span>
+              <Link href="/signup">Signup</Link>
+            </>
+          )}
         </nav>
         {loading ? <main style={{ padding: 20 }}>Loading…</main> : children}
       </body>
