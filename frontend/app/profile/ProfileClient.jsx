@@ -52,7 +52,7 @@ export default function ProfileClient() {
             const shareData = {
               title: "Terra – Psychic & Jyotishvidya Readings",
               text: "Discover Terra and connect with the best online psychic.",
-              url: "https://aheadterra.com",
+              url: "https://aheadterra.com/profile",
             };
             if (navigator.share) navigator.share(shareData).catch(console.error);
             else navigator.clipboard.writeText(shareData.url).then(() => alert("Link copied."));
