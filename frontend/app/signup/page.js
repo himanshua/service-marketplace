@@ -72,9 +72,31 @@ async function handleSubmit(e) {// Handle form submission
         />
         <button type="submit">Signup</button>
       </form>
-      <p style={{ marginTop: "1rem", textAlign: "center" }}>
-        Already have an account?{" "}
-        <Link href="/login" style={{ color: "#111827", fontWeight: 600 }}>
+      <p
+        style={{
+          marginTop: "1.5rem",
+          textAlign: "center",
+          fontSize: "1rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.75rem",
+        }}
+      >
+        <span style={{ color: "#6b7280" }}>Already have an account?</span>
+        <Link
+          href="/login"
+          style={{
+            display: "inline-block",
+            padding: "12px 22px",
+            borderRadius: 999,
+            background: "#111827",
+            color: "#fff",
+            fontWeight: 700,
+            textDecoration: "none",
+            letterSpacing: "0.05em",
+            boxShadow: "0 12px 28px rgba(17, 24, 39, 0.35)",
+          }}
+        >
           Log in here
         </Link>
       </p>

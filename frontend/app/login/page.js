@@ -86,9 +86,31 @@ export default function Login() {
         />
         <button type="submit">Login</button>
       </form>
-      <p style={{ marginTop: "1rem", textAlign: "center" }}>
-        New to Terra?{" "}
-        <Link href="/signup" style={{ color: "#f97316", fontWeight: 600 }}>
+      <p
+        style={{
+          marginTop: "1.5rem",
+          textAlign: "center",
+          fontSize: "1rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.75rem",
+        }}
+      >
+        <span style={{ color: "#6b7280" }}>New to Terra?</span>
+        <Link
+          href="/signup"
+          style={{
+            display: "inline-block",
+            padding: "12px 22px",
+            borderRadius: 999,
+            background: "#f97316",
+            color: "#fff",
+            fontWeight: 700,
+            textDecoration: "none",
+            letterSpacing: "0.05em",
+            boxShadow: "0 12px 28px rgba(249, 115, 22, 0.35)",
+          }}
+        >
           Create your account
         </Link>
       </p>
