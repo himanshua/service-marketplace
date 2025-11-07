@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
           <span
             style={{
               fontSize: "1.5rem",
-              fontWeight: 700,
+              fontWeight: 900,
               color: "#1976d2",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
