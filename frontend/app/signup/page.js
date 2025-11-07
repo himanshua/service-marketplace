@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import{useRouter}from"next/navigation";
+import Link from "next/link";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/"; 
 
@@ -69,10 +70,14 @@ async function handleSubmit(e) {// Handle form submission
           onChange={handleChange}
           required
         />
-        <button type="submit" disabled={loading}> {/* Submit button */}
-          {loading ? "Signing up..." : "Signup"}
-        </button>
+        <button type="submit">Signup</button>
       </form>
+      <p style={{ marginTop: "1rem", textAlign: "center" }}>
+        Already have an account?{" "}
+        <Link href="/login" style={{ color: "#111827", fontWeight: 600 }}>
+          Log in here
+        </Link>
+      </p>
       {message && <p>{message}</p>} {/* Show message */}
     </main>
   );

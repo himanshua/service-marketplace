@@ -62,7 +62,37 @@ export default function Home() {
       ) : (
         <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
           <p>Please log in or sign up.</p>
-          <Link href="/login">Login</Link> | <Link href="/signup">Signup</Link>
+          <div style={{ display: "inline-flex", gap: "12px" }}>
+            <Link
+              href="/login"
+              style={{
+                padding: "10px 22px",
+                borderRadius: 999,
+                background: "#111827",
+                color: "#fff",
+                textDecoration: "none",
+                fontWeight: 600,
+                letterSpacing: "0.05em",
+              }}
+            >
+              Login
+            </Link>
+            <Link
+              href="/signup"
+              style={{
+                padding: "10px 22px",
+                borderRadius: 999,
+                background: "#f97316",
+                color: "#fff",
+                textDecoration: "none",
+                fontWeight: 600,
+                letterSpacing: "0.05em",
+                boxShadow: "0 10px 25px rgba(249, 115, 22, 0.35)",
+              }}
+            >
+              Signup
+            </Link>
+          </div>
         </div>
       )}
     </main>

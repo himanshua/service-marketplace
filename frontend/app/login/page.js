@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react"; // Import React and useState hook for managing component state
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -83,10 +84,14 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit" disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
-        </button>
+        <button type="submit">Login</button>
       </form>
+      <p style={{ marginTop: "1rem", textAlign: "center" }}>
+        New to Terra?{" "}
+        <Link href="/signup" style={{ color: "#f97316", fontWeight: 600 }}>
+          Create your account
+        </Link>
+      </p>
       {message && <p>{message}</p>}
     </main>
   );
