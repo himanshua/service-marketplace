@@ -1,3 +1,4 @@
+"use client"; // Client-side component for authenticated user dashboard
 
 import { useEffect, useState } from "react"; // React hooks: useEffect for side effects, useState for state
 import { useRouter } from "next/navigation"; // Next.js hook for navigation
