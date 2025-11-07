@@ -7,6 +7,29 @@ import "../globals.css"; // Import local styles for profile page
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL from env, fallback to localhost
 
+export const metadata = {
+  title: "Your Terra Profile",
+  description: "Manage your bookings and readings.",
+  openGraph: {
+    title: "Your Terra Profile",
+    description: "Manage your Terra bookings and readings.",
+    url: "https://aheadterra.com/profile",
+    images: [
+      {
+        url: "https://aheadterra.com/images/himanshu-tiwari-og.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Your Terra Profile",
+    description: "Manage your Terra bookings and readings.",
+    images: ["https://aheadterra.com/images/himanshu-tiwari-og.jpg"],
+  },
+};
+
 export default function Profile() {
   const router = useRouter(); // Hook to navigate between pages
   const [user, setUser] = useState(null); // State to hold user data from API
