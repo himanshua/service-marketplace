@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useMemo, useState, useCallback } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -19,7 +19,6 @@ function ChatContent() {
   const [returnUrl, setReturnUrl] = useState("");
   const [cancelUrl, setCancelUrl] = useState("");
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-  const router = useRouter();
 
   const paidKey = useMemo(() => (expertId ? `chat-paid-${expertId}` : null), [expertId]);
   const pendingStorageKey = useMemo(
@@ -27,14 +26,15 @@ function ChatContent() {
     [paidKey]
   );
 
-   const sanitizeRoute = useCallback(() => {
+  const sanitizeRoute = useCallback(() => {
+    if (typeof window === "undefined") return;
     const params = new URLSearchParams();
     if (expertId) params.set("expertId", expertId);
     if (serviceTitle) params.set("serviceTitle", serviceTitle);
     const cleanPath = params.toString() ? `/chat?${params.toString()}` : "/chat";
-    router.replace(cleanPath, { scroll: false });
-  }, [router, expertId, serviceTitle]);
-  
+    window.history.replaceState(null, "", cleanPath);
+  }, [expertId, serviceTitle]);
+
   useEffect(() => {
     if (!pendingStorageKey || typeof window === "undefined") return;
     const storedDraft = sessionStorage.getItem(pendingStorageKey);
