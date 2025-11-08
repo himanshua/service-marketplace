@@ -123,7 +123,7 @@ function ChatContent() {
         <p style={{ marginTop: 12, color: "#444", lineHeight: 1.5 }}>
           Kindly provide your birth details and question below. I will respond to your inquiry as quickly as possible.
           <br />
-          Please also remit the $3 fee via PayPal to complete your request soon.
+          Please also remit the $50 fee via PayPal to complete your request soon.
         </p>
         <div
           style={{
@@ -191,7 +191,7 @@ function ChatContent() {
               value={`Consultation with ${expertName || "Expert"}`}
             />
             <input type="hidden" name="currency_code" value="USD" />
-            <input type="hidden" name="amount" value="3.00" />
+            <input type="hidden" name="amount" value="50.00" />
             <button
               type="submit"
               style={{
