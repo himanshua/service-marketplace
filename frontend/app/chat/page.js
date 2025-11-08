@@ -264,7 +264,7 @@ function ChatContent() {
               style={{ display: "flex", flexDirection: "column", gap: 12 }}
             >
               <input type="hidden" name="cmd" value="_xclick" />
-              <input type="hidden" name="business" value="btech.lucknow@gmail.com" />
+              <input type="hidden" name="business" value="sb-qsfqi47281361@business.example.com" />
               <input
                 type="hidden"
                 name="item_name"
