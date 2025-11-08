@@ -1,11 +1,12 @@
 "use client";
 
 import { Suspense, useEffect, useMemo, useState, useCallback } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 function ChatContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const expertId = searchParams.get("expertId");
   const serviceTitle = searchParams.get("serviceTitle");
@@ -57,18 +58,19 @@ function ChatContent() {
       if (typeof window !== "undefined") {
         sessionStorage.setItem(paidKey, "true");
         if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
-        window.history.replaceState(null, "", basePath);
       }
+
+      router.replace(basePath, { scroll: false });
     }
 
     if (paymentStatus === "cancel") {
       setShowPaymentPrompt(false);
       if (typeof window !== "undefined" && pendingStorageKey) {
         sessionStorage.removeItem(pendingStorageKey);
-        window.history.replaceState(null, "", basePath);
       }
+      router.replace(basePath, { scroll: false });
     }
-  }, [payerId, paymentStatus, paidKey, pendingStorageKey, basePath]);
+  }, [payerId, paymentStatus, paidKey, pendingStorageKey, basePath, router]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
