@@ -62,9 +62,7 @@ function ChatContent() {
       setShowPaymentPrompt(false);
       if (typeof window !== "undefined") {
         sessionStorage.setItem(paidKey, "true");
-        if (pendingStorageKey) {
-          sessionStorage.setItem("send-after-redirect", pendingStorageKey);
-        }
+        if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
       }
     }
 
@@ -73,11 +71,18 @@ function ChatContent() {
     }
 
     if (typeof window !== "undefined") {
-      const cleanUrl = `${window.location.pathname}${baseQuery ? `?${baseQuery}` : ""}`;
-      window.history.replaceState(null, "", cleanUrl);
+      const origin = window.location.origin;
+      let clean = window.location.href;
+      const payerIdx = clean.indexOf("&PayerID=");
+      if (payerIdx !== -1) clean = clean.slice(0, payerIdx);
+      const paymentIdx = clean.indexOf("&payment=");
+      if (paymentIdx !== -1) clean = clean.slice(0, paymentIdx);
+      const relative = clean.startsWith(origin) ? clean.slice(origin.length) : clean;
+      const target = relative || "/chat";
+      window.history.replaceState(null, "", target);
+      router.replace(target, { scroll: false });
     }
-    router.replace(basePath, { scroll: false });
-  }, [payerId, paymentStatus, paidKey, pendingStorageKey, baseQuery, basePath, router]);
+  }, [payerId, paymentStatus, paidKey, pendingStorageKey, router]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
