@@ -54,9 +54,10 @@ function ChatContent() {
     if (payerId || paymentStatus === "cancel") {
       if (typeof window !== "undefined") {
         const url = new URL(window.location.href);
-        url.searchParams.delete("payment");
-        url.searchParams.delete("PayerID");
-        const clean = `${url.pathname}${url.search ? `?${url.searchParams.toString()}` : ""}`;
+        const cleanParams = new URLSearchParams();
+        if (expertId) cleanParams.set("expertId", expertId);
+        if (serviceTitle) cleanParams.set("serviceTitle", serviceTitle);
+        const clean = `${url.pathname}${cleanParams.toString() ? `?${cleanParams.toString()}` : ""}`;
         window.history.replaceState(null, "", clean);
         router.replace(clean, { scroll: false });
       }
@@ -74,7 +75,7 @@ function ChatContent() {
     if (paymentStatus === "cancel" && typeof window !== "undefined" && pendingStorageKey) {
       sessionStorage.removeItem(pendingStorageKey);
     }
-  }, [payerId, paymentStatus, paidKey, pendingStorageKey, router]);
+  }, [payerId, paymentStatus, paidKey, pendingStorageKey, router, expertId, serviceTitle]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
