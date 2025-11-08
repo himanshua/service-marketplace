@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -18,10 +18,15 @@ function ChatContent() {
   const [showPaymentPrompt, setShowPaymentPrompt] = useState(false);
   const [returnUrl, setReturnUrl] = useState("");
   const [cancelUrl, setCancelUrl] = useState("");
+  const [pendingMessage, setPendingMessage] = useState("");
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
   const router = useRouter();
 
   const paidKey = useMemo(() => (expertId ? `chat-paid-${expertId}` : null), [expertId]);
+  const pendingStorageKey = useMemo(
+    () => (paidKey ? `${paidKey}-pending` : null),
+    [paidKey]
+  );
 
   useEffect(() => {
     if (paidKey && typeof window !== "undefined") {
@@ -33,8 +38,9 @@ function ChatContent() {
   useEffect(() => {
     if (paymentStatus === "success" && paidKey) {
       setHasPaid(true);
+      setShowPaymentPrompt(false);
       if (typeof window !== "undefined") {
-        sessionStorage.setItem(paidKey, "true");
+        if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", "true");
         const url = new URL(window.location.href);
         url.searchParams.delete("payment");
         router.replace(url.toString());
@@ -42,6 +48,10 @@ function ChatContent() {
     }
     if (paymentStatus === "cancel" && paidKey) {
       setShowPaymentPrompt(false);
+      setPendingMessage("");
+      if (typeof window !== "undefined" && pendingStorageKey) {
+        sessionStorage.removeItem(pendingStorageKey);
+      }
       if (typeof window !== "undefined") {
         const url = new URL(window.location.href);
         url.searchParams.delete("payment");
@@ -114,29 +124,61 @@ function ChatContent() {
     fetchMessages();
   }, [expertId, token]);
 
+  const sendMessageToServer = useCallback(
+    async (content) => {
+      if (!expertId || !token) return;
+      setMessage("");
+      setPendingMessage("");
+      if (pendingStorageKey && typeof window !== "undefined") {
+        sessionStorage.removeItem(pendingStorageKey);
+      }
+
+      const res = await fetch(`${API}/api/chat/${expertId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ text: content }),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        setMessages((prev) => [
+          ...prev,
+          ...(data.customerMessage ? [data.customerMessage] : []),
+          ...(data.expertMessage ? [data.expertMessage] : []),
+        ]);
+      }
+    },
+    [expertId, token, pendingStorageKey]
+  );
+
+  useEffect(() => {
+    if (hasPaid && pendingStorageKey && typeof window !== "undefined") {
+      const shouldSend = sessionStorage.getItem("send-after-redirect");
+      const stored = sessionStorage.getItem(pendingStorageKey);
+      if (stored && shouldSend === "true") {
+        sessionStorage.removeItem("send-after-redirect");
+        sendMessageToServer(stored);
+      }
+    }
+  }, [hasPaid, pendingStorageKey, sendMessageToServer]);
+
   async function sendMessage() {
     if (!message.trim()) return;
+    const content = message.trim();
+
     if (!hasPaid) {
       setShowPaymentPrompt(true);
+      setPendingMessage(content);
+      if (pendingStorageKey && typeof window !== "undefined") {
+        sessionStorage.setItem(pendingStorageKey, content);
+      }
       return;
     }
 
-    const content = message.trim();
-    setMessage("");
-
-    const res = await fetch(`${API}/api/chat/${expertId}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ text: content }),
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      setMessages((prev) => [...prev, data.customerMessage, data.expertMessage]);
-    }
+    await sendMessageToServer(content);
   }
 
   return (
@@ -290,7 +332,13 @@ function ChatContent() {
               </button>
             </form>
             <button
-              onClick={() => setShowPaymentPrompt(false)}
+              onClick={() => {
+                setShowPaymentPrompt(false);
+                setPendingMessage("");
+                if (pendingStorageKey && typeof window !== "undefined") {
+                  sessionStorage.removeItem(pendingStorageKey);
+                }
+              }}
               style={{
                 marginTop: 16,
                 padding: "10px 18px",
