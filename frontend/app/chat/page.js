@@ -246,7 +246,7 @@ function ChatContent() {
                 {msg.text}
               </div>
             ))
-          }
+          )}
         </div>
 
         <div style={{ display: "flex" }}>
