@@ -31,9 +31,8 @@ function ChatContent() {
     const params = new URLSearchParams();
     if (expertId) params.set("expertId", expertId);
     if (serviceTitle) params.set("serviceTitle", serviceTitle);
-    const query = params.toString();
-    const path = query ? `/chat?${query}` : "/chat";
-    router.replace(path, { scroll: false });
+    const cleanPath = params.toString() ? `/chat?${params.toString()}` : "/chat";
+    router.replace(cleanPath, { scroll: false });
   }, [router, expertId, serviceTitle]);
 
   useEffect(() => {
@@ -248,7 +247,7 @@ function ChatContent() {
                 {msg.text}
               </div>
             ))
-          )}
+          }
         </div>
 
         <div style={{ display: "flex" }}>
