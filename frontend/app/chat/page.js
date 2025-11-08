@@ -27,14 +27,14 @@ function ChatContent() {
     [paidKey]
   );
 
-  const sanitizeRoute = useCallback(() => {
+   const sanitizeRoute = useCallback(() => {
     const params = new URLSearchParams();
     if (expertId) params.set("expertId", expertId);
     if (serviceTitle) params.set("serviceTitle", serviceTitle);
     const cleanPath = params.toString() ? `/chat?${params.toString()}` : "/chat";
     router.replace(cleanPath, { scroll: false });
   }, [router, expertId, serviceTitle]);
-
+  
   useEffect(() => {
     if (!pendingStorageKey || typeof window === "undefined") return;
     const storedDraft = sessionStorage.getItem(pendingStorageKey);
@@ -247,7 +247,7 @@ function ChatContent() {
                 {msg.text}
               </div>
             ))
-          }
+          )}
         </div>
 
         <div style={{ display: "flex" }}>
