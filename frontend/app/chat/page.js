@@ -62,7 +62,9 @@ function ChatContent() {
       setShowPaymentPrompt(false);
       if (typeof window !== "undefined") {
         sessionStorage.setItem(paidKey, "true");
-        if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
+        if (pendingStorageKey) {
+          sessionStorage.setItem("send-after-redirect", pendingStorageKey);
+        }
       }
     }
 
@@ -71,18 +73,10 @@ function ChatContent() {
     }
 
     if (typeof window !== "undefined") {
-      const origin = window.location.origin;
-      let clean = window.location.href;
-      const payerIdx = clean.indexOf("&PayerID=");
-      if (payerIdx !== -1) clean = clean.slice(0, payerIdx);
-      const paymentIdx = clean.indexOf("&payment=");
-      if (paymentIdx !== -1) clean = clean.slice(0, paymentIdx);
-      const relative = clean.startsWith(origin) ? clean.slice(origin.length) : clean;
-      const target = relative || "/chat";
-      window.history.replaceState(null, "", target);
-      router.replace(target, { scroll: false });
+      window.history.replaceState(null, "", basePath);
     }
-  }, [payerId, paymentStatus, paidKey, pendingStorageKey, router]);
+    router.replace(basePath, { scroll: false });
+  }, [payerId, paymentStatus, paidKey, pendingStorageKey, basePath, router]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -264,9 +258,10 @@ function ChatContent() {
             type="text"
             value={message}
             onChange={(e) => {
-              setMessage(e.target.value);
+              const next = e.target.value;
+              setMessage(next);
               if (pendingStorageKey && typeof window !== "undefined") {
-                sessionStorage.setItem(pendingStorageKey, e.target.value);
+                sessionStorage.setItem(pendingStorageKey, next);
               }
             }}
             placeholder="Type your message…"
@@ -275,7 +270,7 @@ function ChatContent() {
               padding: 12,
               marginRight: 8,
               borderRadius: 4,
-              border: "1px solid #ccc",
+              border: "1px solid "#ccc",
             }}
           />
           <button
