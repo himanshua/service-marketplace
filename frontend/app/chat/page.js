@@ -27,6 +27,14 @@ function ChatContent() {
     [paidKey]
   );
 
+  const sanitizeRoute = useCallback(() => {
+    const params = new URLSearchParams();
+    if (expertId) params.set("expertId", expertId);
+    if (serviceTitle) params.set("serviceTitle", serviceTitle);
+    const query = params.toString();
+    router.replace(query ? `/chat?${query}` : "/chat");
+  }, [router, expertId, serviceTitle]);
+
   useEffect(() => {
     if (!pendingStorageKey || typeof window === "undefined") return;
     const storedDraft = sessionStorage.getItem(pendingStorageKey);
@@ -48,11 +56,9 @@ function ChatContent() {
       if (typeof window !== "undefined") {
         sessionStorage.setItem(paidKey, "true");
         if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
-
-        const url = new URL(window.location.href);
-        url.searchParams.delete("payment");
-        router.replace(url.toString());
       }
+
+      sanitizeRoute();
     }
 
     if (paymentStatus === "cancel") {
@@ -60,13 +66,9 @@ function ChatContent() {
       if (typeof window !== "undefined" && pendingStorageKey) {
         sessionStorage.removeItem(pendingStorageKey);
       }
-      if (typeof window !== "undefined") {
-        const url = new URL(window.location.href);
-        url.searchParams.delete("payment");
-        router.replace(url.toString());
-      }
+      sanitizeRoute();
     }
-  }, [paymentStatus, paidKey, router, pendingStorageKey]);
+  }, [paymentStatus, paidKey, pendingStorageKey, sanitizeRoute]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -245,7 +247,7 @@ function ChatContent() {
                 {msg.text}
               </div>
             ))
-          )}
+          }
         </div>
 
         <div style={{ display: "flex" }}>
