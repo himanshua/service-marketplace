@@ -58,6 +58,7 @@ function ChatContent() {
       if (typeof window !== "undefined") {
         sessionStorage.setItem(paidKey, "true");
         if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
+        window.history.replaceState(null, "", basePath);
       }
 
       router.replace(basePath, { scroll: false });
@@ -67,6 +68,7 @@ function ChatContent() {
       setShowPaymentPrompt(false);
       if (typeof window !== "undefined" && pendingStorageKey) {
         sessionStorage.removeItem(pendingStorageKey);
+        window.history.replaceState(null, "", basePath);
       }
       router.replace(basePath, { scroll: false });
     }
@@ -244,7 +246,7 @@ function ChatContent() {
                 {msg.text}
               </div>
             ))
-          )}
+          }
         </div>
 
         <div style={{ display: "flex" }}>
