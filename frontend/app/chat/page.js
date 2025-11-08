@@ -18,7 +18,6 @@ function ChatContent() {
   const [showPaymentPrompt, setShowPaymentPrompt] = useState(false);
   const [returnUrl, setReturnUrl] = useState("");
   const [cancelUrl, setCancelUrl] = useState("");
-  const [pendingMessage, setPendingMessage] = useState("");
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
   const router = useRouter();
 
@@ -29,26 +28,35 @@ function ChatContent() {
   );
 
   useEffect(() => {
-    if (paidKey && typeof window !== "undefined") {
-      const saved = sessionStorage.getItem(paidKey);
-      if (saved === "true") setHasPaid(true);
-    }
+    if (!pendingStorageKey || typeof window === "undefined") return;
+    const storedDraft = sessionStorage.getItem(pendingStorageKey);
+    if (storedDraft) setMessage(storedDraft);
+  }, [pendingStorageKey]);
+
+  useEffect(() => {
+    if (!paidKey || typeof window === "undefined") return;
+    if (sessionStorage.getItem(paidKey) === "true") setHasPaid(true);
   }, [paidKey]);
 
   useEffect(() => {
-    if (paymentStatus === "success" && paidKey) {
+    if (!paidKey) return;
+
+    if (paymentStatus === "success") {
       setHasPaid(true);
       setShowPaymentPrompt(false);
+
       if (typeof window !== "undefined") {
-        if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", "true");
+        sessionStorage.setItem(paidKey, "true");
+        if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
+
         const url = new URL(window.location.href);
         url.searchParams.delete("payment");
         router.replace(url.toString());
       }
     }
-    if (paymentStatus === "cancel" && paidKey) {
+
+    if (paymentStatus === "cancel") {
       setShowPaymentPrompt(false);
-      setPendingMessage("");
       if (typeof window !== "undefined" && pendingStorageKey) {
         sessionStorage.removeItem(pendingStorageKey);
       }
@@ -58,68 +66,65 @@ function ChatContent() {
         router.replace(url.toString());
       }
     }
-  }, [paymentStatus, paidKey, router]);
+  }, [paymentStatus, paidKey, router, pendingStorageKey]);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams();
-      if (expertId) params.set("expertId", expertId);
-      if (serviceTitle) params.set("serviceTitle", serviceTitle);
-      params.set("payment", "success");
-      setReturnUrl(`${window.location.origin}/chat?${params.toString()}`);
+    if (typeof window === "undefined") return;
 
-      const cancelParams = new URLSearchParams();
-      if (expertId) cancelParams.set("expertId", expertId);
-      if (serviceTitle) cancelParams.set("serviceTitle", serviceTitle);
-      cancelParams.set("payment", "cancel");
-      setCancelUrl(`${window.location.origin}/chat?${cancelParams.toString()}`);
-    }
+    const successParams = new URLSearchParams();
+    if (expertId) successParams.set("expertId", expertId);
+    if (serviceTitle) successParams.set("serviceTitle", serviceTitle);
+    successParams.set("payment", "success");
+    setReturnUrl(`${window.location.origin}/chat?${successParams.toString()}`);
+
+    const cancelParams = new URLSearchParams();
+    if (expertId) cancelParams.set("expertId", expertId);
+    if (serviceTitle) cancelParams.set("serviceTitle", serviceTitle);
+    cancelParams.set("payment", "cancel");
+    setCancelUrl(`${window.location.origin}/chat?${cancelParams.toString()}`);
   }, [expertId, serviceTitle]);
 
   useEffect(() => {
     async function fetchExpert() {
-      if (expertId && token) {
-        const res = await fetch(`${API}/api/auth/experts/${expertId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await res.json();
-        setExpertName(data.expert?.name || "Expert");
-      }
+      if (!expertId || !token) return;
+      const res = await fetch(`${API}/api/auth/experts/${expertId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      setExpertName(data.expert?.name || "Expert");
     }
     fetchExpert();
   }, [expertId, token]);
 
   useEffect(() => {
     async function fetchUser() {
-      if (token) {
-        const res = await fetch(`${API}/api/auth/me`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        const data = await res.json();
-        setUserName(data.user?.name || "You");
-      }
+      if (!token) return;
+      const res = await fetch(`${API}/api/auth/me`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      setUserName(data.user?.name || "You");
     }
     fetchUser();
   }, [token]);
 
   useEffect(() => {
     async function fetchMessages() {
-      if (expertId && token) {
-        const res = await fetch(`${API}/api/chat/${expertId}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        const data = await res.json();
-        const normalized = (data.messages ?? [])
-          .filter(Boolean)
-          .map((msg) => ({
-            sender: msg.sender ?? (msg.expert ? "expert" : "customer"),
-            text: msg.text ?? "",
-          }));
-        setMessages(normalized);
-      }
+      if (!expertId || !token) return;
+      const res = await fetch(`${API}/api/chat/${expertId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      const normalized = (data.messages ?? [])
+        .filter(Boolean)
+        .map((msg) => ({
+          sender: msg.sender ?? (msg.expert ? "expert" : "customer"),
+          text: msg.text ?? "",
+        }));
+      setMessages(normalized);
     }
     fetchMessages();
   }, [expertId, token]);
@@ -127,10 +132,11 @@ function ChatContent() {
   const sendMessageToServer = useCallback(
     async (content) => {
       if (!expertId || !token) return;
+
       setMessage("");
-      setPendingMessage("");
       if (pendingStorageKey && typeof window !== "undefined") {
         sessionStorage.removeItem(pendingStorageKey);
+        sessionStorage.removeItem("send-after-redirect");
       }
 
       const res = await fetch(`${API}/api/chat/${expertId}`, {
@@ -155,11 +161,12 @@ function ChatContent() {
   );
 
   useEffect(() => {
-    if (hasPaid && pendingStorageKey && typeof window !== "undefined") {
-      const shouldSend = sessionStorage.getItem("send-after-redirect");
+    if (!hasPaid || !pendingStorageKey || typeof window === "undefined") return;
+
+    const targetKey = sessionStorage.getItem("send-after-redirect");
+    if (targetKey === pendingStorageKey) {
       const stored = sessionStorage.getItem(pendingStorageKey);
-      if (stored && shouldSend === "true") {
-        sessionStorage.removeItem("send-after-redirect");
+      if (stored) {
         sendMessageToServer(stored);
       }
     }
@@ -171,7 +178,6 @@ function ChatContent() {
 
     if (!hasPaid) {
       setShowPaymentPrompt(true);
-      setPendingMessage(content);
       if (pendingStorageKey && typeof window !== "undefined") {
         sessionStorage.setItem(pendingStorageKey, content);
       }
@@ -246,7 +252,12 @@ function ChatContent() {
           <input
             type="text"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e) => {
+              setMessage(e.target.value);
+              if (pendingStorageKey && typeof window !== "undefined") {
+                sessionStorage.setItem(pendingStorageKey, e.target.value);
+              }
+            }}
             placeholder="Type your message…"
             style={{
               flex: 1,
@@ -302,10 +313,10 @@ function ChatContent() {
             <form
               action="https://www.sandbox.paypal.com/cgi-bin/webscr"
               method="post"
-              target="_blank"
               style={{ display: "flex", flexDirection: "column", gap: 12 }}
             >
               <input type="hidden" name="cmd" value="_xclick" />
+              <input type="hidden" name="rm" value="2" />
               <input type="hidden" name="business" value="sb-qsfqi47281361@business.example.com" />
               <input
                 type="hidden"
@@ -334,7 +345,6 @@ function ChatContent() {
             <button
               onClick={() => {
                 setShowPaymentPrompt(false);
-                setPendingMessage("");
                 if (pendingStorageKey && typeof window !== "undefined") {
                   sessionStorage.removeItem(pendingStorageKey);
                 }
