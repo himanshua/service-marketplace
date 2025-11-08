@@ -51,30 +51,28 @@ function ChatContent() {
   useEffect(() => {
     if (!paidKey) return;
 
+    if (payerId || paymentStatus === "cancel") {
+      if (typeof window !== "undefined") {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("payment");
+        url.searchParams.delete("PayerID");
+        const clean = `${url.pathname}${url.search ? `?${url.searchParams.toString()}` : ""}`;
+        window.history.replaceState(null, "", clean);
+        router.replace(clean, { scroll: false });
+      }
+    }
+
     if (payerId) {
       setHasPaid(true);
       setShowPaymentPrompt(false);
-
       if (typeof window !== "undefined") {
         sessionStorage.setItem(paidKey, "true");
         if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
       }
     }
 
-    if (paymentStatus === "cancel") {
-      setShowPaymentPrompt(false);
-      if (typeof window !== "undefined" && pendingStorageKey) {
-        sessionStorage.removeItem(pendingStorageKey);
-      }
-    }
-
-    if ((payerId || paymentStatus === "cancel") && typeof window !== "undefined") {
-      const current = new URL(window.location.href);
-      current.searchParams.delete("payment");
-      current.searchParams.delete("PayerID");
-      const cleanPath = `${current.pathname}${current.search}`;
-      window.history.replaceState(null, "", cleanPath);
-      router.replace(cleanPath, { scroll: false });
+    if (paymentStatus === "cancel" && typeof window !== "undefined" && pendingStorageKey) {
+      sessionStorage.removeItem(pendingStorageKey);
     }
   }, [payerId, paymentStatus, paidKey, pendingStorageKey, router]);
 
