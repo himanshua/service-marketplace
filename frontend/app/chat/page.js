@@ -58,21 +58,25 @@ function ChatContent() {
       if (typeof window !== "undefined") {
         sessionStorage.setItem(paidKey, "true");
         if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
-        window.history.replaceState(null, "", basePath);
       }
-
-      router.replace(basePath, { scroll: false });
     }
 
     if (paymentStatus === "cancel") {
       setShowPaymentPrompt(false);
       if (typeof window !== "undefined" && pendingStorageKey) {
         sessionStorage.removeItem(pendingStorageKey);
-        window.history.replaceState(null, "", basePath);
       }
-      router.replace(basePath, { scroll: false });
     }
-  }, [payerId, paymentStatus, paidKey, pendingStorageKey, basePath, router]);
+
+    if ((payerId || paymentStatus === "cancel") && typeof window !== "undefined") {
+      const current = new URL(window.location.href);
+      current.searchParams.delete("payment");
+      current.searchParams.delete("PayerID");
+      const cleanPath = `${current.pathname}${current.search}`;
+      window.history.replaceState(null, "", cleanPath);
+      router.replace(cleanPath, { scroll: false });
+    }
+  }, [payerId, paymentStatus, paidKey, pendingStorageKey, router]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
