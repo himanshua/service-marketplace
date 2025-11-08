@@ -322,7 +322,6 @@ function ChatContent() {
               style={{ display: "flex", flexDirection: "column", gap: 12 }}
             >
               <input type="hidden" name="cmd" value="_xclick" />
-              <input type="hidden" name="rm" value="2" />
               <input type="hidden" name="business" value="sb-qsfqi47281361@business.example.com" />
               <input
                 type="hidden"
@@ -333,6 +332,7 @@ function ChatContent() {
               <input type="hidden" name="amount" value="50.00" />
               <input type="hidden" name="return" value={returnUrl} />
               <input type="hidden" name="cancel_return" value={cancelUrl} />
+              <input type="hidden" name="rm" value="0" />
               <button
                 type="submit"
                 style={{
