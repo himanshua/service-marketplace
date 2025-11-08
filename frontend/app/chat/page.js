@@ -32,7 +32,8 @@ function ChatContent() {
     if (expertId) params.set("expertId", expertId);
     if (serviceTitle) params.set("serviceTitle", serviceTitle);
     const query = params.toString();
-    router.replace(query ? `/chat?${query}` : "/chat");
+    const path = query ? `/chat?${query}` : "/chat";
+    router.replace(path, { scroll: false });
   }, [router, expertId, serviceTitle]);
 
   useEffect(() => {
