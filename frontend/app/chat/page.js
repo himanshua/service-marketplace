@@ -10,6 +10,7 @@ function ChatContent() {
   const expertId = searchParams.get("expertId");
   const serviceTitle = searchParams.get("serviceTitle");
   const paymentStatus = searchParams.get("payment");
+  const payerId = searchParams.get("PayerID");
   const [expertName, setExpertName] = useState("");
   const [userName, setUserName] = useState("");
   const [message, setMessage] = useState("");
@@ -26,14 +27,14 @@ function ChatContent() {
     [paidKey]
   );
 
-  const sanitizeRoute = useCallback(() => {
-    if (typeof window === "undefined") return;
+  const baseQuery = useMemo(() => {
     const params = new URLSearchParams();
     if (expertId) params.set("expertId", expertId);
     if (serviceTitle) params.set("serviceTitle", serviceTitle);
-    const cleanPath = params.toString() ? `/chat?${params.toString()}` : "/chat";
-    window.history.replaceState(null, "", cleanPath);
+    return params.toString();
   }, [expertId, serviceTitle]);
+
+  const basePath = useMemo(() => (baseQuery ? `/chat?${baseQuery}` : "/chat"), [baseQuery]);
 
   useEffect(() => {
     if (!pendingStorageKey || typeof window === "undefined") return;
@@ -49,42 +50,36 @@ function ChatContent() {
   useEffect(() => {
     if (!paidKey) return;
 
-    if (paymentStatus === "success") {
+    if (payerId) {
       setHasPaid(true);
       setShowPaymentPrompt(false);
 
       if (typeof window !== "undefined") {
         sessionStorage.setItem(paidKey, "true");
         if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
+        window.history.replaceState(null, "", basePath);
       }
-
-      sanitizeRoute();
     }
 
     if (paymentStatus === "cancel") {
       setShowPaymentPrompt(false);
       if (typeof window !== "undefined" && pendingStorageKey) {
         sessionStorage.removeItem(pendingStorageKey);
+        window.history.replaceState(null, "", basePath);
       }
-      sanitizeRoute();
     }
-  }, [paymentStatus, paidKey, pendingStorageKey, sanitizeRoute]);
+  }, [payerId, paymentStatus, paidKey, pendingStorageKey, basePath]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const successParams = new URLSearchParams();
-    if (expertId) successParams.set("expertId", expertId);
-    if (serviceTitle) successParams.set("serviceTitle", serviceTitle);
-    successParams.set("payment", "success");
-    setReturnUrl(`${window.location.origin}/chat?${successParams.toString()}`);
+    const origin = window.location.origin;
+    setReturnUrl(`${origin}${basePath}`);
 
-    const cancelParams = new URLSearchParams();
-    if (expertId) cancelParams.set("expertId", expertId);
-    if (serviceTitle) cancelParams.set("serviceTitle", serviceTitle);
+    const cancelParams = new URLSearchParams(baseQuery);
     cancelParams.set("payment", "cancel");
-    setCancelUrl(`${window.location.origin}/chat?${cancelParams.toString()}`);
-  }, [expertId, serviceTitle]);
+    setCancelUrl(`${origin}/chat?${cancelParams.toString()}`);
+  }, [basePath, baseQuery]);
 
   useEffect(() => {
     async function fetchExpert() {
