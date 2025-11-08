@@ -270,7 +270,7 @@ function ChatContent() {
               padding: 12,
               marginRight: 8,
               borderRadius: 4,
-              border: "1px solid "#ccc",
+              border: "1px solid #ccc",
             }}
           />
           <button
