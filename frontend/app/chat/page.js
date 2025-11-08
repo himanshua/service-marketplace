@@ -35,7 +35,10 @@ function ChatContent() {
     return params.toString();
   }, [expertId, serviceTitle]);
 
-  const basePath = useMemo(() => (baseQuery ? `/chat?${baseQuery}` : "/chat"), [baseQuery]);
+  const basePath = useMemo(
+    () => (baseQuery ? `/chat?${baseQuery}` : "/chat"),
+    [baseQuery]
+  );
 
   useEffect(() => {
     if (!pendingStorageKey || typeof window === "undefined") return;
@@ -52,30 +55,29 @@ function ChatContent() {
     if (!paidKey) return;
 
     const cameFromPayPal = Boolean(payerId || paymentStatus === "cancel");
+    if (!cameFromPayPal) return;
 
-    if (cameFromPayPal) {
-      if (payerId) {
-        setHasPaid(true);
-        setShowPaymentPrompt(false);
-        if (typeof window !== "undefined") {
-          sessionStorage.setItem(paidKey, "true");
-          if (pendingStorageKey) {
-            sessionStorage.setItem("send-after-redirect", pendingStorageKey);
-          }
+    if (payerId) {
+      setHasPaid(true);
+      setShowPaymentPrompt(false);
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem(paidKey, "true");
+        if (pendingStorageKey) {
+          sessionStorage.setItem("send-after-redirect", pendingStorageKey);
         }
       }
-
-      if (paymentStatus === "cancel" && typeof window !== "undefined" && pendingStorageKey) {
-        sessionStorage.removeItem(pendingStorageKey);
-      }
-
-      const cleanPath = basePath;
-      if (typeof window !== "undefined") {
-        window.history.replaceState(null, "", cleanPath);
-      }
-      router.replace(cleanPath, { scroll: false });
     }
-  }, [payerId, paymentStatus, paidKey, pendingStorageKey, basePath, router]);
+
+    if (paymentStatus === "cancel" && typeof window !== "undefined" && pendingStorageKey) {
+      sessionStorage.removeItem(pendingStorageKey);
+    }
+
+    if (typeof window !== "undefined") {
+      const cleanUrl = `${window.location.pathname}${baseQuery ? `?${baseQuery}` : ""}`;
+      window.history.replaceState(null, "", cleanUrl);
+    }
+    router.replace(basePath, { scroll: false });
+  }, [payerId, paymentStatus, paidKey, pendingStorageKey, baseQuery, basePath, router]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
