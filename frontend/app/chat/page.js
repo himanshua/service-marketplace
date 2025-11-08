@@ -51,31 +51,31 @@ function ChatContent() {
   useEffect(() => {
     if (!paidKey) return;
 
-    if (payerId || paymentStatus === "cancel") {
-      if (typeof window !== "undefined") {
-        const url = new URL(window.location.href);
-        const cleanParams = new URLSearchParams();
-        if (expertId) cleanParams.set("expertId", expertId);
-        if (serviceTitle) cleanParams.set("serviceTitle", serviceTitle);
-        const clean = `${url.pathname}${cleanParams.toString() ? `?${cleanParams.toString()}` : ""}`;
-        window.history.replaceState(null, "", clean);
-        router.replace(clean, { scroll: false });
-      }
-    }
+    const cameFromPayPal = Boolean(payerId || paymentStatus === "cancel");
 
-    if (payerId) {
-      setHasPaid(true);
-      setShowPaymentPrompt(false);
-      if (typeof window !== "undefined") {
-        sessionStorage.setItem(paidKey, "true");
-        if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
+    if (cameFromPayPal) {
+      if (payerId) {
+        setHasPaid(true);
+        setShowPaymentPrompt(false);
+        if (typeof window !== "undefined") {
+          sessionStorage.setItem(paidKey, "true");
+          if (pendingStorageKey) {
+            sessionStorage.setItem("send-after-redirect", pendingStorageKey);
+          }
+        }
       }
-    }
 
-    if (paymentStatus === "cancel" && typeof window !== "undefined" && pendingStorageKey) {
-      sessionStorage.removeItem(pendingStorageKey);
+      if (paymentStatus === "cancel" && typeof window !== "undefined" && pendingStorageKey) {
+        sessionStorage.removeItem(pendingStorageKey);
+      }
+
+      const cleanPath = basePath;
+      if (typeof window !== "undefined") {
+        window.history.replaceState(null, "", cleanPath);
+      }
+      router.replace(cleanPath, { scroll: false });
     }
-  }, [payerId, paymentStatus, paidKey, pendingStorageKey, router, expertId, serviceTitle]);
+  }, [payerId, paymentStatus, paidKey, pendingStorageKey, basePath, router]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
