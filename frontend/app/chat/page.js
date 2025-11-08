@@ -1,9 +1,7 @@
 "use client";
 
-import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -11,21 +9,65 @@ function ChatContent() {
   const searchParams = useSearchParams();
   const expertId = searchParams.get("expertId");
   const serviceTitle = searchParams.get("serviceTitle");
+  const paymentStatus = searchParams.get("payment");
   const [expertName, setExpertName] = useState("");
-  const [userName, setUserName] = useState(""); // <-- get from backend
+  const [userName, setUserName] = useState("");
   const [message, setMessage] = useState("");
-  const [chat, setChat] = useState([]);
   const [messages, setMessages] = useState([]);
-  const token = localStorage.getItem("token");
+  const [hasPaid, setHasPaid] = useState(false);
+  const [showPaymentPrompt, setShowPaymentPrompt] = useState(false);
+  const [returnUrl, setReturnUrl] = useState("");
+  const [cancelUrl, setCancelUrl] = useState("");
+  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
   const router = useRouter();
 
-  useEffect(() => {
-    console.log("ChatPage useEffect called");
-    console.log("expertId:", expertId);
-    console.log("token:", token);
+  const paidKey = useMemo(() => (expertId ? `chat-paid-${expertId}` : null), [expertId]);
 
+  useEffect(() => {
+    if (paidKey && typeof window !== "undefined") {
+      const saved = sessionStorage.getItem(paidKey);
+      if (saved === "true") setHasPaid(true);
+    }
+  }, [paidKey]);
+
+  useEffect(() => {
+    if (paymentStatus === "success" && paidKey) {
+      setHasPaid(true);
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem(paidKey, "true");
+        const url = new URL(window.location.href);
+        url.searchParams.delete("payment");
+        router.replace(url.toString());
+      }
+    }
+    if (paymentStatus === "cancel" && paidKey) {
+      setShowPaymentPrompt(false);
+      if (typeof window !== "undefined") {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("payment");
+        router.replace(url.toString());
+      }
+    }
+  }, [paymentStatus, paidKey, router]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams();
+      if (expertId) params.set("expertId", expertId);
+      if (serviceTitle) params.set("serviceTitle", serviceTitle);
+      params.set("payment", "success");
+      setReturnUrl(`${window.location.origin}/chat?${params.toString()}`);
+
+      const cancelParams = new URLSearchParams();
+      if (expertId) cancelParams.set("expertId", expertId);
+      if (serviceTitle) cancelParams.set("serviceTitle", serviceTitle);
+      cancelParams.set("payment", "cancel");
+      setCancelUrl(`${window.location.origin}/chat?${cancelParams.toString()}`);
+    }
+  }, [expertId, serviceTitle]);
+
+  useEffect(() => {
     async function fetchExpert() {
-      console.log("Inside fetchExpert");
       if (expertId && token) {
         const res = await fetch(`${API}/api/auth/experts/${expertId}`, {
           headers: {
@@ -34,7 +76,6 @@ function ChatContent() {
           },
         });
         const data = await res.json();
-        console.log("Expert API response:", data);
         setExpertName(data.expert?.name || "Expert");
       }
     }
@@ -48,7 +89,6 @@ function ChatContent() {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
-        console.log("User API response:", data);
         setUserName(data.user?.name || "You");
       }
     }
@@ -59,13 +99,15 @@ function ChatContent() {
     async function fetchMessages() {
       if (expertId && token) {
         const res = await fetch(`${API}/api/chat/${expertId}`, {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
-        const normalized = (data.messages ?? []).filter(Boolean).map((msg) => ({
-          sender: msg.sender ?? (msg.expert ? "expert" : "customer"),
-          text: msg.text ?? "",
-        }));
+        const normalized = (data.messages ?? [])
+          .filter(Boolean)
+          .map((msg) => ({
+            sender: msg.sender ?? (msg.expert ? "expert" : "customer"),
+            text: msg.text ?? "",
+          }));
         setMessages(normalized);
       }
     }
@@ -74,6 +116,11 @@ function ChatContent() {
 
   async function sendMessage() {
     if (!message.trim()) return;
+    if (!hasPaid) {
+      setShowPaymentPrompt(true);
+      return;
+    }
+
     const content = message.trim();
     setMessage("");
 
@@ -81,9 +128,9 @@ function ChatContent() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ text: content })
+      body: JSON.stringify({ text: content }),
     });
 
     if (res.ok) {
@@ -123,8 +170,9 @@ function ChatContent() {
         <p style={{ marginTop: 12, color: "#444", lineHeight: 1.5 }}>
           Kindly provide your birth details and question below. I will respond to your inquiry as quickly as possible.
           <br />
-          Please also remit the $50 fee via PayPal to complete your request soon.
+          Please complete the $50 consultation fee via PayPal to continue the conversation.
         </p>
+
         <div
           style={{
             border: "1px solid #ccc",
@@ -141,13 +189,17 @@ function ChatContent() {
             messages.map((msg, idx) => (
               <div key={idx} style={{ marginBottom: 8 }}>
                 <strong>
-                  {(msg.sender ?? "customer") === "expert" ? expertName || "Expert" : userName || "You"}:
+                  {(msg.sender ?? "customer") === "expert"
+                    ? expertName || "Expert"
+                    : userName || "You"}
+                  :
                 </strong>{" "}
                 {msg.text}
               </div>
             ))
           )}
         </div>
+
         <div style={{ display: "flex" }}>
           <input
             type="text"
@@ -172,43 +224,88 @@ function ChatContent() {
               border: "none",
             }}
           >
-            Send!
+            Send
           </button>
         </div>
+      </div>
 
-        {messages.length > 0 && (
-          <form
-            action="https://www.paypal.com/cgi-bin/webscr"
-            method="post"
-            target="_blank"
-            style={{ marginTop: 16 }}
+      {showPaymentPrompt && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.55)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 200,
+            padding: 20,
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              maxWidth: 420,
+              background: "#fff",
+              borderRadius: 12,
+              padding: 28,
+              boxShadow: "0 20px 45px rgba(0,0,0,0.2)",
+            }}
           >
-            <input type="hidden" name="cmd" value="_xclick" />
-            <input type="hidden" name="business" value="btech.lucknow@gmail.com" />
-            <input
-              type="hidden"
-              name="item_name"
-              value={`Consultation with ${expertName || "Expert"}`}
-            />
-            <input type="hidden" name="currency_code" value="USD" />
-            <input type="hidden" name="amount" value="50.00" />
+            <h2 style={{ marginBottom: 12 }}>Complete Payment to Continue</h2>
+            <p style={{ color: "#4b5563", marginBottom: 24, lineHeight: 1.5 }}>
+              To unlock messaging, please submit the $50 consultation fee via PayPal Sandbox. After payment,
+              you will automatically return here and can continue chatting.
+            </p>
+            <form
+              action="https://www.sandbox.paypal.com/cgi-bin/webscr"
+              method="post"
+              target="_blank"
+              style={{ display: "flex", flexDirection: "column", gap: 12 }}
+            >
+              <input type="hidden" name="cmd" value="_xclick" />
+              <input type="hidden" name="business" value="sb-twl5f33076536@business.example.com" />
+              <input
+                type="hidden"
+                name="item_name"
+                value={`Consultation with ${expertName || "Expert"}`}
+              />
+              <input type="hidden" name="currency_code" value="USD" />
+              <input type="hidden" name="amount" value="50.00" />
+              <input type="hidden" name="return" value={returnUrl} />
+              <input type="hidden" name="cancel_return" value={cancelUrl} />
+              <button
+                type="submit"
+                style={{
+                  padding: "12px 24px",
+                  borderRadius: 8,
+                  border: "none",
+                  background: "#ffc439",
+                  color: "#111827",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                }}
+              >
+                Pay $50 with PayPal Sandbox
+              </button>
+            </form>
             <button
-              type="submit"
+              onClick={() => setShowPaymentPrompt(false)}
               style={{
-                width: "100%",
-                padding: "12px 24px",
-                borderRadius: 4,
-                background: "#ffc439",
-                color: "#111",
-                border: "none",
-                fontWeight: 600,
+                marginTop: 16,
+                padding: "10px 18px",
+                borderRadius: 8,
+                border: "1px solid #d1d5db",
+                background: "#fff",
+                color: "#6b7280",
+                cursor: "pointer",
               }}
             >
-              Pay $50 with PayPal to get answers from {expertName || "the Expert"} 
+              Cancel
             </button>
-          </form>
-        )}
-      </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
