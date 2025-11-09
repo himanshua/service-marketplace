@@ -186,39 +186,19 @@ function ChatContent() {
     await sendMessageToServer(content);
   }
 
-  useEffect(() => {
-  if (typeof window === "undefined") return;
+ useEffect(() => {
+    if (typeof window === "undefined") return;
 
-  // ✅ Detect if user came from /services
-  const cameFromServices =
-    document.referrer && document.referrer.includes("/services");
-  if (cameFromServices) sessionStorage.setItem("fromServices", "true");
-
-  // ✅ Bonus Tip: Clean PayPal URLs (remove ?PayerID etc.)
-  const currentUrl = new URL(window.location.href);
-  if (
-    currentUrl.searchParams.has("PayerID") ||
-    currentUrl.searchParams.has("payment")
-  ) {
-    window.history.replaceState(null, "", currentUrl.pathname + currentUrl.search);
-  }
-
-  // ✅ Define redirect handler
-  const goToServices = () => {
-    const fromServices = sessionStorage.getItem("fromServices");
-    if (fromServices) {
+    const goToServices = () => {
+      window.removeEventListener("popstate", goToServices);
       window.location.replace("/services");
-    } else {
-      window.location.replace("/");
-    }
-  };
+    };
 
-  // ✅ Listen for browser back button
-  window.addEventListener("popstate", goToServices);
+    window.history.pushState({ stayOnChat: true }, "", window.location.href);
+    window.addEventListener("popstate", goToServices);
 
-  // ✅ Cleanup
-  return () => window.removeEventListener("popstate", goToServices);
-}, []);
+    return () => window.removeEventListener("popstate", goToServices);
+  }, []);
 
   return (
     <main
