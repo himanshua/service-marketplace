@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useState, useCallback } from "react";
+import { Suspense, useEffect, useMemo, useState, useCallback, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -45,6 +45,20 @@ function ChatContent() {
     if (sessionStorage.getItem(paidKey) === "true") setHasPaid(true);
   }, [paidKey]);
 
+  const previousUrlRef = useRef("/services");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const ref = document.referrer;
+    const fallback = sessionStorage.getItem("chat-prev-url") || "/services";
+    if (ref && !ref.includes("paypal.com")) {
+      previousUrlRef.current = ref;
+      sessionStorage.setItem("chat-prev-url", ref);
+    } else {
+      previousUrlRef.current = fallback;
+    }
+  }, []);
+
   useEffect(() => {
     if (!paidKey) return;
 
@@ -65,25 +79,20 @@ function ChatContent() {
     }
 
     if (typeof window !== "undefined") {
-      const previousUrl = document.referrer && !document.referrer.includes("paypal.com")
-        ? document.referrer
-        : "/services";
-      sessionStorage.setItem("chat-prev-url", previousUrl);
       window.history.replaceState({ chatPaid: true }, "", basePath);
-      window.history.pushState({ chatPaid: true }, "", basePath);
-
-      const handlePopstate = () => {
-        window.removeEventListener("popstate", handlePopstate);
-        const fallback = sessionStorage.getItem("chat-prev-url") || "/services";
-        sessionStorage.removeItem("chat-prev-url");
-        window.location.replace(fallback);
-      };
-
-      window.addEventListener("popstate", handlePopstate);
-      return () => window.removeEventListener("popstate", handlePopstate);
     }
 
-    router.replace(basePath, { scroll: false });
+    const redirectBack = () => {
+      const target = previousUrlRef.current || sessionStorage.getItem("chat-prev-url") || "/services";
+      window.location.replace(target);
+      return false;
+    };
+
+    router.beforePopState(redirectBack);
+
+    return () => {
+      router.beforePopState(() => true);
+    };
   }, [payerId, paymentStatus, paidKey, pendingStorageKey, basePath, router]);
 
   useEffect(() => {
@@ -263,7 +272,7 @@ function ChatContent() {
                 {msg.text}
               </div>
             ))
-          )}
+          }
         </div>
 
         <div style={{ display: "flex" }}>
