@@ -23,10 +23,7 @@ function ChatContent() {
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
   const paidKey = useMemo(() => (expertId ? `chat-paid-${expertId}` : null), [expertId]);
-  const pendingStorageKey = useMemo(
-    () => (paidKey ? `${paidKey}-pending` : null),
-    [paidKey]
-  );
+  const pendingStorageKey = useMemo(() => (paidKey ? `${paidKey}-pending` : null), [paidKey]);
 
   const baseQuery = useMemo(() => {
     const params = new URLSearchParams();
@@ -35,10 +32,7 @@ function ChatContent() {
     return params.toString();
   }, [expertId, serviceTitle]);
 
-  const basePath = useMemo(
-    () => (baseQuery ? `/chat?${baseQuery}` : "/chat"),
-    [baseQuery]
-  );
+  const basePath = useMemo(() => (baseQuery ? `/chat?${baseQuery}` : "/chat"), [baseQuery]);
 
   useEffect(() => {
     if (!pendingStorageKey || typeof window === "undefined") return;
@@ -62,9 +56,7 @@ function ChatContent() {
       setShowPaymentPrompt(false);
       if (typeof window !== "undefined") {
         sessionStorage.setItem(paidKey, "true");
-        if (pendingStorageKey) {
-          sessionStorage.setItem("send-after-redirect", pendingStorageKey);
-        }
+        if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
       }
     }
 
@@ -73,8 +65,24 @@ function ChatContent() {
     }
 
     if (typeof window !== "undefined") {
-      window.history.replaceState(null, "", basePath);
+      const previousUrl = document.referrer && !document.referrer.includes("paypal.com")
+        ? document.referrer
+        : "/services";
+      sessionStorage.setItem("chat-prev-url", previousUrl);
+      window.history.replaceState({ chatPaid: true }, "", basePath);
+      window.history.pushState({ chatPaid: true }, "", basePath);
+
+      const handlePopstate = () => {
+        window.removeEventListener("popstate", handlePopstate);
+        const fallback = sessionStorage.getItem("chat-prev-url") || "/services";
+        sessionStorage.removeItem("chat-prev-url");
+        window.location.replace(fallback);
+      };
+
+      window.addEventListener("popstate", handlePopstate);
+      return () => window.removeEventListener("popstate", handlePopstate);
     }
+
     router.replace(basePath, { scroll: false });
   }, [payerId, paymentStatus, paidKey, pendingStorageKey, basePath, router]);
 
@@ -82,11 +90,16 @@ function ChatContent() {
     if (typeof window === "undefined") return;
 
     const origin = window.location.origin;
-    setReturnUrl(`${origin}${basePath}`);
-
+    const successUrl = `${origin}${basePath}`;
     const cancelParams = new URLSearchParams(baseQuery);
     cancelParams.set("payment", "cancel");
-    setCancelUrl(`${origin}/chat?${cancelParams.toString()}`);
+    const cancelUrlComputed = `${origin}/chat?${cancelParams.toString()}`;
+
+    console.log("PayPal return URL:", successUrl);
+    console.log("PayPal cancel URL:", cancelUrlComputed);
+
+    setReturnUrl(successUrl);
+    setCancelUrl(cancelUrlComputed);
   }, [basePath, baseQuery]);
 
   useEffect(() => {
