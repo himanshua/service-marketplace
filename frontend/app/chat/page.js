@@ -6,6 +6,17 @@ import { useRouter, useSearchParams } from "next/navigation";
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 const PAYMENT_TTL_MS = 30 * 60 * 1000; // 30 minutes
 
+const PAYPAL_MODE =
+  process.env.NEXT_PUBLIC_PAYPAL_MODE === "live" ? "live" : "sandbox";
+const PAYPAL_ENDPOINT =
+  PAYPAL_MODE === "live"
+    ? "https://www.paypal.com/cgi-bin/webscr"
+    : "https://www.sandbox.paypal.com/cgi-bin/webscr";
+const PAYPAL_BUSINESS =
+  PAYPAL_MODE === "live"
+    ? process.env.NEXT_PUBLIC_PAYPAL_LIVE_BUSINESS
+    : process.env.NEXT_PUBLIC_PAYPAL_SANDBOX_BUSINESS;
+
 function ChatContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -250,6 +261,8 @@ function ChatContent() {
     await sendMessageToServer(content);
   }
 
+  const paypalReady = Boolean(PAYPAL_BUSINESS);
+
   return (
     <main
       style={{
@@ -376,16 +389,20 @@ function ChatContent() {
           >
             <h2 style={{ marginBottom: 12 }}>Complete Payment to Continue</h2>
             <p style={{ color: "#4b5563", marginBottom: 24, lineHeight: 1.5 }}>
-              To unlock messaging, please submit the $50 consultation fee via PayPal Sandbox. After payment,
-              you will automatically return here and can continue chatting.
+              To unlock messaging, please submit the $50 consultation fee via PayPal. After payment, you will automatically return here and can continue chatting.
             </p>
+            {!paypalReady && (
+              <p style={{ color: "#b91c1c", fontWeight: 600 }}>
+                PayPal business account is not configured. Set the environment variables to enable the button.
+              </p>
+            )}
             <form
-              action="https://www.sandbox.paypal.com/cgi-bin/webscr"
+              action={PAYPAL_ENDPOINT}
               method="post"
               style={{ display: "flex", flexDirection: "column", gap: 12 }}
             >
               <input type="hidden" name="cmd" value="_xclick" />
-              <input type="hidden" name="business" value="sb-qsfqi47281361@business.example.com" />
+              <input type="hidden" name="business" value={PAYPAL_BUSINESS || ""} />
               <input
                 type="hidden"
                 name="item_name"
@@ -398,17 +415,18 @@ function ChatContent() {
               <input type="hidden" name="rm" value="0" />
               <button
                 type="submit"
+                disabled={!paypalReady}
                 style={{
                   padding: "12px 24px",
                   borderRadius: 8,
                   border: "none",
-                  background: "#ffc439",
+                  background: paypalReady ? "#ffc439" : "#facc15",
                   color: "#111827",
                   fontWeight: 700,
-                  cursor: "pointer",
+                  cursor: paypalReady ? "pointer" : "not-allowed",
                 }}
               >
-                Pay $50 with PayPal Sandbox
+                Pay $50 with PayPal ({PAYPAL_MODE === "live" ? "Live" : "Sandbox"})
               </button>
             </form>
             <button
