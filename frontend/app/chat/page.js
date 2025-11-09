@@ -187,16 +187,39 @@ function ChatContent() {
   }
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+  if (typeof window === "undefined") return;
 
-    const handlePopstate = () => {
+  // ✅ Detect if user came from /services
+  const cameFromServices =
+    document.referrer && document.referrer.includes("/services");
+  if (cameFromServices) sessionStorage.setItem("fromServices", "true");
+
+  // ✅ Bonus Tip: Clean PayPal URLs (remove ?PayerID etc.)
+  const currentUrl = new URL(window.location.href);
+  if (
+    currentUrl.searchParams.has("PayerID") ||
+    currentUrl.searchParams.has("payment")
+  ) {
+    window.history.replaceState(null, "", currentUrl.pathname + currentUrl.search);
+  }
+
+  // ✅ Define redirect handler
+  const goToServices = () => {
+    const fromServices = sessionStorage.getItem("fromServices");
+    if (fromServices) {
       window.location.replace("/services");
-    };
+    } else {
+      window.location.replace("/");
+    }
+  };
 
-    window.addEventListener("popstate", handlePopstate);
-    return () => window.removeEventListener("popstate", handlePopstate);
-  }, []);
-  
+  // ✅ Listen for browser back button
+  window.addEventListener("popstate", goToServices);
+
+  // ✅ Cleanup
+  return () => window.removeEventListener("popstate", goToServices);
+}, []);
+
   return (
     <main
       style={{
