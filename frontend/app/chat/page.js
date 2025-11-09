@@ -6,16 +6,22 @@ import { useRouter, useSearchParams } from "next/navigation";
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 const PAYMENT_TTL_MS = 30 * 60 * 1000; // 30 minutes
 
-const PAYPAL_MODE =
-  process.env.NEXT_PUBLIC_PAYPAL_MODE === "live" ? "live" : "sandbox";
+// ---- PayPal Configuration (Hardcoded for Vercel Deployment) ----
+const PAYPAL_MODE = "live"; // or "sandbox" when testing
+
+// You can use either Merchant ID or Business Email
+const PAYPAL_LIVE_BUSINESS = "X449U4V5MLENA"; // your PayPal Merchant ID
+const PAYPAL_SANDBOX_BUSINESS = "sb-qsfqi47281361@business.example.com";
+
+const PAYPAL_BUSINESS =
+  PAYPAL_MODE === "live" ? PAYPAL_LIVE_BUSINESS : PAYPAL_SANDBOX_BUSINESS;
+
 const PAYPAL_ENDPOINT =
   PAYPAL_MODE === "live"
     ? "https://www.paypal.com/cgi-bin/webscr"
     : "https://www.sandbox.paypal.com/cgi-bin/webscr";
-const PAYPAL_BUSINESS =
-  PAYPAL_MODE === "live"
-    ? process.env.NEXT_PUBLIC_PAYPAL_LIVE_BUSINESS
-    : process.env.NEXT_PUBLIC_PAYPAL_SANDBOX_BUSINESS;
+// ---------------------------------------------------------------
+
 
 function ChatContent() {
   const router = useRouter();
