@@ -65,24 +65,8 @@ function ChatContent() {
     }
 
     if (typeof window !== "undefined") {
-      const previousUrl = document.referrer && !document.referrer.includes("paypal.com")
-        ? document.referrer
-        : "/services";
-      sessionStorage.setItem("chat-prev-url", previousUrl);
-      window.history.replaceState({ chatPaid: true }, "", basePath);
-      window.history.pushState({ chatPaid: true }, "", basePath);
-
-      const handlePopstate = () => {
-        window.removeEventListener("popstate", handlePopstate);
-        const fallback = sessionStorage.getItem("chat-prev-url") || "/services";
-        sessionStorage.removeItem("chat-prev-url");
-        window.location.replace(fallback);
-      };
-
-      window.addEventListener("popstate", handlePopstate);
-      return () => window.removeEventListener("popstate", handlePopstate);
+      window.history.replaceState(null, "", basePath);
     }
-
     router.replace(basePath, { scroll: false });
   }, [payerId, paymentStatus, paidKey, pendingStorageKey, basePath, router]);
 
@@ -94,9 +78,6 @@ function ChatContent() {
     const cancelParams = new URLSearchParams(baseQuery);
     cancelParams.set("payment", "cancel");
     const cancelUrlComputed = `${origin}/chat?${cancelParams.toString()}`;
-
-    console.log("PayPal return URL:", successUrl);
-    console.log("PayPal cancel URL:", cancelUrlComputed);
 
     setReturnUrl(successUrl);
     setCancelUrl(cancelUrlComputed);
@@ -189,6 +170,18 @@ function ChatContent() {
       }
     }
   }, [hasPaid, pendingStorageKey, sendMessageToServer]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handlePopstate = () => {
+      window.removeEventListener("popstate", handlePopstate);
+      window.location.replace("/services");
+    };
+
+    window.addEventListener("popstate", handlePopstate);
+    return () => window.removeEventListener("popstate", handlePopstate);
+  }, []);
 
   async function sendMessage() {
     if (!message.trim()) return;
