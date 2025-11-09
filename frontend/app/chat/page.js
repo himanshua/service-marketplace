@@ -187,16 +187,16 @@ function ChatContent() {
   }
 
   useEffect(() => {
-    router.beforePopState(() => {
-      router.replace("/services");
-      return false;
-    });
+    if (typeof window === "undefined") return;
 
-    return () => {
-      router.beforePopState(() => true);
+    const handlePopstate = () => {
+      window.location.replace("/services");
     };
-  }, [router]);
 
+    window.addEventListener("popstate", handlePopstate);
+    return () => window.removeEventListener("popstate", handlePopstate);
+  }, []);
+  
   return (
     <main
       style={{
