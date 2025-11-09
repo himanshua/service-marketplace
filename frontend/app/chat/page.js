@@ -4,6 +4,7 @@ import { Suspense, useEffect, useMemo, useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const PAYMENT_TTL_MS = 30 * 60 * 1000; // 30 minutes
 
 function ChatContent() {
   const router = useRouter();
@@ -20,6 +21,8 @@ function ChatContent() {
   const [showPaymentPrompt, setShowPaymentPrompt] = useState(false);
   const [returnUrl, setReturnUrl] = useState("");
   const [cancelUrl, setCancelUrl] = useState("");
+  const [expiresAt, setExpiresAt] = useState(null);
+  const [remainingMs, setRemainingMs] = useState(0);
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
   const paidKey = useMemo(() => (expertId ? `chat-paid-${expertId}` : null), [expertId]);
@@ -34,6 +37,13 @@ function ChatContent() {
 
   const basePath = useMemo(() => (baseQuery ? `/chat?${baseQuery}` : "/chat"), [baseQuery]);
 
+  const formatRemaining = useCallback((ms) => {
+    const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  }, []);
+
   useEffect(() => {
     if (!pendingStorageKey || typeof window === "undefined") return;
     const storedDraft = sessionStorage.getItem(pendingStorageKey);
@@ -42,7 +52,25 @@ function ChatContent() {
 
   useEffect(() => {
     if (!paidKey || typeof window === "undefined") return;
-    if (sessionStorage.getItem(paidKey) === "true") setHasPaid(true);
+    const raw = sessionStorage.getItem(paidKey);
+    if (!raw) return;
+
+    try {
+      const parsed = JSON.parse(raw);
+      const now = Date.now();
+      if (parsed?.paid && parsed.expiresAt && parsed.expiresAt > now) {
+        setHasPaid(true);
+        setExpiresAt(parsed.expiresAt);
+        setRemainingMs(parsed.expiresAt - now);
+      } else {
+        sessionStorage.removeItem(paidKey);
+        setHasPaid(false);
+        setExpiresAt(null);
+        setRemainingMs(0);
+      }
+    } catch {
+      sessionStorage.removeItem(paidKey);
+    }
   }, [paidKey]);
 
   useEffect(() => {
@@ -55,7 +83,10 @@ function ChatContent() {
       setHasPaid(true);
       setShowPaymentPrompt(false);
       if (typeof window !== "undefined") {
-        sessionStorage.setItem(paidKey, "true");
+        const expiry = Date.now() + PAYMENT_TTL_MS;
+        sessionStorage.setItem(paidKey, JSON.stringify({ paid: true, expiresAt: expiry }));
+        setExpiresAt(expiry);
+        setRemainingMs(PAYMENT_TTL_MS);
         if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
       }
     }
@@ -171,7 +202,40 @@ function ChatContent() {
     }
   }, [hasPaid, pendingStorageKey, sendMessageToServer]);
 
-   async function sendMessage() {
+  useEffect(() => {
+    if (!expiresAt || typeof window === "undefined") return;
+    const tick = () => {
+      const diff = expiresAt - Date.now();
+      if (diff <= 0) {
+        setHasPaid(false);
+        setExpiresAt(null);
+        setRemainingMs(0);
+        if (paidKey) sessionStorage.removeItem(paidKey);
+      } else {
+        setRemainingMs(diff);
+      }
+    };
+
+    tick();
+    const interval = setInterval(tick, 1000);
+    return () => clearInterval(interval);
+  }, [expiresAt, paidKey]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const goToServices = () => {
+      window.removeEventListener("popstate", goToServices);
+      window.location.replace("/services");
+    };
+
+    window.history.pushState({ stayOnChat: true }, "", window.location.href);
+    window.addEventListener("popstate", goToServices);
+
+    return () => window.removeEventListener("popstate", goToServices);
+  }, []);
+
+  async function sendMessage() {
     if (!message.trim()) return;
     const content = message.trim();
 
@@ -185,20 +249,6 @@ function ChatContent() {
 
     await sendMessageToServer(content);
   }
-
- useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const goToServices = () => {
-      window.removeEventListener("popstate", goToServices);
-      window.location.replace("/services");
-    };
-
-    window.history.pushState({ stayOnChat: true }, "", window.location.href);
-    window.addEventListener("popstate", goToServices);
-
-    return () => window.removeEventListener("popstate", goToServices);
-  }, []);
 
   return (
     <main
@@ -233,6 +283,11 @@ function ChatContent() {
           <br />
           Please complete the $50 consultation fee via PayPal to continue the conversation.
         </p>
+        {hasPaid && remainingMs > 0 && (
+          <p style={{ marginTop: 8, color: "#10b981", fontWeight: 600 }}>
+            Session expires in {formatRemaining(remainingMs)}
+          </p>
+        )}
 
         <div
           style={{
@@ -381,8 +436,6 @@ function ChatContent() {
     </main>
   );
 }
- 
-
 
 export default function ChatPage() {
   return (
