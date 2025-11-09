@@ -186,6 +186,17 @@ function ChatContent() {
     await sendMessageToServer(content);
   }
 
+  useEffect(() => {
+    router.beforePopState(() => {
+      router.replace("/services");
+      return false;
+    });
+
+    return () => {
+      router.beforePopState(() => true);
+    };
+  }, [router]);
+
   return (
     <main
       style={{
@@ -367,16 +378,7 @@ function ChatContent() {
     </main>
   );
 }
- useEffect(() => {
-    router.beforePopState(() => {
-      router.replace("/services");
-      return false;
-    });
-
-    return () => {
-      router.beforePopState(() => true);
-    };
-  }, [router]);
+ 
 
 
 export default function ChatPage() {
