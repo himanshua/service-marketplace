@@ -62,9 +62,10 @@ function ChatContent() {
   }, []);
 
   useEffect(() => {
-  console.log("PayPal Mode is:", process.env.NEXT_PUBLIC_PAYPAL_MODE);
-  console.log("PayPal Live Business:", process.env.NEXT_PUBLIC_PAYPAL_LIVE_BUSINESS);
-  console.log("PayPal Sandbox Business:", process.env.NEXT_PUBLIC_PAYPAL_SANDBOX_BUSINESS);
+  console.log("PayPal Mode:", PAYPAL_MODE);
+  console.log("PayPal Live Business:", PAYPAL_LIVE_BUSINESS);
+  console.log("PayPal Sandbox Business:", PAYPAL_SANDBOX_BUSINESS);
+  console.log("PayPal Business in use:", PAYPAL_BUSINESS);
 }, []);
 
 
