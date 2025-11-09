@@ -56,7 +56,7 @@ function ChatContent() {
   }, []);
 
   useEffect(() => {
-  console.log("PayPal Mode:", process.env.NEXT_PUBLIC_PAYPAL_MODE);
+  console.log("PayPal Mode is:", process.env.NEXT_PUBLIC_PAYPAL_MODE);
   console.log("PayPal Live Business:", process.env.NEXT_PUBLIC_PAYPAL_LIVE_BUSINESS);
   console.log("PayPal Sandbox Business:", process.env.NEXT_PUBLIC_PAYPAL_SANDBOX_BUSINESS);
 }, []);
