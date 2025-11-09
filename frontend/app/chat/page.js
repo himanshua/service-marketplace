@@ -424,7 +424,7 @@ function ChatContent() {
               />
               <input type="hidden" name="currency_code" value="USD" />
               <input type="hidden" name="amount" value="50.00" />
-              <input type="hidden" name="currency_code" value="INR" />
+              <input type="hidden" name="currency_code" value="USD" />
 
               <input type="hidden" name="return" value={returnUrl} />
               <input type="hidden" name="cancel_return" value={cancelUrl} />
