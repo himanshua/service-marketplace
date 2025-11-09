@@ -171,19 +171,7 @@ function ChatContent() {
     }
   }, [hasPaid, pendingStorageKey, sendMessageToServer]);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const handlePopstate = () => {
-      window.removeEventListener("popstate", handlePopstate);
-      window.location.replace("/services");
-    };
-
-    window.addEventListener("popstate", handlePopstate);
-    return () => window.removeEventListener("popstate", handlePopstate);
-  }, []);
-
-  async function sendMessage() {
+   async function sendMessage() {
     if (!message.trim()) return;
     const content = message.trim();
 
@@ -379,6 +367,17 @@ function ChatContent() {
     </main>
   );
 }
+ useEffect(() => {
+    router.beforePopState(() => {
+      router.replace("/services");
+      return false;
+    });
+
+    return () => {
+      router.beforePopState(() => true);
+    };
+  }, [router]);
+
 
 export default function ChatPage() {
   return (
