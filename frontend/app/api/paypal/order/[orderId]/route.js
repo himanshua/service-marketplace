@@ -1,17 +1,17 @@
-const PAYPAL_MODE = "live"; // switch to "sandbox" for sandbox
-const PAYPAL_CONFIG = {
-  sandbox: {
-    clientId: "ARt8pgcFUdW0_your_sandbox_client_id_here",
-    secret: "EJtYy7JdYXXXXXXXXXXXXXXX_your_sandbox_secret",
-    apiBase: "https://api.sandbox.paypal.com",
-  },
-  live: {
-    clientId: "AY5VcStNQIc_VCvnbGU799W2rU0ewHcnKWl3Tg_h2GrwNTD3SHQ9QEfBISuLlsLOTfAHSTGHY-6BnIqE",
-    secret: "EKCExhesShq4WGsH9GDqkyw0YFNKAUtfhAxbEYq_I9I0L4QGImZcmo7S9dcdS80g00d23XuszSeXDmxY",
-    apiBase: "https://api.paypal.com",
-  },
-};
-const ACTIVE = PAYPAL_CONFIG[PAYPAL_MODE];
+const PAYPAL_MODE = process.env.PAYPAL_MODE ?? "sandbox";
+
+const ACTIVE =
+  PAYPAL_MODE === "live"
+    ? {
+        clientId: process.env.PAYPAL_LIVE_CLIENT_ID,
+        secret: process.env.PAYPAL_LIVE_SECRET,
+        apiBase: "https://api.paypal.com",
+      }
+    : {
+        clientId: process.env.PAYPAL_SANDBOX_CLIENT_ID,
+        secret: process.env.PAYPAL_SANDBOX_SECRET,
+        apiBase: "https://api.sandbox.paypal.com",
+      };
 
 async function getAccessToken() {
   const credentials = Buffer.from(`${ACTIVE.clientId}:${ACTIVE.secret}`).toString("base64");
