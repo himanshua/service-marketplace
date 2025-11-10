@@ -10,7 +10,7 @@ import {
 } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const API = "https://your-api-domain.example"; // set your live API URL
+const API = "https://api.aheadterra.com"; // set your live API URL
 const PAYMENT_TTL_MS = 30 * 60 * 1000;
 
 // ---- Hard-coded PayPal configuration ----
