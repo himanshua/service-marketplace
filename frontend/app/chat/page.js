@@ -14,24 +14,18 @@ const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 const PAYMENT_TTL_MS = 30 * 60 * 1000;
 
 // ---- Hard-coded PayPal configuration ----
-const PAYPAL_MODE = "live"; // switch to "live" when ready
+const PAYPAL_MODE = process.env.NEXT_PUBLIC_PAYPAL_MODE ?? "sandbox";
 
-const PAYPAL_SANDBOX_BUSINESS = "sb-qsfqi47281361@business.example.com";
-const PAYPAL_LIVE_BUSINESS = "btech.lucknow@gmail.com";
-
-const PAYPAL_SANDBOX_CLIENT_ID =
-  "ARt8pgcFUdW0_your_sandbox_client_id_here";
-const PAYPAL_LIVE_CLIENT_ID = "AY5VcStNQIc_VCvnbGU799W2rU0ewHcnKWl3Tg_h2GrwNTD3SHQ9QEfBISuLlsLOTfAHSTGHY-6BnIqE"
 const PAYPAL_SETTINGS = {
   sandbox: {
-    clientId: PAYPAL_SANDBOX_CLIENT_ID,
-    business: PAYPAL_SANDBOX_BUSINESS,
+    clientId: process.env.NEXT_PUBLIC_PAYPAL_SANDBOX_CLIENT_ID ?? "",
+    business: process.env.NEXT_PUBLIC_PAYPAL_SANDBOX_BUSINESS ?? "",
     currency: "USD",
     amount: "50.00",
   },
   live: {
-    clientId: PAYPAL_LIVE_CLIENT_ID,
-    business: PAYPAL_LIVE_BUSINESS,
+    clientId: process.env.NEXT_PUBLIC_PAYPAL_LIVE_CLIENT_ID ?? "",
+    business: process.env.NEXT_PUBLIC_PAYPAL_LIVE_BUSINESS ?? "",
     currency: "USD",
     amount: "50.00",
   },
