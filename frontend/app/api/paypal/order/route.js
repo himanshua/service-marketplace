@@ -16,6 +16,9 @@ const ACTIVE =
       };
 
 async function getAccessToken() {
+  if (!ACTIVE.clientId || !ACTIVE.secret) {
+    throw new Error("PayPal credentials are not configured.");
+  }
   const credentials = Buffer.from(`${ACTIVE.clientId}:${ACTIVE.secret}`).toString("base64");
   const response = await fetch(`${ACTIVE.apiBase}/v1/oauth2/token`, {
     method: "POST",
