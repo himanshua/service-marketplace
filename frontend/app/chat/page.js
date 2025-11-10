@@ -325,8 +325,8 @@ function ChatContent() {
     };
 
     if (typeof window !== "undefined") {
-      payload.returnUrl = window.location.href;
-      payload.cancelUrl = window.location.href;
+      payload.returnUrl = encodeURIComponent(window.location.href);
+      payload.cancelUrl = encodeURIComponent(window.location.href);
     }
 
     const response = await fetch("/api/paypal/order", {
