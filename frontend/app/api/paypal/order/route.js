@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const PAYPAL_MODE = process.env.PAYPAL_MODE ?? "sandbox";
+const PAYPAL_MODE = process.env.PAYPAL_MODE === "live" ? "live" : "sandbox";
 
 const ACTIVE =
   PAYPAL_MODE === "live"
