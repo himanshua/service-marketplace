@@ -33,7 +33,7 @@ const PAYPAL_SETTINGS = {
   live: {
     clientId: PAYPAL_LIVE_CLIENT_ID,
     business: PAYPAL_LIVE_BUSINESS,
-    currency: "INR",
+    currency: "USD",
     amount: "50.00",
   },
 };
