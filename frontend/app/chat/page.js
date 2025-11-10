@@ -21,8 +21,7 @@ const PAYPAL_LIVE_BUSINESS = "btech.lucknow@gmail.com";
 
 const PAYPAL_SANDBOX_CLIENT_ID =
   "ARt8pgcFUdW0_your_sandbox_client_id_here";
-const PAYPAL_LIVE_CLIENT_ID = "Abfcz_RiTzEdkSXZ7jqdYyPRahATX2MFJl4TgtXSZSSoae6yMKs0sONkw83vHg4t6bAvtZ4qALX_XuHK";
-
+const PAYPAL_LIVE_CLIENT_ID = "AY5VcStNQIc_VCvnbGU799W2rU0ewHcnKWl3Tg_h2GrwNTD3SHQ9QEfBISuLlsLOTfAHSTGHY-6BnIqE"
 const PAYPAL_SETTINGS = {
   sandbox: {
     clientId: PAYPAL_SANDBOX_CLIENT_ID,
@@ -42,7 +41,7 @@ const ACTIVE_PAYPAL = PAYPAL_MODE === "live"
   ? PAYPAL_SETTINGS.live
   : PAYPAL_SETTINGS.sandbox;
 
-const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${ACTIVE_PAYPAL.clientId}&currency=${ACTIVE_PAYPAL.currency}&intent=CAPTURE&components=buttons`;
+const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${ACTIVE_PAYPAL.clientId}&currency=${ACTIVE_PAYPAL.currency}&components=buttons`;
 // --------------------------------------------------------------
 
 function ChatContent() {
