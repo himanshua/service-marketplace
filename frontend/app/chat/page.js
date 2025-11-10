@@ -14,26 +14,27 @@ const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 const PAYMENT_TTL_MS = 30 * 60 * 1000;
 
 // ---- Hard-coded PayPal configuration ----
-const PAYPAL_MODE = process.env.NEXT_PUBLIC_PAYPAL_MODE ?? "sandbox";
+const PAYPAL_MODE = "live";
 
 const PAYPAL_SETTINGS = {
   sandbox: {
-    clientId: process.env.NEXT_PUBLIC_PAYPAL_SANDBOX_CLIENT_ID ?? "",
-    business: process.env.NEXT_PUBLIC_PAYPAL_SANDBOX_BUSINESS ?? "",
+    clientId: "your-sandbox-client-id",
+    secret: "your-sandbox-secret",
+    business: "sb-qsfqi47281361@business.example.com",
     currency: "USD",
     amount: "50.00",
   },
   live: {
-    clientId: process.env.NEXT_PUBLIC_PAYPAL_LIVE_CLIENT_ID ?? "",
-    business: process.env.NEXT_PUBLIC_PAYPAL_LIVE_BUSINESS ?? "",
+    clientId: "AY5VcStNQIc_VCvnbGU799W2rU0ewHcnKWl3Tg_h2GrwNTD3SHQ9QEfBISuLlsLOTfAHSTGHY-6BnIqE",
+    secret: "EKCExhesShq4WGsH9GDqkyw0YFNKAUtfhAxbEYq_I9I0L4QGImZcmo7S9dcdS80g00d23XuszSeXDmxY",
+    business: "X449U4V5MLENA",
     currency: "USD",
     amount: "50.00",
   },
 };
 
-const ACTIVE_PAYPAL = PAYPAL_MODE === "live"
-  ? PAYPAL_SETTINGS.live
-  : PAYPAL_SETTINGS.sandbox;
+const ACTIVE_PAYPAL =
+  PAYPAL_MODE === "live" ? PAYPAL_SETTINGS.live : PAYPAL_SETTINGS.sandbox;
 
 const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${ACTIVE_PAYPAL.clientId}&currency=${ACTIVE_PAYPAL.currency}&components=buttons`;
 console.log(ACTIVE_PAYPAL.clientId+"-------------------");
