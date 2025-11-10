@@ -46,7 +46,7 @@ export async function POST(_req, { params }) {
     const data = await response.json();
     if (!response.ok) {
       return Response.json(
-        { error: data.message || "Failed to capture PayPal order." },
+        { error: data.message || "Failed to capture PayPal order" },
         { status: response.status }
       );
     }
