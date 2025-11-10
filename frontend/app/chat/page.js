@@ -14,15 +14,14 @@ const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 const PAYMENT_TTL_MS = 30 * 60 * 1000;
 
 // ---- Hard-coded PayPal configuration ----
-const PAYPAL_MODE = "sandbox"; // switch to "live" when ready
+const PAYPAL_MODE = "live"; // switch to "live" when ready
 
 const PAYPAL_SANDBOX_BUSINESS = "sb-qsfqi47281361@business.example.com";
 const PAYPAL_LIVE_BUSINESS = "btech.lucknow@gmail.com";
 
 const PAYPAL_SANDBOX_CLIENT_ID =
   "ARt8pgcFUdW0_your_sandbox_client_id_here";
-const PAYPAL_LIVE_CLIENT_ID =
-  "AYp7d9dU1u0K-your_live_client_id_here";
+const PAYPAL_LIVE_CLIENT_ID = "Abfcz_RiTzEdkSXZ7jqdYyPRahATX2MFJl4TgtXSZSSoae6yMKs0sONkw83vHg4t6bAvtZ4qALX_XuHK";
 
 const PAYPAL_SETTINGS = {
   sandbox: {
