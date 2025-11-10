@@ -36,7 +36,7 @@ const ACTIVE_PAYPAL = PAYPAL_MODE === "live"
   : PAYPAL_SETTINGS.sandbox;
 
 const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${ACTIVE_PAYPAL.clientId}&currency=${ACTIVE_PAYPAL.currency}&components=buttons`;
-console.log(ACTIVE_PAYPAL.clientId);
+console.log(ACTIVE_PAYPAL.clientId+"-------------------");
 // --------------------------------------------------------------
 
 function ChatContent() {
