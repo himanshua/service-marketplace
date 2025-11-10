@@ -14,7 +14,7 @@ const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 const PAYMENT_TTL_MS = 30 * 60 * 1000;
 
 // ---- Hard-coded PayPal configuration ----
-const PAYPAL_MODE = process.env.NEXT_PUBLIC_PAYPAL_MODE === "live" ? "live" : "sandbox";
+const PAYPAL_MODE = process.env.NEXT_PUBLIC_PAYPAL_MODE ?? "sandbox";
 
 const PAYPAL_SETTINGS = {
   sandbox: {
@@ -30,21 +30,11 @@ const PAYPAL_SETTINGS = {
     amount: "50.00",
   },
 };
+const ACTIVE_PAYPAL = PAYPAL_MODE === "live"
+  ? PAYPAL_SETTINGS.live
+  : PAYPAL_SETTINGS.sandbox;
 
-const ACTIVE = PAYPAL_SETTINGS[PAYPAL_MODE];
-
-if (!ACTIVE.clientId) {
-  return (
-    <div className="rounded-md border border-amber-400 bg-amber-50 p-4 text-sm text-amber-700">
-      PayPal client ID missing. Update PAYPAL_* constants.
-      <div className="mt-1 text-xs text-amber-600">
-        Mode: {PAYPAL_MODE.toUpperCase()} • Business: {ACTIVE.business || "unset"}
-      </div>
-    </div>
-  );
-}
-
-const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${ACTIVE.clientId}&currency=${ACTIVE.currency}&components=buttons`;
+const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${ACTIVE_PAYPAL.clientId}&currency=${ACTIVE_PAYPAL.currency}&components=buttons`;
 // --------------------------------------------------------------
 
 function ChatContent() {
@@ -319,8 +309,8 @@ function ChatContent() {
 
   const createPayPalOrder = useCallback(async () => {
     const payload = {
-      amount: ACTIVE.amount,
-      currency: ACTIVE.currency,
+      amount: ACTIVE_PAYPAL.amount,
+      currency: ACTIVE_PAYPAL.currency,
       intent: "CAPTURE",
       expertId,
       serviceTitle,
@@ -362,7 +352,7 @@ function ChatContent() {
 
   useEffect(() => {
     if (!showPaymentPrompt) return;
-    if (!ACTIVE.clientId) {
+    if (!ACTIVE_PAYPAL.clientId) {
       setPaypalError("PayPal client ID missing. Update PAYPAL_* constants.");
       return;
     }
@@ -545,7 +535,7 @@ function ChatContent() {
                 {msg.text}
               </div>
             ))
-          }
+          )}
         </div>
 
         <div style={{ display: "flex" }}>
@@ -635,7 +625,7 @@ function ChatContent() {
 
             <p style={{ marginTop: 16, color: "#4b5563", fontSize: 12 }}>
               Mode: {PAYPAL_MODE.toUpperCase()} • Business:{" "}
-              {ACTIVE.business}
+              {ACTIVE_PAYPAL.business}
             </p>
 
             <button
