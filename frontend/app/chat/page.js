@@ -30,6 +30,7 @@ const PAYPAL_SETTINGS = {
     amount: "50.00",
   },
 };
+
 const ACTIVE_PAYPAL = PAYPAL_MODE === "live"
   ? PAYPAL_SETTINGS.live
   : PAYPAL_SETTINGS.sandbox;
