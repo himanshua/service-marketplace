@@ -1,27 +1,50 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useState, useCallback } from "react";
+import {
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-const PAYMENT_TTL_MS = 30 * 60 * 1000; // 30 minutes
+const API = "https://your-api-domain.example"; // set your live API URL
+const PAYMENT_TTL_MS = 30 * 60 * 1000;
 
-// ---- PayPal Configuration (Hardcoded for Vercel Deployment) ----
-const PAYPAL_MODE = "live"; // or "sandbox" when testing
+// ---- Hard-coded PayPal configuration ----
+const PAYPAL_MODE = "sandbox"; // switch to "live" when ready
 
-// You can use either Merchant ID or Business Email
-const PAYPAL_LIVE_BUSINESS = "X449U4V5MLENA"; // your PayPal Merchant ID
 const PAYPAL_SANDBOX_BUSINESS = "sb-qsfqi47281361@business.example.com";
+const PAYPAL_LIVE_BUSINESS = "btech.lucknow@gmail.com";
 
-const PAYPAL_BUSINESS =
-  PAYPAL_MODE === "live" ? PAYPAL_LIVE_BUSINESS : PAYPAL_SANDBOX_BUSINESS;
+const PAYPAL_SANDBOX_CLIENT_ID =
+  "ARt8pgcFUdW0_your_sandbox_client_id_here";
+const PAYPAL_LIVE_CLIENT_ID =
+  "AYp7d9dU1u0K-your_live_client_id_here";
 
-const PAYPAL_ENDPOINT =
-  PAYPAL_MODE === "live"
-    ? "https://www.paypal.com/cgi-bin/webscr"
-    : "https://www.sandbox.paypal.com/cgi-bin/webscr";
-// ---------------------------------------------------------------
+const PAYPAL_SETTINGS = {
+  sandbox: {
+    clientId: PAYPAL_SANDBOX_CLIENT_ID,
+    business: PAYPAL_SANDBOX_BUSINESS,
+    currency: "USD",
+    amount: "50.00",
+  },
+  live: {
+    clientId: PAYPAL_LIVE_CLIENT_ID,
+    business: PAYPAL_LIVE_BUSINESS,
+    currency: "INR",
+    amount: "50.00",
+  },
+};
 
+const ACTIVE_PAYPAL = PAYPAL_MODE === "live"
+  ? PAYPAL_SETTINGS.live
+  : PAYPAL_SETTINGS.sandbox;
+
+const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${ACTIVE_PAYPAL.clientId}&currency=${ACTIVE_PAYPAL.currency}&intent=CAPTURE&components=buttons`;
+// --------------------------------------------------------------
 
 function ChatContent() {
   const router = useRouter();
@@ -30,20 +53,31 @@ function ChatContent() {
   const serviceTitle = searchParams.get("serviceTitle");
   const paymentStatus = searchParams.get("payment");
   const payerId = searchParams.get("PayerID");
+
   const [expertName, setExpertName] = useState("");
   const [userName, setUserName] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [hasPaid, setHasPaid] = useState(false);
   const [showPaymentPrompt, setShowPaymentPrompt] = useState(false);
-  const [returnUrl, setReturnUrl] = useState("");
-  const [cancelUrl, setCancelUrl] = useState("");
   const [expiresAt, setExpiresAt] = useState(null);
   const [remainingMs, setRemainingMs] = useState(0);
-  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+  const [paypalError, setPaypalError] = useState("");
+  const [isInitializingPayPal, setIsInitializingPayPal] = useState(false);
+  const [isCapturingPayment, setIsCapturingPayment] = useState(false);
 
-  const paidKey = useMemo(() => (expertId ? `chat-paid-${expertId}` : null), [expertId]);
-  const pendingStorageKey = useMemo(() => (paidKey ? `${paidKey}-pending` : null), [paidKey]);
+  const paypalContainerRef = useRef(null);
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  const paidKey = useMemo(
+    () => (expertId ? `chat-paid-${expertId}` : null),
+    [expertId]
+  );
+  const pendingStorageKey = useMemo(
+    () => (paidKey ? `${paidKey}-pending` : null),
+    [paidKey]
+  );
 
   const baseQuery = useMemo(() => {
     const params = new URLSearchParams();
@@ -52,22 +86,45 @@ function ChatContent() {
     return params.toString();
   }, [expertId, serviceTitle]);
 
-  const basePath = useMemo(() => (baseQuery ? `/chat?${baseQuery}` : "/chat"), [baseQuery]);
+  const basePath = useMemo(
+    () => (baseQuery ? `/chat?${baseQuery}` : "/chat"),
+    [baseQuery]
+  );
 
   const formatRemaining = useCallback((ms) => {
     const totalSeconds = Math.max(0, Math.floor(ms / 1000));
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
-    return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
   }, []);
 
-  useEffect(() => {
-  console.log("PayPal Mode:", PAYPAL_MODE);
-  console.log("PayPal Live Business:", PAYPAL_LIVE_BUSINESS);
-  console.log("PayPal Sandbox Business:", PAYPAL_SANDBOX_BUSINESS);
-  console.log("PayPal Business in use:", PAYPAL_BUSINESS);
-}, []);
+  const markPaymentAsComplete = useCallback(() => {
+    setHasPaid(true);
+    setShowPaymentPrompt(false);
+    if (typeof window === "undefined") return;
 
+    const now = Date.now();
+    const expiry = now + PAYMENT_TTL_MS;
+
+    if (paidKey) {
+      sessionStorage.setItem(
+        paidKey,
+        JSON.stringify({ paid: true, expiresAt: expiry })
+      );
+    }
+
+    setExpiresAt(expiry);
+    setRemainingMs(expiry - now);
+
+    if (
+      pendingStorageKey &&
+      sessionStorage.getItem(pendingStorageKey) !== null
+    ) {
+      sessionStorage.setItem("send-after-redirect", pendingStorageKey);
+    }
+  }, [paidKey, pendingStorageKey]);
 
   useEffect(() => {
     if (!pendingStorageKey || typeof window === "undefined") return;
@@ -105,18 +162,14 @@ function ChatContent() {
     if (!cameFromPayPal) return;
 
     if (payerId) {
-      setHasPaid(true);
-      setShowPaymentPrompt(false);
-      if (typeof window !== "undefined") {
-        const expiry = Date.now() + PAYMENT_TTL_MS;
-        sessionStorage.setItem(paidKey, JSON.stringify({ paid: true, expiresAt: expiry }));
-        setExpiresAt(expiry);
-        setRemainingMs(PAYMENT_TTL_MS);
-        if (pendingStorageKey) sessionStorage.setItem("send-after-redirect", pendingStorageKey);
-      }
+      markPaymentAsComplete();
     }
 
-    if (paymentStatus === "cancel" && typeof window !== "undefined" && pendingStorageKey) {
+    if (
+      paymentStatus === "cancel" &&
+      typeof window !== "undefined" &&
+      pendingStorageKey
+    ) {
       sessionStorage.removeItem(pendingStorageKey);
     }
 
@@ -124,20 +177,15 @@ function ChatContent() {
       window.history.replaceState(null, "", basePath);
     }
     router.replace(basePath, { scroll: false });
-  }, [payerId, paymentStatus, paidKey, pendingStorageKey, basePath, router]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const origin = window.location.origin;
-    const successUrl = `${origin}${basePath}`;
-    const cancelParams = new URLSearchParams(baseQuery);
-    cancelParams.set("payment", "cancel");
-    const cancelUrlComputed = `${origin}/chat?${cancelParams.toString()}`;
-
-    setReturnUrl(successUrl);
-    setCancelUrl(cancelUrlComputed);
-  }, [basePath, baseQuery]);
+  }, [
+    payerId,
+    paymentStatus,
+    paidKey,
+    pendingStorageKey,
+    basePath,
+    router,
+    markPaymentAsComplete,
+  ]);
 
   useEffect(() => {
     async function fetchExpert() {
@@ -260,6 +308,162 @@ function ChatContent() {
     return () => window.removeEventListener("popstate", goToServices);
   }, []);
 
+  useEffect(() => {
+    if (!showPaymentPrompt) {
+      setPaypalError("");
+      setIsInitializingPayPal(false);
+      setIsCapturingPayment(false);
+    }
+  }, [showPaymentPrompt]);
+
+  const createPayPalOrder = useCallback(async () => {
+    const payload = {
+      amount: ACTIVE_PAYPAL.amount,
+      currency: ACTIVE_PAYPAL.currency,
+      intent: "CAPTURE",
+      expertId,
+      serviceTitle,
+    };
+
+    if (typeof window !== "undefined") {
+      payload.returnUrl = window.location.href;
+      payload.cancelUrl = window.location.href;
+    }
+
+    const response = await fetch("/api/paypal/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await response.json().catch(() => null);
+    if (!response.ok || !data?.id) {
+      throw new Error(
+        data?.error || "Unable to create a PayPal order right now."
+      );
+    }
+    return data.id;
+  }, [expertId, serviceTitle]);
+
+  const capturePayPalOrder = useCallback(async (orderId) => {
+    const response = await fetch(`/api/paypal/order/${orderId}/capture`, {
+      method: "POST",
+    });
+
+    const data = await response.json().catch(() => null);
+    if (!response.ok || !data) {
+      throw new Error(
+        data?.error || "Unable to capture the PayPal order right now."
+      );
+    }
+    return data;
+  }, []);
+
+  useEffect(() => {
+    if (!showPaymentPrompt) return;
+    if (!ACTIVE_PAYPAL.clientId) {
+      setPaypalError("PayPal client ID missing. Update PAYPAL_* constants.");
+      return;
+    }
+
+    let isCancelled = false;
+
+    const renderButtons = () => {
+      if (isCancelled || !paypalContainerRef.current) return;
+
+      paypalContainerRef.current.innerHTML = "";
+      const paypal = window.paypal;
+      if (!paypal?.Buttons) {
+        setPaypalError("PayPal SDK did not load correctly.");
+        return;
+      }
+
+      paypal
+        .Buttons({
+          style: {
+            layout: "vertical",
+            color: "gold",
+            shape: "rect",
+            label: "pay",
+          },
+          createOrder: () => createPayPalOrder(),
+          onApprove: async (data) => {
+            try {
+              setPaypalError("");
+              setIsCapturingPayment(true);
+              const capture = await capturePayPalOrder(data.orderID);
+              if (capture?.status !== "COMPLETED") {
+                throw new Error("Payment was not completed.");
+              }
+              markPaymentAsComplete();
+            } catch (error) {
+              console.error("PayPal approval error:", error);
+              setPaypalError(
+                error.message ||
+                  "Unable to complete the payment. Please try again."
+              );
+            } finally {
+              setIsCapturingPayment(false);
+            }
+          },
+          onError: (err) => {
+            console.error("PayPal button error:", err);
+            if (!isCancelled) {
+              setPaypalError("PayPal experienced an error. Please try again.");
+            }
+          },
+        })
+        .render(paypalContainerRef.current);
+    };
+
+    if (window.paypal?.Buttons) {
+      renderButtons();
+      return () => {
+        isCancelled = true;
+      };
+    }
+
+    setIsInitializingPayPal(true);
+    const scriptId = "aheadterra-paypal-sdk";
+    let script = document.getElementById(scriptId);
+
+    const handleReady = () => {
+      setIsInitializingPayPal(false);
+      renderButtons();
+    };
+
+    if (!script) {
+      script = document.createElement("script");
+      script.id = scriptId;
+      script.src =
+        PAYPAL_SDK_URL + (PAYPAL_MODE === "sandbox" ? "&debug=true" : "");
+      script.async = true;
+      script.onload = handleReady;
+      script.onerror = () => {
+        setIsInitializingPayPal(false);
+        setPaypalError("Failed to load PayPal. Please refresh and try again.");
+      };
+      document.head.appendChild(script);
+    } else if (window.paypal?.Buttons) {
+      setIsInitializingPayPal(false);
+      renderButtons();
+    } else {
+      script.addEventListener("load", handleReady, { once: true });
+    }
+
+    return () => {
+      isCancelled = true;
+      if (paypalContainerRef.current) {
+        paypalContainerRef.current.innerHTML = "";
+      }
+    };
+  }, [
+    showPaymentPrompt,
+    createPayPalOrder,
+    capturePayPalOrder,
+    markPaymentAsComplete,
+  ]);
+
   async function sendMessage() {
     if (!message.trim()) return;
     const content = message.trim();
@@ -274,8 +478,6 @@ function ChatContent() {
 
     await sendMessageToServer(content);
   }
-
-  const paypalReady = Boolean(PAYPAL_BUSINESS);
 
   return (
     <main
@@ -306,9 +508,11 @@ function ChatContent() {
           {serviceTitle ? `Service: ${serviceTitle}` : ""}
         </h2>
         <p style={{ marginTop: 12, color: "#444", lineHeight: 1.5 }}>
-          Kindly provide your birth details and question below. I will respond to your inquiry as quickly as possible.
+          Kindly provide your birth details and question below. I will respond to
+          your inquiry as quickly as possible.
           <br />
-          Please complete the $50 consultation fee via PayPal to continue the conversation.
+          Please complete the $50 consultation fee via PayPal Checkout to
+          continue the conversation.
         </p>
         {hasPaid && remainingMs > 0 && (
           <p style={{ marginTop: 8, color: "#10b981", fontWeight: 600 }}>
@@ -403,48 +607,36 @@ function ChatContent() {
           >
             <h2 style={{ marginBottom: 12 }}>Complete Payment to Continue</h2>
             <p style={{ color: "#4b5563", marginBottom: 24, lineHeight: 1.5 }}>
-              To unlock messaging, please submit the $50 consultation fee via PayPal. After payment, you will automatically return here and can continue chatting.
+              Pay via PayPal Checkout and return automatically to continue
+              chatting.
             </p>
-            {!paypalReady && (
-              <p style={{ color: "#b91c1c", fontWeight: 600 }}>
-                PayPal business account is not configured. Set the environment variables to enable the button.
+
+            {isInitializingPayPal && (
+              <p style={{ color: "#4b5563", marginBottom: 12 }}>
+                Loading PayPal…
               </p>
             )}
-            <form
-              action={PAYPAL_ENDPOINT}
-              method="post"
-              style={{ display: "flex", flexDirection: "column", gap: 12 }}
-            >
-              <input type="hidden" name="cmd" value="_xclick" />
-              <input type="hidden" name="business" value={PAYPAL_BUSINESS || ""} />
-              <input
-                type="hidden"
-                name="item_name"
-                value={`Consultation with ${expertName || "Expert"}`}
-              />
-              <input type="hidden" name="currency_code" value="USD" />
-              <input type="hidden" name="amount" value="50.00" />
-              <input type="hidden" name="currency_code" value="USD" />
+            {isCapturingPayment && (
+              <p style={{ color: "#111827", marginBottom: 12 }}>
+                Finalizing payment…
+              </p>
+            )}
+            {paypalError && (
+              <p style={{ color: "#b91c1c", fontWeight: 600, marginBottom: 12 }}>
+                {paypalError}
+              </p>
+            )}
 
-              <input type="hidden" name="return" value={returnUrl} />
-              <input type="hidden" name="cancel_return" value={cancelUrl} />
-              <input type="hidden" name="rm" value="0" />
-              <button
-                type="submit"
-                disabled={!paypalReady}
-                style={{
-                  padding: "12px 24px",
-                  borderRadius: 8,
-                  border: "none",
-                  background: paypalReady ? "#ffc439" : "#facc15",
-                  color: "#111827",
-                  fontWeight: 700,
-                  cursor: paypalReady ? "pointer" : "not-allowed",
-                }}
-              >
-                Pay $50 with PayPal ({PAYPAL_MODE === "live" ? "Live" : "Sandbox"})
-              </button>
-            </form>
+            <div
+              ref={paypalContainerRef}
+              style={{ minHeight: 60, display: "flex", alignItems: "center" }}
+            />
+
+            <p style={{ marginTop: 16, color: "#4b5563", fontSize: 12 }}>
+              Mode: {PAYPAL_MODE.toUpperCase()} • Business:{" "}
+              {ACTIVE_PAYPAL.business}
+            </p>
+
             <button
               onClick={() => {
                 setShowPaymentPrompt(false);
