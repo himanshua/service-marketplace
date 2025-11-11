@@ -8,6 +8,7 @@ import authRoutes from "./routes/auth.js";
 import serviceRoutes from "./routes/services.js";
 import userRoutes from "./routes/users.js";
 import chatRoutes from "./routes/chat.js";
+import paypalRoutes from "./routes/paypal.js";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsdoc from "swagger-jsdoc";
@@ -78,6 +79,10 @@ console.log("Auth routes mounted at /api/auth");
 // Mount services routes
 app.use("/api/services", serviceRoutes);
 console.log("Services routes mounted at /api/services");
+
+app.use("/api/paypal", paypalRoutes);
+console.log("PayPal routes mounted at /api/paypal");
+
 
 // Mount users routes
 app.use("/api/users", userRoutes);

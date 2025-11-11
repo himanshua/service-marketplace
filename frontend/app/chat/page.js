@@ -324,7 +324,7 @@ function ChatContent() {
       payload.cancelUrl = encodeURIComponent(window.location.href);
     }
 
-    const response = await fetch("/api/paypal/order", {
+    const response = await fetch(`${API}/api/paypal/order`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -356,7 +356,7 @@ function ChatContent() {
   }, [expertId, serviceTitle]);
 
   const capturePayPalOrder = useCallback(async (orderId) => {
-    const response = await fetch(`/api/paypal/order/${orderId}/capture`, {
+    const response = await fetch(`${API}/api/paypal/order/${orderId}/capture`, {
       method: "POST",
     });
 
