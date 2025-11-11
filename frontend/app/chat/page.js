@@ -27,8 +27,9 @@ const PAYPAL_SETTINGS = {
   live: {
     clientId: "AY5VcStNQIc_VCvnbGU799W2rU0ewHcnKWl3Tg_h2GrwNTD3SHQ9QEfBISuLlsLOTfAHSTGHY-6BnIqE",
     secret: "EKCExhesShq4WGsH9GDqkyw0YFNKAUtfhAxbEYq_I9I0L4QGImZcmo7S9dcdS80g00d23XuszSeXDmxY",
-    business: "X449U4V5MLENA",
-    currency: "USD",
+    //business: "X449U4V5MLENA",
+    business: "btech.lucknow@gmail.com",
+        currency: "USD",
     amount: "50.00",
   },
 };
