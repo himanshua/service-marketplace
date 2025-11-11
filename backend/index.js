@@ -141,4 +141,12 @@ app.use((err, req, res, next) => {
   });
 });
 
+console.log("[PAYPAL_ENV_CHECK]", {
+  PAYPAL_MODE: process.env.PAYPAL_MODE,
+  PAYPAL_LIVE_CLIENT_ID: process.env.PAYPAL_LIVE_CLIENT_ID?.slice(0, 6),
+  PAYPAL_LIVE_SECRET: process.env.PAYPAL_LIVE_SECRET
+    ? process.env.PAYPAL_LIVE_SECRET.slice(0, 3) + "..." + process.env.PAYPAL_LIVE_SECRET.slice(-3)
+    : undefined,
+});
+
 export default app;

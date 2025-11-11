@@ -36,6 +36,10 @@ const PAYPAL_CONFIG = {
 
 const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${PAYPAL_CONFIG.clientId}&currency=${PAYPAL_CONFIG.currency}`;
 
+console.log("PAYPAL_MODE:", PAYPAL_MODE);
+console.log("PAYPAL_CLIENT_ID:", PAYPAL_CLIENT_ID);
+console.log("PAYPAL_SDK_URL:", PAYPAL_SDK_URL);
+
 function ChatContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
