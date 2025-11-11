@@ -13,44 +13,27 @@ import { useRouter, useSearchParams } from "next/navigation";
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 const PAYMENT_TTL_MS = 30 * 60 * 1000;
 
-// ---- Hard-coded PayPal configuration ----
-const PAYPAL_MODE = "live";
+const PAYPAL_MODE =
+  process.env.NEXT_PUBLIC_PAYPAL_MODE?.toLowerCase() === "live"
+    ? "live"
+    : "sandbox";
+
+const PAYPAL_CLIENT_ID =
+  PAYPAL_MODE === "live"
+    ? process.env.NEXT_PUBLIC_PAYPAL_LIVE_CLIENT_ID
+    : process.env.NEXT_PUBLIC_PAYPAL_SANDBOX_CLIENT_ID;
 
 const PAYPAL_CONFIG = {
-  sandbox: {
-    clientId: "YOUR_SANDBOX_CLIENT_ID",
-    currency: "USD", // or your preferred currency
-  },
-  live: {
-    clientId: "AY5VcStNQIc_VCvnbGU799W2rU0ewHcnKWl3Tg_h2GrwNTD3SHQ9QEfBISuLlsLOTfAHSTGHY-6BnIqE",
-    currency: "USD",
-  },
+  clientId: PAYPAL_CLIENT_ID,
+  currency: process.env.NEXT_PUBLIC_PAYPAL_CURRENCY ?? "USD",
+  amount: process.env.NEXT_PUBLIC_PAYPAL_AMOUNT ?? "50.00",
+  business:
+    PAYPAL_MODE === "live"
+      ? process.env.NEXT_PUBLIC_PAYPAL_LIVE_BUSINESS
+      : process.env.NEXT_PUBLIC_PAYPAL_SANDBOX_BUSINESS,
 };
 
-const PAYPAL_SETTINGS = {
-  sandbox: {
-    clientId: "your-sandbox-client-id",
-    secret: "your-sandbox-secret",
-    business: "sb-qsfqi47281361@business.example.com",
-    currency: "USD",
-    amount: "50.00",
-  },
-  live: {
-    clientId: "AY5VcStNQIc_VCvnbGU799W2rU0ewHcnKWl3Tg_h2GrwNTD3SHQ9QEfBISuLlsLOTfAHSTGHY-6BnIqE",
-    secret: "EKCExhesShq4WGsH9GDqkyw0YFNKAUtfhAxbEYq_I9I0L4QGImZcmo7S9dcdS80g00d23XuszSeXDmxY",
-    //business: "X449U4V5MLENA",
-    business: "btech.lucknow@gmail.com",
-        currency: "USD",
-    amount: "50.00",
-  },
-};
-
-const ACTIVE_PAYPAL =
-  PAYPAL_MODE === "live" ? PAYPAL_SETTINGS.live : PAYPAL_SETTINGS.sandbox;
-
-const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${
-  PAYPAL_CONFIG[PAYPAL_MODE].clientId
-}&currency=${PAYPAL_CONFIG[PAYPAL_MODE].currency}`;
+const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${PAYPAL_CONFIG.clientId}&currency=${PAYPAL_CONFIG.currency}`;
 
 function ChatContent() {
   const router = useRouter();
@@ -324,8 +307,8 @@ function ChatContent() {
 
   const createPayPalOrder = useCallback(async () => {
     const payload = {
-      amount: ACTIVE_PAYPAL.amount,
-      currency: ACTIVE_PAYPAL.currency,
+      amount: PAYPAL_CONFIG.amount,
+      currency: PAYPAL_CONFIG.currency,
       intent: "CAPTURE",
       expertId,
       serviceTitle,
@@ -399,8 +382,8 @@ function ChatContent() {
 
   useEffect(() => {
     if (!showPaymentPrompt) return;
-    if (!ACTIVE_PAYPAL.clientId) {
-      setPaypalError("PayPal client ID missing. Update PAYPAL_* constants.");
+    if (!PAYPAL_CONFIG.clientId) {
+      setPaypalError("PayPal client ID missing. Check environment variables.");
       return;
     }
 
@@ -687,7 +670,7 @@ function ChatContent() {
 
             <p style={{ marginTop: 16, color: "#4b5563", fontSize: 12 }}>
               Mode: {PAYPAL_MODE.toUpperCase()} • Business:{" "}
-              {ACTIVE_PAYPAL.business}
+              {PAYPAL_CONFIG.business ?? "Not set"}
             </p>
 
             <button
