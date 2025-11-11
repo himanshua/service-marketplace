@@ -33,8 +33,8 @@ router.post('/order', async (req, res) => {
     const accessToken = await getAccessToken();
 
     // Decode URLs if they are encoded
-    const returnUrl = body.returnUrl ? decodeURIComponent(body.returnUrl) : undefined;
-    const cancelUrl = body.cancelUrl ? decodeURIComponent(body.cancelUrl) : undefined;
+    const returnUrl = body.returnUrl ? decodeURIComponent(decodeURIComponent(body.returnUrl)) : undefined;
+    const cancelUrl = body.cancelUrl ? decodeURIComponent(decodeURIComponent(body.cancelUrl)) : undefined;
 
     const response = await fetch(`${PAYPAL_API_BASE}/v2/checkout/orders`, {
       method: "POST",
