@@ -16,6 +16,17 @@ const PAYMENT_TTL_MS = 30 * 60 * 1000;
 // ---- Hard-coded PayPal configuration ----
 const PAYPAL_MODE = "live";
 
+const PAYPAL_CONFIG = {
+  sandbox: {
+    clientId: "YOUR_SANDBOX_CLIENT_ID",
+    currency: "USD", // or your preferred currency
+  },
+  live: {
+    clientId: "AY5VcStNQIc_VCvnbGU799W2rU0ewHcnKWl3Tg_h2GrwNTD3SHQ9QEfBISuLlsLOTfAHSTGHY-6BnIqE",
+    currency: "USD",
+  },
+};
+
 const PAYPAL_SETTINGS = {
   sandbox: {
     clientId: "your-sandbox-client-id",
