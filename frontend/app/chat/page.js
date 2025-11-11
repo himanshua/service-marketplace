@@ -26,7 +26,7 @@ const PAYPAL_SETTINGS = {
   },
   live: {
     clientId: "AY5VcStNQIc_VCvnbGU799W2rU0ewHcnKWl3Tg_h2GrwNTD3SHQ9QEfBISuLlsLOTfAHSTGHY-6BnIqE",
-    secret: "EKCExhesShq4WGsH9GDqkyw0YFNKAUtfhAxbEYq_I9I0L4QGImZcmo7S9dcdS80g00d23XuszSeXDmxY",
+   // secret: "EKCExhesShq4WGsH9GDqkyw0YFNKAUtfhAxbEYq_I9I0L4QGImZcmo7S9dcdS80g00d23XuszSeXDmxY",
     //business: "X449U4V5MLENA",
     business: "btech.lucknow@gmail.com",
         currency: "USD",
@@ -37,7 +37,9 @@ const PAYPAL_SETTINGS = {
 const ACTIVE_PAYPAL =
   PAYPAL_MODE === "live" ? PAYPAL_SETTINGS.live : PAYPAL_SETTINGS.sandbox;
 
-const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${ACTIVE_PAYPAL.clientId}&currency=${ACTIVE_PAYPAL.currency}&components=buttons`;
+const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${
+  PAYPAL_CONFIG[PAYPAL_MODE].clientId
+}&currency=${PAYPAL_CONFIG[PAYPAL_MODE].currency}`;
 
 function ChatContent() {
   const router = useRouter();
