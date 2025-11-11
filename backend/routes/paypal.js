@@ -32,6 +32,10 @@ router.post('/order', async (req, res) => {
     const body = req.body;
     const accessToken = await getAccessToken();
 
+    // Decode URLs if they are encoded
+    const returnUrl = body.returnUrl ? decodeURIComponent(body.returnUrl) : undefined;
+    const cancelUrl = body.cancelUrl ? decodeURIComponent(body.cancelUrl) : undefined;
+
     const response = await fetch(`${PAYPAL_API_BASE}/v2/checkout/orders`, {
       method: "POST",
       headers: {
@@ -51,8 +55,8 @@ router.post('/order', async (req, res) => {
         ],
         application_context: {
           user_action: "PAY_NOW",
-          return_url: body.returnUrl,
-          cancel_url: body.cancelUrl,
+          return_url: returnUrl,
+          cancel_url: cancelUrl,
           brand_name: "AheadTerra",
           shipping_preference: "NO_SHIPPING",
         },
