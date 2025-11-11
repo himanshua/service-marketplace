@@ -37,8 +37,6 @@ const ACTIVE_PAYPAL =
   PAYPAL_MODE === "live" ? PAYPAL_SETTINGS.live : PAYPAL_SETTINGS.sandbox;
 
 const PAYPAL_SDK_URL = `https://www.paypal.com/sdk/js?client-id=${ACTIVE_PAYPAL.clientId}&currency=${ACTIVE_PAYPAL.currency}&components=buttons`;
-console.log(ACTIVE_PAYPAL.clientId+"-------------------");
-// --------------------------------------------------------------
 
 function ChatContent() {
   const router = useRouter();
@@ -330,12 +328,28 @@ function ChatContent() {
       body: JSON.stringify(payload),
     });
 
-    const data = await response.json().catch(() => null);
+    const raw = await response.text();
+    let data = null;
+    try {
+      data = JSON.parse(raw);
+    } catch (err) {
+      console.error("Create PayPal order JSON parse failed:", {
+        error: err,
+        raw,
+      });
+    }
+
     if (!response.ok || !data?.id) {
+      console.error("Create PayPal order failed:", {
+        status: response.status,
+        body: raw,
+      });
       throw new Error(
-        data?.error || "Unable to create a PayPal order right now."
+        data?.error ||
+          `Unable to create a PayPal order right now (HTTP ${response.status}).`
       );
     }
+
     return data.id;
   }, [expertId, serviceTitle]);
 
@@ -344,12 +358,28 @@ function ChatContent() {
       method: "POST",
     });
 
-    const data = await response.json().catch(() => null);
+    const raw = await response.text();
+    let data = null;
+    try {
+      data = JSON.parse(raw);
+    } catch (err) {
+      console.error("Capture PayPal order JSON parse failed:", {
+        error: err,
+        raw,
+      });
+    }
+
     if (!response.ok || !data) {
+      console.error("Capture PayPal order failed:", {
+        status: response.status,
+        body: raw,
+      });
       throw new Error(
-        data?.error || "Unable to capture the PayPal order right now."
+        data?.error ||
+          `Unable to capture the PayPal order right now (HTTP ${response.status}).`
       );
     }
+
     return data;
   }, []);
 
@@ -380,13 +410,22 @@ function ChatContent() {
             shape: "rect",
             label: "pay",
           },
-          createOrder: () => createPayPalOrder(),
+          createOrder: () =>
+            createPayPalOrder().catch((error) => {
+              console.error("PayPal createOrder error:", error);
+              setPaypalError(
+                error.message ||
+                  "Unable to create a PayPal order. Please try again."
+              );
+              throw error;
+            }),
           onApprove: async (data) => {
             try {
               setPaypalError("");
               setIsCapturingPayment(true);
               const capture = await capturePayPalOrder(data.orderID);
               if (capture?.status !== "COMPLETED") {
+                console.error("Unexpected capture payload:", capture);
                 throw new Error("Payment was not completed.");
               }
               markPaymentAsComplete();
@@ -403,7 +442,13 @@ function ChatContent() {
           onError: (err) => {
             console.error("PayPal button error:", err);
             if (!isCancelled) {
-              setPaypalError("PayPal experienced an error. Please try again.");
+              const message =
+                err?.message ||
+                "PayPal experienced an error. Please try again.";
+              const details = err?.details
+                ? ` Details: ${JSON.stringify(err.details)}`
+                : "";
+              setPaypalError(`${message}${details}`);
             }
           },
         })
