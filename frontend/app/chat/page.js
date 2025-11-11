@@ -17,6 +17,7 @@ const PAYPAL_MODE =
   process.env.NEXT_PUBLIC_PAYPAL_MODE?.toLowerCase() === "live"
     ? "live"
     : "sandbox";
+    //live
 
 const PAYPAL_CLIENT_ID =
   PAYPAL_MODE === "live"
