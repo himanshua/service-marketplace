@@ -129,7 +129,7 @@ export default function ServicesPage() {
                       onClick={(e) => e.stopPropagation()}
                     >
                       <button style={{ width: "100%", marginTop: 12 }}>
-                        Chat | {service.price}/MIN
+                        Chat | {service.price}/READING
                       </button>
                     </Link>
                   )}
