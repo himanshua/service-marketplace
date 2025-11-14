@@ -1,5 +1,6 @@
 import "./globals.css";
 import NavBar from "./components/NavBar";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata = {
   metadataBase: new URL("https://aheadterra.com"),
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
       <body>
         <NavBar />
         <main style={{ minHeight: "100vh" }}>{children}</main>
+        <Analytics />
       </body>
     </html>
   );
