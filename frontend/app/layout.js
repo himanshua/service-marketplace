@@ -32,6 +32,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Primary meta tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Himanshu Tiwari" />
+        <meta name="author" content="astrobhai" />
+        <meta name="keywords" content="psychic, jyotishvidya, readings, astrology, tarot, USA, Himanshu Tiwari, Terra" />
+        <meta name="geo.region" content="US" />
+        <meta name="geo.placename" content="United States" />
+        <meta name="geo.position" content="37.0902;-95.7129" />
+        <meta name="ICBM" content="37.0902, -95.7129" />
+        <meta httpEquiv="Content-Language" content="en-us" />
+        {/* ...other head elements if needed... */}
+        <title>Terra – Psychic & Jyotishvidya Readings</title>
+      </head>
       <body>
         <NavBar />
         <main style={{ minHeight: "100vh" }}>{children}</main>
