@@ -1,6 +1,6 @@
 import "./globals.css";
-import NavBar from "./components/NavBar";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import Header from "../components/Header"; // <-- import your new Header
 
 export const metadata = {
   metadataBase: new URL("https://aheadterra.com"),
@@ -33,6 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <title>Terra – Psychic & Jyotishvidya Readings</title>
         {/* Primary meta tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Himanshu Tiwari" />
@@ -44,10 +45,9 @@ export default function RootLayout({ children }) {
         <meta name="ICBM" content="37.0902, -95.7129" />
         <meta httpEquiv="Content-Language" content="en-us" />
         {/* ...other head elements if needed... */}
-        <title>Terra – Psychic & Jyotishvidya Readings</title>
       </head>
       <body>
-        <NavBar />
+        <Header /> {/* Use only the new Header here */}
         <main style={{ minHeight: "100vh" }}>{children}</main>
         <Analytics />
       </body>

@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react"; // React hooks
 import { useRouter } from "next/navigation"; // Navigation hook
 import Link from "next/link"; // Next.js link component
-import Header from "../components/Header"; // Header component
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL
 
