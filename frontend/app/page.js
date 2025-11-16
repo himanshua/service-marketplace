@@ -41,7 +41,16 @@ export default function Home() {
   if (loading) return <main style={{ padding: 20 }}>Loading…</main>;
 
   return (
-    <main style={{ padding: 20, maxWidth: 600, margin: "40px auto", textAlign: "center" }}>
+    <main
+      style={{
+        padding: 20,
+        maxWidth: 600,
+        margin: "40px auto",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start", // align items to the left
+      }}
+    >
       <img
         src="/images/Himanshu Tiwari.jpg"
         alt="Himanshu Tiwari"
