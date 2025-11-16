@@ -97,6 +97,12 @@ export default function Home() {
                 Login
               </button>
             </Link>
+
+            <Link href="/signup">
+              <button className="profile-btn" style={{ marginRight: 8 }}>
+                Sign Up
+              </button>
+            </Link>
             
           </>
         )}
