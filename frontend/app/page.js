@@ -51,8 +51,7 @@ export default function Home() {
       />
       <div className="profile-content">
         <h1 style={{ color: "#1976d2", fontWeight: 700, fontSize: 32, marginBottom: 10 }}>
-          Best Psychic, Astrology & Tarot Readings in the USA from Himanshu Tiwari
-          from the past 10 years
+          Top-Rated Psychic, Astrology, Numerology, Horary & Tarot Readings in the USA — Himanshu Tiwari, Delivering Insight for Over 10 Years
         </h1>
         <h2 style={{ color: "#9c27b0", fontWeight: 600, marginBottom: 12 }}>
           Jyotishvidya, Astrology, Tarot & More by Himanshu Tiwari
