@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import "./profile/profile.css"; // Reuse the same CSS as profile page
+import "./globals.css";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -38,59 +40,65 @@ export default function Home() {
     })();
   }, []);
 
-  if (loading) return <main style={{ padding: 20 }}>Loading…</main>;
+  if (loading) return <main className="profile-main">Loading…</main>;
 
   return (
-    <main
-      style={{
-        padding: 20,
-        maxWidth: 600,
-        margin: "40px auto",
-        textAlign: "center",
-      }}
-    >
+    <main className="hero-grid">
       <img
-        src="/images/Himanshu Tiwari.jpg"
+        className="hero-image"
+        src="/images/himanshu-tiwari-og.jpg"
         alt="Himanshu Tiwari"
-        style={{
-          width: "300px",
-          height: "450px",
-          objectFit: "cover",
-          borderRadius: "16px",
-          boxShadow: "0 10px 20px rgba(0,0,0,0.18)",
-          marginBottom: 24,
-          background: "#fff",
-        }}
       />
-      <h1>Service Marketplace</h1>
-      {user ? (
-        <>
-          <p>
-            Welcome, {user.name} ({user.role})!
-          </p>
-          <Link href="/profile" className="profile-btn">
-            View Profile
-          </Link>
-          {" | "}
-          <Link href="/services">
-            <button style={{ marginLeft: 8 }}>View Chat/Call Services</button>
-          </Link>
-          {" | "}
-          <button
-            onClick={() => {
-              localStorage.clear();
-              router.push("/login");
-            }}
-          >
-            Logout
-          </button>
-        </>
-      ) : (
-        <>
-          <p>Please log in or sign up.</p>
-          <Link href="/login">Login</Link> | <Link href="/signup">Signup</Link>
-        </>
-      )}
+      <div className="profile-content">
+        <h1
+          style={{
+            color: "#1976d2",
+            fontWeight: 700,
+            fontSize: 32,
+            marginBottom: 10,
+          }}
+        >
+          Service Marketplace
+        </h1>
+        {user ? (
+          <>
+            <p style={{ marginBottom: 24 }}>
+              Welcome, {user.name} ({user.role})!
+            </p>
+            <Link href="/profile">
+              <button className="profile-btn" style={{ marginRight: 8 }}>
+                View Profile
+              </button>
+            </Link>
+            <Link href="/services">
+              <button className="profile-btn" style={{ marginRight: 8 }}>
+                View Chat/Call Services
+              </button>
+            </Link>
+            <button
+              className="profile-btn"
+              onClick={() => {
+                localStorage.clear();
+                router.push("/login");
+              }}
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <p style={{ marginBottom: 24 }}>Please log in or sign up.</p>
+            <Link href="/login">
+              <button className="profile-btn" style={{ marginRight: 8 }}>
+                Login
+              </button>
+            </Link>
+            <Link href="/signup">
+              <button className="profile-btn">Signup</button>
+            </Link>
+          </>
+        )}
+      </div>
     </main>
   );
 }
