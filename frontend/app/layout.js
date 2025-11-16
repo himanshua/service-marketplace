@@ -1,6 +1,6 @@
 import "./globals.css";
 import NavBar from "./components/NavBar";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   metadataBase: new URL("https://aheadterra.com"),
@@ -43,7 +43,6 @@ export default function RootLayout({ children }) {
         <meta name="geo.position" content="37.0902;-95.7129" />
         <meta name="ICBM" content="37.0902, -95.7129" />
         <meta httpEquiv="Content-Language" content="en-us" />
-        {/* ...other head elements if needed... */}
         <title>Terra – Psychic & Jyotishvidya Readings</title>
       </head>
       <body>

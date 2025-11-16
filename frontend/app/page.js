@@ -46,27 +46,44 @@ export default function Home() {
         padding: 20,
         maxWidth: 600,
         margin: "40px auto",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start", // align items to the left
+        textAlign: "center",
       }}
     >
       <img
         src="/images/Himanshu Tiwari.jpg"
         alt="Himanshu Tiwari"
-        className="hero-image"
+        style={{
+          width: "300px",
+          height: "450px",
+          objectFit: "cover",
+          borderRadius: "16px",
+          boxShadow: "0 10px 20px rgba(0,0,0,0.18)",
+          marginBottom: 24,
+          background: "#fff",
+        }}
       />
       <h1>Service Marketplace</h1>
       {user ? (
         <>
-          <p>Welcome, {user.name} ({user.role})!</p>
-          <Link href="/profile" className="profile-btn">View Profile</Link>
+          <p>
+            Welcome, {user.name} ({user.role})!
+          </p>
+          <Link href="/profile" className="profile-btn">
+            View Profile
+          </Link>
           {" | "}
           <Link href="/services">
             <button style={{ marginLeft: 8 }}>View Chat/Call Services</button>
           </Link>
           {" | "}
-          <button onClick={() => { localStorage.clear(); router.push("/login"); }}>Logout</button>
+          <button
+            onClick={() => {
+              localStorage.clear();
+              router.push("/login");
+            }}
+          >
+            Logout
+          </button>
         </>
       ) : (
         <>
