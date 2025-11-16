@@ -149,29 +149,15 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <SignupPrompt />
+      {!user && (
+        <div className="signup-prompt">
+          <h2>Join Terra for Free!</h2>
+          <p>Sign up now to get your first psychic, astrology, or tarot reading.</p>
+          <Link href="/signup">
+            <button className="signup-btn">Sign Up</button>
+          </Link>
+        </div>
+      )}
     </main>
-  );
-}
-
-function SignupPrompt() {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 5000);
-    return () => clearTimeout(timer);
-  }, []);
-  if (!show) return null;
-  return (
-    <div style={{
-      position: "fixed", bottom: 30, right: 30, background: "#fff3e0",
-      border: "1px solid #ff9800", borderRadius: 10, padding: 24, zIndex: 1000
-    }}>
-      <h3>Join Terra for Free!</h3>
-      <p>Sign up now to get your first psychic or astrology reading.</p>
-      <Link href="/signup">
-        <button className="signup-btn">Sign Up</button>
-      </Link>
-      <button onClick={() => setShow(false)} style={{ marginLeft: 16, background: "none", border: "none", color: "#ff9800", cursor: "pointer" }}>Close</button>
-    </div>
   );
 }
