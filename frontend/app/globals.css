@@ -52,6 +52,24 @@ h1, h2 {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
 }
 
+.signup-btn {
+  background: #ff9800;
+  color: #fff;
+  font-weight: bold;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255,152,0,0.15);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.signup-btn:hover {
+  background: #fb8c00;
+  box-shadow: 0 8px 24px rgba(255,152,0,0.25);
+}
+
 @media (max-width: 768px) {
   .hero-grid {
     grid-template-columns: 1fr;
