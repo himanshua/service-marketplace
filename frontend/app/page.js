@@ -60,9 +60,9 @@ export default function Home() {
         <p style={{ marginBottom: 18 }}>
           Experience accurate psychic readings, astrology insights, and tarot guidance from one of the best online psychics in the USA. Himanshu Tiwari offers Jyotishvidya, astrology, and tarot services to help you find clarity and direction.
         </p>
-        <Link href="/history">
+        <Link href="/services">
           <button className="profile-btn" style={{ marginBottom: 18 }}>
-            See Chat History
+            Order Now on Chat Services
           </button>
         </Link>
         {user ? (
@@ -106,7 +106,7 @@ export default function Home() {
         <div style={{ marginTop: 32 }}>
           <h3 style={{ marginBottom: 10 }}>Connect with Himanshu Tiwari:</h3>
           <a
-            href="https://www.fiverr.com/sellers/himanshutiwari"
+            href="https://www.fiverr.com/himanshutiwari"
             target="_blank"
             rel="noopener noreferrer"
             className="profile-btn"
