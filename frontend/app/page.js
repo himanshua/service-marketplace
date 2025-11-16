@@ -106,7 +106,7 @@ export default function Home() {
         <div style={{ marginTop: 32 }}>
           <h3 style={{ marginBottom: 10 }}>Connect with Himanshu Tiwari:</h3>
           <a
-            href="https://www.fiverr.com/himanshutiwari"
+            href="https://www.fiverr.com/sellers/himanshutiwari"
             target="_blank"
             rel="noopener noreferrer"
             className="profile-btn"
@@ -137,16 +137,16 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="profile-btn"
-            style={{ marginRight: 8 }}
+            style={{ marginRight: 4 }}
           >
             Facebook (Page)
           </a>
-          <br />
           <a
             href="https://www.facebook.com/groups/748009425400227"
             target="_blank"
             rel="noopener noreferrer"
             className="profile-btn"
+            style={{ marginLeft: 0 }}
           >
             Facebook Group
           </a>
