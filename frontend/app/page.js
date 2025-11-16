@@ -103,14 +103,12 @@ export default function Home() {
             </Link>
           </>
         )}
-        <div style={{ marginTop: 32 }}>
-          <h3 style={{ marginBottom: 20 }}>Connect with Himanshu Tiwari:</h3>
+        <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: "8px" }}>
           <a
             href="https://www.fiverr.com/sellers/himanshutiwari"
             target="_blank"
             rel="noopener noreferrer"
             className="profile-btn"
-            style={{ marginRight: 8 }}
           >
             Fiverr
           </a>
@@ -119,7 +117,6 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="profile-btn"
-            style={{ marginRight: 8 }}
           >
             YouTube
           </a>
@@ -128,7 +125,6 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="profile-btn"
-            style={{ marginRight: 8 }}
           >
             Facebook (Personal)
           </a>
@@ -137,7 +133,6 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="profile-btn"
-            style={{ marginRight: 4 }}
           >
             Facebook (Page)
           </a>
@@ -146,7 +141,6 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="profile-btn"
-            style={{ marginLeft: 0 }}
           >
             Facebook Group
           </a>
