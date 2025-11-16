@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import "./profile/profile.css"; // Reuse the same CSS as profile page
+import "./profile/profile.css";
 import "./globals.css";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -50,20 +50,21 @@ export default function Home() {
         alt="Himanshu Tiwari"
       />
       <div className="profile-content">
-        <h1
-          style={{
-            fontSize: "2.4rem",
-            fontWeight: 700,
-            textAlign: "center",
-            marginBottom: "1.5rem",
-            color: "#2c3e50",
-            lineHeight: 1.3,
-          }}
-        >
-          Get Your Unique Psychic and Jyotishvidya Reading
-          <br />
-          offered by the Best Online Psychic Himanshu Tiwari
+        <h1 style={{ color: "#1976d2", fontWeight: 700, fontSize: 32, marginBottom: 10 }}>
+          Best Psychic, Astrology & Tarot Readings in the USA from Himanshu Tiwari
+          from the past 10 years
         </h1>
+        <h2 style={{ color: "#9c27b0", fontWeight: 600, marginBottom: 12 }}>
+          Jyotishvidya, Astrology, Tarot & More by Himanshu Tiwari
+        </h2>
+        <p style={{ marginBottom: 18 }}>
+          Experience accurate psychic readings, astrology insights, and tarot guidance from one of the best online psychics in the USA. Himanshu Tiwari offers Jyotishvidya, astrology, and tarot services to help you find clarity and direction.
+        </p>
+        <Link href="/history">
+          <button className="profile-btn" style={{ marginBottom: 18 }}>
+            See Chat History
+          </button>
+        </Link>
         {user ? (
           <>
             <p style={{ marginBottom: 24 }}>
@@ -102,6 +103,53 @@ export default function Home() {
             </Link>
           </>
         )}
+        <div style={{ marginTop: 32 }}>
+          <h3 style={{ marginBottom: 10 }}>Connect with Himanshu Tiwari:</h3>
+          <a
+            href="https://www.fiverr.com/sellers/himanshutiwari"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="profile-btn"
+            style={{ marginRight: 8 }}
+          >
+            Fiverr
+          </a>
+          <a
+            href="https://www.youtube.com/@himanshutiwari8855"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="profile-btn"
+            style={{ marginRight: 8 }}
+          >
+            YouTube
+          </a>
+          <a
+            href="https://www.facebook.com/himanshuactive/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="profile-btn"
+            style={{ marginRight: 8 }}
+          >
+            Facebook (Personal)
+          </a>
+          <a
+            href="https://www.facebook.com/vedicindianastrology/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="profile-btn"
+            style={{ marginRight: 8 }}
+          >
+            Facebook (Page)
+          </a>
+          <a
+            href="https://www.facebook.com/groups/748009425400227"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="profile-btn"
+          >
+            Facebook Group
+          </a>
+        </div>
       </div>
     </main>
   );
