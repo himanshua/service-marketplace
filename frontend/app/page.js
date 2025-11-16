@@ -1,62 +1,54 @@
-"use client"; // Client-side component
+"use client";
 
-import { useEffect, useState } from "react"; // React hooks
-import { useRouter } from "next/navigation"; // Navigation hook
-import Link from "next/link"; // Next.js link component
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"; // API base URL
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 export default function Home() {
-  const router = useRouter(); // Hook for navigation
-  const [user, setUser] = useState(null); // State for user data
-  const [loading, setLoading] = useState(true); // Loading state
+  const router = useRouter();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => { // Run on mount to check auth
-    const token = localStorage.getItem("token"); // Get token from storage
-    if (!token) { // If no token, stop loading
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
       setLoading(false);
       return;
     }
-    (async () => { // Fetch user data if token exists
+    (async () => {
       try {
         const res = await fetch(`${API}/api/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
         if (res.ok) {
-          setUser(data.user); // Set user if success
+          setUser(data.user);
         } else {
-          localStorage.removeItem("token"); // Clear invalid token
+          localStorage.removeItem("token");
           localStorage.removeItem("role");
           localStorage.removeItem("user");
         }
       } catch (err) {
         console.error("Auth check failed:", err);
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false);
       }
     })();
   }, []);
 
-  if (loading) return <main style={{ padding: 20 }}>Loading…</main>; // Show loading
+  if (loading) return <main style={{ padding: 20 }}>Loading…</main>;
 
   return (
-    <main style={{ padding: 20, maxWidth: 600, margin: "40px auto" }}>
-      <h1
-        style={{
-          fontSize: "2.4rem",
-          fontWeight: 700,
-          textAlign: "center",
-          marginBottom: "1.5rem",
-          color: "#2c3e50",
-          lineHeight: 1.3,
-        }}
-      >
-        Get Your Unique Psychic and Jyotishvidya Reading
-        <br />
-        offered by the Best Online Psychic Himanshu Tiwari
-      </h1>
-      {user ? ( // If logged in, show user info
+    <main style={{ padding: 20, maxWidth: 600, margin: "40px auto", textAlign: "center" }}>
+      <img
+        src="/images/Himanshu Tiwari.jpg"
+        alt="Himanshu Tiwari"
+        style={{ width: "180px", borderRadius: "50%", marginBottom: 24 }}
+      />
+      <h1>Service Marketplace</h1>
+      {user ? (
         <>
           <p>Welcome, {user.name} ({user.role})!</p>
           <Link href="/profile" className="profile-btn">View Profile</Link>
@@ -67,7 +59,7 @@ export default function Home() {
           {" | "}
           <button onClick={() => { localStorage.clear(); router.push("/login"); }}>Logout</button>
         </>
-      ) : ( // If not logged in, show links
+      ) : (
         <>
           <p>Please log in or sign up.</p>
           <Link href="/login">Login</Link> | <Link href="/signup">Signup</Link>
