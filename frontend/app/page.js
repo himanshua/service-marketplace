@@ -52,13 +52,17 @@ export default function Home() {
       <div className="profile-content">
         <h1
           style={{
-            color: "#1976d2",
+            fontSize: "2.4rem",
             fontWeight: 700,
-            fontSize: 32,
-            marginBottom: 10,
+            textAlign: "center",
+            marginBottom: "1.5rem",
+            color: "#2c3e50",
+            lineHeight: 1.3,
           }}
         >
-          Service Marketplace
+          Get Your Unique Psychic and Jyotishvidya Reading
+          <br />
+          offered by the Best Online Psychic Himanshu Tiwari
         </h1>
         {user ? (
           <>
