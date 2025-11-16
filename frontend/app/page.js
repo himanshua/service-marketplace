@@ -41,72 +41,38 @@ export default function Home() {
   if (loading) return <main style={{ padding: 20 }}>Loading…</main>; // Show loading
 
   return (
-    <>
-      <Header />
-      <main>
-        <div className="bannerVideoContainer--wodgA">
-          <img
-            className="banner-image"
-            src="/images/Himanshu Tiwari.jpg"
-            alt="Himanshu Tiwari"
-          />
-          <div className="banner-overlay">
-            <h1>
-              Get Your Unique Psychic and Jyotishvidya Reading<br />
-              offered by the Best Online Psychic Himanshu Tiwari
-            </h1>
-          </div>
-        </div>
-        {user ? (
-          <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
-            <p>Welcome, {user.name} ({user.role})!</p>
-            <Link href="/profile" className="profile-btn">View Profile</Link>
-            {" | "}
-            <Link href="/services">
-              <button style={{ margin: "0 8px" }}>View Chat/Call Services</button>
-            </Link>
-            {" | "}
-            <button onClick={() => { localStorage.clear(); router.push("/login"); }}>
-              Logout
-            </button>
-          </div>
-        ) : (
-          <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
-            <p>Please log in or sign up.</p>
-            <div style={{ display: "inline-flex", gap: "12px" }}>
-              <Link
-                href="/login"
-                style={{
-                  padding: "10px 22px",
-                  borderRadius: 999,
-                  background: "#111827",
-                  color: "#fff",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                  letterSpacing: "0.05em",
-                }}
-              >
-                Login
-              </Link>
-              <Link
-                href="/signup"
-                style={{
-                  padding: "10px 22px",
-                  borderRadius: 999,
-                  background: "#f97316",
-                  color: "#fff",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                  letterSpacing: "0.05em",
-                  boxShadow: "0 10px 25px rgba(249, 115, 22, 0.35)",
-                }}
-              >
-                Signup
-              </Link>
-            </div>
-          </div>
-        )}
-      </main>
-    </>
+    <main style={{ padding: 20, maxWidth: 600, margin: "40px auto" }}>
+      <h1
+        style={{
+          fontSize: "2.4rem",
+          fontWeight: 700,
+          textAlign: "center",
+          marginBottom: "1.5rem",
+          color: "#2c3e50",
+          lineHeight: 1.3,
+        }}
+      >
+        Get Your Unique Psychic and Jyotishvidya Reading
+        <br />
+        offered by the Best Online Psychic Himanshu Tiwari
+      </h1>
+      {user ? ( // If logged in, show user info
+        <>
+          <p>Welcome, {user.name} ({user.role})!</p>
+          <Link href="/profile" className="profile-btn">View Profile</Link>
+          {" | "}
+          <Link href="/services">
+            <button style={{ marginLeft: 8 }}>View Chat/Call Services</button>
+          </Link>
+          {" | "}
+          <button onClick={() => { localStorage.clear(); router.push("/login"); }}>Logout</button>
+        </>
+      ) : ( // If not logged in, show links
+        <>
+          <p>Please log in or sign up.</p>
+          <Link href="/login">Login</Link> | <Link href="/signup">Signup</Link>
+        </>
+      )}
+    </main>
   );
 }

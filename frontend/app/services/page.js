@@ -82,17 +82,7 @@ export default function ServicesPage() {
           }}
         >
           {services.map((service) => (
-            <li
-              key={service._id}
-              onClick={() => router.push(`/services/${service._id}`)}
-              style={{
-                border: "1px solid #ccc",
-                padding: 16,
-                cursor: "pointer",
-                borderRadius: 12,
-                background: "#fff",
-              }}
-            >
+            <li key={service._id} style={{ border: "1px solid #ccc", padding: 16 }}>
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <img
                   src={service.provider.avatarUrl || defaultAvatar}
@@ -111,42 +101,27 @@ export default function ServicesPage() {
                   <p>Price: ${service.price}</p>
                   <p>Category: {service.category}</p>
                   <p>Provider: {service.provider.name} ({service.provider.email})</p>
-
                   {userRole === "useradmin" && (
                     <p>
-                      <Link
-                        href={`/admin/providers/${service.provider._id}/image`}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        Add / Update Image
-                      </Link>
+                      <Link href={`/admin/providers/${service.provider._id}/image`}>Add / Update Image</Link>
                     </p>
                   )}
-
+                  <Link href={`/services/${service._id}`}>View Details</Link>
+                  {" | "}
                   {user && (
-                    <Link
-                      href={`/chat?expertId=${service.provider._id}&serviceTitle=${encodeURIComponent(service.title)}`}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <button style={{ width: "100%", marginTop: 12 }}>
-                        Chat | ${service.price}/READING
-                      </button>
+                    <Link href={`/chat?expertId=${service.provider._id}&serviceTitle=${encodeURIComponent(service.title)}`}>
+                      <button>Start Chat</button>
                     </Link>
                   )}
-
                   {userRole === "useradmin" && (
                     <>
                       {" | "}
-                      <Link
-                        href={`/services/${service._id}/edit`}
-                        onClick={(e) => e.stopPropagation()}
-                      >
+                      <Link href={`/services/${service._id}/edit`}>
                         <button>Edit</button>
                       </Link>
                       {" | "}
                       <button
-                        onClick={async (e) => {
-                          e.stopPropagation();
+                        onClick={async () => {
                           if (confirm("Are you sure you want to delete this service?")) {
                             const token = localStorage.getItem("token");
                             const res = await fetch(`${API}/api/services/${service._id}`, {
