@@ -94,13 +94,13 @@ export default function Home() {
             <p style={{ marginBottom: 24 }}>Please log in or sign up.</p>
             <Link href="/login">
               <button className="profile-btn" style={{ marginRight: 8 }}>
-                Login
+                Log in
               </button>
             </Link>
 
             <Link href="/signup">
               <button className="profile-btn" style={{ marginRight: 8 }}>
-                Sign Up
+                Sign up
               </button>
             </Link>
             
