@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Link from "next/link";
-import Header from "./components/Header"; // <-- import your new Header
+import Header from "../components/Header"; // <-- import your new Header
 
 export const metadata = {
   metadataBase: new URL("https://aheadterra.com"),
