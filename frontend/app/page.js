@@ -104,7 +104,7 @@ export default function Home() {
           </>
         )}
         <div style={{ marginTop: 32 }}>
-          <h3 style={{ marginBottom: 10 }}>Connect with Himanshu Tiwari:</h3>
+          <h3 style={{ marginBottom: 20 }}>Connect with Himanshu Tiwari:</h3>
           <a
             href="https://www.fiverr.com/sellers/himanshutiwari"
             target="_blank"
