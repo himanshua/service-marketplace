@@ -45,7 +45,7 @@ export default function Home() {
       <img
         src="/images/Himanshu Tiwari.jpg"
         alt="Himanshu Tiwari"
-        style={{ width: "180px", borderRadius: "50%", marginBottom: 24 }}
+        className="hero-image"
       />
       <h1>Service Marketplace</h1>
       {user ? (
