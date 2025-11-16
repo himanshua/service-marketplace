@@ -97,12 +97,7 @@ export default function Home() {
                 Login
               </button>
             </Link>
-            <Link href="/signup">
-              <button className="signup-btn" onClick={signInWithGoogle}>
-                <img src="/google-logo.svg" alt="Google" style={{ width: 24, marginRight: 8 }} />
-                Sign Up with Google
-              </button>
-            </Link>
+            
           </>
         )}
         <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: "8px" }}>
