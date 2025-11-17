@@ -72,7 +72,7 @@ app.use(limiter);
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 
 // Mount auth routes
-const authRoutes = require("./routes/auth");
+import authRoutes from "./routes/auth.js";
 app.use("/api/auth", authRoutes);
 console.log("Auth routes mounted at /api/auth");
 
