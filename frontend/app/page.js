@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
 import "./profile/profile.css";
 import "./globals.css";
 
@@ -11,10 +11,12 @@ const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 export default function Home() {
   const router = useRouter();
+  const { data: session, status } = useSession();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showPrompt, setShowPrompt] = useState(false);
 
+  // Existing backend JWT user check
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -43,13 +45,16 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!user) {
-      const timer = setTimeout(() => setShowPrompt(true), 3000); // show after 3 seconds
+    if (!user && !session) {
+      const timer = setTimeout(() => setShowPrompt(true), 3000);
       return () => clearTimeout(timer);
     }
-  }, [user]);
+  }, [user, session]);
 
-  if (loading) return <main className="profile-main">Loading…</main>;
+  if (loading || status === "loading") return <main className="profile-main">Loading…</main>;
+
+  // Prefer backend user if present, else NextAuth session
+  const loggedInUser = user || (session && session.user);
 
   return (
     <>
@@ -74,11 +79,14 @@ export default function Home() {
               Order Now on Chat Services
             </button>
           </Link>
-          {user ? (
+          {loggedInUser ? (
             <>
               <p style={{ marginBottom: 24 }}>
-                Welcome, {user.name} ({user.role})!
+                Welcome, {loggedInUser.name || loggedInUser.email}!
               </p>
+              {loggedInUser.image && (
+                <img src={loggedInUser.image} alt="Profile" style={{ width: 40, borderRadius: "50%", marginBottom: 16 }} />
+              )}
               <Link href="/profile">
                 <button className="profile-btn" style={{ marginRight: 8 }}>
                   View Profile
@@ -92,8 +100,12 @@ export default function Home() {
               <button
                 className="profile-btn"
                 onClick={() => {
-                  localStorage.clear();
-                  router.push("/login");
+                  if (user) {
+                    localStorage.clear();
+                    router.push("/login");
+                  } else {
+                    signOut();
+                  }
                 }}
               >
                 Logout
@@ -107,7 +119,6 @@ export default function Home() {
                   Log in
                 </button>
               </Link>
-
               <Link href="/signup">
                 <button className="profile-btn" style={{ marginRight: 8 }}>
                   Sign up
@@ -128,7 +139,6 @@ export default function Home() {
                   boxShadow: '0 1px 2px rgba(60,64,67,.08)',
                   marginBottom: 16,
                   marginTop: 16,
-
                 }}
                 onClick={() => signIn("google")}
               >
