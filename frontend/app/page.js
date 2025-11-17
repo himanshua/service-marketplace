@@ -119,7 +119,7 @@ export default function Home() {
                 onClick={() => signIn("google")}
               >
                 <img src="/google-logo.svg" alt="Google" style={{ width: 24, marginRight: 8 }} />
-                Sign Up with Google
+                Sign Up with Google.
               </button>
             </>
           )}
