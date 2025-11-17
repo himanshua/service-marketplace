@@ -127,6 +127,8 @@ export default function Home() {
                   cursor: 'pointer',
                   boxShadow: '0 1px 2px rgba(60,64,67,.08)',
                   marginBottom: 16,
+                  marginTop: 16,
+
                 }}
                 onClick={() => signIn("google")}
               >
