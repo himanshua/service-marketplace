@@ -49,8 +49,7 @@ export default function Home() {
     if (
       session &&
       session.user &&
-      !localStorage.getItem("token") &&
-      !loading // avoid double call
+      !localStorage.getItem("token")
     ) {
       fetch(`${API}/api/auth/google-login`, {
         method: "POST",
@@ -66,11 +65,11 @@ export default function Home() {
           if (data.token) {
             localStorage.setItem("token", data.token);
             // Optionally, set user/role/etc.
-            window.location.reload(); // reload to trigger user fetch
+            window.location.reload(); // <-- THIS IS IMPORTANT
           }
         });
     }
-  }, [session, loading]);
+  }, [session]);
 
   useEffect(() => {
     if (!user && !session) {
