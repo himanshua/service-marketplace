@@ -1,8 +1,8 @@
 import express from "express";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 import User from "../models/User.js";
 import { requireAuth, requireRole } from "../middleware/auth.js";
-
 
 const router = express.Router();
 const allowedRoles = ["usernormal", "userexpert", "useradmin"];
@@ -208,18 +208,20 @@ router.get("/experts/:id", requireAuth, async (req, res) => {
 
 // POST /api/auth/google-login
 router.post("/google-login", async (req, res) => {
-  const { email, name, image } = req.body;
+  const { email, name } = req.body;
   if (!email) return res.status(400).json({ error: "Email required" });
 
-  // Find or create user
   let user = await User.findOne({ email });
   if (!user) {
+    // Generate a random password for Google users
+    const randomPassword = Math.random().toString(36).slice(-8);
+    const hashedPassword = await bcrypt.hash(randomPassword, 10);
+
     user = await User.create({
-      email,
       name,
-      image,
-      // set default role or other fields as needed
-      role: "user",
+      email,
+      password: hashedPassword,
+      role: "usernormal",
     });
   }
 
@@ -230,7 +232,15 @@ router.post("/google-login", async (req, res) => {
     { expiresIn: "7d" }
   );
 
-  res.json({ token, user });
+  res.json({
+    token,
+    user: {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    },
+  });
 });
 
 /**
@@ -275,7 +285,5 @@ router.post("/google-login", async (req, res) => {
  *       401:      401:
  *         description: Unauthorized *         description: Unauthorized
  */
-
-
 
 export default router;
