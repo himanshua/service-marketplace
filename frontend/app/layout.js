@@ -1,6 +1,7 @@
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import { Analytics } from "@vercel/analytics/next";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata = {
   metadataBase: new URL("https://aheadterra.com"),
@@ -46,8 +47,10 @@ export default function RootLayout({ children }) {
         <title>Terra – Psychic & Jyotishvidya Readings</title>
       </head>
       <body>
-        <NavBar />
-        <main style={{ minHeight: "100vh" }}>{children}</main>
+        <SessionProvider>
+          <NavBar />
+          <main style={{ minHeight: "100vh" }}>{children}</main>
+        </SessionProvider>
         <Analytics />
       </body>
     </html>
