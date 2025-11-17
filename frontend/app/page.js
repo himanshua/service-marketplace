@@ -114,12 +114,28 @@ export default function Home() {
                 </button>
               </Link>
               <button
-                className="signup-btn"
-                style={{ background: "#fff", color: "#444", border: "1px solid #ccc", display: "flex", alignItems: "center", marginBottom: 16 }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  background: '#fff',
+                  color: '#3c4043',
+                  border: '1px solid #dadce0',
+                  borderRadius: 4,
+                  fontWeight: 500,
+                  fontSize: 16,
+                  padding: '8px 16px',
+                  cursor: 'pointer',
+                  boxShadow: '0 1px 2px rgba(60,64,67,.08)',
+                  marginBottom: 16,
+                }}
                 onClick={() => signIn("google")}
               >
-                <img src="/google-logo.svg" alt="Google" style={{ width: 24, marginRight: 8 }} />
-                Sign Up with Google.
+                <img
+                  src="https://developers.google.com/identity/images/g-logo.png"
+                  alt="Google logo"
+                  style={{ width: 20, height: 20, marginRight: 12 }}
+                />
+                Sign up with Google
               </button>
             </>
           )}
