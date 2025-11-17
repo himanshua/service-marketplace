@@ -126,12 +126,10 @@ export default function Home() {
             <button
               className="profile-btn"
               onClick={() => {
-                if (user) {
-                  localStorage.clear();
-                  router.push("/login");
-                } else {
-                  signOut();
-                }
+                // Always clear your site session
+                localStorage.clear();
+                // Always sign out NextAuth (Google) session
+                signOut({ callbackUrl: "/login" });
               }}
             >
               Logout
