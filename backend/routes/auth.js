@@ -206,6 +206,33 @@ router.get("/experts/:id", requireAuth, async (req, res) => {
   res.json({ expert: { id: user._id, name: user.name, email: user.email, role: user.role } });
 });
 
+// POST /api/auth/google-login
+router.post("/google-login", async (req, res) => {
+  const { email, name, image } = req.body;
+  if (!email) return res.status(400).json({ error: "Email required" });
+
+  // Find or create user
+  let user = await User.findOne({ email });
+  if (!user) {
+    user = await User.create({
+      email,
+      name,
+      image,
+      // set default role or other fields as needed
+      role: "user",
+    });
+  }
+
+  // Create JWT (adjust payload as needed)
+  const token = jwt.sign(
+    { id: user._id, email: user.email, role: user.role },
+    process.env.JWT_SECRET,
+    { expiresIn: "7d" }
+  );
+
+  res.json({ token, user });
+});
+
 /**
  * @swaggerr
  * /api/auth/register:

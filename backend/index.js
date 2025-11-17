@@ -4,7 +4,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import authRoutes from "./routes/auth.js";
 import serviceRoutes from "./routes/services.js";
 import userRoutes from "./routes/users.js";
 import chatRoutes from "./routes/chat.js";
@@ -73,6 +72,7 @@ app.use(limiter);
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 
 // Mount auth routes
+const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
 console.log("Auth routes mounted at /api/auth");
 
