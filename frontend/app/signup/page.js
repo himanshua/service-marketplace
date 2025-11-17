@@ -2,6 +2,7 @@
 import { useState } from "react";
 import{useRouter}from"next/navigation";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/"; 
 
@@ -72,6 +73,10 @@ async function handleSubmit(e) {// Handle form submission
         />
         <button type="submit">Signup</button>
       </form>
+      <button className="signup-btn" onClick={() => signIn("google")}>
+        <img src="/google-logo.svg" alt="Google" style={{ width: 24, marginRight: 8 }} />
+        Sign Up with Google
+      </button>
       <p
         style={{
           marginTop: "1.5rem",

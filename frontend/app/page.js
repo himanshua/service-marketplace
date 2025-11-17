@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 import "./profile/profile.css";
 import "./globals.css";
 
@@ -112,7 +113,14 @@ export default function Home() {
                   Sign up
                 </button>
               </Link>
-              
+              <button
+                className="signup-btn"
+                style={{ background: "#fff", color: "#444", border: "1px solid #ccc", display: "flex", alignItems: "center", marginBottom: 16 }}
+                onClick={() => signIn("google")}
+              >
+                <img src="/google-logo.svg" alt="Google" style={{ width: 24, marginRight: 8 }} />
+                Sign Up with Google
+              </button>
             </>
           )}
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: "8px" }}>
