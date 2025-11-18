@@ -1,52 +1,59 @@
 "use client";
 import { useState } from "react";
-import{useRouter}from"next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/"; 
-
-
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/";
 
 export default function Signup() {
-  const router=useRouter(); // Hook to navigate after signup
-  const [form, setForm] = useState({ name: "", email: "", password: "", role: "usernormal" }); //Form state
+  const router = useRouter(); // Hook to navigate after signup
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: "usernormal",
+  }); //Form state
   const [message, setMessage] = useState(""); // Success/error message state
   const [loading, setLoading] = useState(false); // Loading state
 
-  const handleChange = (e) => { // update form state on input change
+  const handleChange = (e) => {
+    // update form state on input change
     setForm({ ...form, [e.target.name]: e.target.value });
-  }
+  };
 
-async function handleSubmit(e) {// Handle form submission
-   e.preventDefault(); // Prevent page reload
+  async function handleSubmit(e) {
+    // Handle form submission
+    e.preventDefault(); // Prevent page reload
     setMessage(""); // Clear previous messages
     setLoading(true); // Set loading state
     try {
-      const res = await fetch(`${API}/api/auth/signup`, { // Send POST request to signup endpoint
+      const res = await fetch(`${API}/api/auth/signup`, {
+        // Send POST request to signup endpoint
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
       const data = await res.json(); // Parse JSON response
       if (res.ok) {
-      setMessage("Signup successful! Redirecting to login..."); // Set success message
-      setTimeout(() => router.push("/login"), 2000); // Redirect to login after 2 seconds
-    } else { 
-      setMessage(data.message || "Signup failed"); // Set error message from response
+        setMessage("Signup successful! Redirecting to login..."); // Set success message
+        setTimeout(() => router.push("/login"), 2000); // Redirect to login after 2 seconds
+      } else {
+        setMessage(data.message || "Signup failed"); // Set error message from response
+      }
+    } catch (error) {
+      setMessage(error.message); // Set error message
+    } finally {
+      setLoading(false); // Reset loading state
     }
-  } catch (error) {
-    setMessage(error.message); // Set error message
-  } finally {
-    setLoading(false); // Reset loading state
   }
-}
-  
 
-   return (
+  return (
     <main style={{ padding: 20, maxWidth: 400, margin: "50px auto" }}>
       <h1>Signup</h1>
-      <form onSubmit={handleSubmit}> {/* Form with submit handler */}
+      <form onSubmit={handleSubmit}>
+        {" "}
+        {/* Form with submit handler */}
         <input
           name="name" // Matches backend field
           type="text"
@@ -73,9 +80,30 @@ async function handleSubmit(e) {// Handle form submission
         />
         <button type="submit">Signup</button>
       </form>
-      <button className="signup-btn" onClick={() => signIn("google")}>
-        <img src="/google-logo.svg" alt="Google" style={{ width: 24, marginRight: 8 }} />
-        Sign Up with Google
+      <button
+        style={{
+          display: "flex",
+          alignItems: "center",
+          background: "#fff",
+          color: "#3c4043",
+          border: "1px solid #dadce0",
+          borderRadius: 4,
+          fontWeight: 500,
+          fontSize: 16,
+          padding: "8px 16px",
+          cursor: "pointer",
+          boxShadow: "0 1px 2px rgba(60,64,67,.08)",
+          marginBottom: 16,
+          marginTop: 16,
+        }}
+        onClick={() => signIn("google")}
+      >
+        <img
+          src="https://developers.google.com/identity/images/g-logo.png"
+          alt="Google logo"
+          style={{ width: 20, height: 20, marginRight: 12 }}
+        />
+        Continue with Google
       </button>
       <p
         style={{
