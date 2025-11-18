@@ -114,9 +114,7 @@ export default function Home() {
                 <Link href="/profile">
                   <button className="profile-btn">View Profile</button>
                 </Link>
-                <Link href="/services">
-                  <button className="profile-btn">View Chat/Call Services</button>
-                </Link>
+                
                 <button
                   className="profile-btn"
                   onClick={() => {
