@@ -32,7 +32,7 @@ export default function Login() {
       const data = await res.json();
       if (res.ok && data.token) {
         localStorage.setItem("token", data.token);
-        window.location.href = "/"; // Instantly reloads and updates Navbar
+        window.location.href = "/"; // <-- Add this line
       } else {
         setMessage(data.message || "Login failed");
       }
