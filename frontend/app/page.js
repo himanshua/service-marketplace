@@ -86,6 +86,7 @@ export default function Home() {
             src="/images/himanshu-tiwari-og.jpg"
             alt="Himanshu Tiwari"
             className="home-hero-image"
+            style={{ borderRadius: "12px", width: 300, height: 400, objectFit: "cover", boxShadow: "0 8px 32px rgba(0,0,0,0.12)", background: "#fff" }}
           />
         </div>
         {/* Right: Content */}
