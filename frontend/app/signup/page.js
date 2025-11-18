@@ -1,17 +1,54 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useSession, signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/";
 
 export default function Signup() {
+  const router = useRouter();
   const { data: session } = useSession();
+  const [form, setForm] = useState({ name: "", email: "", password: "", role: "usernormal" });
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const [signingIn, setSigningIn] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setMessage("");
+    setLoading(true);
+    try {
+      const res = await fetch(`${API}/api/auth/signup`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setMessage("Signup successful! Redirecting to login...");
+        setTimeout(() => router.push("/login"), 2000);
+      } else {
+        setMessage(data.message || "Signup failed");
+      }
+    } catch (error) {
+      setMessage(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   // Google session exchange logic (same as home page)
   useEffect(() => {
-    if (session && session.user && !localStorage.getItem("token")) {
+    if (
+      session &&
+      session.user &&
+      !localStorage.getItem("token")
+    ) {
       setSigningIn(true);
       fetch(`${API}/api/auth/google-login`, {
         method: "POST",
@@ -26,24 +63,22 @@ export default function Signup() {
         .then((data) => {
           if (data.token) {
             localStorage.setItem("token", data.token);
-            window.location.href = "/"; // or reload/redirect as needed
+            window.location.href = "/"; // or router.push("/") if you want
           }
         });
     }
   }, [session]);
 
   if (signingIn) {
-    return <main>Signing you in...</main>;
+    return <main style={{ padding: 20, maxWidth: 400, margin: "50px auto" }}>Signing you in...</main>;
   }
 
   return (
     <main style={{ padding: 20, maxWidth: 400, margin: "50px auto" }}>
       <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
-        {" "}
-        {/* Form with submit handler */}
         <input
-          name="name" // Matches backend field
+          name="name"
           type="text"
           placeholder="Name"
           value={form.name}
@@ -66,23 +101,25 @@ export default function Signup() {
           onChange={handleChange}
           required
         />
-        <button type="submit">Signup</button>
+        <button type="submit" disabled={loading}>{loading ? "Signing up..." : "Signup"}</button>
       </form>
       <button
         style={{
-          display: "flex",
-          alignItems: "center",
-          background: "#fff",
-          color: "#3c4043",
-          border: "1px solid #dadce0",
+          display: 'flex',
+          alignItems: 'center',
+          background: '#fff',
+          color: '#3c4043',
+          border: '1px solid #dadce0',
           borderRadius: 4,
           fontWeight: 500,
           fontSize: 16,
-          padding: "8px 16px",
-          cursor: "pointer",
-          boxShadow: "0 1px 2px rgba(60,64,67,.08)",
+          padding: '8px 16px',
+          cursor: 'pointer',
+          boxShadow: '0 1px 2px rgba(60,64,67,.08)',
           marginBottom: 16,
           marginTop: 16,
+          width: "100%",
+          justifyContent: "center"
         }}
         onClick={() => signIn("google")}
       >
@@ -93,35 +130,13 @@ export default function Signup() {
         />
         Continue with Google
       </button>
-      <p
-        style={{
-          marginTop: "1.5rem",
-          textAlign: "center",
-          fontSize: "1rem",
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.75rem",
-        }}
-      >
-        <span style={{ color: "#6b7280" }}>Already have an account?</span>
-        <Link
-          href="/login"
-          style={{
-            display: "inline-block",
-            padding: "12px 22px",
-            borderRadius: 999,
-            background: "#111827",
-            color: "#fff",
-            fontWeight: 700,
-            textDecoration: "none",
-            letterSpacing: "0.05em",
-            boxShadow: "0 12px 28px rgba(17, 24, 39, 0.35)",
-          }}
-        >
+      <p style={{ marginTop: "1rem", textAlign: "center" }}>
+        Already have an account?{" "}
+        <Link href="/login" style={{ color: "#111827", fontWeight: 600 }}>
           Log in here
         </Link>
       </p>
-      {message && <p>{message}</p>} {/* Show message */}
+      {message && <p>{message}</p>}
     </main>
   );
 }
