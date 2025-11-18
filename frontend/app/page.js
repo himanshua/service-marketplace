@@ -103,7 +103,7 @@ export default function Home() {
           {loggedInUser && (
             <p style={{
               fontWeight: 800,
-              color: "#1976d2",
+              color: "#10e814da",
               marginBottom: 18,
               fontSize: "2rem",
               letterSpacing: "0.5px"
