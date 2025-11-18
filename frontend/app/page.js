@@ -86,7 +86,7 @@ export default function Home() {
             src="/images/himanshu-tiwari-og.jpg"
             alt="Himanshu Tiwari"
             className="home-hero-image"
-            style={{ borderRadius: "12px", width: 300, height: 400, objectFit: "cover", boxShadow: "0 8px 32px rgba(0,0,0,0.12)", background: "#fff" }}
+            style={{ borderRadius: "12px", width: 300, height: 450, objectFit: "cover", boxShadow: "0 8px 32px rgba(0,0,0,0.12)", background: "#fff" }}
           />
         </div>
         {/* Right: Content */}
@@ -153,12 +153,12 @@ export default function Home() {
           )}
           <div className="home-social-row">
             <a
-              href="https://www.fiverr.com/sellers/himanshutiwari"
+              href="https://www.fiverr.com/himanshutiwari"
               target="_blank"
               rel="noopener noreferrer"
               className="profile-btn profile-btn-outline"
             >
-              Fiverr
+              Check my Fiverr Profile
             </a>
             <a
               href="https://www.youtube.com/@himanshutiwari8855"
@@ -166,7 +166,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="profile-btn profile-btn-outline"
             >
-              YouTube
+              Check my YouTube Channel
             </a>
             <a
               href="https://www.facebook.com/himanshuactive/"
@@ -174,7 +174,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="profile-btn profile-btn-outline"
             >
-              Facebook (Personal)
+              Check my Facebook (Personal)
             </a>
             <a
               href="https://www.facebook.com/vedicindianastrology/"
@@ -182,7 +182,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="profile-btn profile-btn-outline"
             >
-              Facebook (Page)
+              Check my Facebook Page
             </a>
             <a
               href="https://www.facebook.com/groups/748009425400227"
@@ -190,7 +190,15 @@ export default function Home() {
               rel="noopener noreferrer"
               className="profile-btn profile-btn-outline"
             >
-              Facebook Group
+              Check my Facebook Group
+            </a>
+            <a
+              href="https://x.com/himanshusocial"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="profile-btn profile-btn-outline"
+            >
+              Check my X Profile
             </a>
           </div>
         </div>
