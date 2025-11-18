@@ -100,6 +100,11 @@ export default function Home() {
           <p className="home-desc">
             Experience accurate psychic readings, astrology insights, and tarot guidance from one of the best online psychics in the USA. Himanshu Tiwari offers Jyotishvidya, astrology, and tarot services to help you find clarity and direction.
           </p>
+          {loggedInUser && (
+            <p style={{ fontWeight: 600, color: "#1976d2", marginBottom: 12 }}>
+              Welcome, {loggedInUser.name || loggedInUser.email}!
+            </p>
+          )}
           <div className="home-btn-row">
             <Link href="/services">
               <button className="profile-btn">Order Now on Chat Services</button>
@@ -127,7 +132,7 @@ export default function Home() {
           {!loggedInUser && (
             <div className="home-auth-row">
               <button
-                className="profile-google-btn"
+                className="profile-btn profile-btn-google-blue"
                 onClick={() => signIn("google")}
               >
                 <img
