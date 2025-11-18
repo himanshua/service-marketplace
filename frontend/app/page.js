@@ -105,7 +105,7 @@ export default function Home() {
           Experience accurate psychic readings, astrology insights, and tarot guidance from one of the best online psychics in the USA. Himanshu Tiwari offers Jyotishvidya, astrology, and tarot services to help you find clarity and direction.
         </p>
         <Link href="/services">
-          <button className="profile-btn" style={{ marginBottom: 18 }}>
+          <button className="profile-btn">
             Order Now on Chat Services
           </button>
         </Link>
@@ -118,7 +118,7 @@ export default function Home() {
               <img src={loggedInUser.image} alt="Profile" style={{ width: 40, borderRadius: "50%", marginBottom: 16 }} />
             )}
             <Link href="/profile">
-              <button className="profile-btn" style={{ marginRight: 8 }}>
+              <button className="profile-btn">
                 View Profile
               </button>
             </Link>
@@ -152,29 +152,15 @@ export default function Home() {
               </button>
             </Link>
             <button
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                background: '#fff',
-                color: '#3c4043',
-                border: '1px solid #dadce0',
-                borderRadius: 4,
-                fontWeight: 500,
-                fontSize: 16,
-                padding: '8px 16px',
-                cursor: 'pointer',
-                boxShadow: '0 1px 2px rgba(60,64,67,.08)',
-                marginBottom: 16,
-                marginTop: 16,
-              }}
+              className="profile-btn"
               onClick={() => signIn("google")}
             >
               <img
                 src="https://developers.google.com/identity/images/g-logo.png"
                 alt="Google logo"
-                style={{ width: 20, height: 20, marginRight: 12 }}
+                className="profile-google-logo"
               />
-              Continue with Google
+              Sign up with Google
             </button>
           </>
         )}
