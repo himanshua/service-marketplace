@@ -135,7 +135,7 @@ export default function Home() {
                   alt="Google logo"
                   className="profile-google-logo"
                 />
-                Sign up with Google
+                Continue with Google
               </button>
               <div className="home-auth-btns">
                 <Link href="/login">
