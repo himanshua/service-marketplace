@@ -101,7 +101,13 @@ export default function Home() {
             Experience accurate psychic readings, astrology insights, and tarot guidance from one of the best online psychics in the USA. Himanshu Tiwari offers Jyotishvidya, astrology, and tarot services to help you find clarity and direction.
           </p>
           {loggedInUser && (
-            <p style={{ fontWeight: 1600, color: "#1976d2", marginBottom: 12 }}>
+            <p style={{
+              fontWeight: 800,
+              color: "#1976d2",
+              marginBottom: 18,
+              fontSize: "2rem",
+              letterSpacing: "0.5px"
+            }}>
               Welcome, {loggedInUser.name || loggedInUser.email}!
             </p>
           )}
