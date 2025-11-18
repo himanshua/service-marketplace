@@ -15,6 +15,7 @@ export default function Home() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showPrompt, setShowPrompt] = useState(false);
+  const [signingIn, setSigningIn] = useState(false); // <-- NEW
 
   // 1. Existing backend JWT user check
   useEffect(() => {
@@ -48,6 +49,7 @@ export default function Home() {
       session.user &&
       !localStorage.getItem("token")
     ) {
+      setSigningIn(true); // <-- Show "Signing you in..."
       fetch(`${API}/api/auth/google-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -74,9 +76,13 @@ export default function Home() {
     }
   }, [user, session, loading]);
 
-  // Only show loading spinner if still loading
-  if (loading || status === "loading") {
-    return <main className="profile-main">Loading…</main>;
+  // Show loading spinner or custom message
+  if (loading || status === "loading" || signingIn) {
+    return (
+      <main className="profile-main">
+        {signingIn ? "Signing you in..." : "Loading…"}
+      </main>
+    );
   }
 
   const loggedInUser = user || (session && session.user);
