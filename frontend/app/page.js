@@ -129,9 +129,10 @@ export default function Home() {
             </Link>
             <button
               className="profile-btn"
-              onClick={() => {
+              onClick={async () => {
                 localStorage.clear();
-                signOut({ callbackUrl: "/login" });
+                await signOut({ redirect: false });
+                window.location.href = "/"; // or router.refresh() if you want to reload the homepage
               }}
             >
               Logout
