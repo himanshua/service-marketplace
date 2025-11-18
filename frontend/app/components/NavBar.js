@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 export default function NavBar() {
@@ -104,17 +105,11 @@ export default function NavBar() {
               </>
             )}
             <button
-              onClick={() => {
+              style={{ marginLeft: 16 }}
+              onClick={async () => {
                 localStorage.clear();
-                window.location.href = "/login";
-              }}
-              style={{
-                padding: "8px 16px",
-                borderRadius: 999,
-                border: "1px solid #111827",
-                background: "#111827",
-                color: "#ffffff",
-                cursor: "pointer",
+                await signOut({ redirect: false });
+                window.location.href = "/"; // or router.push("/") if using useRouter
               }}
             >
               Logout

@@ -174,7 +174,7 @@ export default function Home() {
                 alt="Google logo"
                 style={{ width: 20, height: 20, marginRight: 12 }}
               />
-              Sign up with Google
+              Continue with Google
             </button>
           </>
         )}
