@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import "./signup.css"; // <-- Add this line
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/";
 
@@ -42,7 +43,7 @@ export default function Signup() {
     }
   }
 
-  // Google session exchange logic (same as home page)
+  // Google session exchange logic
   useEffect(() => {
     if (
       session &&
@@ -63,80 +64,86 @@ export default function Signup() {
         .then((data) => {
           if (data.token) {
             localStorage.setItem("token", data.token);
-            window.location.href = "/"; // or router.push("/") if you want
+            window.location.href = "/";
           }
         });
     }
   }, [session]);
 
   if (signingIn) {
-    return <main style={{ padding: 20, maxWidth: 400, margin: "50px auto" }}>Signing you in...</main>;
+    return <main className="signup-main">Signing you in...</main>;
   }
 
   return (
-    <main style={{ padding: 20, maxWidth: 400, margin: "50px auto" }}>
-      <h1>Signup</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="name"
-          type="text"
-          placeholder="Name"
-          value={form.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit" disabled={loading}>{loading ? "Signing up..." : "Signup"}</button>
-      </form>
-      <button
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          background: '#fff',
-          color: '#3c4043',
-          border: '1px solid #dadce0',
-          borderRadius: 4,
-          fontWeight: 500,
-          fontSize: 16,
-          padding: '8px 16px',
-          cursor: 'pointer',
-          boxShadow: '0 1px 2px rgba(60,64,67,.08)',
-          marginBottom: 16,
-          marginTop: 16,
-          width: "100%",
-          justifyContent: "center"
-        }}
-        onClick={() => signIn("google")}
-      >
-        <img
-          src="https://developers.google.com/identity/images/g-logo.png"
-          alt="Google logo"
-          style={{ width: 20, height: 20, marginRight: 12 }}
-        />
-        Continue with Google
-      </button>
-      <p style={{ marginTop: "1rem", textAlign: "center" }}>
-        Already have an account?{" "}
-        <Link href="/login" style={{ color: "#111827", fontWeight: 600 }}>
-          Log in here
-        </Link>
-      </p>
-      {message && <p>{message}</p>}
+    <main className="signup-main">
+      <div className="signup-container">
+        {/* Left: Form */}
+        <div className="signup-form-col">
+          <h1 className="signup-title">Sign Up</h1>
+          <p className="signup-subtitle">
+            Already have an account?{" "}
+            <Link href="/login" className="signup-link">
+              Log In
+            </Link>
+          </p>
+          <form onSubmit={handleSubmit} className="signup-form">
+            <input
+              name="name"
+              type="text"
+              placeholder="Name"
+              value={form.name}
+              onChange={handleChange}
+              required
+              className="signup-input"
+            />
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+              required
+              className="signup-input"
+            />
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
+              required
+              className="signup-input"
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="signup-btn"
+            >
+              {loading ? "Signing up..." : "Sign Up"}
+            </button>
+          </form>
+          {message && <p className="signup-message">{message}</p>}
+        </div>
+        {/* Right: Social */}
+        <div className="signup-social-col">
+          <div className="signup-or-row">
+            <div className="signup-or-line" />
+            <span className="signup-or-text">or</span>
+            <div className="signup-or-line" />
+          </div>
+          <button
+            className="signup-google-btn"
+            onClick={() => signIn("google")}
+          >
+            <img
+              src="https://developers.google.com/identity/images/g-logo.png"
+              alt="Google logo"
+              className="signup-google-logo"
+            />
+            Continue with Google
+          </button>
+        </div>
+      </div>
     </main>
   );
 }
