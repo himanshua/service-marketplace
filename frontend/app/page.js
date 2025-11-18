@@ -180,7 +180,7 @@ export default function Home() {
         )}
         <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: "8px" }}>
           <a
-            href="https://www.fiverr.com/sellers/himanshutiwari"
+            href="https://www.fiverr.com/himanshutiwari"
             target="_blank"
             rel="noopener noreferrer"
             className="profile-btn"
