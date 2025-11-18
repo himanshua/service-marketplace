@@ -32,8 +32,7 @@ export default function Login() {
       const data = await res.json();
       if (res.ok && data.token) {
         localStorage.setItem("token", data.token);
-        setMessage("Login successful! Redirecting...");
-        setTimeout(() => router.push("/"), 1000);
+        window.location.href = "/"; // Instantly reloads and updates Navbar
       } else {
         setMessage(data.message || "Login failed");
       }
