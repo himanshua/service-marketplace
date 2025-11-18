@@ -78,6 +78,9 @@ export default function NavBar() {
         <Link href="/services" style={{ textDecoration: "none", color: "#1f2937" }}>
           Services
         </Link>
+        <Link href="/apply" style={{ textDecoration: "none", color: "#1f2937" }}>
+          Apply
+        </Link>
 
         {user ? (
           <>

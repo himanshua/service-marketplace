@@ -61,7 +61,6 @@ export default function Home() {
 
   return (
     <>
-      <Navbar user={user} />
       <main>
         {user ? (
           <>
