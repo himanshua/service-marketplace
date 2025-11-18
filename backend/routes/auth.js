@@ -208,39 +208,42 @@ router.get("/experts/:id", requireAuth, async (req, res) => {
 
 // POST /api/auth/google-login
 router.post("/google-login", async (req, res) => {
-  const { email, name } = req.body;
-  if (!email) return res.status(400).json({ error: "Email required" });
+  try {
+    const { email, name } = req.body;
+    if (!email) return res.status(400).json({ error: "Email required" });
 
-  let user = await User.findOne({ email });
-  if (!user) {
-    // Generate a random password for Google users
-    const randomPassword = Math.random().toString(36).slice(-8);
-    const hashedPassword = await bcrypt.hash(randomPassword, 10);
+    let user = await User.findOne({ email });
+    if (!user) {
+      const randomPassword = Math.random().toString(36).slice(-8);
+      const hashedPassword = await bcrypt.hash(randomPassword, 10);
 
-    user = await User.create({
-      name,
-      email,
-      password: hashedPassword,
-      role: "usernormal",
+      user = await User.create({
+        name,
+        email,
+        password: hashedPassword,
+        role: "usernormal",
+      });
+    }
+
+    const token = jwt.sign(
+      { id: user._id, email: user.email, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" }
+    );
+
+    res.json({
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
     });
+  } catch (err) {
+    console.error("Google login error:", err);
+    res.status(500).json({ error: "Internal server error" });
   }
-
-  // Create JWT (adjust payload as needed)
-  const token = jwt.sign(
-    { id: user._id, email: user.email, role: user.role },
-    process.env.JWT_SECRET,
-    { expiresIn: "7d" }
-  );
-
-  res.json({
-    token,
-    user: {
-      id: user._id,
-      name: user.name,
-      email: user.email,
-      role: user.role,
-    },
-  });
 });
 
 /**

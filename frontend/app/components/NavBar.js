@@ -1,53 +1,29 @@
 "use client";
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
-
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+import { useEffect, useState } from "react";
 
 export default function NavBar() {
-  const router = useRouter();
-  const pathname = usePathname();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        setUser(null);
-        return;
-      }
-      try {
-        const res = await fetch(`${API}/api/auth/me`, {
+    // Check for JWT user in localStorage
+    const token = localStorage.getItem("token");
+    if (token) {
+      // Optionally, fetch user info from your backend
+      fetch(
+        `${process.env.NEXT_PUBLIC_API_URL || "https://service-marketplace-backend.onrender.com"}/api/auth/me`,
+        {
           headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.user) setUser(data.user);
         });
-        if (!res.ok) throw new Error("unauthorized");
-        const data = await res.json();
-        setUser(data.user);
-        localStorage.setItem("user", JSON.stringify(data.user));
-      } catch {
-        localStorage.clear();
-        setUser(null);
-        router.push("/login");
-      }
-    };
-
-    fetchUser();
-
-    const sync = () => {
-      const stored = localStorage.getItem("user");
-      setUser(stored ? JSON.parse(stored) : null);
-    };
-
-    window.addEventListener("storage", sync);
-    return () => window.removeEventListener("storage", sync);
-  }, [router, pathname]);
-
-  const logout = () => {
-    localStorage.clear();
-    setUser(null);
-    router.push("/login");
-  };
+    } else {
+      setUser(null);
+    }
+  }, []);
 
   return (
     <nav
@@ -125,7 +101,10 @@ export default function NavBar() {
               </>
             )}
             <button
-              onClick={logout}
+              onClick={() => {
+                localStorage.clear();
+                window.location.href = "/login";
+              }}
               style={{
                 padding: "8px 16px",
                 borderRadius: 999,
