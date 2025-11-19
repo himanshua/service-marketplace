@@ -135,32 +135,21 @@
   .auth-main-container, .signup-main-container, .login-main-container {
     flex-direction: column !important;
     align-items: stretch !important;
-    min-width: 0 !important;
   }
   .auth-form-col, .signup-form-col, .login-form-col,
   .auth-social-col, .signup-social-col, .login-social-col {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    padding: 0 0 24px 0 !important;
-    box-sizing: border-box;
+    padding: 0 !important;
+    border: none !important;
   }
   .auth-social-col, .signup-social-col, .login-social-col {
-    padding-top: 0 !important;
-    border-left: none !important;
-    border-top: 1px solid #f0f0f0 !important;
-    margin-top: 24px !important;
+    order: 2;
+    margin-top: 0 !important;
   }
   .auth-form-col, .signup-form-col, .login-form-col {
-    border-right: none !important;
-    border-bottom: 1px solid #f0f0f0 !important;
-    margin-bottom: 24px !important;
-  }
-  .profile-btn, .profile-btn-google-blue, .profile-btn-outline {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 8px 0 0 0 !important;
-    font-size: 1rem !important;
-    padding: 12px !important;
+    order: 1;
+    margin-bottom: 0 !important;
   }
 }
