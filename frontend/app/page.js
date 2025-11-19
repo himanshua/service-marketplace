@@ -219,7 +219,7 @@ export default function Home() {
                 <p style={{ fontWeight: 600, fontSize: "1.2rem", marginBottom: 20 }}>
                   Please sign up or log in to access services.
                 </p>
-                <div style={{ display: "flex", gap: 12, marginBottom: 12 }}>
+                <div style={{ display: "flex", gap: 12, marginBottom: 12, justifyContent: "center" }}>
                   <Link href="/login">
                     <button className="profile-btn profile-btn-outline">Log in</button>
                   </Link>
@@ -227,6 +227,23 @@ export default function Home() {
                     <button className="profile-btn profile-btn-outline">Sign up</button>
                   </Link>
                 </div>
+                <div style={{ margin: "18px 0 8px 0", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ flex: 1, height: 1, background: "#e0e7ef", marginRight: 10 }} />
+                  <span style={{ color: "#888" }}>or</span>
+                  <div style={{ flex: 1, height: 1, background: "#e0e7ef", marginLeft: 10 }} />
+                </div>
+                <button
+                  className="profile-btn profile-btn-google-blue"
+                  style={{ width: "100%", maxWidth: 350, marginBottom: 18 }}
+                  onClick={() => signIn("google")}
+                >
+                  <img
+                    src="https://developers.google.com/identity/images/g-logo.png"
+                    alt="Google logo"
+                    className="profile-google-logo"
+                  />
+                  Continue with Google
+                </button>
                 <button
                   className="profile-btn"
                   style={{ background: "#eee", color: "#333" }}
