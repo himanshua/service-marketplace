@@ -3,6 +3,8 @@ import NavBar from "./components/NavBar";
 import { Analytics } from "@vercel/analytics/next";
 import ClientProvider from "./client-provider";
 import SessionSyncProvider from "./SessionSyncProvider";
+import { useState } from "react";
+import Link from "next/link";
 
 export const metadata = {
   metadataBase: new URL("https://aheadterra.com"),
@@ -32,6 +34,11 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const [showAuthPrompt, setShowAuthPrompt] = useState(false);
+
+  // You may want to check user login state here as well
+  const loggedInUser = typeof window !== "undefined" && localStorage.getItem("token");
+
   return (
     <html lang="en">
       <head>
@@ -50,8 +57,72 @@ export default function RootLayout({ children }) {
       <body>
         <ClientProvider>
           <SessionSyncProvider>
-            <NavBar />
+            {/* Navbar */}
+            <nav style={{ display: "flex", gap: 24, padding: 16, background: "#f5f7fa" }}>
+              <Link href="/">Home</Link>
+              <a
+                href="#"
+                onClick={e => {
+                  if (!loggedInUser) {
+                    e.preventDefault();
+                    setShowAuthPrompt(true);
+                  } else {
+                    window.location.href = "/services";
+                  }
+                }}
+              >
+                Services
+              </a>
+              {/* ...other nav links... */}
+            </nav>
+            {/* Page Content */}
             <main style={{ minHeight: "100vh" }}>{children}</main>
+            {/* Auth Modal */}
+            {showAuthPrompt && (
+              <div className="auth-modal-backdrop">
+                <div className="auth-modal">
+                  <p style={{ fontWeight: 600, fontSize: "1.2rem", marginBottom: 20 }}>
+                    Please sign up or log in to access services.
+                  </p>
+                  <div style={{ display: "flex", gap: 12, marginBottom: 12, justifyContent: "center" }}>
+                    <Link href={{ pathname: "/login", query: { redirect: "services" } }}>
+                      <button className="profile-btn profile-btn-outline">Log in</button>
+                    </Link>
+                    <Link href="/signup">
+                      <button className="profile-btn profile-btn-outline">Sign up</button>
+                    </Link>
+                  </div>
+                  <div style={{ margin: "18px 0 8px 0", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ flex: 1, height: 1, background: "#e0e7ef", marginRight: 10 }} />
+                    <span style={{ color: "#888" }}>or</span>
+                    <div style={{ flex: 1, height: 1, background: "#e0e7ef", marginLeft: 10 }} />
+                  </div>
+                  <button
+                    className="profile-btn profile-btn-google-blue"
+                    style={{ width: "100%", maxWidth: 350, marginBottom: 18 }}
+                    onClick={() => {
+                      setShowAuthPrompt(false);
+                      // Google sign-in with redirect
+                      window.location.href = "/api/auth/signin/google?callbackUrl=/services";
+                    }}
+                  >
+                    <img
+                      src="https://developers.google.com/identity/images/g-logo.png"
+                      alt="Google logo"
+                      className="profile-google-logo"
+                    />
+                    Continue with Google
+                  </button>
+                  <button
+                    className="profile-btn"
+                    style={{ background: "#eee", color: "#333" }}
+                    onClick={() => setShowAuthPrompt(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            )}
           </SessionSyncProvider>
         </ClientProvider>
         <Analytics />
