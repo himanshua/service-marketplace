@@ -2,6 +2,7 @@ import "./globals.css";
 import NavBar from "./components/NavBar";
 import { Analytics } from "@vercel/analytics/next";
 import ClientProvider from "./client-provider";
+import SessionSyncProvider from "./SessionSyncProvider";
 
 export const metadata = {
   metadataBase: new URL("https://aheadterra.com"),
@@ -48,8 +49,10 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ClientProvider>
-          <NavBar />
-          <main style={{ minHeight: "100vh" }}>{children}</main>
+          <SessionSyncProvider>
+            <NavBar />
+            <main style={{ minHeight: "100vh" }}>{children}</main>
+          </SessionSyncProvider>
         </ClientProvider>
         <Analytics />
       </body>
