@@ -326,6 +326,19 @@
     order: 1;
     margin-bottom: 0 !important;
   }
+  .home-social-row {
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+  }
+  .home-social-row .profile-btn,
+  .home-social-row .profile-btn-outline {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+    margin: 0 !important;
+  }
 }
 
 @media (max-width: 600px) {
