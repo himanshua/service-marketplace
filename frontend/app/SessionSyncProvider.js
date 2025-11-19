@@ -1,11 +1,12 @@
 "use client";
+import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 export default function SessionSyncProvider({ children }) {
   const { data: session } = useSession();
+  const [syncing, setSyncing] = useState(false);
 
   useEffect(() => {
     if (
@@ -13,6 +14,7 @@ export default function SessionSyncProvider({ children }) {
       session.user &&
       !localStorage.getItem("token")
     ) {
+      setSyncing(true);
       fetch(`${API}/api/auth/google-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -31,6 +33,10 @@ export default function SessionSyncProvider({ children }) {
         });
     }
   }, [session]);
+
+  if (syncing) {
+    return <div style={{ textAlign: "center", marginTop: 40 }}>Signing you in…</div>;
+  }
 
   return children;
 }
