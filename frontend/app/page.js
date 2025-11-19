@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import "./profile/profile.css";
 import "./globals.css";
@@ -10,6 +10,7 @@ const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 export default function Home() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { data: session, status } = useSession();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -58,11 +59,16 @@ export default function Home() {
         .then((data) => {
           if (data.token) {
             localStorage.setItem("token", data.token);
-            window.location.reload();
+            // Redirect to /services if coming from modal, else home
+            if (searchParams.get("redirect") === "services") {
+              window.location.href = "/services";
+            } else {
+              window.location.reload();
+            }
           }
         });
     }
-  }, [session]);
+  }, [session, searchParams]);
 
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
@@ -79,7 +85,14 @@ export default function Home() {
             src="/images/himanshu-tiwari-og.jpg"
             alt="Himanshu Tiwari"
             className="home-hero-image"
-            style={{ borderRadius: "12px", width: 300, height: 450, objectFit: "cover", boxShadow: "0 8px 32px rgba(0,0,0,0.12)", background: "#fff" }}
+            style={{
+              borderRadius: "12px",
+              width: 300,
+              height: 450,
+              objectFit: "cover",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+              background: "#fff",
+            }}
           />
         </div>
         {/* Right: Content */}
@@ -96,7 +109,7 @@ export default function Home() {
           {loggedInUser && (
             <p style={{
               fontWeight: 800,
-              color: "#10e814da",
+              color: "#1976d2",
               marginBottom: 18,
               fontSize: "2rem",
               letterSpacing: "0.5px"
@@ -128,6 +141,7 @@ export default function Home() {
                 <button
                   className="profile-btn"
                   onClick={() => {
+                    localStorage.clear();
                     signOut({ callbackUrl: "/login" });
                   }}
                 >
@@ -220,7 +234,7 @@ export default function Home() {
                   Please sign up or log in to access services.
                 </p>
                 <div style={{ display: "flex", gap: 12, marginBottom: 12, justifyContent: "center" }}>
-                  <Link href="/login">
+                  <Link href={{ pathname: "/login", query: { redirect: "services" } }}>
                     <button className="profile-btn profile-btn-outline">Log in</button>
                   </Link>
                   <Link href="/signup">
@@ -235,7 +249,10 @@ export default function Home() {
                 <button
                   className="profile-btn profile-btn-google-blue"
                   style={{ width: "100%", maxWidth: 350, marginBottom: 18 }}
-                  onClick={() => signIn("google")}
+                  onClick={() => {
+                    // Add redirect param for Google sign in
+                    signIn("google", { callbackUrl: "/services" });
+                  }}
                 >
                   <img
                     src="https://developers.google.com/identity/images/g-logo.png"
