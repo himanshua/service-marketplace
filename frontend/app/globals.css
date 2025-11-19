@@ -70,6 +70,27 @@ h1, h2 {
   box-shadow: 0 8px 24px rgba(255,152,0,0.25);
 }
 
+/* Prevent horizontal overflow and extra width on mobile */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.home-container,
+.signup-container,
+.login-container,
+.profile-main,
+.home-main {
+  max-width: 100vw !important;
+  width: 100vw !important;
+  min-width: 0 !important;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  margin: 0 auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 /* Add to your login/signup CSS file or globals.css */
 
 /* Responsive styles for login and signup pages */
