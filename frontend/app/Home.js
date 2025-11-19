@@ -184,7 +184,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="profile-btn profile-btn-outline"
             >
-              Check my Fiverr Profile
+              Fiverr Profile
             </a>
             <a
               href="https://www.youtube.com/@himanshutiwari8855"
@@ -192,7 +192,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="profile-btn profile-btn-outline"
             >
-              Check my YouTube Channel
+             YouTube Channel
             </a>
             <a
               href="https://www.facebook.com/himanshuactive/"
@@ -200,7 +200,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="profile-btn profile-btn-outline"
             >
-              Check my Facebook (Personal)
+              Facebook (Personal)
             </a>
             <a
               href="https://www.facebook.com/vedicindianastrology/"
@@ -208,7 +208,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="profile-btn profile-btn-outline"
             >
-              Check my Facebook Page
+              Facebook Page
             </a>
             <a
               href="https://www.facebook.com/groups/748009425400227"
@@ -216,7 +216,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="profile-btn profile-btn-outline"
             >
-              Check my Facebook Group
+              Facebook Group
             </a>
             <a
               href="https://x.com/himanshusocial"
@@ -224,7 +224,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="profile-btn profile-btn-outline"
             >
-              Check my X Profile
+              X Profile
             </a>
           </div>
           {showAuthPrompt && (
