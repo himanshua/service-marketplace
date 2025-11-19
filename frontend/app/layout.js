@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 import { Analytics } from "@vercel/analytics/next";
 import ClientProvider from "./client-provider";
 import SessionSyncProvider from "./SessionSyncProvider";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export const metadata = {
@@ -35,9 +35,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const [showAuthPrompt, setShowAuthPrompt] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
-  // You may want to check user login state here as well
-  const loggedInUser = typeof window !== "undefined" && localStorage.getItem("token");
+  useEffect(() => {
+    // Check for token on mount (client-side)
+    if (typeof window !== "undefined") {
+      setLoggedInUser(localStorage.getItem("token"));
+    }
+  }, []);
+
+  // Update login state on storage change (multi-tab support)
+  useEffect(() => {
+    const handler = () => setLoggedInUser(localStorage.getItem("token"));
+    window.addEventListener("storage", handler);
+    return () => window.removeEventListener("storage", handler);
+  }, []);
 
   return (
     <html lang="en">
@@ -102,7 +114,6 @@ export default function RootLayout({ children }) {
                     style={{ width: "100%", maxWidth: 350, marginBottom: 18 }}
                     onClick={() => {
                       setShowAuthPrompt(false);
-                      // Google sign-in with redirect
                       window.location.href = "/api/auth/signin/google?callbackUrl=/services";
                     }}
                   >
