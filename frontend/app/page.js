@@ -13,7 +13,7 @@ export default function Home() {
   const { data: session, status } = useSession();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [showPrompt, setShowPrompt] = useState(false);
+  const [showAuthPrompt, setShowAuthPrompt] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -64,13 +64,6 @@ export default function Home() {
     }
   }, [session]);
 
-  useEffect(() => {
-    if (!user && !session && !loading) {
-      const timer = setTimeout(() => setShowPrompt(true), 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [user, session, loading]);
-
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
   }
@@ -112,19 +105,29 @@ export default function Home() {
             </p>
           )}
           <div className="home-btn-row">
-            <Link href="/services">
-              <button className="profile-btn">Order Now on Chat Services</button>
-            </Link>
+            <button
+              className="profile-btn"
+              onClick={() => {
+                if (!loggedInUser) {
+                  setShowAuthPrompt(true);
+                } else {
+                  window.location.href = "/services";
+                }
+              }}
+            >
+              Order Now on Chat Services
+            </button>
             {loggedInUser && (
               <>
                 <Link href="/profile">
                   <button className="profile-btn">View Profile</button>
                 </Link>
-                
+                <Link href="/services">
+                  <button className="profile-btn">View Chat/Call Services</button>
+                </Link>
                 <button
                   className="profile-btn"
                   onClick={() => {
-                    localStorage.clear();
                     signOut({ callbackUrl: "/login" });
                   }}
                 >
@@ -210,8 +213,36 @@ export default function Home() {
               Check my X Profile
             </a>
           </div>
+          {showAuthPrompt && (
+            <div className="auth-modal-backdrop">
+              <div className="auth-modal">
+                <p style={{ fontWeight: 600, fontSize: "1.2rem", marginBottom: 20 }}>
+                  Please sign up or log in to access services.
+                </p>
+                <div style={{ display: "flex", gap: 12, marginBottom: 12 }}>
+                  <Link href="/login">
+                    <button className="profile-btn profile-btn-outline">Log in</button>
+                  </Link>
+                  <Link href="/signup">
+                    <button className="profile-btn profile-btn-outline">Sign up</button>
+                  </Link>
+                </div>
+                <button
+                  className="profile-btn"
+                  style={{ background: "#eee", color: "#333" }}
+                  onClick={() => setShowAuthPrompt(false)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-      </div>
+
+
+
+
+}  );    </main>      </div>      </div>
     </main>
   );
 }
