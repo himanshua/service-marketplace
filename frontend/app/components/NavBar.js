@@ -189,10 +189,14 @@ export default function NavBar() {
             >
               <Link
                 href={{ pathname: "/login", query: { redirect: "services" } }}
+                onClick={() => setShowAuthPrompt(false)}
               >
                 <button className="profile-btn profile-btn-outline">Log in</button>
               </Link>
-              <Link href="/signup">
+              <Link
+                href="/signup"
+                onClick={() => setShowAuthPrompt(false)}
+              >
                 <button className="profile-btn profile-btn-outline">Sign up</button>
               </Link>
             </div>
