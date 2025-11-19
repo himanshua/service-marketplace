@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
+import { signOut, signIn } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 export default function NavBar() {
@@ -224,14 +224,10 @@ export default function NavBar() {
             </div>
             <button
               className="profile-btn profile-btn-google-blue"
-              style={{
-                width: "100%",
-                maxWidth: 350,
-                marginBottom: 18,
-              }}
+              style={{ width: "100%", maxWidth: 350, marginBottom: 18 }}
               onClick={() => {
                 setShowAuthPrompt(false);
-                window.location.href = "/api/auth/signin/google?callbackUrl=/services";
+                signIn("google", { callbackUrl: "/services" });
               }}
             >
               <img
