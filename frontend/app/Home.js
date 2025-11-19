@@ -60,7 +60,7 @@ export default function Home() {
           if (data.token) {
             localStorage.setItem("token", data.token);
             // Redirect to /services if coming from modal, else home
-            if (searchParams.get("redirect") === "services") {
+            if (searchParams.get("redirect") === "services" || session.callbackUrl === "/services") {
               window.location.href = "/services";
             } else {
               window.location.reload();
