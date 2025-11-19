@@ -142,7 +142,7 @@ export default function Home() {
                   className="profile-btn"
                   onClick={() => {
                     localStorage.clear();
-                    signOut({ callbackUrl: "/login" });
+                    signOut({ callbackUrl: "/" });
                   }}
                 >
                   Logout
