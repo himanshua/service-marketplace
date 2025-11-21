@@ -102,7 +102,7 @@ html, body {
   max-width: none;       /* Remove the 1200px limit */
   margin-left: 1vw;      /* Small left margin */
   margin-right: 1vw;     /* Small right margin */
-  background: #fff;
+  /*bckground: #fff;*/
   border: 2px solid #bdbdbd;      /* All outer borders */
   border-radius: 0;
   box-shadow: none;
