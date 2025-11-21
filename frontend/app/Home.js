@@ -298,7 +298,7 @@ export default function Home() {
           <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
             <img
               src="/images/your-second-image.jpg"
-              alt="Second"
+              alt="12 Houses"
               className="home-hero-image"
               style={{
                 borderRadius: "12px",
@@ -310,8 +310,8 @@ export default function Home() {
             />
           </div>
           <div className="home-content-col">
-            <h2>Second Row Heading</h2>
-            <p>Second row content goes here.</p>
+            <h2>12 Houses</h2>
+            <p>Houses 1 to 12</p>
           </div>
         </div>
         {/* Row 3 */}
@@ -319,7 +319,7 @@ export default function Home() {
           <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
             <img
               src="/images/your-third-image.jpg"
-              alt="12 Bhava"
+              alt="Nine Planets"
               className="home-hero-image"
               style={{
                 borderRadius: "12px",
@@ -331,8 +331,8 @@ export default function Home() {
             />
           </div>
           <div className="home-content-col">
-            <h2>Third Row Heading</h2>
-            <p>Third row content goes here.</p>
+            <h2>Nine Planets</h2>
+            <p>Planets 1 to 9</p>
           </div>
         </div>
       </div>
