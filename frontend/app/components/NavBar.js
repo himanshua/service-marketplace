@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function NavBar() {
   const [user, setUser] = useState(null);
   const [showAuthPrompt, setShowAuthPrompt] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     // Check for JWT user in localStorage
@@ -80,8 +81,43 @@ export default function NavBar() {
           </span>
         </Link>
 
-        <div style={{ display: "inline-flex", alignItems: "center", gap: 20 }}>
-          <Link href="/" style={{ textDecoration: "none", color: "#1f2937" }}>
+        <button
+          className="navbar-hamburger"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label="Toggle menu"
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            outline: "none",
+            color: "#1f2937",
+            fontSize: "1.5rem",
+          }}
+        >
+          &#9776; {/* Hamburger icon */}
+        </button>
+
+        <div
+          className={`navbar-menu${menuOpen ? " open" : ""}`}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 20,
+            flexDirection: "column",
+            position: "absolute",
+            top: "100%",
+            right: 0,
+            background: "#ffffff",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+            padding: "16px",
+            borderRadius: "8px",
+            zIndex: 1000,
+          }}
+        >
+          <Link
+            href="/"
+            style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
+          >
             Home
           </Link>
           <a
@@ -94,7 +130,7 @@ export default function NavBar() {
                 window.location.href = "/services";
               }
             }}
-            style={{ textDecoration: "none", color: "#1f2937" }}
+            style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
           >
             Services
           </a>
@@ -106,7 +142,7 @@ export default function NavBar() {
               </span>
               <Link
                 href="/profile"
-                style={{ textDecoration: "none", color: "#1f2937" }}
+                style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
               >
                 Dashboard
               </Link>
@@ -114,19 +150,19 @@ export default function NavBar() {
                 <>
                   <Link
                     href="/services/create"
-                    style={{ textDecoration: "none", color: "#1f2937" }}
+                    style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
                   >
                     Create Service
                   </Link>
                   <Link
                     href="/admin/services"
-                    style={{ textDecoration: "none", color: "#1f2937" }}
+                    style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
                   >
                     Admin Services
                   </Link>
                   <Link
                     href="/admin"
-                    style={{ textDecoration: "none", color: "#1f2937" }}
+                    style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
                   >
                     Admin Dashboard
                   </Link>
@@ -147,7 +183,7 @@ export default function NavBar() {
             <>
               <Link
                 href="/login"
-                style={{ textDecoration: "none", color: "#1f2937" }}
+                style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
               >
                 Login
               </Link>
@@ -159,6 +195,8 @@ export default function NavBar() {
                   background: "#111827",
                   padding: "8px 20px",
                   borderRadius: 999,
+                  width: "100%",
+                  textAlign: "center",
                 }}
               >
                 Signup
