@@ -98,9 +98,9 @@ html, body {
 }
 
 .home-container {
-  max-width: 1200px;
+  width: calc(100vw - 8px); /* 4px margin on each side */
+  max-width: none;
   margin: 4px auto;
-  background: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   padding: 4px 2px;
