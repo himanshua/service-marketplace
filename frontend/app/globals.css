@@ -100,8 +100,8 @@ html, body {
 .home-container {
   width: auto;
   max-width: 1200px;
-  margin-left: 24px;   /* More space on the left */
-  margin-right: 8px;   /* Less space on the right */
+  margin-left: 6px;   /* More space on the left */
+  margin-right:3px;   /* Less space on the right */
   background: #fff;
   border-radius: 0;
   box-shadow: none;
