@@ -111,6 +111,8 @@ html, body {
   flex-direction: row;
   gap: 0;                         /* No gap, use border for separation */
   align-items: stretch; /* Make columns stretch to full container height */
+  background: rgba(255,255,255,0.92); /* Optional: semi-transparent white */
+
 
 }
 
@@ -260,31 +262,42 @@ html, body {
   align-items: center;
 }
 
+/* Hide hamburger on desktop, show on mobile */
 .navbar-hamburger {
   display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
 }
 
 @media (max-width: 700px) {
-  .navbar-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 56px; /* adjust based on your navbar height */
-    left: 0;
-    width: 100vw;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    z-index: 1000;
-    padding: 12px 0;
-  }
-  .navbar-menu.open {
-    display: flex;
-  }
   .navbar-hamburger {
     display: block;
+  }
+  .navbar-menu {
+    display: none !important;
+    flex-direction: column;
+    position: absolute;
+    top: 56px; /* adjust as needed */
+    right: 0;
+    width: 90vw;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 16px;
+    border-radius: 8px;
+    z-index: 1000;
+  }
+  .navbar-menu.open {
+    display: flex !important;
+  }
+}
+
+/* Show menu as horizontal on desktop */
+@media (min-width: 701px) {
+  .navbar-menu {
+    display: inline-flex !important;
+    position: static;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
   }
 }
