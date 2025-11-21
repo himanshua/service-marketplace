@@ -291,3 +291,9 @@ html, body {
     display: flex !important;
   }
 }
+
+@media (min-width: 701px) {
+  .navbar-hamburger {
+    display: none !important;
+  }
+}
