@@ -227,30 +227,7 @@ export default function Home() {
               X Profile
             </a>
           </div>
-
-            <div className="home-container">
-            <div style={{ width: "100%" }}>
-              {/* Row 1 */}
-              <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
-                <div className="home-image-col">
-                  {/* First image or left content */}
-                </div>
-                <div className="home-content-col">
-                  {/* First right content */}
-                </div>
-              </div>
-              {/* Row 2 */}
-              <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
-                <div className="home-image-col">
-                  {/* Second image or left content */}
-                </div>
-                <div className="home-content-col">
-                  {/* Second right content */}
-                </div>
-              </div>
-              {/* Add more rows as needed */}
-            </div>
-          </div>
+          
           
           {showAuthPrompt && (
             <div className="auth-modal-backdrop">
@@ -295,6 +272,29 @@ export default function Home() {
               </div>
             </div>
           )}
+        </div>
+      </div>
+        <div className="home-container">
+        <div style={{ width: "100%" }}>
+          {/* Row 1 */}
+          <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
+            <div className="home-image-col">
+              {/* First image or left content */}
+            </div>
+            <div className="home-content-col">
+              {/* First right content */}
+            </div>
+          </div>
+          {/* Row 2 */}
+          <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
+            <div className="home-image-col">
+              {/* Second image or left content */}
+            </div>
+            <div className="home-content-col">
+              {/* Second right content */}
+            </div>
+          </div>
+          {/* Add more rows as needed */}
         </div>
       </div>
     </main>
