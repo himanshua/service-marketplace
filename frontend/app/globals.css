@@ -97,10 +97,10 @@ html, body {
 }
 
 .home-container {
-  width: auto;
-  max-width: 1200px;
-  margin-left: 6px;   /* More space on the left */
-  margin-right: 3px;   /* Less space on the right */
+  width: 97vw;           /* or 99vw for almost full width */
+  max-width: none;       /* Remove the 1200px limit */
+  margin-left: 2vw;      /* Small left margin */
+  margin-right: 1vw;     /* Small right margin */
   background: #fff;
   border-radius: 0;
   box-shadow: none;
