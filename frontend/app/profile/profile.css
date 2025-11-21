@@ -39,6 +39,25 @@
   }
 }
 
+.profile-main,
+.home-main {
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  background: transparent;
+}
+
+@media (max-width: 900px) {
+  .profile-main,
+  .home-main {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
 .profile-main {
   display: grid;
   grid-template-columns: minmax(280px, 320px) minmax(320px, 1fr);
@@ -153,8 +172,7 @@
   box-shadow: 0 8px 32px rgba(0,0,0,0.08);
   padding: 40px 32px;
   align-items: flex-start;
-  margin-left: 24px;
-  margin-right: 24px;
+  
 }
 
 .home-image-col {
