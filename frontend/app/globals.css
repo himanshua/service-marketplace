@@ -84,7 +84,6 @@ html, body {
   min-width: 0 !important;
   box-sizing: border-box;
   overflow-x: hidden;
-  margin: 0 auto !important;
 }
 
 /* Your requested margin for main content */
@@ -101,7 +100,7 @@ html, body {
   width: auto;
   max-width: 1200px;
   margin-left: 6px;   /* More space on the left */
-  margin-right:3px;   /* Less space on the right */
+  margin-right: 3px;   /* Less space on the right */
   background: #fff;
   border-radius: 0;
   box-shadow: none;
