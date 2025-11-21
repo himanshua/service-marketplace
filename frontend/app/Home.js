@@ -274,9 +274,7 @@ export default function Home() {
           )}
         </div>
       </div>
-        <div className="home-container">
-        <div style={{ width: "100%" }}>
-          {/* Row 1 */}
+          {/* Row 2 */}
           <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
             <div className="home-image-col">
               {/* First image or left content */}
@@ -285,7 +283,7 @@ export default function Home() {
               {/* First right content */}
             </div>
           </div>
-          {/* Row 2 */}
+          {/* Row 3 */}
           <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
             <div className="home-image-col">
               {/* Second image or left content */}
@@ -295,8 +293,7 @@ export default function Home() {
             </div>
           </div>
           {/* Add more rows as needed */}
-        </div>
-      </div>
+        
     </main>
   );
 }
