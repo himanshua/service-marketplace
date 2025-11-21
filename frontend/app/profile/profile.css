@@ -1,13 +1,13 @@
 .profile-layout {
   display: grid;
   grid-template-columns: minmax(240px, 300px) minmax(320px, 1fr);
-  gap: 32px;
+  gap: 8px;                /* was 32px */
   align-items: center;
   justify-content: center;
   justify-items: center;
   max-width: 960px;
-  margin: 40px auto;
-  padding: 0 20px;
+  margin: 8px auto;        /* was 40px auto */
+  padding: 0 4px;          /* was 0 20px */
 }
 
 .profile-portrait {
@@ -61,10 +61,10 @@
 .profile-main {
   display: grid;
   grid-template-columns: minmax(280px, 320px) minmax(320px, 1fr);
-  gap: 32px;
+  gap: 8px;                /* was 32px */
   align-items: flex-start;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 8px 4px;        /* was 40px 20px */
 }
 
 @media (max-width: 768px) {
@@ -163,14 +163,14 @@
 
 .home-container {
   max-width: 1200px;
-  margin: 32px auto 32px auto;
+  margin: 8px auto;
   background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-  padding: 40px 32px;
+  border-radius: 4px;      /* was 18px */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 8px 4px;        /* was 40px 32px */
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  gap: 8px;                /* was 40px */
   align-items: flex-start;
 }
 
