@@ -92,21 +92,21 @@ html, body {
 .home-main {
   padding-left: 2px;
   padding-right: 2px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   background: transparent;
 }
 
 .home-container {
   max-width: 1200px;
-  margin: 8px auto;
+  margin: 4px auto;
   background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  padding: 8px 4px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 4px 2px;
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 8px;
   align-items: flex-start;
 }
 
@@ -194,7 +194,7 @@ html, body {
     max-width: 100vw;
     border-radius: 0;
     box-shadow: none;
-    padding: 4px 1px;
+    padding: 2px 1px;
     margin-left: 0;
     margin-right: 0;
   }
@@ -202,7 +202,7 @@ html, body {
   .home-main {
     padding-left: 1px;
     padding-right: 1px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
   }
 }
