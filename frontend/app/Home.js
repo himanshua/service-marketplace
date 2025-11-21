@@ -83,7 +83,7 @@ export default function Home() {
         <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
           <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
             <img
-              src="public/images/ganesha.jpg"
+              src="images/Ganesha.jpeg"
               alt="Welcome"
               className="home-hero-image"
               style={{
