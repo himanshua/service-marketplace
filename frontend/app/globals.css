@@ -256,32 +256,29 @@ html, body {
 }
 
 /* Add at the end of your globals.css */
+/* Hide hamburger by default (desktop) */
+.navbar-hamburger {
+  display: none !important;
+}
+
+/* Show menu by default (desktop) */
 .navbar-menu {
-  display: flex;
+  display: flex !important;
+  flex-direction: row;
   gap: 24px;
   align-items: center;
 }
 
-/* Hide hamburger on desktop, show on mobile */
-.navbar-hamburger {
-  display: none;
-}
-/*.navbar-menu {
-  display: none;
-}
-  */
-  
-
-
+/* Mobile styles */
 @media (max-width: 700px) {
   .navbar-hamburger {
-    display: block;
+    display: block !important;
   }
   .navbar-menu {
     display: none !important;
     flex-direction: column;
     position: absolute;
-    top: 56px; /* adjust as needed */
+    top: 56px;
     right: 0;
     width: 90vw;
     background: #fff;
@@ -292,18 +289,5 @@ html, body {
   }
   .navbar-menu.open {
     display: flex !important;
-  }
-}
-
-/* Show menu as horizontal on desktop */
-@media (min-width: 701px) {
-  .navbar-menu {
-    display: inline-flex !important;
-    position: static;
-    flex-direction: row;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-    border-radius: 0;
   }
 }
