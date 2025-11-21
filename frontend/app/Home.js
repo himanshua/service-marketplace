@@ -79,6 +79,27 @@ export default function Home() {
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
+        {/* Row 0 (NEW TOP ROW) */}
+        <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
+          <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
+            <img
+              src="/images/your-top-image.jpg"
+              alt="Welcome"
+              className="home-hero-image"
+              style={{
+                borderRadius: "12px",
+                width: 300,
+                height: 200,
+                objectFit: "cover",
+                background: "#fff",
+              }}
+            />
+          </div>
+          <div className="home-content-col">
+            <h2>Beej Mantra</h2>
+            <p>Aum Hreem Hraum Suryayeh Namah, Aum Hreem Shreem Chandraya Namah, Aum Eim Hreem Shreem Mangalayeh Namah, Aum Aim Streem Bam Budhayeh Namah, Aum Hreem Brahm Brihaspatayeh Namah, Aum Hreem Shreem Shukrayeh Namah, Aum Hreem Shreem Sam Sanneshcharayeh Namah, Aum Eim Hreem Rahuvey Namah, Aum Eim Hreem Ketuvey Namah.</p>
+          </div>
+        </div>
         {/* Row 1 */}
         <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
           <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
@@ -192,7 +213,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="profile-btn profile-btn-outline"
               >
-               YouTube Channel
+                YouTube Channel
               </a>
               <a
                 href="https://www.facebook.com/himanshuactive/"
@@ -227,8 +248,6 @@ export default function Home() {
                 X Profile
               </a>
             </div>
-            
-            
             {showAuthPrompt && (
               <div className="auth-modal-backdrop">
                 <div className="auth-modal">
@@ -300,7 +319,7 @@ export default function Home() {
           <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
             <img
               src="/images/your-third-image.jpg"
-              alt="Third"
+              alt="12 Bhava"
               className="home-hero-image"
               style={{
                 borderRadius: "12px",
@@ -317,7 +336,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
     </main>
   );
 }
