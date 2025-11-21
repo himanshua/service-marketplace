@@ -153,6 +153,8 @@
   box-shadow: 0 8px 32px rgba(0,0,0,0.08);
   padding: 40px 32px;
   align-items: flex-start;
+  margin-left: 24px;
+  margin-right: 24px;
 }
 
 .home-image-col {
@@ -286,6 +288,8 @@
     border-radius: 0;
     box-shadow: none;
     padding: 24px 8px;
+    margin-left: 8px;
+    margin-right: 8px;
   }
   .home-image-col,
   .home-content-col {
