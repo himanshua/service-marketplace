@@ -97,9 +97,10 @@ html, body {
 }
 
 .home-container {
-  width: auto;
-  max-width: 1200px;
-  margin: 8px auto;
+  width: 98vw;           /* or 99vw for almost full width */
+  max-width: none;       /* Remove the 1200px limit */
+  margin-left: 1vw;      /* Small left margin */
+  margin-right: 1vw;     /* Small right margin */
   background: #fff;
   border: 2px solid #bdbdbd;      /* All outer borders */
   border-radius: 0;
