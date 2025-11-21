@@ -109,13 +109,17 @@ html, body {
   display: flex;
   flex-direction: row;
   gap: 0;                         /* No gap, use border for separation */
-  align-items: flex-start;
+  align-items: stretch; /* Make columns stretch to full container height */
+
 }
 
 .home-image-col {
   border-right: 2px solid #bdbdbd; /* Vertical border between columns */
   padding: 16px 12px;
   background: #f8f8ff;             /* Optional: subtle background */
+   height: 100%;           /* Ensure it stretches */
+  display: flex;
+  flex-direction: column;
 }
 
 .home-content-col {
