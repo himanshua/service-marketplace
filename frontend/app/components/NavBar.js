@@ -99,21 +99,9 @@ export default function NavBar() {
 
         <div
           className={`navbar-menu${menuOpen ? " open" : ""}`}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 20,
-            flexDirection: "column",
-            position: "absolute",
-            top: "100%",
-            right: 0,
-            background: "#ffffff",
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-            padding: "16px",
-            borderRadius: "8px",
-            zIndex: 1000,
-          }}
-        >
+         >
+          
+        
           <Link
             href="/"
             style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
