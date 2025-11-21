@@ -41,20 +41,20 @@
 
 .profile-main,
 .home-main {
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   background: transparent;
 }
 
 @media (max-width: 900px) {
   .profile-main,
   .home-main {
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
 
@@ -310,10 +310,10 @@
   }
   .profile-main,
   .home-main {
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
 
