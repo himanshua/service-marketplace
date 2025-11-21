@@ -78,182 +78,83 @@ export default function Home() {
 
   return (
     <main className="profile-main home-main">
-      <div className="home-container">
-        {/* Left: Image */}
-        <div className="home-image-col">
-          <img
-            src="/images/himanshu-tiwari-og.jpg"
-            alt="Himanshu Tiwari"
-            className="home-hero-image"
-            style={{
-              borderRadius: "12px",
-              width: 300,
-              height: 450,
-              objectFit: "cover",
-              boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-              background: "#fff",
-            }}
-          />
-        </div>
-        {/* Right: Content */}
-        <div className="home-content-col">
-          <h1 className="home-title">
-            Top-Rated Psychic, Astrology, Numerology, Horary & Tarot Readings in the USA — Himanshu Tiwari, Delivering Insight for Over 10 Years
-          </h1>
-          <h2 className="home-subtitle">
-            Jyotishvidya, Astrology, Tarot & More by Himanshu Tiwari
-          </h2>
-          <p className="home-desc">
-            Experience accurate psychic readings, astrology insights, and tarot guidance from one of the best online psychics in the USA. Himanshu Tiwari offers Jyotishvidya, astrology, and tarot services to help you find clarity and direction.
-          </p>
-          {loggedInUser && (
-            <p style={{
-              fontWeight: 800,
-              color: "#1976d2",
-              marginBottom: 18,
-              fontSize: "2rem",
-              letterSpacing: "0.5px"
-            }}>
-              Welcome, {loggedInUser.name || loggedInUser.email}!
-            </p>
-          )}
-          <div className="home-btn-row">
-            <button
-              className="profile-btn"
-              onClick={() => {
-                if (!loggedInUser) {
-                  setShowAuthPrompt(true);
-                } else {
-                  window.location.href = "/services";
-                }
+      <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
+        {/* Row 1 */}
+        <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
+          <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
+            <img
+              src="/images/himanshu-tiwari-og.jpg"
+              alt="Himanshu Tiwari"
+              className="home-hero-image"
+              style={{
+                borderRadius: "12px",
+                width: 300,
+                height: 450,
+                objectFit: "cover",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+                background: "#fff",
               }}
-            >
-              Order Now on Chat Services
-            </button>
+            />
+          </div>
+          <div className="home-content-col">
+            <h1 className="home-title">
+              Top-Rated Psychic, Astrology, Numerology, Horary & Tarot Readings in the USA — Himanshu Tiwari, Delivering Insight for Over 10 Years
+            </h1>
+            <h2 className="home-subtitle">
+              Jyotishvidya, Astrology, Tarot & More by Himanshu Tiwari
+            </h2>
+            <p className="home-desc">
+              Experience accurate psychic readings, astrology insights, and tarot guidance from one of the best online psychics in the USA. Himanshu Tiwari offers Jyotishvidya, astrology, and tarot services to help you find clarity and direction.
+            </p>
             {loggedInUser && (
-              <>
-                <Link href="/profile">
-                  <button className="profile-btn">View Profile</button>
-                </Link>
-                <Link href="/services">
-                  <button className="profile-btn">View Chat/Call Services</button>
-                </Link>
-                <button
-                  className="profile-btn"
-                  onClick={() => {
-                    localStorage.clear();
-                    signOut({ callbackUrl: "/" });
-                  }}
-                >
-                  Logout
-                </button>
-              </>
+              <p style={{
+                fontWeight: 800,
+                color: "#1976d2",
+                marginBottom: 18,
+                fontSize: "2rem",
+                letterSpacing: "0.5px"
+              }}>
+                Welcome, {loggedInUser.name || loggedInUser.email}!
+              </p>
             )}
-          </div>
-          {!loggedInUser && (
-            <div className="home-auth-row">
+            <div className="home-btn-row">
               <button
-                className="profile-btn profile-btn-google-blue"
-                onClick={() => signIn("google")}
+                className="profile-btn"
+                onClick={() => {
+                  if (!loggedInUser) {
+                    setShowAuthPrompt(true);
+                  } else {
+                    window.location.href = "/services";
+                  }
+                }}
               >
-                <img
-                  src="https://developers.google.com/identity/images/g-logo.png"
-                  alt="Google logo"
-                  className="profile-google-logo"
-                />
-                Continue with Google
+                Order Now on Chat Services
               </button>
-              <div className="home-auth-btns">
-                <Link href="/login">
-                  <button className="profile-btn profile-btn-outline">
-                    Log in
+              {loggedInUser && (
+                <>
+                  <Link href="/profile">
+                    <button className="profile-btn">View Profile</button>
+                  </Link>
+                  <Link href="/services">
+                    <button className="profile-btn">View Chat/Call Services</button>
+                  </Link>
+                  <button
+                    className="profile-btn"
+                    onClick={() => {
+                      localStorage.clear();
+                      signOut({ callbackUrl: "/" });
+                    }}
+                  >
+                    Logout
                   </button>
-                </Link>
-                <Link href="/signup">
-                  <button className="profile-btn profile-btn-outline">
-                    Sign up
-                  </button>
-                </Link>
-              </div>
+                </>
+              )}
             </div>
-          )}
-          <div className="home-social-row">
-            <a
-              href="https://www.fiverr.com/himanshutiwari"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="profile-btn profile-btn-outline"
-            >
-              Fiverr Profile
-            </a>
-            <a
-              href="https://www.youtube.com/@himanshutiwari8855"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="profile-btn profile-btn-outline"
-            >
-             YouTube Channel
-            </a>
-            <a
-              href="https://www.facebook.com/himanshuactive/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="profile-btn profile-btn-outline"
-            >
-              Facebook (Personal)
-            </a>
-            <a
-              href="https://www.facebook.com/vedicindianastrology/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="profile-btn profile-btn-outline"
-            >
-              Facebook Page
-            </a>
-            <a
-              href="https://www.facebook.com/groups/748009425400227"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="profile-btn profile-btn-outline"
-            >
-              Facebook Group
-            </a>
-            <a
-              href="https://x.com/himanshusocial"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="profile-btn profile-btn-outline"
-            >
-              X Profile
-            </a>
-          </div>
-          
-          
-          {showAuthPrompt && (
-            <div className="auth-modal-backdrop">
-              <div className="auth-modal">
-                <p style={{ fontWeight: 600, fontSize: "1.2rem", marginBottom: 20 }}>
-                  Please sign up or log in to access services.
-                </p>
-                <div style={{ display: "flex", gap: 12, marginBottom: 12, justifyContent: "center" }}>
-                  <Link href={{ pathname: "/login", query: { redirect: "services" } }}>
-                    <button className="profile-btn profile-btn-outline">Log in</button>
-                  </Link>
-                  <Link href="/signup">
-                    <button className="profile-btn profile-btn-outline">Sign up</button>
-                  </Link>
-                </div>
-                <div style={{ margin: "18px 0 8px 0", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ flex: 1, height: 1, background: "#e0e7ef", marginRight: 10 }} />
-                  <span style={{ color: "#888" }}>or</span>
-                  <div style={{ flex: 1, height: 1, background: "#e0e7ef", marginLeft: 10 }} />
-                </div>
+            {!loggedInUser && (
+              <div className="home-auth-row">
                 <button
                   className="profile-btn profile-btn-google-blue"
-                  style={{ width: "100%", maxWidth: 350, marginBottom: 18 }}
-                  onClick={() => {
-                    signIn("google", { callbackUrl: "/services" });
-                  }}
+                  onClick={() => signIn("google")}
                 >
                   <img
                     src="https://developers.google.com/identity/images/g-logo.png"
@@ -262,34 +163,161 @@ export default function Home() {
                   />
                   Continue with Google
                 </button>
-                <button
-                  className="profile-btn"
-                  style={{ background: "#eee", color: "#333" }}
-                  onClick={() => setShowAuthPrompt(false)}
-                >
-                  Cancel
-                </button>
+                <div className="home-auth-btns">
+                  <Link href="/login">
+                    <button className="profile-btn profile-btn-outline">
+                      Log in
+                    </button>
+                  </Link>
+                  <Link href="/signup">
+                    <button className="profile-btn profile-btn-outline">
+                      Sign up
+                    </button>
+                  </Link>
+                </div>
               </div>
+            )}
+            <div className="home-social-row">
+              <a
+                href="https://www.fiverr.com/himanshutiwari"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="profile-btn profile-btn-outline"
+              >
+                Fiverr Profile
+              </a>
+              <a
+                href="https://www.youtube.com/@himanshutiwari8855"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="profile-btn profile-btn-outline"
+              >
+               YouTube Channel
+              </a>
+              <a
+                href="https://www.facebook.com/himanshuactive/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="profile-btn profile-btn-outline"
+              >
+                Facebook (Personal)
+              </a>
+              <a
+                href="https://www.facebook.com/vedicindianastrology/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="profile-btn profile-btn-outline"
+              >
+                Facebook Page
+              </a>
+              <a
+                href="https://www.facebook.com/groups/748009425400227"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="profile-btn profile-btn-outline"
+              >
+                Facebook Group
+              </a>
+              <a
+                href="https://x.com/himanshusocial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="profile-btn profile-btn-outline"
+              >
+                X Profile
+              </a>
             </div>
-          )}
+            
+            
+            {showAuthPrompt && (
+              <div className="auth-modal-backdrop">
+                <div className="auth-modal">
+                  <p style={{ fontWeight: 600, fontSize: "1.2rem", marginBottom: 20 }}>
+                    Please sign up or log in to access services.
+                  </p>
+                  <div style={{ display: "flex", gap: 12, marginBottom: 12, justifyContent: "center" }}>
+                    <Link href={{ pathname: "/login", query: { redirect: "services" } }}>
+                      <button className="profile-btn profile-btn-outline">Log in</button>
+                    </Link>
+                    <Link href="/signup">
+                      <button className="profile-btn profile-btn-outline">Sign up</button>
+                    </Link>
+                  </div>
+                  <div style={{ margin: "18px 0 8px 0", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ flex: 1, height: 1, background: "#e0e7ef", marginRight: 10 }} />
+                    <span style={{ color: "#888" }}>or</span>
+                    <div style={{ flex: 1, height: 1, background: "#e0e7ef", marginLeft: 10 }} />
+                  </div>
+                  <button
+                    className="profile-btn profile-btn-google-blue"
+                    style={{ width: "100%", maxWidth: 350, marginBottom: 18 }}
+                    onClick={() => {
+                      signIn("google", { callbackUrl: "/services" });
+                    }}
+                  >
+                    <img
+                      src="https://developers.google.com/identity/images/g-logo.png"
+                      alt="Google logo"
+                      className="profile-google-logo"
+                    />
+                    Continue with Google
+                  </button>
+                  <button
+                    className="profile-btn"
+                    style={{ background: "#eee", color: "#333" }}
+                    onClick={() => setShowAuthPrompt(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        {/* Row 2 */}
+        <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
+          <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
+            <img
+              src="/images/your-second-image.jpg"
+              alt="Second"
+              className="home-hero-image"
+              style={{
+                borderRadius: "12px",
+                width: 300,
+                height: 200,
+                objectFit: "cover",
+                background: "#fff",
+              }}
+            />
+          </div>
+          <div className="home-content-col">
+            <h2>Second Row Heading</h2>
+            <p>Second row content goes here.</p>
+          </div>
+        </div>
+        {/* Row 3 */}
+        <div style={{ display: "flex" }}>
+          <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
+            <img
+              src="/images/your-third-image.jpg"
+              alt="Third"
+              className="home-hero-image"
+              style={{
+                borderRadius: "12px",
+                width: 300,
+                height: 200,
+                objectFit: "cover",
+                background: "#fff",
+              }}
+            />
+          </div>
+          <div className="home-content-col">
+            <h2>Third Row Heading</h2>
+            <p>Third row content goes here.</p>
+          </div>
         </div>
       </div>
-          {/* Row 2 */}
-            <div className="home-image-col">
-              {/* First image or left content */}
-            </div>
-            <div className="home-content-col">
-              {/* First right content */}
-            </div>
-          {/* Row 3 */}
-            <div className="home-image-col">
-              {/* Second image or left content */}
-            </div>
-            <div className="home-content-col">
-              {/* Second right content */}
-            </div>
-          {/* Add more rows as needed */}
-        
+      
     </main>
   );
 }
