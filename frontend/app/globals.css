@@ -94,7 +94,6 @@ html, body {
   padding-right: 2px;
   padding-top: 4px;
   padding-bottom: 4px;
-  background: transparent;
 }
 
 .home-container {
@@ -111,7 +110,6 @@ html, body {
   flex-direction: row;
   gap: 0;                         /* No gap, use border for separation */
   align-items: stretch; /* Make columns stretch to full container height */
-  background: rgba(255,255,255,0.92); /* Optional: semi-transparent white */
 
 
 }
@@ -119,7 +117,6 @@ html, body {
 .home-image-col {
   border-right: 2px solid #bdbdbd; /* Vertical border between columns */
   padding: 16px 12px;
-  background: #f8f8ff;             /* Optional: subtle background */
    height: 100%;           /* Ensure it stretches */
   display: flex;
   flex-direction: column;
