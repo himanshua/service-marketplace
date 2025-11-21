@@ -252,3 +252,39 @@ html, body {
     padding-bottom: 2px;
   }
 }
+
+/* Add at the end of your globals.css */
+.navbar-menu {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.navbar-hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 56px; /* adjust based on your navbar height */
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    z-index: 1000;
+    padding: 12px 0;
+  }
+  .navbar-menu.open {
+    display: flex;
+  }
+  .navbar-hamburger {
+    display: block;
+  }
+}
