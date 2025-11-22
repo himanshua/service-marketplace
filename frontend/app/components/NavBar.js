@@ -105,6 +105,7 @@ export default function NavBar() {
           <Link
             href="/"
             style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
+            onClick={() => setMenuOpen(false)}
           >
             Home
           </Link>
@@ -117,6 +118,7 @@ export default function NavBar() {
               } else {
                 window.location.href = "/services";
               }
+              setMenuOpen(false);
             }}
             style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
           >
@@ -131,6 +133,7 @@ export default function NavBar() {
               <Link
                 href="/profile"
                 style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
+                onClick={() => setMenuOpen(false)}
               >
                 Dashboard
               </Link>
@@ -139,18 +142,21 @@ export default function NavBar() {
                   <Link
                     href="/services/create"
                     style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
+                    onClick={() => setMenuOpen(false)}
                   >
                     Create Service
                   </Link>
                   <Link
                     href="/admin/services"
                     style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
+                    onClick={() => setMenuOpen(false)}
                   >
                     Admin Services
                   </Link>
                   <Link
                     href="/admin"
                     style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
+                    onClick={() => setMenuOpen(false)}
                   >
                     Admin Dashboard
                   </Link>
@@ -159,9 +165,10 @@ export default function NavBar() {
               <button
                 style={{ marginLeft: 16 }}
                 onClick={async () => {
+                  setMenuOpen(false);
                   localStorage.clear();
                   await signOut({ redirect: false });
-                  window.location.href = "/"; // or router.push("/") if using useRouter
+                  window.location.href = "/";
                 }}
               >
                 Logout
@@ -172,6 +179,7 @@ export default function NavBar() {
               <Link
                 href="/login"
                 style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
+                onClick={() => setMenuOpen(false)}
               >
                 Login
               </Link>
@@ -186,6 +194,7 @@ export default function NavBar() {
                   width: "100%",
                   textAlign: "center",
                 }}
+                onClick={() => setMenuOpen(false)}
               >
                 Signup
               </Link>
