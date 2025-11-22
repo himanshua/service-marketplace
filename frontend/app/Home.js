@@ -312,8 +312,120 @@ export default function Home() {
           <div className="home-content-col">
             <h2>12 Houses</h2>
             <p>Houses 1 to 12</p>
-          </div>
-        </div>
+
+    <ol>
+    <li>
+      <a href="https://vedicfeed.com/12-houses-astrology/#1st"
+         target="_blank"
+         rel="noopener noreferrer">
+        First House
+      </a>
+      – Your identity, appearance, personality, and self-expression.
+    </li>
+
+    <li>
+      <a href="https://astrosanhita.com/twelve-houses-in-astrology/#2nd_house"
+         target="_blank"
+         rel="noopener noreferrer">
+        Second House
+      </a>
+      – Your money, speech, values, wealth, and family resources.
+    </li>
+
+    <li>
+      <a href="https://astrosanhita.com/twelve-houses-in-astrology/#3rd_house"
+         target="_blank"
+         rel="noopener noreferrer">
+        Third House
+      </a>
+      – Your communication, courage, siblings, skills, and efforts.
+    </li>
+
+    <li>
+      <a href="https://astrosanhita.com/twelve-houses-in-astrology/#4th_house"
+         target="_blank"
+         rel="noopener noreferrer">
+        Fourth House
+      </a>
+      – Your home, mother, emotions, land, and inner stability.
+    </li>
+
+    <li>
+      <a href="https://astrosanhita.com/twelve-houses-in-astrology/#5th_house"
+         target="_blank"
+         rel="noopener noreferrer">
+        Fifth House
+      </a>
+      – Your love, creativity, children, intelligence, and joy.
+    </li>
+
+    <li>
+      <a href="https://astrosanhita.com/twelve-houses-in-astrology/#6th_house"
+         target="_blank"
+         rel="noopener noreferrer">
+        Sixth House
+      </a>
+      – Your health, enemies, debts, work routines, and discipline.
+    </li>
+
+    <li>
+      <a href="https://astrosanhita.com/twelve-houses-in-astrology/#7th_house"
+         target="_blank"
+         rel="noopener noreferrer">
+        Seventh House
+      </a>
+      – Your marriage, partnerships, contracts, and commitments.
+    </li>
+
+    <li>
+      <a href="https://astrosanhita.com/twelve-houses-in-astrology/#8th_house"
+         target="_blank"
+         rel="noopener noreferrer">
+        Eighth House
+      </a>
+      – Sudden changes, secrets, inheritance, transformation, deep emotions.
+    </li>
+
+    <li>
+      <a href="https://astrosanhita.com/twelve-houses-in-astrology/#9th_house"
+         target="_blank"
+         rel="noopener noreferrer">
+        Ninth House
+      </a>
+      – Luck, spirituality, higher learning, philosophy, long journeys.
+    </li>
+
+    <li>
+      <a href="https://astrosanhita.com/twelve-houses-in-astrology/#10th_house"
+         target="_blank"
+         rel="noopener noreferrer">
+        Tenth House
+      </a>
+      – Career, reputation, authority, achievements, and life direction.
+    </li>
+
+    <li>
+      <a href="https://astrosanhita.com/twelve-houses-in-astrology/#11th_house"
+         target="_blank"
+         rel="noopener noreferrer">
+        Eleventh House
+      </a>
+      – Gains, income, friends, networks, and life goals.
+    </li>
+
+    <li>
+      <a href="https://astrosanhita.com/twelve-houses-in-astrology/#12th_house"
+         target="_blank"
+         rel="noopener noreferrer">
+        Twelfth House
+      </a>
+      – Losses, isolation, foreign lands, liberation, spirituality.
+    </li>
+  </ol>
+  </div>
+        </div>  
+            
+  
         {/* Row 3 */}
         <div style={{ display: "flex" }}>
           <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
