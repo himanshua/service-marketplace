@@ -297,7 +297,7 @@ export default function Home() {
         <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
           <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
             <img
-              src="/images/your-second-image.jpg"
+              src="/images/12-houses.png"
               alt="12 Houses"
               className="home-hero-image"
               style={{
