@@ -296,6 +296,7 @@ export default function Home() {
         {/* Row 2 */}
         <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
           <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
+            12 Houses
             <img
               src="/images/12-house.jpg"
               alt="12 Houses"
