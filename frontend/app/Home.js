@@ -303,7 +303,7 @@ export default function Home() {
               style={{
                 borderRadius: "12px",
                 width: 300,
-                height: 200,
+                height: 300,
                 objectFit: "cover",
                 background: "#fff",
               }}
