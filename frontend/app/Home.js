@@ -295,18 +295,34 @@ export default function Home() {
         </div>
         {/* Row 2 */}
         <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
-          <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
-            12 Houses
+                    <div
+            className="home-image-col"
+            style={{
+              borderRight: "2px solid #bdbdbd",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minWidth: 0,
+              minHeight: 0,
+              padding: "16px 0",
+              boxSizing: "border-box",
+            }}
+          >
+            <span style={{ marginBottom: 8, fontWeight: 600 }}>12 Houses</span>
             <img
               src="/images/12-house.jpg"
               alt="12 Houses"
               className="home-hero-image"
               style={{
                 borderRadius: "12px",
-                width: 350,
-                height: 400,
-                objectFit: "cover",
+                width: "100%",
+                maxWidth: 320,
+                height: "auto",
+                maxHeight: 400,
+                objectFit: "contain",
                 background: "#fff",
+                display: "block",
               }}
             />
           </div>
