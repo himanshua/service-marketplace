@@ -81,18 +81,22 @@ export default function Home() {
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
         {/* Row 0 (NEW TOP ROW) */}
         <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
-                    <div
-            className="home-image-col"
-            style={{
-              borderRight: "2px solid #bdbdbd",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",   // centers horizontally
-              justifyContent: "center", // centers vertically (optional)
-              padding: "16px 0",
-              boxSizing: "border-box",
-            }}
-          >
+                    <div                    
+              className="home-image-col"
+              style={{
+                borderRight: "2px solid #bdbdbd",
+                width: 240,           // fixed width for left column
+                minWidth: 240,
+                maxWidth: 240,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                boxSizing: "border-box",
+                height: "100%",
+                background: "#fff",
+              }}
+                     >
             <img
               src="images/Ganesha.jpeg"
               alt="Welcome"
@@ -114,7 +118,23 @@ export default function Home() {
         </div>
         {/* Row 1 */}
         <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
-          <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
+          <div className="home-image-col" 
+
+            style={{
+              borderRight: "2px solid #bdbdbd",
+              width: 240,           // fixed width for left column
+              minWidth: 240,
+              maxWidth: 240,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              boxSizing: "border-box",
+              height: "100%",
+              background: "#fff",
+            }}
+          >
+          
             <img
               src="/images/himanshu-tiwari-og.jpg"
               alt="Himanshu Tiwari"
@@ -315,21 +335,23 @@ export default function Home() {
     minHeight: 320, // optional: set a minimum height for the row
   }}
 >
-  <div
+   <div
     className="home-image-col"
     style={{
       borderRight: "2px solid #bdbdbd",
-      flex: "0 0 320px", // fixed width for left column
+      width: 240,           // fixed width for left column
+      minWidth: 240,
+      maxWidth: 240,
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
       boxSizing: "border-box",
       height: "100%",
-      minHeight: "100%",
       background: "#fff",
     }}
   >
+   
     <span style={{ marginBottom: 8, fontWeight: 600 }}>12 Houses</span>
     <img
       src="/images/12-house1.jpg"
@@ -439,17 +461,33 @@ export default function Home() {
 </div>
         {/* Row 3 */}
         <div style={{ display: "flex" }}>
-          <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
-            <img
-              src="/images/your-third-image.jpg"
-              alt="Nine Planets"
+                      <div
+                      className="home-image-col"
+                      style={{
+                        borderRight: "2px solid #bdbdbd",
+                        width: 240,           // fixed width for left column
+                        minWidth: 240,
+                        maxWidth: 240,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        boxSizing: "border-box",
+                        height: "100%",
+                        background: "#fff",
+                      }}
+                    >
+                       <img
+              src="images/planets.jpeg"
+              alt="Welcome"
               className="home-hero-image"
               style={{
                 borderRadius: "12px",
-                width: 300,
-                height: 200,
+                width: 215,
+                height: 235,
                 objectFit: "cover",
                 background: "#fff",
+                display: "block",
               }}
             />
           </div>

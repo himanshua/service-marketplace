@@ -222,10 +222,11 @@ html, body {
     min-height: unset !important;
   }
   .home-image-col {
+    width: 100% !important;
+    min-width: unset !important;
+    max-width: unset !important;
     border-right: none !important;
     border-bottom: 2px solid #bdbdbd !important;
-    width: 100% !important;
-    min-height: unset !important;
     padding: 12px 0 !important;
     justify-content: center;
     align-items: center;
