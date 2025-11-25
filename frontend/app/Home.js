@@ -13,23 +13,10 @@ function HomeRow({ label, imgSrc, imgAlt, children }) {
     <div style={{
       display: "flex",
       borderBottom: "2px solid #bdbdbd",
-      alignItems: "stretch", // This is correct
+      alignItems: "stretch",
       minHeight: 250
     }}>
-      <div
-        className="home-image-col"
-        style={{
-          borderRight: "2px solid #bdbdbd",
-          width: 240,
-          minWidth: 240,
-          maxWidth: 240,
-          display: "flex",
-          flexDirection: "column",
-          boxSizing: "border-box",
-          background: "#fff",
-          alignSelf: "stretch",
-        }}
-      >
+      <div className="home-image-col">
         <div style={{
           flex: 1,
           display: "flex",
