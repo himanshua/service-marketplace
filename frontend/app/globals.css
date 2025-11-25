@@ -120,8 +120,8 @@ html, body {
 }
 
 .home-image-col {
-  height: 100%;
-  align-self: stretch;
+  /* REMOVED: height: 100%; - This was preventing the column from stretching */
+  align-self: stretch; /* This ensures it stretches to full row height */
   display: flex;
   flex-direction: column;
   justify-content: center;
