@@ -92,7 +92,7 @@ export default function Home() {
                 height: 235,
                 objectFit: "cover",
                 background: "#fff",
-                akignSelf: "center",
+                align: "center",
               }}
             />
           </div>
