@@ -326,9 +326,9 @@ export default function Home() {
           imgSrc="/images/12-house3.jpg"
           imgAlt="12 Houses"
           imgStyle={{
-          width: "100%",
+          width: "130%",
           maxWidth: 320,
-          height: 240,
+          height: 290,
           maxHeight: 240,
   }}
         >
