@@ -81,7 +81,18 @@ export default function Home() {
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
         {/* Row 0 (NEW TOP ROW) */}
         <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd" }}>
-          <div className="home-image-col" style={{ borderRight: "2px solid #bdbdbd" }}>
+                    <div
+            className="home-image-col"
+            style={{
+              borderRight: "2px solid #bdbdbd",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",   // centers horizontally
+              justifyContent: "center", // centers vertically (optional)
+              padding: "16px 0",
+              boxSizing: "border-box",
+            }}
+          >
             <img
               src="images/Ganesha.jpeg"
               alt="Welcome"
@@ -92,7 +103,7 @@ export default function Home() {
                 height: 235,
                 objectFit: "cover",
                 background: "#fff",
-                align: "center",
+                display: "block",
               }}
             />
           </div>
