@@ -91,25 +91,28 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "stretch", // changed to stretch
               boxSizing: "border-box",
               height: "100%",
               background: "#fff",
             }}
           >
-            <img
-              src="images/Ganesha.jpeg"
-              alt="Welcome"
-              className="home-hero-image"
-              style={{
-                borderRadius: "12px",
-                width: 215,
-                height: 235,
-                objectFit: "cover",
-                background: "#fff",
-                display: "block",
-              }}
-            />
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%" }}>
+              <img
+                src="images/Ganesha.jpeg"
+                alt="Welcome"
+                className="home-hero-image"
+                style={{
+                  borderRadius: "12px",
+                  width: 215,
+                  height: 235,
+                  objectFit: "cover",
+                  background: "#fff",
+                  display: "block",
+                  margin: "0 auto",
+                }}
+              />
+            </div>
           </div>
           <div
             className="home-content-col"
@@ -142,26 +145,29 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "stretch",
               boxSizing: "border-box",
               height: "100%",
               background: "#fff",
             }}
           >
-            <img
-              src="/images/himanshu-tiwari-og.jpg"
-              alt="Himanshu Tiwari"
-              className="home-hero-image"
-              style={{
-                borderRadius: "12px",
-                width: 215,
-                height: 235,
-                objectFit: "cover",
-                boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-                background: "#fff",
-                display: "block",
-              }}
-            />
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%" }}>
+              <img
+                src="/images/himanshu-tiwari-og.jpg"
+                alt="Himanshu Tiwari"
+                className="home-hero-image"
+                style={{
+                  borderRadius: "12px",
+                  width: 215,
+                  height: 235,
+                  objectFit: "cover",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+                  background: "#fff",
+                  display: "block",
+                  margin: "0 auto",
+                }}
+              />
+            </div>
           </div>
           <div
             className="home-content-col"
@@ -363,14 +369,14 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "stretch",
               boxSizing: "border-box",
               height: "100%",
               background: "#fff",
             }}
           >
-            <span style={{ margin: "12px 0 8px 0", fontWeight: 600 }}>12 Houses</span>
-            <div style={{ flex: 1, display: "flex", alignItems: "center" }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%" }}>
+              <span style={{ marginBottom: 8, fontWeight: 600 }}>12 Houses</span>
               <img
                 src="/images/12-house1.jpg"
                 alt="12 Houses"
@@ -379,10 +385,12 @@ export default function Home() {
                   borderRadius: "12px",
                   width: "90%",
                   maxWidth: 200,
-                  maxHeight: "180px",
+                  height: "auto",
+                  maxHeight: 180,
                   objectFit: "contain",
                   background: "#fff",
                   display: "block",
+                  margin: "0 auto",
                 }}
               />
             </div>
@@ -402,81 +410,80 @@ export default function Home() {
           >
             <h2>12 Houses</h2>
             <p>Houses 1 to 12</p>
-  <ol>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-1" target="_blank" rel="noopener noreferrer">
-      1st House – Lagna / Tanu Bhava
-    </a>
-    – Governs body.
-  </li>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-2" target="_blank" rel="noopener noreferrer">
-      2nd House – Dhana Bhava
-    </a>
-    – Governs relatives.
-  </li>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-3" target="_blank" rel="noopener noreferrer">
-      3rd House – Sahaja Bhava
-    </a>
-    – Governs brothers.
-  </li>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-4" target="_blank" rel="noopener noreferrer">
-      4th House – Bandhu Bhava
-    </a>
-    – Governs friends.
-  </li>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-5" target="_blank" rel="noopener noreferrer">
-      5th House – Putra Bhava
-    </a>
-    – Governs sons.
-  </li>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-6" target="_blank" rel="noopener noreferrer">
-      6th House – Ari (Enemy) Bhava
-    </a>
-    – Governs enemies.
-  </li>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-7" target="_blank" rel="noopener noreferrer">
-      7th House – Yuvati Bhava
-    </a>
-    – Governs wives (spouse).
-  </li>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-8" target="_blank" rel="noopener noreferrer">
-      8th House – Randhra Bhava
-    </a>
-    – Governs death (terminus vitae).
-  </li>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-9" target="_blank" rel="noopener noreferrer">
-      9th House – Dharma Bhava
-    </a>
-    – Governs auspicious qualities and the general moral condition.
-  </li>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-10" target="_blank" rel="noopener noreferrer">
-      10th House – Karma Bhava
-    </a>
-    – Governs profession, honors, and dignity.
-  </li>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-11" target="_blank" rel="noopener noreferrer">
-      11th House – Labha Bhava
-    </a>
-    – Governs income and finance.
-  </li>
-  <li>
-    <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-12" target="_blank" rel="noopener noreferrer">
-      12th House – Vyaya Bhava
-    </a>
-    – Indicates expenditure.
-  </li>
-</ol>
-
+            <ol>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-1" target="_blank" rel="noopener noreferrer">
+                  1st House – Lagna / Tanu Bhava
+                </a>
+                – Governs body.
+              </li>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-2" target="_blank" rel="noopener noreferrer">
+                  2nd House – Dhana Bhava
+                </a>
+                – Governs relatives.
+              </li>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-3" target="_blank" rel="noopener noreferrer">
+                  3rd House – Sahaja Bhava
+                </a>
+                – Governs brothers.
+              </li>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-4" target="_blank" rel="noopener noreferrer">
+                  4th House – Bandhu Bhava
+                </a>
+                – Governs friends.
+              </li>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-5" target="_blank" rel="noopener noreferrer">
+                  5th House – Putra Bhava
+                </a>
+                – Governs sons.
+              </li>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-6" target="_blank" rel="noopener noreferrer">
+                  6th House – Ari (Enemy) Bhava
+                </a>
+                – Governs enemies.
+              </li>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-7" target="_blank" rel="noopener noreferrer">
+                  7th House – Yuvati Bhava
+                </a>
+                – Governs wives (spouse).
+              </li>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-8" target="_blank" rel="noopener noreferrer">
+                  8th House – Randhra Bhava
+                </a>
+                – Governs death (terminus vitae).
+              </li>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-9" target="_blank" rel="noopener noreferrer">
+                  9th House – Dharma Bhava
+                </a>
+                – Governs auspicious qualities and the general moral condition.
+              </li>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-10" target="_blank" rel="noopener noreferrer">
+                  10th House – Karma Bhava
+                </a>
+                – Governs profession, honors, and dignity.
+              </li>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-11" target="_blank" rel="noopener noreferrer">
+                  11th House – Labha Bhava
+                </a>
+                – Governs income and finance.
+              </li>
+              <li>
+                <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-12" target="_blank" rel="noopener noreferrer">
+                  12th House – Vyaya Bhava
+                </a>
+                – Indicates expenditure.
+              </li>
+            </ol>
           </div>
         </div>
         {/* Row 3 */}
@@ -491,28 +498,31 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "stretch",
               boxSizing: "border-box",
               height: "100%",
               background: "#fff",
             }}
           >
-            <span style={{ marginBottom: 8, fontWeight: 600 }}>Nine Planets</span>
-            <img
-              src="images/planets.jpeg"
-              alt="Nine Planets"
-              className="home-hero-image"
-              style={{
-                borderRadius: "12px",
-                width: "90%",
-                maxWidth: 200,
-                height: "auto",
-                maxHeight: 180,
-                objectFit: "contain",
-                background: "#fff",
-                display: "block",
-              }}
-            />
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%" }}>
+              <span style={{ marginBottom: 8, fontWeight: 600 }}>Nine Planets</span>
+              <img
+                src="images/planets.jpeg"
+                alt="Nine Planets"
+                className="home-hero-image"
+                style={{
+                  borderRadius: "12px",
+                  width: "90%",
+                  maxWidth: 200,
+                  height: "auto",
+                  maxHeight: 180,
+                  objectFit: "contain",
+                  background: "#fff",
+                  display: "block",
+                  margin: "0 auto",
+                }}
+              />
+            </div>
           </div>
           <div
             className="home-content-col"
