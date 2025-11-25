@@ -13,7 +13,7 @@ function HomeRow({ label, imgSrc, imgAlt, children }) {
     <div style={{
       display: "flex",
       borderBottom: "2px solid #bdbdbd",
-      alignItems: "stretch",
+      alignItems: "stretch", // This is correct
       minHeight: 250
     }}>
       <div
@@ -25,7 +25,6 @@ function HomeRow({ label, imgSrc, imgAlt, children }) {
           maxWidth: 240,
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
           boxSizing: "border-box",
           background: "#fff",
         }}
