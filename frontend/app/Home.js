@@ -401,7 +401,6 @@ export default function Home() {
           >
             <h2>12 Houses</h2>
             <p>Houses 1 to 12</p>
-            <ol>
   <ol>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-1" target="_blank" rel="noopener noreferrer">
