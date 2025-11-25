@@ -27,6 +27,7 @@ function HomeRow({ label, imgSrc, imgAlt, children }) {
           flexDirection: "column",
           boxSizing: "border-box",
           background: "#fff",
+          alignSelf: "stretch",
         }}
       >
         <div style={{
