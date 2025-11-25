@@ -216,14 +216,14 @@ html, body {
     border-bottom: 2px solid #bdbdbd !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 8px 0 !important;
+    padding: 12px 0 !important;
     justify-content: center;
     align-items: center;
   }
   .home-content-col {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 12px 8px !important;
+    padding: 16px 10px !important;
   }
   .home-hero-image {
     width: 100% !important;
@@ -231,6 +231,16 @@ html, body {
     height: auto !important;
     margin: 0 auto !important;
     display: block !important;
+  }
+  .home-content-col ol,
+  .home-content-col ul {
+    padding-left: 18px !important;
+    margin: 0 0 0 0 !important;
+  }
+  .home-content-col li {
+    margin-bottom: 8px !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
   }
 }
 
