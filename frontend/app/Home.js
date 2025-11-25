@@ -8,7 +8,7 @@ import "./globals.css";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
-function HomeRow({ label, imgSrc, imgAlt, children }) {
+function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, children }) {
   return (
     <div style={{
       display: "flex",
@@ -40,6 +40,7 @@ function HomeRow({ label, imgSrc, imgAlt, children }) {
               background: "#fff",
               display: "block",
               margin: "0 auto",
+              ...imgStyle, // <-- merge custom style
             }}
           />
         </div>
@@ -324,6 +325,12 @@ export default function Home() {
           label="12 Houses"
           imgSrc="/images/12-house1.jpg"
           imgAlt="12 Houses"
+          imgStyle={{
+          width: "100%",
+          maxWidth: 320,
+          height: 240,
+          maxHeight: 240,
+  }}
         >
           <h2>12 Houses</h2>
           <p>Houses 1 to 12</p>
