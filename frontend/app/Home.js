@@ -121,11 +121,12 @@ export default function Home() {
               className="home-hero-image"
               style={{
                 borderRadius: "12px",
-                width: 300,
-                height: 450,
+                width: 240,
+                height: 350,
                 objectFit: "cover",
                 boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
                 background: "#fff",
+                display: "block",
               }}
             />
           </div>

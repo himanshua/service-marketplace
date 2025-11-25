@@ -98,29 +98,40 @@ html, body {
 }
 
 .home-container {
-  width: 98vw;           /* or 99vw for almost full width */
-  max-width: none;       /* Remove the 1200px limit */
-  margin-left: 1vw;      /* Small left margin */
-  margin-right: 1vw;     /* Small right margin */
-  /*bckground: #fff;*/
-  border: 2px solid #bdbdbd;      /* All outer borders */
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: stretch;
+  width: 98vw;
+  max-width: none;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  border: 2px solid #bdbdbd;
   border-radius: 0;
   box-shadow: none;
   padding: 0;
+}
+
+.home-container > div {
   display: flex;
   flex-direction: row;
-  gap: 0;                         /* No gap, use border for separation */
-  align-items: stretch; /* Make columns stretch to full container height */
-
-
+  align-items: stretch;
+  min-height: 250px; /* or whatever fits your design */
 }
 
 .home-image-col {
-  border-right: 2px solid #bdbdbd; /* Vertical border between columns */
+  border-right: 2px solid #bdbdbd;
   padding: 16px 12px;
-   height: 100%;           /* Ensure it stretches */
+  height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;   /* Set a minimum width */
+  max-width: 260px;   /* Set a maximum width */
+  width: 240px;       /* Set a fixed width */
+  box-sizing: border-box;
+  background: #fff;
 }
 
 .home-content-col {
