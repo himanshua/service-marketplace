@@ -88,8 +88,8 @@ export default function Home() {
               className="home-hero-image"
               style={{
                 borderRadius: "12px",
-                width: 300,
-                height: 200,
+                width: 215,
+                height: 235,
                 objectFit: "cover",
                 background: "#fff",
               }}
