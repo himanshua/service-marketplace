@@ -402,77 +402,78 @@ export default function Home() {
             <h2>12 Houses</h2>
             <p>Houses 1 to 12</p>
             <ol>
+  <ol>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-1" target="_blank" rel="noopener noreferrer">
       1st House – Lagna / Tanu Bhava
-    </a>  
-    – Governs **body**. :contentReference[oaicite:1]{index=1}  
+    </a>
+    – Governs body.
   </li>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-2" target="_blank" rel="noopener noreferrer">
-      2nd House – Dhana Bhava  
-    </a>  
-    – Governs **relatives**. :contentReference[oaicite:2]{index=2}  
+      2nd House – Dhana Bhava
+    </a>
+    – Governs relatives.
   </li>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-3" target="_blank" rel="noopener noreferrer">
-      3rd House – Sahaja Bhava  
-    </a>  
-    – Governs **brothers**. :contentReference[oaicite:3]{index=3}  
+      3rd House – Sahaja Bhava
+    </a>
+    – Governs brothers.
   </li>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-4" target="_blank" rel="noopener noreferrer">
-      4th House – Bandhu Bhava  
-    </a>  
-    – Governs **friends**. :contentReference[oaicite:4]{index=4}  
+      4th House – Bandhu Bhava
+    </a>
+    – Governs friends.
   </li>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-5" target="_blank" rel="noopener noreferrer">
-      5th House – Putra Bhava  
-    </a>  
-    – Governs **sons**. :contentReference[oaicite:5]{index=5}  
+      5th House – Putra Bhava
+    </a>
+    – Governs sons.
   </li>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-6" target="_blank" rel="noopener noreferrer">
-      6th House – Ari (Enemy) Bhava  
-    </a>  
-    – Governs **enemies**. :contentReference[oaicite:6]{index=6}  
+      6th House – Ari (Enemy) Bhava
+    </a>
+    – Governs enemies.
   </li>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-7" target="_blank" rel="noopener noreferrer">
-      7th House – Yuvati Bhava  
-    </a>  
-    – Governs **wives** (spouse). :contentReference[oaicite:7]{index=7}  
+      7th House – Yuvati Bhava
+    </a>
+    – Governs wives (spouse).
   </li>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-8" target="_blank" rel="noopener noreferrer">
-      8th House – Randhra Bhava  
-    </a>  
-    – Governs **death** or terminus vitae. :contentReference[oaicite:8]{index=8}  
+      8th House – Randhra Bhava
+    </a>
+    – Governs death (terminus vitae).
   </li>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-9" target="_blank" rel="noopener noreferrer">
-      9th House – Dharma Bhava  
-    </a>  
-    – Governs **auspicious qualities** and the general moral condition. :contentReference[oaicite:9]{index=9}  
+      9th House – Dharma Bhava
+    </a>
+    – Governs auspicious qualities and the general moral condition.
   </li>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-10" target="_blank" rel="noopener noreferrer">
-      10th House – Karma Bhava  
-    </a>  
-    – Governs **profession, honors, and dignity**. :contentReference[oaicite:10]{index=10}  
+      10th House – Karma Bhava
+    </a>
+    – Governs profession, honors, and dignity.
   </li>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-11" target="_blank" rel="noopener noreferrer">
-      11th House – Labha Bhava  
-    </a>  
-    – Governs **income and finance**. :contentReference[oaicite:11]{index=11}  
+      11th House – Labha Bhava
+    </a>
+    – Governs income and finance.
   </li>
   <li>
     <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-12" target="_blank" rel="noopener noreferrer">
-      12th House – Vyaya Bhava  
-    </a>  
-    – Indicates **expenditure**. :contentReference[oaicite:12]{index=12}  
+      12th House – Vyaya Bhava
+    </a>
+    – Indicates expenditure.
   </li>
 </ol>
 
