@@ -121,7 +121,7 @@ html, body {
 
 .home-image-col {
   height: 100%;
-  align-self: stretch; /* This is the key! */
+  align-self: stretch;
   display: flex;
   flex-direction: column;
   justify-content: center;

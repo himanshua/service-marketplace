@@ -25,9 +25,8 @@ function HomeRow({ label, imgSrc, imgAlt, children }) {
           maxWidth: 240,
           display: "flex",
           flexDirection: "column",
-          justifyContent: "stretch",
+          justifyContent: "center",
           boxSizing: "border-box",
-          height: "100%",
           background: "#fff",
         }}
       >
@@ -38,7 +37,6 @@ function HomeRow({ label, imgSrc, imgAlt, children }) {
           alignItems: "center",
           justifyContent: "center",
           width: "100%",
-          height: "100%",
         }}>
           {label && <span style={{ marginBottom: 8, fontWeight: 600 }}>{label}</span>}
           <img
@@ -69,7 +67,6 @@ function HomeRow({ label, imgSrc, imgAlt, children }) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          height: "100%",
         }}
       >
         {children}
