@@ -369,22 +369,23 @@ export default function Home() {
               background: "#fff",
             }}
           >
-            <span style={{ marginBottom: 8, fontWeight: 600 }}>12 Houses</span>
-            <img
-              src="/images/12-house1.jpg"
-              alt="12 Houses"
-              className="home-hero-image"
-              style={{
-                borderRadius: "12px",
-                width: "90%",
-                maxWidth: 200,
-                height: "auto",
-                maxHeight: 180,
-                objectFit: "contain",
-                background: "#fff",
-                display: "block",
-              }}
-            />
+            <span style={{ margin: "12px 0 8px 0", fontWeight: 600 }}>12 Houses</span>
+            <div style={{ flex: 1, display: "flex", alignItems: "center" }}>
+              <img
+                src="/images/12-house1.jpg"
+                alt="12 Houses"
+                className="home-hero-image"
+                style={{
+                  borderRadius: "12px",
+                  width: "90%",
+                  maxWidth: 200,
+                  maxHeight: "180px",
+                  objectFit: "contain",
+                  background: "#fff",
+                  display: "block",
+                }}
+              />
+            </div>
           </div>
           <div
             className="home-content-col"
