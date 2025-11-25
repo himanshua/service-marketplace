@@ -323,7 +323,7 @@ export default function Home() {
           >
             <span style={{ marginBottom: 8, fontWeight: 600 }}>12 Houses</span>
             <img
-              src="/images/12-house.jpg"
+              src="/images/12-house1.jpg"
               alt="12 Houses"
               className="home-hero-image"
               style={{
