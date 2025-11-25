@@ -120,18 +120,17 @@ html, body {
 }
 
 .home-image-col {
-  border-right: 2px solid #bdbdbd;
-  padding: 16px 12px;
   height: 100%;
+  align-self: stretch; /* This is the key! */
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-width: 220px;   /* Set a minimum width */
-  max-width: 260px;   /* Set a maximum width */
-  width: 240px;       /* Set a fixed width */
   box-sizing: border-box;
   background: #fff;
+  border-right: 2px solid #bdbdbd;
+  min-width: 240px;
+  max-width: 240px;
+  width: 240px;
 }
 
 .home-content-col {
