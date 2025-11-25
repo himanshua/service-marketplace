@@ -32,15 +32,15 @@ function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, children }) {
             className="home-hero-image"
             style={{
               borderRadius: "12px",
-              width: "90%",
-              maxWidth: 200,
-              height: "auto",
-              maxHeight: 180,
+              width: "100%",
+              maxWidth: 340,    // Increased max width
+              height: 260,      // Increased height
+              maxHeight: 260,   // Increased max height
               objectFit: "contain",
               background: "#fff",
               display: "block",
               margin: "0 auto",
-              ...imgStyle, // <-- merge custom style
+              ...imgStyle,
             }}
           />
         </div>
