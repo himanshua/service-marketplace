@@ -323,7 +323,7 @@ export default function Home() {
         </HomeRow>
         <HomeRow
           label="12 Houses"
-          imgSrc="/images/12-house3.jpg"
+          imgSrc="/images/12-house4.jpg"
           imgAlt="12 Houses"
         >
           <h2>12 Houses</h2>
