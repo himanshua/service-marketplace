@@ -328,8 +328,8 @@ export default function Home() {
           imgStyle={{
             width: "100%",
             maxWidth: "100%",
-            height: "100%",         // Fill the column height
-            objectFit: "cover",
+            height: "auto",         // Let image grow with content
+            objectFit: "contain",   // Show full image, no cropping
             borderRadius: "12px",
             display: "block",
           }}
