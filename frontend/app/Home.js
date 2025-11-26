@@ -328,10 +328,11 @@ export default function Home() {
           imgStyle={{
             width: "100%",
             maxWidth: "100%",
-            height: "auto",
-            objectFit: "cover",     // Crops to fill
+            height: "auto",         // Let image grow with content
+            objectFit: "contain",   // Show full image, no cropping
             borderRadius: "12px",
             display: "block",
+            background: "#fff",
           }}
         >
           <h2>12 Houses</h2>
