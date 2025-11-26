@@ -431,58 +431,103 @@ export default function Home() {
           <h2>Nine Planets</h2>
           <ol>
             <li>
-              <a href="https://barbarapijan.com/bpa/Graha/Sun/Sun_main.htm" target="_blank" rel="noopener noreferrer">
-                [Surya] — Dimension 7
+              [Surya] —
+              <a
+                href="https://barbarapijan.com/bpa/Graha/Surya/1Surya_main_page.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Surya
               </a>
-              : creation, light, authority, vitality, purpose, identity, will
+              — Dimension 7 : creation, light, authority, vitality, purpose, identity, will
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Graha/Moon/Moon_main.htm" target="_blank" rel="noopener noreferrer">
-                [Chandra] — Dimension 6
+              [Chandra] —
+              <a
+                href="https://barbarapijan.com/bpa/Graha/Chandra/1Chandra_main_page.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Chandra
               </a>
-              : intuition, emotion, memory, nurturing, rhythm, sensitivity
+              — Dimension 6 : intuition, emotion, memory, nurturing, rhythm, sensitivity
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Graha/Mercury/Mercury_main.htm" target="_blank" rel="noopener noreferrer">
-                [Budha] — Dimension 5
+              [Budha] —
+              <a
+                href="https://barbarapijan.com/bpa/Graha/Budha/1Budha_main_page.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Budha
               </a>
-              : thinking, speaking, learning, analysis, logic
+              — Dimension 5 : thinking, speaking, learning, analysis, logic
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Graha/Venus/Venus_main.htm" target="_blank" rel="noopener noreferrer">
-                [Shukra] — Dimension 4
+              [Shukra] —
+              <a
+                href="https://barbarapijan.com/bpa/Graha/Shukra/1Shukra_main_page.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Shukra
               </a>
-              : love, beauty, harmony, attraction
+              — Dimension 4 : love, beauty, harmony, attraction
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Graha/Mars/Mars_main.htm" target="_blank" rel="noopener noreferrer">
-                [Kuja] — Dimension 3
+              [Kuja] —
+              <a
+                href="https://barbarapijan.com/bpa/Graha/Kuja/1Kuja_main_page.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Kuja
               </a>
-              : action, courage, desire
+              — Dimension 3 : action, courage, desire
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Graha/Jupiter/Jupiter_main.htm" target="_blank" rel="noopener noreferrer">
-                [Guru] — Dimension 2
+              [Guru] —
+              <a
+                href="https://barbarapijan.com/bpa/Graha/Guru/1Guru_main_page.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Guru
               </a>
-              : expansion, guidance
+              — Dimension 2 : expansion, guidance
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Graha/Saturn/Saturn_main.htm" target="_blank" rel="noopener noreferrer">
-                [Shani] — Dimension 1
+              [Shani] —
+              <a
+                href="https://barbarapijan.com/bpa/Graha/Shani/1Shani_main_page.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Shani
               </a>
-              : structure
+              — Dimension 1 : structure
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Graha/Rahu/Rahu_main.htm" target="_blank" rel="noopener noreferrer">
-                [Rahu]
+              [Rahu] —
+              <a
+                href="https://barbarapijan.com/bpa/Graha/Rahu/1Rahu_main_page.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rahu
               </a>
-              : materializing force
+              — materializing force
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Graha/Ketu/Ketu_main.htm" target="_blank" rel="noopener noreferrer">
-                [Ketu]
+              [Ketu] —
+              <a
+                href="https://barbarapijan.com/bpa/Graha/Ketu/1Ketu_main_page.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ketu
               </a>
-              : spiritualizing force
+              — spiritualizing force
             </li>
           </ol>
         </HomeRow>
