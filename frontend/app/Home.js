@@ -329,7 +329,7 @@ export default function Home() {
           width: "100%",
           maxWidth: "100%",
           height: 290,
-          maxHeight: 240,
+          maxHeight: 290,
           objectFit: "cover", // ensures the image fills the box
           borderRadius: "12px",
           display: "block",
