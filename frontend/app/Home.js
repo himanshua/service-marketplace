@@ -325,6 +325,17 @@ export default function Home() {
           label="12 Houses"
           imgSrc="/images/12-house3.jpg"
           imgAlt="12 Houses"
+          imgStyle={{
+            width: "100%",
+            maxWidth: 340,
+            height: 260,
+            maxHeight: 260,
+            objectFit: "contain", // Ensures the whole image is visible
+            borderRadius: "12px",
+            background: "#fff",
+            display: "block",
+            margin: "0 auto",
+          }}
         >
           <h2>12 Houses</h2>
           <p>Houses 1 to 12</p>
