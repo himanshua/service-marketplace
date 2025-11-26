@@ -522,6 +522,48 @@ export default function Home() {
             </li>
           </ol>
         </HomeRow>
+        <HomeRow
+          label="Who is AheadTerra?"
+          imgSrc="/images/Earth_flag.JPG"
+          imgAlt="AheadTerra - Earth"
+          imgStyle={{
+            width: "100%",
+            maxWidth: 340,
+            height: 220,
+            maxHeight: 220,
+            objectFit: "contain",
+            borderRadius: "12px",
+            background: "#fff",
+            display: "block",
+            margin: "0 auto",
+          }}
+        >
+          <h2>Who is AheadTerra?</h2>
+          <p>
+            Terra is a Latin word for Earth. "AheadTerra" symbolizes moving forward on Earth, embracing knowledge, growth, and a global perspective. The name reflects a vision of progress and connection for everyone on our planet.
+          </p>
+        </HomeRow>
+        <HomeRow
+          label="Right Image Example"
+          imgSrc="/images/right-image-example.jpg"
+          imgAlt="Right Side Example"
+          imgStyle={{
+            width: "100%",
+            maxWidth: 340,
+            height: 220,
+            maxHeight: 220,
+            objectFit: "contain",
+            borderRadius: "12px",
+            background: "#fff",
+            display: "block",
+            margin: "0 auto",
+          }}
+        >
+          <h2 style={{ textAlign: "right" }}>This is a right-aligned image text example.</h2>
+          <p style={{ textAlign: "right" }}>
+            The image is on the left, and this text is aligned to the right for demonstration purposes. You can use this layout for any content where you want the text to be right-aligned.
+          </p>
+        </HomeRow>
       </div>
     </main>
   );
