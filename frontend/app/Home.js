@@ -327,12 +327,11 @@ export default function Home() {
           imgAlt="12 Houses"
           imgStyle={{
             width: "100%",
-            height: "100%",
-            objectFit: "contain",
+            maxWidth: "100%",
+            height: "auto",
+            objectFit: "cover",     // Crops to fill
             borderRadius: "12px",
             display: "block",
-            background: "#fff",
-            margin: 0, // remove margin
           }}
         >
           <h2>12 Houses</h2>
