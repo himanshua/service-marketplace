@@ -328,7 +328,7 @@ export default function Home() {
           imgStyle={{
             width: "100%",
             maxWidth: "100%",
-            height: "auto",
+            height: "130%",        // Fill the column height
             objectFit: "cover",     // Crops to fill
             borderRadius: "12px",
             display: "block",
