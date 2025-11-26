@@ -431,101 +431,92 @@ export default function Home() {
           <h2>Nine Planets</h2>
           <ol>
             <li>
-              [Surya] —
               <a
                 href="https://barbarapijan.com/bpa/Graha/Surya/1Surya_main_page.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Surya
+                [Surya]
               </a>
               — Dimension 7 : creation, light, authority, vitality, purpose, identity, will
             </li>
             <li>
-              [Chandra] —
               <a
                 href="https://barbarapijan.com/bpa/Graha/Chandra/1Chandra_main_page.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Chandra
+                [Chandra]
               </a>
               — Dimension 6 : intuition, emotion, memory, nurturing, rhythm, sensitivity
             </li>
             <li>
-              [Budha] —
               <a
                 href="https://barbarapijan.com/bpa/Graha/Budha/1Budha_main_page.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Budha
+                [Budha]
               </a>
               — Dimension 5 : thinking, speaking, learning, analysis, logic
             </li>
             <li>
-              [Shukra] —
               <a
                 href="https://barbarapijan.com/bpa/Graha/Shukra/1Shukra_main_page.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Shukra
+                [Shukra]
               </a>
               — Dimension 4 : love, beauty, harmony, attraction
             </li>
             <li>
-              [Kuja] —
               <a
                 href="https://barbarapijan.com/bpa/Graha/Kuja/1Kuja_main_page.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Kuja
+                [Kuja]
               </a>
               — Dimension 3 : action, courage, desire
             </li>
             <li>
-              [Guru] —
               <a
                 href="https://barbarapijan.com/bpa/Graha/Guru/1Guru_main_page.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Guru
+                [Guru]
               </a>
               — Dimension 2 : expansion, guidance
             </li>
             <li>
-              [Shani] —
               <a
                 href="https://barbarapijan.com/bpa/Graha/Shani/1Shani_main_page.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Shani
+                [Shani]
               </a>
               — Dimension 1 : structure
             </li>
             <li>
-              [Rahu] —
               <a
                 href="https://barbarapijan.com/bpa/Graha/Rahu/1Rahu_main_page.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Rahu
+                [Rahu]
               </a>
               — materializing force
             </li>
             <li>
-              [Ketu] —
               <a
                 href="https://barbarapijan.com/bpa/Graha/Ketu/1Ketu_main_page.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Ketu
+                [Ketu]
               </a>
               — spiritualizing force
             </li>
