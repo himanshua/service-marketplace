@@ -330,6 +330,9 @@ export default function Home() {
           maxWidth: "100%",
           height: 290,
           maxHeight: 240,
+          objectFit: "cover", // ensures the image fills the box
+          borderRadius: "12px",
+          display: "block",
       }}
         >
           <h2>12 Houses</h2>
