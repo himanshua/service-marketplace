@@ -327,10 +327,8 @@ export default function Home() {
           imgAlt="12 Houses"
           imgStyle={{
             width: "100%",
-            maxWidth: 340,
-            height: 320,
-            maxHeight: 320,
-            objectFit: "contain", // <-- changed from "cover" to "contain"
+            height: "100%",
+            objectFit: "fill", // Stretches image to fill both width and height
             borderRadius: "12px",
             background: "#fff",
             display: "block",
