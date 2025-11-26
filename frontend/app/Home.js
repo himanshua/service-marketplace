@@ -524,7 +524,7 @@ export default function Home() {
         </HomeRow>
         <HomeRow
           label="Who is AheadTerra?"
-          imgSrc="/images/Earth_flag.JPG"
+          imgSrc="/images/Earth_flag.jpg"
           imgAlt="AheadTerra - Earth"
           imgStyle={{
             width: "100%",
