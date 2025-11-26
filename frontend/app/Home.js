@@ -326,14 +326,13 @@ export default function Home() {
           imgSrc="/images/12-house3.jpg"
           imgAlt="12 Houses"
           imgStyle={{
-          width: "100%",
-          maxWidth: "100%",
-          height: 290,
-          maxHeight: 290,
-          objectFit: "cover", // ensures the image fills the box
-          borderRadius: "12px",
-          display: "block",
-      }}
+            width: "100%",
+            maxWidth: "100%",
+            height: "100%",         // Fill the column height
+            objectFit: "cover",
+            borderRadius: "12px",
+            display: "block",
+          }}
         >
           <h2>12 Houses</h2>
           <p>Houses 1 to 12</p>
