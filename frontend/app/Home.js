@@ -328,8 +328,8 @@ export default function Home() {
           imgStyle={{
             width: "100%",
             maxWidth: 340,
-            height: 340,      // Increased height
-            maxHeight: 340,   // Increased max height
+            height: 390,      // Increased height
+            maxHeight: 390,   // Increased max height
             objectFit: "contain",
             borderRadius: "12px",
             background: "#fff",
