@@ -462,7 +462,7 @@ export default function Home() {
             </li>
             <li>
               <a
-                href="https://barbarapijan.com/bpa/Graha/Shukra/1Shukra_main_page.htm"
+                href="https://barbarapijan.com/bpa/Graha/Zukra/1Zukra_MainPage.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -472,7 +472,7 @@ export default function Home() {
             </li>
             <li>
               <a
-                href="https://barbarapijan.com/bpa/Graha/Kuja/1Kuja_main_page.htm"
+                href="https://barbarapijan.com/bpa/Graha/Mangala/1Mangala_main_page.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -502,7 +502,7 @@ export default function Home() {
             </li>
             <li>
               <a
-                href="https://barbarapijan.com/bpa/Graha/Rahu/1Rahu_main_page.htm"
+                href="https://barbarapijan.com/bpa/Graha/Rahu/1Rahu_MainPage.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -512,7 +512,7 @@ export default function Home() {
             </li>
             <li>
               <a
-                href="https://barbarapijan.com/bpa/Graha/Ketu/1Ketu_main_page.htm"
+                href="https://barbarapijan.com/bpa/Graha/Ketu/1Ketu_main.htm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
