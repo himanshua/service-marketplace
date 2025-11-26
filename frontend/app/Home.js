@@ -414,7 +414,7 @@ export default function Home() {
         </HomeRow>
         <HomeRow
           label="Nine Planets"
-          imgSrc="/images/planets.jpeg"
+          imgSrc="/images/9-planets.png"
           imgAlt="Nine Planets"
           imgStyle={{
             width: "100%",
