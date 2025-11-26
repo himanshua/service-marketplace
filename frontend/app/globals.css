@@ -120,17 +120,18 @@ html, body {
 }
 
 .home-image-col {
-  /* REMOVED: height: 100%; - This was preventing the column from stretching */
-  align-self: stretch; /* This ensures it stretches to full row height */
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+  height: 100%;
+  align-self: stretch;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: stretch;
+  padding: 0;
   box-sizing: border-box;
   background: #fff;
   border-right: 2px solid #bdbdbd;
-  min-width: 240px;
-  max-width: 240px;
-  width: 240px;
 }
 
 .home-content-col {
