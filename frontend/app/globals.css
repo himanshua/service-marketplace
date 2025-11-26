@@ -120,14 +120,14 @@ html, body {
 }
 
 .home-image-col {
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
   height: 100%;
   align-self: stretch;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 240px;
-  min-width: 240px;
-  max-width: 240px;
   box-sizing: border-box;
   background: #fff;
   border-right: 2px solid #bdbdbd;
