@@ -328,9 +328,9 @@ export default function Home() {
           imgStyle={{
             width: "100%",
             maxWidth: 340,
-            height: 320,      // Increased height
+            height: 320,
             maxHeight: 320,
-            objectFit: "cover", // Will crop to fill
+            objectFit: "contain", // <-- changed from "cover" to "contain"
             borderRadius: "12px",
             background: "#fff",
             display: "block",
