@@ -559,7 +559,7 @@ export default function Home() {
             margin: "0 auto",
           }}
         >
-          <h2 style={{ textAlign: "right" }}>
+          <h2 style={{ textAlign: "" }}>
             <a
               href="#himanshu-section"
               style={{ color: "#1976d2", textDecoration: "underline" }}
