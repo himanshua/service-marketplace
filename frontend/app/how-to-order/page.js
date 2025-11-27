@@ -72,7 +72,7 @@ export default function HowToOrder() {
             How to order Jyotishavidya Readings<br />
             offered by{" "}
             <a
-              href="/#himanshu-section"
+              href="home#himanshu-section"
               style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}
             >
               Himanshu Tiwari
