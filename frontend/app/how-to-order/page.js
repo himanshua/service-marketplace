@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import "./profile/profile.css";
-import "./globals.css";
+import "../profile/profile.css";
+import "../globals.css";
 
 // Copy HomeRow component here
 function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, children }) {
