@@ -1,19 +1,33 @@
 import Link from "next/link";
+import HomeRow from "../HomeRow";
 
 export default function HowToOrder() {
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
-        <div className="home-content-col" style={{ background: "#fff", padding: "32px 24px", borderRadius: 12, maxWidth: 700, margin: "32px auto" }}>
-          <h1 style={{ color: "#1976d2", marginBottom: 16 }}>How to order Jyotishavidya Readings</h1>
-          <h2 style={{ marginTop: 0, marginBottom: 16 }}>offered by Himanshu Tiwari</h2>
-          <p style={{ fontSize: "1.1rem", marginBottom: 16 }}>
-            Most readings are delivered within 2–6 days after payment is received.
+        <HomeRow
+          label="How to order Jyotishavidya Readings"
+          imgSrc="/images/Earth_flag.jpg"
+          imgAlt="How to order Jyotishavidya Readings"
+          imgStyle={{
+            width: "100%",
+            maxWidth: 340,
+            height: 220,
+            maxHeight: 220,
+            objectFit: "contain",
+            borderRadius: "12px",
+            background: "#fff",
+            display: "block",
+            margin: "0 auto",
+          }}
+        >
+          <h2>How to order Jyotishavidya Readings</h2>
+          <p>
+            Offered by Himanshu Tiwari. Most readings are delivered within 2–6 days after payment is received.
+            <br /><br />
+            <b>Note:</b> Jyotishavidya readings are provided for educational purposes to students of the vidya. No warranty is expressed or implied.
           </p>
-          <p style={{ color: "#b71c1c", fontWeight: 500, marginBottom: 16 }}>
-            Please note: Jyotishavidya readings are provided for educational purposes to students of the vidya. No warranty is expressed or implied.
-          </p>
-          <p style={{ marginBottom: 16 }}>
+          <p>
             To order, please email&nbsp;
             <a
               href="mailto:himanshu,inperson@gmail.com"
@@ -23,7 +37,7 @@ export default function HowToOrder() {
             </a>
             &nbsp;with the following required information:
           </p>
-          <ul style={{ marginBottom: 24, fontSize: "1.05rem" }}>
+          <ul>
             <li>
               <b>Your name and gender</b> as you would like it to appear on the printed charts
             </li>
@@ -46,7 +60,7 @@ export default function HowToOrder() {
           <Link href="/" style={{ color: "#1976d2", textDecoration: "underline" }}>
             &larr; Back to Home
           </Link>
-        </div>
+        </HomeRow>
       </div>
     </main>
   );
