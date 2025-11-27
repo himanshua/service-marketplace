@@ -28,7 +28,16 @@ export default function HowToOrder() {
             <b>Note:</b> Jyotishavidya readings are provided for educational purposes to students of the vidya. No warranty is expressed or implied.
           </p>
           <p>
-            To order, please email&nbsp;
+            To order, please visit&nbsp;
+            <a
+              href="https://aheadterra.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}
+            >
+              aheadterra.com
+            </a>
+            &nbsp;or email&nbsp;
             <a
               href="mailto:himanshu,inperson@gmail.com"
               style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}
