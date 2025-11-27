@@ -67,9 +67,16 @@ export default function HowToOrder() {
           imgSrc="images/Ganesha.jpeg"
           imgAlt="Welcome"
         >
-          <h2>Beej Mantra</h2>
+          <h2></h2>
           <p>
-            Aum Hreem Hraum Suryayeh Namah, Aum Hreem Shreem Chandraya Namah, Aum Eim Hreem Shreem Mangalayeh Namah, Aum Aim Streem Bam Budhayeh Namah, Aum Hreem Brahm Brihaspatayeh Namah, Aum Hreem Shreem Shukrayeh Namah, Aum Hreem Shreem Sam Sanneshcharayeh Namah, Aum Eim Hreem Rahuvey Namah, Aum Eim Hreem Ketuvey Namah.
+            How to order Jyotishavidya Readings<br />
+            offered by{" "}
+            <a
+              href="/#himanshu-section"
+              style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}
+            >
+              Himanshu Tiwari
+            </a>
           </p>
         </HomeRow>
       </div>
