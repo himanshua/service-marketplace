@@ -544,9 +544,9 @@ export default function Home() {
           </p>
         </HomeRow>
         <HomeRow
-          label="Right Image Example"
-          imgSrc="/images/right-image-example.jpg"
-          imgAlt="Right Side Example"
+          label="Who is Himanshu Tiwari"
+          imgSrc="/images/himanshu-tiwari-og.jpg"
+          imgAlt="Who is Himanshu Tiwari"
           imgStyle={{
             width: "100%",
             maxWidth: 340,
@@ -559,10 +559,8 @@ export default function Home() {
             margin: "0 auto",
           }}
         >
-          <h2 style={{ textAlign: "right" }}>This is a right-aligned image text example.</h2>
-          <p style={{ textAlign: "right" }}>
-            The image is on the left, and this text is aligned to the right for demonstration purposes. You can use this layout for any content where you want the text to be right-aligned.
-          </p>
+          <h2 style={{ textAlign: "right" }}>...</h2>
+          <p style={{ textAlign: "right" }}>...</p>
         </HomeRow>
       </div>
     </main>
