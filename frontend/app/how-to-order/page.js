@@ -1,5 +1,7 @@
 import Link from "next/link";
 import HomeRow from "../HomeRow";
+import "./profile/profile.css";
+import "../globals.css";
 
 export default function HowToOrder() {
   return (
@@ -28,16 +30,7 @@ export default function HowToOrder() {
             <b>Note:</b> Jyotishavidya readings are provided for educational purposes to students of the vidya. No warranty is expressed or implied.
           </p>
           <p>
-            To order, please visit&nbsp;
-            <a
-              href="https://aheadterra.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}
-            >
-              aheadterra.com
-            </a>
-            &nbsp;or email&nbsp;
+            To order, please email&nbsp;
             <a
               href="mailto:himanshu,inperson@gmail.com"
               style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}
