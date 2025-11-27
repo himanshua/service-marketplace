@@ -564,15 +564,15 @@ export default function Home() {
               href="#himanshu-section"
               style={{ color: "#1976d2", textDecoration: "underline" }}
             >
-              Who is Himanshu Tiwari
+              Who is Himanshu Tiwari?
             </a>
           </h2>
           <p style={{ textAlign: "right" }}>...</p>
         </HomeRow>
         <HomeRow
-          label="Right Image Example"
+          label="How to order Jyotishavidya Readings?"
           imgSrc="/images/right-image-example.jpg"
-          imgAlt="Right Side Example"
+          imgAlt="How to order Jyotishavidya Readings?"
           imgStyle={{
             width: "100%",
             maxWidth: 340,
@@ -585,9 +585,13 @@ export default function Home() {
             margin: "0 auto",
           }}
         >
-          <h2 style={{ textAlign: "right" }}>This is a right-aligned image text example.</h2>
-          <p style={{ textAlign: "right" }}>
-            The image is on the left, and this text is aligned to the right for demonstration purposes. You can use this layout for any content where you want the text to be right-aligned.
+          <h2>
+            <Link href="/how-to-order" style={{ color: "#1976d2", textDecoration: "underline" }}>
+              How to order Jyotishavidya Readings
+            </Link>
+          </h2>
+          <p>
+            Click above to learn how to request your personalized Jyotishavidya reading from Himanshu Tiwari, including required information and contact details.
           </p>
         </HomeRow>
       </div>
