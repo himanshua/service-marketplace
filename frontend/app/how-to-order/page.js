@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import "../profile/profile.css";
 import "../globals.css";
 
@@ -62,6 +62,8 @@ function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, children }) {
 
 export default function HowToOrder() {
   const router = useRouter();
+  const { status } = useSession();
+  const isLoading = status === "loading" || status === "authenticated";
 
   return (
     <main className="profile-main home-main">
@@ -126,6 +128,7 @@ export default function HowToOrder() {
               className="profile-btn profile-btn-google-blue"
               style={{ width: "100%" }}
               onClick={() => signIn("google")}
+              disabled={isLoading}
             >
               <img
                 src="https://developers.google.com/identity/images/g-logo.png"
