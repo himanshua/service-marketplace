@@ -605,7 +605,7 @@ useEffect(() => {
         >
            <h2 style={{ textAlign: "" }}>
             <Link href="#himanshu-section">
-              <span style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}>
+              <span style={{ color: "#1976d2", textDecoration: "underline" }}>
                 Who is Himanshu Tiwari? 
               </span>
             </Link>
