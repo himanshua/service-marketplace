@@ -128,7 +128,7 @@ export default function HowToOrder() {
               <button
                 className="profile-btn profile-btn-google-blue"
                 style={{ width: "100%" }}
-                onClick={() => signIn("google")}
+                onClick={() => signIn("google", { callbackUrl: "/services" })}
               >
                 <img
                   src="https://developers.google.com/identity/images/g-logo.png"
