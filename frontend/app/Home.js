@@ -125,6 +125,15 @@ export default function Home() {
     }
   }, [session, searchParams]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const el = document.getElementById(window.location.hash.substring(1));
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
+
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
   }
