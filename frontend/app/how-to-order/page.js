@@ -1,6 +1,8 @@
 "use client";
 import "../profile/profile.css";
 import "../globals.css";
+import { useRouter } from "next/navigation";
+
 
 // Copy HomeRow component here
 function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, children }) {
@@ -76,18 +78,13 @@ export default function HowToOrder() {
               <a href="#"
               onClick={(e) => {
                 e.preventDefault();
-                router.push('/#himanshu-section');
-                
-                // Try multiple times with increasing delays
-                const delays = [300, 600, 900, 1200];
-                delays.forEach((delay) => {
-                  setTimeout(() => {
-                    const element = document.getElementById('himanshu-section');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }, delay);
-                });
+                router.push('/');
+                setTimeout(() => {
+                  const element = document.getElementById('himanshu-section');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }, 500);
               }}
               style={{
                 color: "#1976d2",
