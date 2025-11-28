@@ -70,16 +70,29 @@ export default function HowToOrder() {
           <p>
             How to order Jyotishavidya Readings<br />
             offered by{" "}
-            <a
-              href="/#himanshu-section"
-              style={{
-                color: "#1976d2",
-                textDecoration: "underline",
-                fontWeight: 600,
-              }}
-            >
-              Himanshu Tiwari
-            </a>
+            import Link from "next/link";
+
+// Inside your component:
+<Link 
+  href="/#himanshu-section"
+  scroll={false}
+  onClick={(e) => {
+    // Allow navigation to happen
+    setTimeout(() => {
+      const el = document.getElementById('himanshu-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  }}
+  style={{
+    color: "#1976d2",
+    textDecoration: "underline",
+    fontWeight: 600,
+  }}
+>
+  Himanshu Tiwari
+</Link>
           </p>
         </HomeRow>
       </div>
