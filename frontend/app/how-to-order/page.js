@@ -63,7 +63,7 @@ function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, children }) {
 export default function HowToOrder() {
   const router = useRouter();
   const { status } = useSession();
-  const isLoading = status === "loading" || status === "authenticated";
+  const isLoggedIn = status === "authenticated";
 
   return (
     <main className="profile-main home-main">
@@ -123,34 +123,35 @@ export default function HowToOrder() {
           <p style={{ marginTop: 24, fontWeight: 600, color: "#1976d2" }}>
             Please log in or sign up or use Google login to request your JyotishaVidya reading
           </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 16, maxWidth: 350 }}>
-            <button
-              className="profile-btn profile-btn-google-blue"
-              style={{ width: "100%" }}
-              onClick={() => signIn("google")}
-              disabled={isLoading}
-            >
-              <img
-                src="https://developers.google.com/identity/images/g-logo.png"
-                alt="Google logo"
-                className="profile-google-logo"
-                style={{ marginRight: 8, verticalAlign: "middle", height: 20 }}
-              />
-              Continue with Google
-            </button>
-            <div style={{ display: "flex", gap: 12 }}>
-              <a href="/login" style={{ flex: 1 }}>
-                <button className="profile-btn profile-btn-outline" style={{ width: "100%" }}>
-                  Log in
-                </button>
-              </a>
-              <a href="/signup" style={{ flex: 1 }}>
-                <button className="profile-btn profile-btn-outline" style={{ width: "100%" }}>
-                  Sign up
-                </button>
-              </a>
+          {!isLoggedIn && (
+            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 16, maxWidth: 350 }}>
+              <button
+                className="profile-btn profile-btn-google-blue"
+                style={{ width: "100%" }}
+                onClick={() => signIn("google")}
+              >
+                <img
+                  src="https://developers.google.com/identity/images/g-logo.png"
+                  alt="Google logo"
+                  className="profile-google-logo"
+                  style={{ marginRight: 8, verticalAlign: "middle", height: 20 }}
+                />
+                Continue with Google
+              </button>
+              <div style={{ display: "flex", gap: 12 }}>
+                <a href="/login" style={{ flex: 1 }}>
+                  <button className="profile-btn profile-btn-outline" style={{ width: "100%" }}>
+                    Log in
+                  </button>
+                </a>
+                <a href="/signup" style={{ flex: 1 }}>
+                  <button className="profile-btn profile-btn-outline" style={{ width: "100%" }}>
+                    Sign up
+                  </button>
+                </a>
+              </div>
             </div>
-          </div>
+          )}
         </HomeRow>
       </div>
     </main>
