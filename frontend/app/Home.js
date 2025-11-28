@@ -125,14 +125,33 @@ export default function Home() {
     }
   }, [session, searchParams]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hash) {
-      const el = document.getElementById(window.location.hash.substring(1));
+  // Inside home.js, replace your existing useEffect that handles hash scrolling:
+
+useEffect(() => {
+  // Check for hash immediately upon component mount
+  const hash = typeof window !== "undefined" ? window.location.hash : null;
+
+  if (hash) {
+    const elementId = hash.substring(1);
+
+    const scrollToElement = () => {
+      const el = document.getElementById(elementId);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-    }
-  }, []);
+    };
+
+    // 1. Attempt scroll immediately (for quick loads)
+    scrollToElement();
+
+    // 2. Attempt scroll again after 500ms delay. This is crucial 
+    // to wait for images/assets to load and prevent layout shifting.
+    const timeoutId = setTimeout(scrollToElement, 500);
+
+    // Cleanup the timeout when the component unmounts
+    return () => clearTimeout(timeoutId);
+  }
+}, []); // Empty dependency array ensures it only runs on mount
 
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
