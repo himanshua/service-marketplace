@@ -118,7 +118,7 @@ export default function HowToOrder() {
               <li>After the reading, you may ask one clarification question (answered by email or as an MP3).</li>
               <li>Required info: name, gender, exact birth date (DD-MMM-YYYY), accurate birth time (AM/PM and 24-hr), and birthplace with Google coordinates.</li>
               <li>Your questions should be reflective, specific, meaningful, and free from self-criticism.</li>
-              <li>After log in you will see Services page of Himanshu, click on Chat Start Chatbutton of any expert</li>
+              <li>After log in you will see Services page of Himanshu, click on Start Chat button of any expert</li>
               <li>Type the required details above, click send, complete the payment, and your reading will be prepared and sent to you. Best Wishes!</li>
 
             </ul>
