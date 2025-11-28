@@ -66,7 +66,7 @@ export default function HowToOrder() {
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
         <HomeRow
-          imgSrc="images/Ganesha.jpeg"
+          imgSrc="images/reading.jpg"
           imgAlt="Welcome"
         >
           <h2></h2>
