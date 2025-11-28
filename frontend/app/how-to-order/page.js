@@ -1,7 +1,6 @@
 "use client";
 import "../profile/profile.css";
 import "../globals.css";
-import Link from "next/link";
 
 // Copy HomeRow component here
 function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, children }) {
@@ -71,29 +70,16 @@ export default function HowToOrder() {
           <p>
             How to order Jyotishavidya Readings<br />
             offered by{" "}
-            import Link from "next/link";
-
-// Inside your component:
-<Link 
-  href="/#himanshu-section"
-  scroll={false}
-  onClick={(e) => {
-    // Allow navigation to happen
-    setTimeout(() => {
-      const el = document.getElementById('himanshu-section');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 100);
-  }}
-  style={{
-    color: "#1976d2",
-    textDecoration: "underline",
-    fontWeight: 600,
-  }}
->
-  Himanshu Tiwari
-</Link>
+            <a
+              href="/#himanshu-section"
+              style={{
+                color: "#1976d2",
+                textDecoration: "underline",
+                fontWeight: 600,
+              }}
+            >
+              Himanshu Tiwari
+            </a>
           </p>
         </HomeRow>
       </div>

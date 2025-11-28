@@ -128,26 +128,32 @@ export default function Home() {
   // Inside home.js, replace your existing useEffect that handles hash scrolling:
 
 useEffect(() => {
-  // Small delay to ensure DOM is fully rendered after navigation
-  const scrollToHash = () => {
-    if (typeof window !== "undefined" && window.location.hash) {
-      const id = window.location.hash.substring(1);
-      const el = document.getElementById(id);
-      if (el) {
-        // Use a slight delay to ensure layout is complete
+  const handleHashScroll = () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const id = hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        // Wait for layout to complete
         setTimeout(() => {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 100);
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }, 300);
       }
     }
   };
 
-  scrollToHash();
+  // Run on mount
+  handleHashScroll();
 
-  // Also listen for hash changes (in case user clicks another hash link)
-  window.addEventListener('hashchange', scrollToHash);
-  
-  return () => window.removeEventListener('hashchange', scrollToHash);
+  // Run when hash changes
+  window.addEventListener('hashchange', handleHashScroll);
+
+  return () => {
+    window.removeEventListener('hashchange', handleHashScroll);
+  };
 }, []);
 
   if (loading || status === "loading") {
