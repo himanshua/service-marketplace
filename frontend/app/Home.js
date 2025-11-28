@@ -147,7 +147,7 @@ export default function Home() {
           imgSrc="/images/himanshu-tiwari-og.jpg"
           imgAlt="Himanshu Tiwari"
         >
-          <h1 className="home-title" id="himanshu-section">
+          <h1 className="home-title" id="himanshu-section1">
             Top-Rated Psychic, Astrology, Numerology, Horary & Tarot Readings in the USA — Himanshu Tiwari, Delivering Insight for Over 10 Years
           </h1>
           <h2 className="home-subtitle">
@@ -559,7 +559,7 @@ export default function Home() {
             margin: "0 auto",
           }}
         >
-          <h2 style={{ textAlign: "" }}>
+          <h2 id="himanshu-section"style={{ textAlign: "" }}>
             <Link href="#himanshu-section">
               <span style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}>
                 Who is Himanshu Tiwari? 
