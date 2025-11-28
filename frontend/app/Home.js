@@ -195,10 +195,10 @@ useEffect(() => {
             Top-Rated Psychic, Astrology, Numerology, Horary & Tarot Readings in the USA — Himanshu Tiwari, Delivering Insight for Over 10 Years
           </h1>
           <h2 className="home-subtitle">
-            Jyotishvidya, Astrology, Tarot & More by Himanshu Tiwari
+            Jyotishavidya, Astrology, Tarot & More by Himanshu Tiwari
           </h2>
           <p className="home-desc">
-            Experience accurate psychic readings, astrology insights, and tarot guidance from one of the best online psychics in the USA. Himanshu Tiwari offers Jyotishvidya, astrology, and tarot services to help you find clarity and direction.
+            Experience accurate psychic readings, astrology insights, and tarot guidance from one of the best online psychics in the USA. Himanshu Tiwari offers Jyotishavidya, astrology, and tarot services to help you find clarity and direction.
           </p>
           {loggedInUser && (
             <p style={{
@@ -615,7 +615,7 @@ useEffect(() => {
         </HomeRow>
         <HomeRow
           label="How to order Jyotishavidya Readings?"
-          imgSrc="/images/right-image-example.jpg"
+          imgSrc="/images/reading.jpg"
           imgAlt="How to order Jyotishavidya Readings?"
           imgStyle={{
             width: "100%",

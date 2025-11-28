@@ -73,13 +73,11 @@ export default function HowToOrder() {
           <p>
             How to order Jyotishavidya Readings<br />
             offered by{" "}
-            
-              <a href="#"
+            <a
+              href="#"
               onClick={(e) => {
                 e.preventDefault();
                 router.push('/#himanshu-section');
-                
-                // Try multiple times with increasing delays
                 const delays = [300, 600, 900, 1200];
                 delays.forEach((delay) => {
                   setTimeout(() => {
@@ -100,6 +98,55 @@ export default function HowToOrder() {
               Himanshu Tiwari
             </a>
           </p>
+          <section>
+            <h2>What you’ll receive</h2>
+            <ul>
+              <li>You receive a 2+ hour MP3 audio or video reading (lecture style) and a PDF with your charts and Vimshottari dasha timeline, delivered via Dropbox.</li>
+              <li>
+                Before the reading, please [
+                <a
+                  href="mailto:himanshu.inperson@gmail.com"
+                  style={{ color: "#1976d2", textDecoration: "underline" }}
+                >
+                  email to Himanshu
+                </a>
+                ] 5–10 thoughtful questions you want answered.
+              </li>
+              <li>After the reading, you may ask one clarification question (answered by email or as an MP3).</li>
+              <li>Required info: name, gender, exact birth date (DD-MMM-YYYY), accurate birth time (AM/PM and 24-hr), and birthplace with Google coordinates.</li>
+              <li>Your questions should be reflective, specific, meaningful, and free from self-criticism.</li>
+            </ul>
+          </section>
+          <p style={{ marginTop: 24, fontWeight: 600, color: "#1976d2" }}>
+            Please log in or sign up or use Google login to request your JyotishaVidya reading
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 16, maxWidth: 350 }}>
+            <button
+              className="profile-btn profile-btn-google-blue"
+              style={{ width: "100%" }}
+              onClick={() => window.location.href = "/api/auth/signin?provider=google"}
+            >
+              <img
+                src="https://developers.google.com/identity/images/g-logo.png"
+                alt="Google logo"
+                className="profile-google-logo"
+                style={{ marginRight: 8, verticalAlign: "middle", height: 20 }}
+              />
+              Continue with Google
+            </button>
+            <div style={{ display: "flex", gap: 12 }}>
+              <a href="/login" style={{ flex: 1 }}>
+                <button className="profile-btn profile-btn-outline" style={{ width: "100%" }}>
+                  Log in
+                </button>
+              </a>
+              <a href="/signup" style={{ flex: 1 }}>
+                <button className="profile-btn profile-btn-outline" style={{ width: "100%" }}>
+                  Sign up
+                </button>
+              </a>
+            </div>
+          </div>
         </HomeRow>
       </div>
     </main>
