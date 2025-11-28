@@ -1,7 +1,7 @@
 "use client";
+import { useRouter } from "next/navigation";
 import "../profile/profile.css";
 import "../globals.css";
-import { useRouter } from "next/navigation";
 
 // Copy HomeRow component here
 function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, children }) {
@@ -74,7 +74,7 @@ export default function HowToOrder() {
             How to order Jyotishavidya Readings<br />
             offered by{" "}
             
-              <a href="#"
+              href="#"
               onClick={(e) => {
                 e.preventDefault();
                 router.push('/#himanshu-section');
