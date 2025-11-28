@@ -339,76 +339,76 @@ export default function Home() {
           <p>Houses 1 to 12</p>
           <ol>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-1" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/1tanu_bhava.htm" target="_blank" rel="noopener noreferrer">
                 1st House – Lagna / Tanu Bhava
               </a>
-              – Governs body.
+              – Governs the body and self.
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-2" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/2dhana_bhava.htm" target="_blank" rel="noopener noreferrer">
                 2nd House – Dhana Bhava
               </a>
-              – Governs relatives.
+              – Governs family, speech, and wealth.
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-3" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/3sahaja_bhava.htm" target="_blank" rel="noopener noreferrer">
                 3rd House – Sahaja Bhava
               </a>
-              – Governs brothers.
+              – Governs siblings, courage, and communication.
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-4" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/4bandhu_bhava.htm" target="_blank" rel="noopener noreferrer">
                 4th House – Bandhu Bhava
               </a>
-              – Governs friends.
+              – Governs mother, home, and comforts.
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-5" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/5putra_bhava.htm" target="_blank" rel="noopener noreferrer">
                 5th House – Putra Bhava
               </a>
-              – Governs sons.
+              – Governs children, creativity, and intelligence.
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-6" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/6ari_bhava.htm" target="_blank" rel="noopener noreferrer">
                 6th House – Ari (Enemy) Bhava
               </a>
-              – Governs enemies.
+              – Governs enemies, health, and service.
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-7" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/7yuvati_bhava.htm" target="_blank" rel="noopener noreferrer">
                 7th House – Yuvati Bhava
               </a>
-              – Governs wives (spouse).
+              – Governs spouse, partnerships, and marriage.
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-8" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/8randhra_bhava.htm" target="_blank" rel="noopener noreferrer">
                 8th House – Randhra Bhava
               </a>
-              – Governs death (terminus vitae).
+              – Governs longevity, transformation, and mysteries.
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-9" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/9dharma_bhava.htm" target="_blank" rel="noopener noreferrer">
                 9th House – Dharma Bhava
               </a>
-              – Governs auspicious qualities and the general moral condition.
+              – Governs fortune, dharma, and higher learning.
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-10" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/10karma_bhava.htm" target="_blank" rel="noopener noreferrer">
                 10th House – Karma Bhava
               </a>
-              – Governs profession, honors, and dignity.
+              – Governs career, status, and achievements.
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-11" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/11labha_bhava.htm" target="_blank" rel="noopener noreferrer">
                 11th House – Labha Bhava
               </a>
-              – Governs income and finance.
+              – Governs gains, aspirations, and friendships.
             </li>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm#bhava-12" target="_blank" rel="noopener noreferrer">
+              <a href="https://barbarapijan.com/bpa/Bhava/12vyaya_bhava.htm" target="_blank" rel="noopener noreferrer">
                 12th House – Vyaya Bhava
               </a>
-              – Indicates expenditure.
+              – Indicates losses, expenses, and liberation.
             </li>
           </ol>
         </HomeRow>
