@@ -560,7 +560,7 @@ export default function Home() {
           }}
         >
           <h2 style={{ textAlign: "" }}>
-            <Link href="#himanshu-section" scroll={false}>
+            <Link href="#himanshu-section">
               <span style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}>
                 Who is Himanshu Tiwari? 
               </span>
