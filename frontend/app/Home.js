@@ -156,7 +156,7 @@ export default function Home() {
           imgSrc="/images/himanshu-tiwari-og.jpg"
           imgAlt="Himanshu Tiwari"
         >
-          <h1 className="home-title" id="himanshu-section1">
+          <h1 className="home-title" id="">
             Top-Rated Psychic, Astrology, Numerology, Horary & Tarot Readings in the USA — Himanshu Tiwari, Delivering Insight for Over 10 Years
           </h1>
           <h2 className="home-subtitle">
