@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 import "../profile/profile.css";
 import "../globals.css";
 
@@ -103,14 +104,14 @@ export default function HowToOrder() {
             <ul>
               <li>You receive a 2+ hour MP3 audio or video reading (lecture style) and a PDF with your charts and Vimshottari dasha timeline, delivered via Dropbox.</li>
               <li>
-                Before the reading, please 
+                Before the reading, please{" "}
                 <a
                   href="mailto:himanshu.inperson@gmail.com"
                   style={{ color: "#1976d2", textDecoration: "underline" }}
                 >
                   email to Himanshu
-                </a>
-                 5–10 thoughtful questions you want answered.
+                </a>{" "}
+                5–10 thoughtful questions you want answered.
               </li>
               <li>After the reading, you may ask one clarification question (answered by email or as an MP3).</li>
               <li>Required info: name, gender, exact birth date (DD-MMM-YYYY), accurate birth time (AM/PM and 24-hr), and birthplace with Google coordinates.</li>
@@ -124,7 +125,7 @@ export default function HowToOrder() {
             <button
               className="profile-btn profile-btn-google-blue"
               style={{ width: "100%" }}
-              onClick={() => window.location.href = "/api/auth/signin?provider=google"}
+              onClick={() => signIn("google")}
             >
               <img
                 src="https://developers.google.com/identity/images/g-logo.png"
