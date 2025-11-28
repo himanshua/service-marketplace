@@ -71,9 +71,9 @@ export default function HowToOrder() {
           <p>
             How to order Jyotishavidya Readings<br />
             offered by{" "}
-            <Link href="#himanshu-section" scroll={false}>
+            <Link href="/#himanshu-section" scroll={false}>
               <span style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}>
-                Who is Himanshu Tiwari?
+                Himanshu Tiwari
               </span>
             </Link>
           </p>
