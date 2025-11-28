@@ -76,13 +76,18 @@ export default function HowToOrder() {
               <a href="#"
               onClick={(e) => {
                 e.preventDefault();
-                router.push('/');
-                setTimeout(() => {
-                  const element = document.getElementById('himanshu-section');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                }, 500);
+                router.push('/#himanshu-section');
+                
+                // Try multiple times with increasing delays
+                const delays = [300, 600, 900, 1200];
+                delays.forEach((delay) => {
+                  setTimeout(() => {
+                    const element = document.getElementById('himanshu-section');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }, delay);
+                });
               }}
               style={{
                 color: "#1976d2",
