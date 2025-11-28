@@ -191,7 +191,7 @@ useEffect(() => {
           imgSrc="/images/himanshu-tiwari-og.jpg"
           imgAlt="Himanshu Tiwari"
         >
-          <h1 className="home-title" id="">
+          <h1 className="home-title" id="himanshu-section">
             Top-Rated Psychic, Astrology, Numerology, Horary & Tarot Readings in the USA — Himanshu Tiwari, Delivering Insight for Over 10 Years
           </h1>
           <h2 className="home-subtitle">
@@ -603,8 +603,12 @@ useEffect(() => {
             margin: "0 auto",
           }}
         >
-          <h2 id="himanshu-section" style={{ textAlign: "" }}>
-            Who is Himanshu Tiwari?
+           <h2 style={{ textAlign: "" }}>
+            <Link href="#himanshu-section">
+              <span style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}>
+                Who is Himanshu Tiwari? 
+              </span>
+            </Link>
           </h2>
          
           <p style={{ textAlign: "right" }}>...</p>
