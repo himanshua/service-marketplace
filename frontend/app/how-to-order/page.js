@@ -71,12 +71,11 @@ export default function HowToOrder() {
           <p>
             How to order Jyotishavidya Readings<br />
             offered by{" "}
-            <a
-              href="/#himanshu-section"
-              style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}
-            >
-              Himanshu Tiwari
-            </a>
+            <Link href="/#himanshu-section" scroll={false}>
+              <span style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}>
+                Himanshu Tiwari
+              </span>
+            </Link>
           </p>
         </HomeRow>
       </div>
