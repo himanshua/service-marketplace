@@ -74,7 +74,7 @@ export default function HowToOrder() {
             How to order Jyotishavidya Readings<br />
             offered by{" "}
             
-              href="#"
+              <a href="#"
               onClick={(e) => {
                 e.preventDefault();
                 router.push('/#himanshu-section');
