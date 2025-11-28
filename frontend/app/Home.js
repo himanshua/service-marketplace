@@ -559,7 +559,7 @@ export default function Home() {
             margin: "0 auto",
           }}
         >
-          <h2 id="himanshu-section"style={{ textAlign: "" }}>
+          <h2 id="himanshu-section" style={{ textAlign: "" }}>
             <Link href="#himanshu-section">
               <span style={{ color: "#1976d2", textDecoration: "underline", fontWeight: 600 }}>
                 Who is Himanshu Tiwari? 
