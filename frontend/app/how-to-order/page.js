@@ -59,6 +59,8 @@ function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, children }) {
 }
 
 export default function HowToOrder() {
+  const router = useRouter();
+
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
@@ -70,20 +72,27 @@ export default function HowToOrder() {
           <p>
             How to order Jyotishavidya Readings<br />
             offered by{" "}
-            <a
-              href="/#himanshu-section"
-           onClick={(e) => {
-           e.preventDefault();
-           window.location.href = "/#himanshu-section";
-           }}
-            style={{
-            color: "#1976d2",
-            textDecoration: "underline",
-           fontWeight: 600,
-           }}
+            
+              <a href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                router.push('/');
+                setTimeout(() => {
+                  const element = document.getElementById('himanshu-section');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }, 500);
+              }}
+              style={{
+                color: "#1976d2",
+                textDecoration: "underline",
+                fontWeight: 600,
+                cursor: "pointer"
+              }}
             >
-            Himanshu Tiwari
-          </a>
+              Himanshu Tiwari
+            </a>
           </p>
         </HomeRow>
       </div>
