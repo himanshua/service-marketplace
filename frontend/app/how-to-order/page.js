@@ -88,11 +88,10 @@ export default function HowToOrder() {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
                 } else {
-                  // Navigate to home with hash
-                  //router.push('/#himanshu-section');
-                  window.location.href = '/#himanshu-section';
+                  // Try router first (faster, no page reload)
+                  router.push('/#himanshu-section');
 
-                  // Try multiple times with increasing delays
+                  // Multiple delays to ensure scroll
                   const delays = [300, 600, 900, 1200];
                   delays.forEach((delay) => {
                     setTimeout(() => {
@@ -102,6 +101,13 @@ export default function HowToOrder() {
                       }
                     }, delay);
                   });
+
+                  // Fallback to full navigation after delay if router doesn't work
+                  setTimeout(() => {
+                    if (window.location.pathname !== '/' || !document.getElementById('himanshu-section')) {
+                      window.location.href = '/#himanshu-section';
+                    }
+                  }, 1500);
                 }
               }}
               style={{
