@@ -80,6 +80,7 @@ export default function HowToOrder() {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
+
                 // If we're already on home page, just scroll
                 if (window.location.pathname === '/') {
                   const element = document.getElementById('himanshu-section');
@@ -89,6 +90,14 @@ export default function HowToOrder() {
                 } else {
                   // Navigate to home with hash
                   router.push('/#himanshu-section');
+
+                  // Also try scrolling after navigation with delays
+                  setTimeout(() => {
+                    const element = document.getElementById('himanshu-section');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }, 500);
                 }
               }}
               style={{
