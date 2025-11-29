@@ -371,7 +371,16 @@ useEffect(() => {
             margin: "0 auto",
           }}
         >
-          <h2>12 Houses</h2>
+          <h2>
+            <a
+              href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#1976d2", textDecoration: "underline" }}
+            >
+              12 Houses
+            </a>
+          </h2>
           <p>Houses 1 to 12</p>
           <ol>
             <li>
@@ -464,7 +473,17 @@ useEffect(() => {
             margin: "0 auto",
           }}
         >
-          <h2>Nine Planets</h2>
+          <h2>
+            <a
+              href="https://barbarapijan.com/bpa/bAstrHom.htm#Planets"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#1976d2", textDecoration: "underline" }}
+            >
+              Nine Planets
+            </a>
+          </h2>
+          <p>Planets 1 to 9</p>
           <ol>
             <li>
               <a
