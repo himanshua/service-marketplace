@@ -132,8 +132,9 @@ useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
       const id = hash.substring(1);
-      // Try multiple times to catch the element
-      const delays = [0, 100, 300, 600];
+
+      // Try multiple times with delays for page navigation
+      const delays = [100, 300, 600, 900];
       delays.forEach((delay) => {
         setTimeout(() => {
           const element = document.getElementById(id);
@@ -142,22 +143,19 @@ useEffect(() => {
           }
         }, delay);
       });
+
+      // Remove hash from URL after scrolling
+      setTimeout(() => {
+        window.history.replaceState(null, '', window.location.pathname);
+      }, 1200);
     }
   };
 
   scrollToHash();
   window.addEventListener('hashchange', scrollToHash);
 
-  // Also listen for route changes
-  const interval = setInterval(() => {
-    if (window.location.hash) {
-      scrollToHash();
-    }
-  }, 200);
-
   return () => {
     window.removeEventListener('hashchange', scrollToHash);
-    clearInterval(interval);
   };
 }, []);
 
