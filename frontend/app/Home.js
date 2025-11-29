@@ -132,18 +132,32 @@ useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
       const id = hash.substring(1);
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      // Try multiple times to catch the element
+      const delays = [0, 100, 300, 600];
+      delays.forEach((delay) => {
+        setTimeout(() => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, delay);
+      });
     }
   };
 
   scrollToHash();
   window.addEventListener('hashchange', scrollToHash);
 
+  // Also listen for route changes
+  const interval = setInterval(() => {
+    if (window.location.hash) {
+      scrollToHash();
+    }
+  }, 200);
+
   return () => {
     window.removeEventListener('hashchange', scrollToHash);
+    clearInterval(interval);
   };
 }, []);
 
