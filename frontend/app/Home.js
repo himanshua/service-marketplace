@@ -222,7 +222,19 @@ useEffect(() => {
           </div>
         </HomeRow>
 
-       
+             <HomeRow
+        imgSrc="/images/Naseeb.jpg"
+        imgAlt="Image 1"
+      >
+        {/* Content for image 1 */}
+      </HomeRow>
+      
+      <HomeRow
+        imgSrc="/images/Naseeb1.jpg"
+        imgAlt="Image 2"
+      >
+        {/* Content for image 2 */}
+      </HomeRow>
 
         
         <HomeRow
