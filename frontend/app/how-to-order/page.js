@@ -91,13 +91,16 @@ export default function HowToOrder() {
                   // Navigate to home with hash
                   router.push('/#himanshu-section');
 
-                  // Also try scrolling after navigation with delays
-                  setTimeout(() => {
-                    const element = document.getElementById('himanshu-section');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }, 500);
+                  // Try multiple times with increasing delays
+                  const delays = [300, 600, 900, 1200];
+                  delays.forEach((delay) => {
+                    setTimeout(() => {
+                      const element = document.getElementById('himanshu-section');
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }, delay);
+                  });
                 }
               }}
               style={{
