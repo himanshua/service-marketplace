@@ -179,6 +179,17 @@ useEffect(() => {
             Aum Hreem Hraum Suryayeh Namah, Aum Hreem Shreem Chandraya Namah, Aum Eim Hreem Shreem Mangalayeh Namah, Aum Aim Streem Bam Budhayeh Namah, Aum Hreem Brahm Brihaspatayeh Namah, Aum Hreem Shreem Shukrayeh Namah, Aum Hreem Shreem Sam Sanneshcharayeh Namah, Aum Eim Hreem Rahuvey Namah, Aum Eim Hreem Ketuvey Namah.
           </p>
         </HomeRow>
+
+          <HomeRow>
+          <h1>ज्योतिषशास्त्र </h1>
+          भविष्यवाणी 
+          कुंडली 
+
+           
+          
+        </HomeRow>
+
+        
         <HomeRow
           imgSrc="/images/himanshu-tiwari-og.jpg"
           imgAlt="Himanshu Tiwari"
