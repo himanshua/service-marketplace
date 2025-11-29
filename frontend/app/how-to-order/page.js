@@ -89,7 +89,8 @@ export default function HowToOrder() {
                   }
                 } else {
                   // Navigate to home with hash
-                  router.push('/#himanshu-section');
+                  //router.push('/#himanshu-section');
+                  window.location.href = '/#himanshu-section';
 
                   // Try multiple times with increasing delays
                   const delays = [300, 600, 900, 1200];
