@@ -182,7 +182,7 @@ useEffect(() => {
         </HomeRow>
 
          <HomeRow
-          imgSrc="/images/jyotish-book.png" // <-- Use your actual image path here
+          imgSrc="/images/Destiny.jpg" // <-- Use your actual image path here
           imgAlt="ज्योतिषशास्त्र"
           leftContent={
             <>
