@@ -180,13 +180,33 @@ useEffect(() => {
           </p>
         </HomeRow>
 
-          <HomeRow>
-          <h1>ज्योतिषशास्त्र </h1>
-          भविष्यवाणी 
-          कुंडली 
-
-           
+        <HomeRow>
+          <div className="home-image-col">
+            <h1>ज्योतिषशास्त्र</h1>
+            <p>
+              भविष्यवाणी<br />
+              कुंडली<br />
+             
+            </p>
+          </div>
+          <div className="home-content-col">
           
+
+            <p>
+             Terra is a school
+             All planets are schools
+              <a
+                href="https://astromnc.blogspot.com/2025/11/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#1976d2", textDecoration: "underline" }}
+              >
+                2026 Rashifal (In Progress)
+              </a>
+
+
+            </p>
+          </div>
         </HomeRow>
 
         
@@ -660,6 +680,20 @@ useEffect(() => {
             Click above to learn how to request your personalized Jyotishavidya reading from Himanshu Tiwari, including required information and contact details.
           </p>
         </HomeRow>
+        <div style={{ marginTop: 24 }}>
+          <strong>Q. Are you accepting reading requests?</strong>
+          <br />
+          <span>
+            <strong>A.</strong> The 2025 Jyotishavidya readings calendar will be open during the full month of Nov-2025, and for parts of Dec-2025 as well.<br /><br />
+            Likely, most of Jan-Feb-Mar of 2026 will also be available.<br /><br />
+            Please feel welcome to <a
+              href="https://aheadterra.com/how-to-order"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#1976d2", textDecoration: "underline" }}
+            >order a Jyotishavidya reading</a> at your convenience.
+          </span>
+        </div>
       </div>
     </main>
   );
