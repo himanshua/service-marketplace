@@ -226,7 +226,9 @@ useEffect(() => {
         imgSrc="/images/Naseeb.JPG"
         imgAlt="Image 1"
       >
-        {/* Content for image 1 */}
+        Astrology is not Fortune telling, it is vedicindianastrology. Please be reminded that Jyotishavidya readings are designed as educational learnings for students of the vidya who wish to improve their divinatory skills. Jyotishavidya readings are not fortune-telling and Jyotisha tradition offers no moral judgments.
+
+
       </HomeRow>
       
       <HomeRow
