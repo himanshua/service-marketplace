@@ -235,7 +235,16 @@ useEffect(() => {
         imgSrc="/images/Naseeb1.jpg"
         imgAlt="Image 2"
       >
-        {/* Content for image 2 */}
+        The text in Nepali: "भाग्य कसैको पेवा होइन"
+Simple English (Positive version):
+"Everyone can create their own fortune"
+Positive Meaning:
+
+Everyone has equal opportunity for success
+You can build your own luck through effort
+Good things are possible for anyone
+Your hard work creates your bright future
+Believe in yourself - success is within your reach!
       </HomeRow>
 
         
