@@ -80,16 +80,16 @@ export default function HowToOrder() {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                router.push('/#himanshu-section');
-                const delays = [300, 600, 900, 1200];
-                delays.forEach((delay) => {
-                  setTimeout(() => {
-                    const element = document.getElementById('himanshu-section');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }, delay);
-                });
+                // If we're already on home page, just scroll
+                if (window.location.pathname === '/') {
+                  const element = document.getElementById('himanshu-section');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                } else {
+                  // Navigate to home with hash
+                  router.push('/#himanshu-section');
+                }
               }}
               style={{
                 color: "#1976d2",

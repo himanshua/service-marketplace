@@ -128,42 +128,22 @@ export default function Home() {
   // Inside home.js, replace your existing useEffect that handles hash scrolling:
 
 useEffect(() => {
-  // Function to handle scrolling
-  const scrollToElement = () => {
+  const scrollToHash = () => {
     const hash = window.location.hash;
     if (hash) {
-      const id = hash.replace('#', '');
-      // Try multiple times with increasing delays
-      const attempts = [100, 300, 500, 800, 1200];
-      
-      attempts.forEach((delay) => {
-        setTimeout(() => {
-          const element = document.getElementById(id);
-          if (element) {
-            element.scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'start' 
-            });
-          }
-        }, delay);
-      });
+      const id = hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
-  // Initial scroll
-  scrollToElement();
-
-  // Listen for route changes
-  const handleRouteChange = () => {
-    scrollToElement();
-  };
-
-  window.addEventListener('hashchange', handleRouteChange);
-  window.addEventListener('popstate', handleRouteChange);
+  scrollToHash();
+  window.addEventListener('hashchange', scrollToHash);
 
   return () => {
-    window.removeEventListener('hashchange', handleRouteChange);
-    window.removeEventListener('popstate', handleRouteChange);
+    window.removeEventListener('hashchange', scrollToHash);
   };
 }, []);
 
