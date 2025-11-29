@@ -223,7 +223,7 @@ useEffect(() => {
         </HomeRow>
 
              <HomeRow
-        imgSrc="/images/Naseeb.jpg"
+        imgSrc="/images/Naseeb.JPG"
         imgAlt="Image 1"
       >
         {/* Content for image 1 */}
