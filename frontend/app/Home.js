@@ -723,7 +723,7 @@ Believe in yourself - success is within your reach!
           imgAlt="समय का महत्व समझें"
           leftContent={
             <>
-              <h2 style={{ color: "#1976d2", marginBottom: 8 }}>समय का महत्व समझें</h2>
+              <h2 style={{ color: "#1976d2", marginBottom: 8 }}>Understand the value of time. समय का महत्व समझें</h2>
               <p style={{ fontSize: 15, color: "#444" }}>
                 "Understand the value of time."
               </p>
@@ -742,10 +742,9 @@ Believe in yourself - success is within your reach!
           imgAlt="वह व्यक्ति बनें जिसे आप खोजते हैं"
           leftContent={
             <>
-              <h2 style={{ color: "#1976d2", marginBottom: 8 }}>वह व्यक्ति बनें जिसे आप खोजते हैं</h2>
+              <h2 style={{ color: "#1976d2", marginBottom: 8 }}>Your Marriage and Relationship Success Starts With You! वह व्यक्ति बनें जिसे आप खोजते हैं</h2>
               <p style={{ fontSize: 15, color: "#444" }}>
-                "Your Marriage and Relationship Success Starts With You: <br />"
-                "Become the person you seek."
+                "Your Marriage and Relationship Success Starts With You: Become the person you seek. <br />"
               </p>
             </>
           }
