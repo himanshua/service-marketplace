@@ -718,7 +718,44 @@ Believe in yourself - success is within your reach!
             Click above to learn how to request your personalized Jyotishavidya reading from Himanshu Tiwari, including required information and contact details.
           </p>
         </HomeRow>
-       
+        <HomeRow
+          imgSrc="/images/Time.jpg" // <-- Save your image as this path or update accordingly
+          imgAlt="समय का महत्व समझें"
+          leftContent={
+            <>
+              <h2 style={{ color: "#1976d2", marginBottom: 8 }}>समय का महत्व समझें</h2>
+              <p style={{ fontSize: 15, color: "#444" }}>
+                "Understand the value of time."
+              </p>
+            </>
+          }
+        >
+          <p>
+            Every single moment you have is an opportunity to take action, improve yourself, or learn something new.<br /><br />
+            By choosing to use your time wisely and intentionally today, you are actively building a stronger, brighter future for yourself tomorrow.<br /><br />
+            Never forget that time is your most valuable and limited resource—use it well.
+          </p>
+        </HomeRow>
+        
+        <HomeRow
+          imgSrc="/images/person.jpg" // <-- Save your image as this path or update accordingly
+          imgAlt="वह व्यक्ति बनें जिसे आप खोजते हैं"
+          leftContent={
+            <>
+              <h2 style={{ color: "#1976d2", marginBottom: 8 }}>वह व्यक्ति बनें जिसे आप खोजते हैं</h2>
+              <p style={{ fontSize: 15, color: "#444" }}>
+                "Your Marriage and Relationship Success Starts With You: <br />"
+                "Become the person you seek."
+              </p>
+            </>
+          }
+        >
+          <p>
+            The best way to attract a truly loving, supportive, and dedicated partner is to first cultivate those very qualities within yourself.<br /><br />
+            If you desire a partner who is kind, successful, and emotionally intelligent, focus your energy on becoming more kind, successful, and emotionally intelligent yourself.<br /><br />
+            This process of self-improvement prepares you not only for marriage but also to maintain a strong and fulfilling relationship.
+          </p>
+        </HomeRow>
         
       </div>
     </main>
