@@ -775,7 +775,7 @@ Believe in yourself - success is within your reach!
     Your Profession, Career, and Vocation are primarily seen through the 10th house of the Navamsha Chart (D-9). Having a good skill or trade is a form of wealth; it supports you, feeds you, and provides stability. Even if you have held a variety of jobs, there is often a consistent theme running through your professional life.
   </p>
   <p>
-    If the planet ruling the 10th Navamsha is weak or Combust in the main chart (D-1), your career fame and recognition will not be very strong, even if that planet is otherwise well-placed in the D-1 chart. However, the presence of <b>ANY planet</b> in the 10th house of the Navamsha Varga often leads to a well-defined and publicly recognized career. (A famous example is former President George Bush, who had a strong planetary grouping in the 10th house of his D-9 chart.)
+    If the planet ruling the 10th Navamsha is weak or Combust in the main chart (D-1), your career fame and recognition will not be very strong, even if that planet is otherwise well-placed in the D-1 chart. However, the presence of <b>ANY planet</b> in the 10th house of the Navamsha Varga often leads to a well-defined and publicly recognized career. (A famous example is former President George Bush POTUS-43, see for a huge Simha planetary grouping in the 10th house of his D-9 chart.)
   </p>
 </HomeRow>
         
