@@ -756,6 +756,28 @@ Believe in yourself - success is within your reach!
           </p>
         </HomeRow>
         
+        <HomeRow
+  imgSrc="/images/career.jpg" // <-- Save your relevant image as this path or update accordingly
+  imgAlt="करियर D-9 से: हुनर ही सच्ची संपत्ति है"
+  leftContent={
+    <>
+      <h2 style={{ color: "#1976d2", marginBottom: 8 }}>
+        💰 करियर D-9 से: हुनर ही सच्ची संपत्ति है
+      </h2>
+      <p style={{ fontSize: 15, color: "#444" }}>
+        💰 Career in D-9: Skill is a True Form of Wealth
+      </p>
+    </>
+  }
+>
+  <p>
+    Your Profession, Career, and Vocation are primarily seen through the 10th house of the Navamsha Chart (D-9). Having a good skill or trade is a form of wealth; it supports you, feeds you, and provides stability. Even if you have held a variety of jobs, there is often a consistent theme running through your professional life.
+  </p>
+  <p>
+    If the planet ruling the 10th Navamsha is weak or Combust in the main chart (D-1), your career fame and recognition will not be very strong, even if that planet is otherwise well-placed in the D-1 chart. However, the presence of <b>ANY planet</b> in the 10th house of the Navamsha Varga often leads to a well-defined and publicly recognized career. (A famous example is former President George Bush, who had a strong planetary grouping in the 10th house of his D-9 chart.)
+  </p>
+</HomeRow>
+        
       </div>
     </main>
   );
