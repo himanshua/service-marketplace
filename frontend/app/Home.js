@@ -762,6 +762,7 @@ Believe in yourself - success is within your reach!
   leftContent={
     <>
       <h2 style={{ color: "#1976d2", marginBottom: 8 }}>
+        💰 Career in D-9: Skill is a True Form of Wealth
         💰 करियर D-9 से: हुनर ही सच्ची संपत्ति है
       </h2>
       <p style={{ fontSize: 15, color: "#444" }}>
