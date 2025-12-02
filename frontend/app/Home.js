@@ -873,7 +873,7 @@ Believe in yourself - success is within your reach!
         
         <HomeRow
           label="Full Stack Web App Services"
-          imgSrc="/images/himanshu-tiwari.png"
+          imgSrc="/images/Himanshu-Tiwari.png"
           imgAlt="Himanshu Tiwari - Full Stack Developer"
           imgStyle={{
             width: "100%",
