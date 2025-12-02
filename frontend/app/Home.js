@@ -935,6 +935,49 @@ Believe in yourself - success is within your reach!
           </div>
         </HomeRow>
 
+        <HomeRow
+          label="My Best Sellers"
+          imgSrc="/images/bestsellers.jpg"
+          imgAlt="Himanshu Tiwari Best Seller Gigs"
+          imgStyle={{
+            width: "100%",
+            maxWidth: 360,
+            height: 240,
+            maxHeight: 240,
+            objectFit: "cover",
+            borderRadius: "12px",
+            background: "#fff",
+            display: "block",
+            margin: "0 auto",
+          }}
+        >
+          <h2>Himanshu Tiwari · My Best-Selling Fiverr Readings</h2>
+          <p>
+            Trusted by global clients for precise Jyotishavidya and relationship insights. These two gigs stay fully booked because they deliver detailed,
+            data-backed guidance derived from classical Vedic techniques and modern full-stack tooling.
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 12 }}>
+            <a
+              href="https://www.fiverr.com/himanshutiwari/predict-your-future-using-vedic-astrology-jyotish"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home-link-chip"
+              style={{ width: "fit-content" }}
+            >
+              🔮 Predict Your Future with Vedic Astrology (Jyotish)
+            </a>
+            <a
+              href="https://www.fiverr.com/himanshutiwari/predict-and-forecast-information-about-your-spouse"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home-link-chip"
+              style={{ width: "fit-content" }}
+            >
+              💍 Predict & Forecast Information About Your Spouse
+            </a>
+          </div>
+        </HomeRow>
+
       </div>
 
       {!loggedInUser && showSignupReminder && (
