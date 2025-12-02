@@ -66,6 +66,9 @@ function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, leftContent, children }
   );
 }
 
+const REMINDER_INITIAL_DELAY = 6000;
+const REMINDER_SNOOZE_DELAY = 60000;
+
 export default function Home() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -78,6 +81,7 @@ export default function Home() {
   const reminderTimerRef = useRef(null);
   const reminderAudioUnlockedRef = useRef(false);
   const reminderShownRef = useRef(false);
+  const reminderSnoozeUntilRef = useRef(0);
   const pendingChimeRef = useRef(false);
   const isLoggedInRef = useRef(false);
 
@@ -94,30 +98,34 @@ export default function Home() {
   }, []);
 
   const showReminder = useCallback(() => {
-    if (isLoggedInRef.current || reminderShownRef.current) return;
+    if (isLoggedInRef.current) return;
+    if (reminderShownRef.current) return;
+    if (Date.now() < reminderSnoozeUntilRef.current) return;
+
     reminderShownRef.current = true;
-    if (reminderTimerRef.current) {
-      clearTimeout(reminderTimerRef.current);
-      reminderTimerRef.current = null;
-    }
     setShowSignupReminder(true);
     playReminderChime();
   }, [playReminderChime]);
 
-  const unlockAudio = useCallback(async () => {
-    if (reminderAudioUnlockedRef.current || !reminderAudioRef.current) return;
-    try {
-      await reminderAudioRef.current.play();
-      reminderAudioRef.current.pause();
-      reminderAudioRef.current.currentTime = 0;
-      reminderAudioUnlockedRef.current = true;
-      if (pendingChimeRef.current) {
-        playReminderChime();
+  const scheduleReminder = useCallback(
+    (delay = REMINDER_INITIAL_DELAY) => {
+      if (isLoggedInRef.current) return;
+      if (reminderTimerRef.current) {
+        clearTimeout(reminderTimerRef.current);
       }
-    } catch {
-      /* ignored */
-    }
-  }, [playReminderChime]);
+      reminderTimerRef.current = setTimeout(() => {
+        showReminder();
+      }, delay);
+    },
+    [showReminder]
+  );
+
+  const handleDismissReminder = useCallback(() => {
+    setShowSignupReminder(false);
+    reminderShownRef.current = false;
+    reminderSnoozeUntilRef.current = Date.now() + REMINDER_SNOOZE_DELAY;
+    scheduleReminder(REMINDER_SNOOZE_DELAY);
+  }, [scheduleReminder]);
 
   useEffect(() => {
     const audio = new Audio("/sounds/reminder-chime.mp3");
@@ -144,9 +152,7 @@ export default function Home() {
   useEffect(() => {
     if (loading || loggedInUser) return;
 
-    reminderTimerRef.current = setTimeout(() => {
-      showReminder();
-    }, 6000);
+    scheduleReminder(REMINDER_INITIAL_DELAY);
 
     return () => {
       if (reminderTimerRef.current) {
@@ -154,7 +160,7 @@ export default function Home() {
         reminderTimerRef.current = null;
       }
     };
-  }, [loading, loggedInUser, showReminder]);
+  }, [loading, loggedInUser, scheduleReminder]);
 
   useEffect(() => {
     isLoggedInRef.current = !!loggedInUser;
@@ -164,6 +170,8 @@ export default function Home() {
     }
     if (loggedInUser) {
       setShowSignupReminder(false);
+      reminderShownRef.current = false;
+      reminderSnoozeUntilRef.current = 0;
     }
   }, [loggedInUser]);
 
@@ -862,7 +870,7 @@ Believe in yourself - success is within your reach!
         
         <HomeRow
           label="Full Stack Web App Services"
-          imgSrc="/images/himanshu-tiwari-og.jpg"
+          imgSrc="/images/himanshu-tiwari.png"
           imgAlt="Himanshu Tiwari - Full Stack Developer"
           imgStyle={{
             width: "100%",
@@ -942,7 +950,7 @@ Believe in yourself - success is within your reach!
           }}
         >
           <button
-            onClick={() => setShowSignupReminder(false)}
+            onClick={handleDismissReminder}
             style={{
               border: "none",
               background: "transparent",
