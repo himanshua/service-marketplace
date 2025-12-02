@@ -27,23 +27,25 @@ function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, leftContent, children }
         }}>
           {label && <span style={{ marginBottom: 8, fontWeight: 600 }}>{label}</span>}
           {leftContent}
-          <img
-            src={imgSrc}
-            alt={imgAlt}
-            className="home-hero-image"
-            style={{
-              borderRadius: "12px",
-              width: "100%",
-              maxWidth: 340,
-              height: 260,
-              maxHeight: 260,
-              objectFit: "contain",
-              background: "#fff",
-              display: "block",
-              margin: "0 auto",
-              ...imgStyle,
-            }}
-          />
+          {imgSrc && (
+            <img
+              src={imgSrc}
+              alt={imgAlt}
+              className="home-hero-image"
+              style={{
+                borderRadius: "12px",
+                width: "100%",
+                maxWidth: 340,
+                height: 260,
+                maxHeight: 260,
+                objectFit: "contain",
+                background: "#fff",
+                display: "block",
+                margin: "0 auto",
+                ...imgStyle,
+              }}
+            />
+          )}
         </div>
       </div>
       <div
@@ -72,6 +74,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [showAuthPrompt, setShowAuthPrompt] = useState(false);
   const [showSignupReminder, setShowSignupReminder] = useState(false);
+  const [reminderAudioReady, setReminderAudioReady] = useState(false);
   const reminderAudioRef = useRef(null);
 
   useEffect(() => {
@@ -99,11 +102,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (
-      session &&
-      session.user &&
-      !localStorage.getItem("token")
-    ) {
+    if (session && session.user && !localStorage.getItem("token")) {
       fetch(`${API}/api/auth/google-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -123,42 +122,48 @@ export default function Home() {
     }
   }, [session, searchParams]);
 
-  // Inside home.js, replace your existing useEffect that handles hash scrolling:
-
   useEffect(() => {
     const scrollToHash = () => {
       const hash = window.location.hash;
       if (hash) {
         const id = hash.substring(1);
-
-        // Try multiple times with delays for page navigation
         const delays = [100, 300, 600, 900];
         delays.forEach((delay) => {
           setTimeout(() => {
             const element = document.getElementById(id);
             if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              element.scrollIntoView({ behavior: "smooth", block: "start" });
             }
           }, delay);
         });
-
-        // Remove hash from URL after scrolling
         setTimeout(() => {
-          window.history.replaceState(null, '', window.location.pathname);
+          window.history.replaceState(null, "", window.location.pathname);
         }, 1200);
       }
     };
 
     scrollToHash();
-    window.addEventListener('hashchange', scrollToHash);
-
-    return () => {
-      window.removeEventListener('hashchange', scrollToHash);
-    };
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
   }, []);
-  
+
   useEffect(() => {
     reminderAudioRef.current = new Audio("/sounds/reminder-chime.mp3");
+    reminderAudioRef.current.preload = "auto";
+
+    const unlockAudio = async () => {
+      try {
+        await reminderAudioRef.current.play();
+        reminderAudioRef.current.pause();
+        reminderAudioRef.current.currentTime = 0;
+        setReminderAudioReady(true);
+      } catch {
+        /* ignored */
+      }
+    };
+
+    window.addEventListener("pointerdown", unlockAudio, { once: true });
+    return () => window.removeEventListener("pointerdown", unlockAudio);
   }, []);
 
   useEffect(() => {
@@ -167,11 +172,11 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (showSignupReminder && reminderAudioRef.current) {
+    if (showSignupReminder && reminderAudioReady && reminderAudioRef.current) {
       reminderAudioRef.current.currentTime = 0;
       reminderAudioRef.current.play().catch(() => {});
     }
-  }, [showSignupReminder]);
+  }, [showSignupReminder, reminderAudioReady]);
 
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
@@ -851,8 +856,8 @@ Believe in yourself - success is within your reach!
           style={{
             position: "fixed",
             bottom: 24,
-            right: 24,
-            width: 420,
+            right: 16,
+            width: "min(420px, calc(100% - 32px))",
             zIndex: 1000,
             padding: "18px 20px",
             borderRadius: 12,
@@ -891,7 +896,11 @@ Believe in yourself - success is within your reach!
               style={{ width: "100%" }}
               onClick={() => signIn("google", { callbackUrl: "https://aheadterra.com/how-to-order" })}
             >
-              <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" className="profile-google-logo" />
+              <img
+                src="https://developers.google.com/identity/images/g-logo.png"
+                alt="Google logo"
+                className="profile-google-logo"
+              />
               Continue with Google
             </button>
           </div>
