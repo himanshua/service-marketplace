@@ -833,6 +833,58 @@ Believe in yourself - success is within your reach!
 </HomeRow>
         
       </div>
+
+      {!loggedInUser && showSignupReminder && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: 24,
+            right: 24,
+            width: 360,
+            zIndex: 1000,
+            padding: "18px 20px",
+            borderRadius: 12,
+            background: "linear-gradient(135deg, #e0f2ff 0%, #f5fbff 100%)",
+            border: "1px solid #b3e0ff",
+            boxShadow: "0 12px 30px rgba(0,0,0,0.18)",
+          }}
+        >
+          <button
+            onClick={() => setShowSignupReminder(false)}
+            style={{
+              border: "none",
+              background: "transparent",
+              fontSize: 18,
+              cursor: "pointer",
+              color: "#4a6071",
+              float: "right",
+            }}
+            aria-label="Dismiss reminder"
+          >
+            ×
+          </button>
+          <strong style={{ color: "#0d5cab", fontSize: "1rem" }}>Stay in sync with AheadTerra</strong>
+          <p style={{ margin: "6px 0 12px 0", color: "#24445a" }}>
+            Sign up, log in, or continue with Google to access personalized Jyotishavidya services.
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            <Link href="/signup">
+              <button className="profile-btn profile-btn-outline" style={{ flex: 1 }}>Sign up</button>
+            </Link>
+            <Link href="/login">
+              <button className="profile-btn profile-btn-outline" style={{ flex: 1 }}>Log in</button>
+            </Link>
+            <button
+              className="profile-btn profile-btn-google-blue"
+              style={{ width: "100%" }}
+              onClick={() => signIn("google", { callbackUrl: "https://aheadterra.com/how-to-order" })}
+            >
+              <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" className="profile-google-logo" />
+              Continue with Google
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
