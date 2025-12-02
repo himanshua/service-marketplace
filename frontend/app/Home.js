@@ -937,7 +937,7 @@ Believe in yourself - success is within your reach!
 
         <HomeRow
           label="My Best Sellers"
-          imgSrc="/images/bestsellers.jpg"
+          imgSrc="/images/bestsellers.jpeg"
           imgAlt="Himanshu Tiwari Best Seller Gigs"
           imgStyle={{
             width: "100%",
