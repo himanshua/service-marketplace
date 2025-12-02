@@ -174,19 +174,13 @@ export default function Home() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowSignupReminder(true);
       if (reminderAudioReady) {
         playReminderChime();
       }
+      setShowSignupReminder(true);
     }, 6000);
     return () => clearTimeout(timer);
   }, [reminderAudioReady, playReminderChime]);
-
-  useEffect(() => {
-    if (showSignupReminder && reminderAudioReady) {
-      playReminderChime();
-    }
-  }, [showSignupReminder, reminderAudioReady, playReminderChime]);
 
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
