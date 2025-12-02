@@ -245,6 +245,21 @@ export default function Home() {
     return () => window.removeEventListener("hashchange", scrollToHash);
   }, []);
 
+  const unlockAudio = useCallback(async () => {
+    if (reminderAudioUnlockedRef.current || !reminderAudioRef.current) return;
+    try {
+      await reminderAudioRef.current.play();
+      reminderAudioRef.current.pause();
+      reminderAudioRef.current.currentTime = 0;
+      reminderAudioUnlockedRef.current = true;
+      if (pendingChimeRef.current) {
+        playReminderChime();
+      }
+    } catch {
+      /* ignore */
+    }
+  }, [playReminderChime]);
+
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
   }
