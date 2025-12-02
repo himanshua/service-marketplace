@@ -887,45 +887,41 @@ Believe in yourself - success is within your reach!
             <li>API integration, authentication, and cloud deployment</li>
             <li>Performance tuning, maintenance, and technical consulting</li>
           </ul>
-          <p style={{ marginTop: 10 }}>
-            Hire via Fiverr:
-            {" "}
+          <div className="home-link-bar">
+            <span className="home-link-label">Hire via Fiverr:</span>
             <a
               href="https://www.fiverr.com/himanshutiwari/write-any-script-in-html-css-javascript-jquery-php"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#1976d2", textDecoration: "underline" }}
+              className="home-link-chip"
             >
               Script & Web App Gig
             </a>
-            {" | "}
             <a
               href="https://www.fiverr.com/himanshutiwari"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#1976d2", textDecoration: "underline" }}
+              className="home-link-chip"
             >
               Fiverr Profile
             </a>
-            {" | "}
             <a
               href="https://www.linkedin.com/in/himanshu-tiwari-b32a602b/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#1976d2", textDecoration: "underline" }}
+              className="home-link-chip"
             >
               LinkedIn
             </a>
-            {" | "}
             <a
               href="/documents/Himanshu_Tiwari.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#1976d2", textDecoration: "underline" }}
+              className="home-link-chip"
             >
               Résumé (PDF)
             </a>
-          </p>
+          </div>
         </HomeRow>
 
       </div>

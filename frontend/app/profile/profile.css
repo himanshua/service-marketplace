@@ -400,3 +400,35 @@
     align-items: stretch;
   }
 }
+
+.home-link-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.home-link-label {
+  font-weight: 600;
+  color: #0d5cab;
+  margin-right: 4px;
+}
+
+.home-link-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #bcd7ff;
+  background: #f4f8ff;
+  color: #0d366e;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.home-link-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(13, 54, 110, 0.18);
+}
