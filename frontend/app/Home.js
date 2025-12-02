@@ -74,8 +74,96 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [showAuthPrompt, setShowAuthPrompt] = useState(false);
   const [showSignupReminder, setShowSignupReminder] = useState(false);
-  const [reminderAudioReady, setReminderAudioReady] = useState(false);
   const reminderAudioRef = useRef(null);
+  const reminderTimerRef = useRef(null);
+  const reminderAudioUnlockedRef = useRef(false);
+  const reminderShownRef = useRef(false);
+  const pendingChimeRef = useRef(false);
+  const isLoggedInRef = useRef(false);
+
+  const playReminderChime = useCallback(() => {
+    if (!reminderAudioRef.current || !reminderAudioUnlockedRef.current) {
+      pendingChimeRef.current = true;
+      return;
+    }
+    pendingChimeRef.current = false;
+    reminderAudioRef.current.currentTime = 0;
+    reminderAudioRef.current.play().catch(() => {});
+  }, []);
+
+  const showReminder = useCallback(() => {
+    if (isLoggedInRef.current || reminderShownRef.current) return;
+    reminderShownRef.current = true;
+    if (reminderTimerRef.current) {
+      clearTimeout(reminderTimerRef.current);
+      reminderTimerRef.current = null;
+    }
+    setShowSignupReminder(true);
+    playReminderChime();
+  }, [playReminderChime]);
+
+  const unlockAudio = useCallback(async () => {
+    if (reminderAudioUnlockedRef.current || !reminderAudioRef.current) return;
+    try {
+      await reminderAudioRef.current.play();
+      reminderAudioRef.current.pause();
+      reminderAudioRef.current.currentTime = 0;
+      reminderAudioUnlockedRef.current = true;
+      if (pendingChimeRef.current) {
+        playReminderChime();
+      }
+    } catch {
+      /* ignored */
+    }
+  }, [playReminderChime]);
+
+  useEffect(() => {
+    const audio = new Audio("/sounds/reminder-chime.mp3");
+    audio.preload = "auto";
+    reminderAudioRef.current = audio;
+    return () => {
+      audio.pause();
+      reminderAudioRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (loading || loggedInUser) return;
+
+    const handlePointerDown = async () => {
+      await unlockAudio();
+      showReminder();
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
+    return () => window.removeEventListener("pointerdown", handlePointerDown);
+  }, [loading, loggedInUser, unlockAudio, showReminder]);
+
+  useEffect(() => {
+    if (loading || loggedInUser) return;
+
+    reminderTimerRef.current = setTimeout(() => {
+      showReminder();
+    }, 6000);
+
+    return () => {
+      if (reminderTimerRef.current) {
+        clearTimeout(reminderTimerRef.current);
+        reminderTimerRef.current = null;
+      }
+    };
+  }, [loading, loggedInUser, showReminder]);
+
+  useEffect(() => {
+    isLoggedInRef.current = !!loggedInUser;
+    if (loggedInUser && reminderTimerRef.current) {
+      clearTimeout(reminderTimerRef.current);
+      reminderTimerRef.current = null;
+    }
+    if (loggedInUser) {
+      setShowSignupReminder(false);
+    }
+  }, [loggedInUser]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -146,41 +234,6 @@ export default function Home() {
     window.addEventListener("hashchange", scrollToHash);
     return () => window.removeEventListener("hashchange", scrollToHash);
   }, []);
-
-  useEffect(() => {
-    reminderAudioRef.current = new Audio("/sounds/reminder-chime.mp3");
-    reminderAudioRef.current.preload = "auto";
-
-    const unlockAudio = async () => {
-      try {
-        await reminderAudioRef.current.play();
-        reminderAudioRef.current.pause();
-        reminderAudioRef.current.currentTime = 0;
-        setReminderAudioReady(true);
-      } catch {
-        /* ignored */
-      }
-    };
-
-    window.addEventListener("pointerdown", unlockAudio, { once: true });
-    return () => window.removeEventListener("pointerdown", unlockAudio);
-  }, []);
-
-  const playReminderChime = useCallback(() => {
-    if (!reminderAudioRef.current) return;
-    reminderAudioRef.current.currentTime = 0;
-    reminderAudioRef.current.play().catch(() => {});
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (reminderAudioReady) {
-        playReminderChime();
-      }
-      setShowSignupReminder(true);
-    }, 6000);
-    return () => clearTimeout(timer);
-  }, [reminderAudioReady, playReminderChime]);
 
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
