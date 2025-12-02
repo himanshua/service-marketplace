@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -72,6 +72,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [showAuthPrompt, setShowAuthPrompt] = useState(false);
   const [showSignupReminder, setShowSignupReminder] = useState(false);
+  const reminderAudioRef = useRef(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -157,9 +158,20 @@ export default function Home() {
   }, []);
   
   useEffect(() => {
+    reminderAudioRef.current = new Audio("/sounds/reminder-chime.mp3");
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => setShowSignupReminder(true), 6000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (showSignupReminder && reminderAudioRef.current) {
+      reminderAudioRef.current.currentTime = 0;
+      reminderAudioRef.current.play().catch(() => {});
+    }
+  }, [showSignupReminder]);
 
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
@@ -840,7 +852,7 @@ Believe in yourself - success is within your reach!
             position: "fixed",
             bottom: 24,
             right: 24,
-            width: 360,
+            width: 420,
             zIndex: 1000,
             padding: "18px 20px",
             borderRadius: 12,
