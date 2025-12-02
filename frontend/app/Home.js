@@ -878,8 +878,8 @@ Believe in yourself - success is within your reach!
         >
           <h2>Build Your Next Web App with Himanshu Tiwari</h2>
           <p>
-            I’m a B.Tech + M.Tech engineer, certified by IIT Mandi & Wiley, with 15+ years in professional software services.
-            I specialize in MERN-stack (MongoDB, Express.js, React, Node.js) development, delivering secure, scalable web
+            Himanshu Tiwari is a B.Tech + M.Tech computer science engineer, certified by IIT Mandi & Wiley, with 15+ years in professional software development services.
+            He specializes in MERN-stack (MongoDB, Express.js, React, Node.js) development, delivering secure, scalable web
             applications for startups, spiritual platforms, and enterprise teams.
           </p>
           <ul>
