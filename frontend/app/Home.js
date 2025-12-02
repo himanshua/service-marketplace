@@ -423,6 +423,14 @@ Believe in yourself - success is within your reach!
               YouTube Channel
             </a>
             <a
+              href="https://www.linkedin.com/in/himanshu-tiwari-b32a602b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="profile-btn profile-btn-outline"
+            >
+              LinkedIn
+            </a>
+            <a
               href="https://www.facebook.com/himanshuactive/"
               target="_blank"
               rel="noopener noreferrer"
@@ -910,7 +918,7 @@ Believe in yourself - success is within your reach!
             </a>
             {" | "}
             <a
-              href="/documents/Himanshu_Tiwari_Resume.pdf"
+              href="/documents/Himanshu Tiwari.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "#1976d2", textDecoration: "underline" }}
