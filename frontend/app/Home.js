@@ -198,7 +198,7 @@ useEffect(() => {
             Terra is a school<br />
             All planets are schools<br />
             <a
-              href="https://astromnc.blogspot.com/2025/11/"
+              href="https://astromnc.blogspot.com/2025"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "#1976d2", textDecoration: "underline" }}
