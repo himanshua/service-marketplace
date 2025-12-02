@@ -256,7 +256,7 @@ export default function Home() {
         playReminderChime();
       }
     } catch {
-      /* ignore */
+      // ignore autoplay rejection
     }
   }, [playReminderChime]);
 
