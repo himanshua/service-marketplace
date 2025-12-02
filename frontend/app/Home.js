@@ -81,6 +81,8 @@ export default function Home() {
   const pendingChimeRef = useRef(false);
   const isLoggedInRef = useRef(false);
 
+  const loggedInUser = user || (session && session.user); // <-- move up before effects
+
   const playReminderChime = useCallback(() => {
     if (!reminderAudioRef.current || !reminderAudioUnlockedRef.current) {
       pendingChimeRef.current = true;
@@ -238,8 +240,6 @@ export default function Home() {
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
   }
-
-  const loggedInUser = user || (session && session.user);
 
   return (
     <main className="profile-main home-main">
