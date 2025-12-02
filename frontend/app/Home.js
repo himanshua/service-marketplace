@@ -852,6 +852,74 @@ Believe in yourself - success is within your reach!
   </p>
 </HomeRow>
         
+        <HomeRow
+          label="Full Stack Web App Services"
+          imgSrc="/images/himanshu-tiwari-og.jpg"
+          imgAlt="Himanshu Tiwari - Full Stack Developer"
+          imgStyle={{
+            width: "100%",
+            maxWidth: 340,
+            height: 220,
+            maxHeight: 220,
+            objectFit: "cover",
+            borderRadius: "12px",
+            background: "#fff",
+            display: "block",
+            margin: "0 auto",
+          }}
+        >
+          <h2>Build Your Next Web App with Himanshu Tiwari</h2>
+          <p>
+            I’m a B.Tech + M.Tech engineer, certified by IIT Mandi & Wiley, with 15+ years in professional software services.
+            I specialize in MERN-stack (MongoDB, Express.js, React, Node.js) development, delivering secure, scalable web
+            applications for startups, spiritual platforms, and enterprise teams.
+          </p>
+          <ul>
+            <li>Custom dashboards, portals, and marketplaces</li>
+            <li>API integration, authentication, and cloud deployment</li>
+            <li>Performance tuning, maintenance, and technical consulting</li>
+          </ul>
+          <p style={{ marginTop: 10 }}>
+            Hire via Fiverr:
+            {" "}
+            <a
+              href="https://www.fiverr.com/himanshutiwari/write-any-script-in-html-css-javascript-jquery-php"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#1976d2", textDecoration: "underline" }}
+            >
+              Script & Web App Gig
+            </a>
+            {" | "}
+            <a
+              href="https://www.fiverr.com/himanshutiwari"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#1976d2", textDecoration: "underline" }}
+            >
+              Fiverr Profile
+            </a>
+            {" | "}
+            <a
+              href="https://www.linkedin.com/in/himanshu-tiwari-b32a602b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#1976d2", textDecoration: "underline" }}
+            >
+              LinkedIn
+            </a>
+            {" | "}
+            <a
+              href="/documents/Himanshu_Tiwari_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#1976d2", textDecoration: "underline" }}
+            >
+              Résumé (PDF)
+            </a>
+          </p>
+        </HomeRow>
+
       </div>
 
       {!loggedInUser && showSignupReminder && (
