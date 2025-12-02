@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -166,17 +166,27 @@ export default function Home() {
     return () => window.removeEventListener("pointerdown", unlockAudio);
   }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowSignupReminder(true), 6000);
-    return () => clearTimeout(timer);
+  const playReminderChime = useCallback(() => {
+    if (!reminderAudioRef.current) return;
+    reminderAudioRef.current.currentTime = 0;
+    reminderAudioRef.current.play().catch(() => {});
   }, []);
 
   useEffect(() => {
-    if (showSignupReminder && reminderAudioReady && reminderAudioRef.current) {
-      reminderAudioRef.current.currentTime = 0;
-      reminderAudioRef.current.play().catch(() => {});
+    const timer = setTimeout(() => {
+      setShowSignupReminder(true);
+      if (reminderAudioReady) {
+        playReminderChime();
+      }
+    }, 6000);
+    return () => clearTimeout(timer);
+  }, [reminderAudioReady, playReminderChime]);
+
+  useEffect(() => {
+    if (showSignupReminder && reminderAudioReady) {
+      playReminderChime();
     }
-  }, [showSignupReminder, reminderAudioReady]);
+  }, [showSignupReminder, reminderAudioReady, playReminderChime]);
 
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
