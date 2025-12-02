@@ -97,6 +97,17 @@ export default function Home() {
     reminderAudioRef.current.play().catch(() => {});
   }, []);
 
+  const unlockAudio = useCallback(async () => {
+    if (reminderAudioUnlockedRef.current || !reminderAudioRef.current) return;
+    try {
+      await reminderAudioRef.current.play();
+      reminderAudioRef.current.pause();
+      reminderAudioRef.current.currentTime = 0;
+      reminderAudioUnlockedRef.current = true;
+      if (pendingChimeRef.current) playReminderChime();
+    } catch {}
+  }, [playReminderChime]);
+
   const showReminder = useCallback(() => {
     if (isLoggedInRef.current) return;
     if (reminderShownRef.current) return;
@@ -110,12 +121,8 @@ export default function Home() {
   const scheduleReminder = useCallback(
     (delay = REMINDER_INITIAL_DELAY) => {
       if (isLoggedInRef.current) return;
-      if (reminderTimerRef.current) {
-        clearTimeout(reminderTimerRef.current);
-      }
-      reminderTimerRef.current = setTimeout(() => {
-        showReminder();
-      }, delay);
+      if (reminderTimerRef.current) clearTimeout(reminderTimerRef.current);
+      reminderTimerRef.current = setTimeout(showReminder, delay);
     },
     [showReminder]
   );
@@ -137,17 +144,6 @@ export default function Home() {
     };
   }, []);
 
-  const unlockAudio = useCallback(async () => {
-    if (reminderAudioUnlockedRef.current || !reminderAudioRef.current) return;
-    try {
-      await reminderAudioRef.current.play();
-      reminderAudioRef.current.pause();
-      reminderAudioRef.current.currentTime = 0;
-      reminderAudioUnlockedRef.current = true;
-      if (pendingChimeRef.current) playReminderChime();
-    } catch {}
-  }, [playReminderChime]);
-
   useEffect(() => {
     if (loading || loggedInUser) return;
     const handlePointerDown = async () => {
@@ -160,9 +156,7 @@ export default function Home() {
 
   useEffect(() => {
     if (loading || loggedInUser) return;
-
     scheduleReminder(REMINDER_INITIAL_DELAY);
-
     return () => {
       if (reminderTimerRef.current) {
         clearTimeout(reminderTimerRef.current);
@@ -267,9 +261,7 @@ export default function Home() {
 
   useEffect(() => {
     if (loading || loggedInUser) return;
-
     scheduleReminder(REMINDER_INITIAL_DELAY);
-
     return () => {
       if (reminderTimerRef.current) {
         clearTimeout(reminderTimerRef.current);
