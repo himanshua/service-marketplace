@@ -187,60 +187,6 @@ export default function Home() {
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
-        {!loggedInUser && showSignupReminder && (
-          <div
-            style={{
-              margin: "0 0 16px 0",
-              padding: "18px 20px",
-              borderRadius: 12,
-              background: "linear-gradient(135deg, #e0f2ff 0%, #f5fbff 100%)",
-              border: "1px solid #b3e0ff",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              gap: 16,
-            }}
-          >
-            <div>
-              <strong style={{ color: "#0d5cab", fontSize: "1rem" }}>Stay in sync with AheadTerra</strong>
-              <p style={{ margin: "6px 0 0 0", color: "#24445a" }}>
-                Sign up, log in, or continue with Google to access personalized Jyotishavidya services, track orders, and receive timely guidance.
-              </p>
-              <div style={{ marginTop: 10, display: "flex", flexWrap: "wrap", gap: 10 }}>
-                <Link href="/signup">
-                  <button className="profile-btn profile-btn-outline">Sign up</button>
-                </Link>
-                <Link href="/login">
-                  <button className="profile-btn profile-btn-outline">Log in</button>
-                </Link>
-                <button
-                  className="profile-btn profile-btn-google-blue"
-                  onClick={() => signIn("google")}
-                >
-                  <img
-                    src="https://developers.google.com/identity/images/g-logo.png"
-                    alt="Google logo"
-                    className="profile-google-logo"
-                  />
-                  Continue with Google
-                </button>
-              </div>
-            </div>
-            <button
-              onClick={() => setShowSignupReminder(false)}
-              style={{
-                border: "none",
-                background: "transparent",
-                fontSize: 20,
-                cursor: "pointer",
-                color: "#4a6071",
-              }}
-              aria-label="Dismiss reminder"
-            >
-              ×
-            </button>
-          </div>
-        )}
         <HomeRow
           imgSrc="images/Ganesha.jpeg"
           imgAlt="Welcome"
