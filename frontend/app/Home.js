@@ -116,12 +116,7 @@ export default function Home() {
         .then((data) => {
           if (data.token) {
             localStorage.setItem("token", data.token);
-            // Redirect to /services if coming from modal, else home
-            if (searchParams.get("redirect") === "services" || session.callbackUrl === "/services") {
-              window.location.href = "/services";
-            } else {
-              window.location.reload();
-            }
+            window.location.href = "https://aheadterra.com/how-to-order";
           }
         });
     }
@@ -367,7 +362,7 @@ Believe in yourself - success is within your reach!
             <div className="home-auth-row">
               <button
                 className="profile-btn profile-btn-google-blue"
-                onClick={() => signIn("google")}
+                onClick={() => signIn("google", { callbackUrl: "https://aheadterra.com/how-to-order" })}
               >
                 <img
                   src="https://developers.google.com/identity/images/g-logo.png"
@@ -463,7 +458,7 @@ Believe in yourself - success is within your reach!
                   className="profile-btn profile-btn-google-blue"
                   style={{ width: "100%", maxWidth: 350, marginBottom: 18 }}
                   onClick={() => {
-                    signIn("google", { callbackUrl: "/services" });
+                    signIn("google", { callbackUrl: "https://aheadterra.com/how-to-order" });
                   }}
                 >
                   <img
