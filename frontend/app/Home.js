@@ -10,21 +10,18 @@ const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, leftContent, children }) {
   return (
-    <div style={{
-      display: "flex",
-      borderBottom: "2px solid #bdbdbd",
-      alignItems: "stretch",
-      minHeight: 250
-    }}>
+    <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd", alignItems: "stretch", minHeight: 250 }}>
       <div className="home-image-col">
-        <div style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-        }}>
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "flex-start",
+            width: "100%",
+          }}
+        >
           {label && <span style={{ marginBottom: 8, fontWeight: 600 }}>{label}</span>}
           {leftContent}
           {imgSrc && (
@@ -966,39 +963,15 @@ Believe in yourself - success is within your reach!
           <p style={{ marginTop: 10 }}>
             Every consultation brings fresh perspectives for life's ever-changing journey—because while certain moments in life pass and never return, new opportunities and challenges always emerge. Like humanity's Mars missions reaching unprecedented frontiers, your path forward holds possibilities you've never encountered before.
           </p>
-          <div style={{ marginTop: 18, textAlign: "center" }}>
-            <img
-              src="/images/mars-valley.jpg"
-              alt="Visit the Mars Valley poster"
-              style={{
-                width: "100%",
-                maxWidth: 420,
-                borderRadius: 12,
-                display: "block",
-                margin: "0 auto",
-                boxShadow: "0 14px 28px rgba(0,0,0,0.18)",
-              }}
-            />
-            <small style={{ display: "block", marginTop: 8, color: "#555", fontWeight: 600 }}>
-              Exclusive 2014 NASA Space Tour Poster
-            </small>          
-          </div>
-          <div style={{ marginTop: 18, textAlign: "center" }}>
-            <img
-              src="/images/Mars-spacecraft.png"
-              alt="Mars mission spacecraft"
-              style={{
-                width: "100%",
-                maxWidth: 420,
-                borderRadius: 12,
-                display: "block",
-                margin: "0 auto",
-                boxShadow: "0 14px 28px rgba(0,0,0,0.18)",
-              }}
-            />
-            <small style={{ display: "block", marginTop: 8, color: "#555", fontWeight: 600 }}>
-              Mars mission spacecraft
-            </small>          
+          <div className="best-seller-gallery">
+            <figure>
+              <img src="/images/mars-valley.jpg" alt="Visit the Mars Valley poster" />
+              <figcaption>Exclusive 2014 NASA Space Tour Poster</figcaption>
+            </figure>
+            <figure>
+              <img src="/images/Mars-spacecraft.png" alt="Mars mission spacecraft" />
+              <figcaption>Mars mission spacecraft</figcaption>
+            </figure>
           </div>
         </HomeRow>
 
