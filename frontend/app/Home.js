@@ -963,6 +963,26 @@ Believe in yourself - success is within your reach!
           <p style={{ marginTop: 10 }}>
             Every consultation brings fresh perspectives for life's ever-changing journey—because while certain moments in life pass and never return, new opportunities and challenges always emerge. Like humanity's Mars missions reaching unprecedented frontiers, your path forward holds possibilities you've never encountered before.
           </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 12 }}>
+            <a
+              href="https://www.fiverr.com/himanshutiwari/predict-your-future-using-vedic-astrology-jyotish"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home-link-chip"
+              style={{ width: "fit-content" }}
+            >
+              🔮 Predict Your Future with Vedic Astrology (Jyotish)
+            </a>
+            <a
+              href="https://www.fiverr.com/himanshutiwari/predict-and-forecast-information-about-your-spouse"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home-link-chip"
+              style={{ width: "fit-content" }}
+            >
+              💍 Predict & Forecast Information About Your Spouse
+            </a>
+          </div>
           <div className="best-seller-gallery">
             <figure>
               <img src="/images/mars-valley.jpg" alt="Visit the Mars Valley poster" />
