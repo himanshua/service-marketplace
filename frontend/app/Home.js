@@ -310,7 +310,7 @@ export default function Home() {
         imgSrc="/images/Naseeb.JPG"
         imgAlt="Image 1"
       >
-        Astrology is not Fortune telling, it is divination Jyotish = Jyoti + Ish.
+        Astrology is not Fortune telling, it is divination. Jyotish = Jyoti + Ish.
         Jyoti means light and Ish means God (Ishwara). So Jyotish literally means the Light of God. Please be reminded that Jyotishavidya readings are designed as educational learnings for students of the vidya who wish to improve their divinatory skills. Jyotishavidya readings are not fortune-telling and Jyotisha tradition offers no moral judgments.
         Instead, It means Jyotisha only tells you what is happening in your life, what energies are active, and what direction things are moving. It does not say you are good or bad. It does not give blame or praise. It only shows the situation, so you can understand it and make better choices.
       </HomeRow>
@@ -951,7 +951,7 @@ Believe in yourself - success is within your reach!
             margin: "0 auto",
           }}
         >
-          <h2>Himanshu Tiwari · My Best-Selling Fiverr Readings</h2>
+          <h2>Himanshu Tiwari: My Best-Selling Fiverr Readings</h2>
           <p>
             Trusted by global clients for precise Jyotishavidya and relationship insights. These two gigs stay fully booked because they deliver detailed,
             data-backed guidance derived from classical Vedic techniques and modern full-stack tooling.
