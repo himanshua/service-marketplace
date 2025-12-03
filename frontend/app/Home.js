@@ -645,8 +645,7 @@ Believe in yourself - success is within your reach!
           <ol>
             <li>
               <a
-                href="https://barbarapijan.com/bpa/Graha/Surya/1Surya_main_page.htm"
-                target="_blank"
+                href="https://aheadterra.com/1"
                 rel="noopener noreferrer"
               >
                 [Surya]
