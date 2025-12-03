@@ -985,7 +985,7 @@ Believe in yourself - success is within your reach!
           </div>
           <div style={{ marginTop: 18, textAlign: "center" }}>
             <img
-              src="/images/Mars-spacecraft.jpg"
+              src="/images/Mars-spacecraft.png"
               alt="Mars mission spacecraft"
               style={{
                 width: "100%",
