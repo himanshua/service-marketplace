@@ -310,7 +310,9 @@ export default function Home() {
         imgSrc="/images/Naseeb.JPG"
         imgAlt="Image 1"
       >
-        Astrology is not Fortune telling, it is vedicindianastrology. Please be reminded that Jyotishavidya readings are designed as educational learnings for students of the vidya who wish to improve their divinatory skills. Jyotishavidya readings are not fortune-telling and Jyotisha tradition offers no moral judgments.
+        Astrology is not Fortune telling, it is divination Jyotish = Jyoti + Ish.
+Jyoti means light and Ish means God (Ishwara).
+So Jyotish literally means the Light of God.. Please be reminded that Jyotishavidya readings are designed as educational learnings for students of the vidya who wish to improve their divinatory skills. Jyotishavidya readings are not fortune-telling and Jyotisha tradition offers no moral judgments.
 
 
       </HomeRow>
