@@ -990,7 +990,7 @@ Believe in yourself - success is within your reach!
               >
                 💍 Predict & Forecast Information About Your Spouse
               </a>
-              <img src="/images/Mars-spacecraft.jpg" alt="Mars mission spacecraft" />
+              <img src="/images/mars-spacecraft.jpg" alt="Mars mission spacecraft" />
               <figcaption>Mars mission spacecraft</figcaption>
             </figure>
           </div>
