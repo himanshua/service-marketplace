@@ -29,7 +29,7 @@ export default function Page1() {
             <h2 style={{ color: "#d35400", margin: 0 }}>☀️ Sun (Surya)</h2>
             <p style={{ margin: 0, color: "#555" }}>Radiant life-force, confidence, royal authority.</p>
             <img
-              src="/images/sun.jpeg"
+              src="/images/Sun.jpeg"
               alt="Sun Surya"
               style={{
                 width: "100%",
