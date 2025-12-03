@@ -459,3 +459,23 @@
   color: #555;
   font-weight: 600;
 }
+
+.best-seller-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #bcd7ff;
+  background: #f4f8ff;
+  color: #0d366e;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin-bottom: 12px;
+}
+
+.best-seller-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(13, 54, 110, 0.18);
+}
