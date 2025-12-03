@@ -952,25 +952,31 @@ Believe in yourself - success is within your reach!
           <p>
             Trusted by clients worldwide for precise Vedic astrology and relationship insights. These services remain consistently booked because they deliver detailed, my own research-backed guidance drawing from:
           </p>
-          <div className="home-link-bar" style={{ margin: "16px 0 8px" }}>
-            <span className="home-link-label">Book the best sellers:</span>
+          <p className="best-seller-inline-cta">
+            These two bestseller gigs stay open for bookings:
             <a
               href="https://www.fiverr.com/himanshutiwari/predict-your-future-using-vedic-astrology-jyotish"
               target="_blank"
               rel="noopener noreferrer"
-              className="home-link-chip"
             >
               🔮 Predict Your Future (Jyotish)
             </a>
+            <span>·</span>
             <a
               href="https://www.fiverr.com/himanshutiwari/predict-and-forecast-information-about-your-spouse"
               target="_blank"
               rel="noopener noreferrer"
-              className="home-link-chip"
             >
               💍 Forecast Your Spouse Insights
             </a>
-          </div>
+          </p>
+          <ul style={{ marginTop: 10, paddingLeft: 20 }}>
+            <li>Classical Vedic astrology (Jyotishavidya) principles</li>
+            <li>Personalized horoscope analysis</li>
+            <li>Relationship compatibility insights</li>
+            <li>Career and finance guidance</li>
+            <li>Spiritual growth and life purpose readings</li>
+          </ul>
           <p style={{ marginTop: 10 }}>
             Every consultation brings fresh perspectives for life's ever-changing journey—because while certain moments in life pass and never return, new opportunities and challenges always emerge. Like humanity's Mars missions reaching unprecedented frontiers, your path forward holds possibilities you've never encountered before.
           </p>

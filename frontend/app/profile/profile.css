@@ -479,3 +479,31 @@
   transform: translateY(-1px);
   box-shadow: 0 6px 14px rgba(13, 54, 110, 0.18);
 }
+
+.best-seller-inline-cta {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #0d366e;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.best-seller-inline-cta a {
+  color: #1976d2;
+  text-decoration: underline;
+}
+
+.best-seller-inline-cta span {
+  color: #90a4c6;
+}
+
+.best-seller-card img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+  display: block;
+}
