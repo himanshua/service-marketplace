@@ -953,28 +953,52 @@ Believe in yourself - success is within your reach!
         >
           <h2>Himanshu Tiwari: My Best-Selling Fiverr Readings</h2>
           <p>
-            Trusted by global clients for precise Jyotishavidya and relationship insights. These two gigs stay fully booked because they deliver detailed,
-            data-backed guidance derived from classical Vedic techniques and modern full-stack tooling.
+            Trusted by clients worldwide for precise Vedic astrology and relationship insights. These services remain consistently booked because they deliver detailed, my own research-backed guidance drawing from:
           </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 12 }}>
-            <a
-              href="https://www.fiverr.com/himanshutiwari/predict-your-future-using-vedic-astrology-jyotish"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="home-link-chip"
-              style={{ width: "fit-content" }}
-            >
-              🔮 Predict Your Future with Vedic Astrology (Jyotish)
-            </a>
-            <a
-              href="https://www.fiverr.com/himanshutiwari/predict-and-forecast-information-about-your-spouse"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="home-link-chip"
-              style={{ width: "fit-content" }}
-            >
-              💍 Predict & Forecast Information About Your Spouse
-            </a>
+          <ul style={{ marginTop: 10, paddingLeft: 20 }}>
+            <li>Classical Vedic astrology (Jyotishavidya) principles</li>
+            <li>Western astrology techniques</li>
+            <li>Tarot card readings</li>
+            <li>Numerology</li>
+            <li>KP (Krishnamurti Paddhati) astrology for horary questions</li>
+            <li>Daily transit analysis and forecasting</li>
+          </ul>
+          <p style={{ marginTop: 10 }}>
+            Every consultation brings fresh perspectives for life's ever-changing journey—because while certain moments in life pass and never return, new opportunities and challenges always emerge. Like humanity's Mars missions reaching unprecedented frontiers, your path forward holds possibilities you've never encountered before.
+          </p>
+          <div style={{ marginTop: 18, textAlign: "center" }}>
+            <img
+              src="/images/mars-valley.jpg"
+              alt="Visit the Mars Valley poster"
+              style={{
+                width: "100%",
+                maxWidth: 420,
+                borderRadius: 12,
+                display: "block",
+                margin: "0 auto",
+                boxShadow: "0 14px 28px rgba(0,0,0,0.18)",
+              }}
+            />
+            <small style={{ display: "block", marginTop: 8, color: "#555", fontWeight: 600 }}>
+              Exclusive 2014 NASA Space Tour Poster
+            </small>          
+          </div>
+          <div style={{ marginTop: 18, textAlign: "center" }}>
+            <img
+              src="/images/Mars-spacecraft.jpg"
+              alt="Mars mission spacecraft"
+              style={{
+                width: "100%",
+                maxWidth: 420,
+                borderRadius: 12,
+                display: "block",
+                margin: "0 auto",
+                boxShadow: "0 14px 28px rgba(0,0,0,0.18)",
+              }}
+            />
+            <small style={{ display: "block", marginTop: 8, color: "#555", fontWeight: 600 }}>
+              Mars mission spacecraft
+            </small>          
           </div>
         </HomeRow>
 
