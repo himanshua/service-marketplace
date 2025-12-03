@@ -449,7 +449,7 @@
 
 .best-seller-gallery img {
   width: 100%;
-  height: 520px;
+  height: 1040px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
@@ -503,7 +503,7 @@
 
 .best-seller-card img {
   width: 100%;
-  height: 520px;
+  height: 1040px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
