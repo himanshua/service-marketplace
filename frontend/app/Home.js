@@ -991,7 +991,7 @@ Believe in yourself - success is within your reach!
                 href="https://www.fiverr.com/himanshutiwari/predict-your-future-using-vedic-astrology-jyotish"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="best-seller-link"
+                className="home-link-chip best-seller-link"
               >
                 🔮 Predict Your Future with Vedic Astrology (Jyotish)
               </a>
@@ -1003,7 +1003,7 @@ Believe in yourself - success is within your reach!
                 href="https://www.fiverr.com/himanshutiwari/predict-and-forecast-information-about-your-spouse"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="best-seller-link"
+                className="home-link-chip best-seller-link"
               >
                 💍 Predict & Forecast Information About Your Spouse
               </a>
