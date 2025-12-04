@@ -76,36 +76,52 @@ export default function HowToOrder() {
         <HomeRow imgSrc="images/reading.jpg" imgAlt="How to order">
           <h1 style={{ marginBottom: 8 }}>Request your Jyotishavidya Reading</h1>
           <p style={{ color: "#385072", lineHeight: 1.6 }}>
-            Follow three quick steps to receive your Dropbox delivery with MP3 + charts.
+            Reference checklist adapted from Barbara Pijan’s payment guidance—follow the steps, submit payment, and receive your Dropbox delivery.
           </p>
 
-          <ol style={{ paddingLeft: 20, marginTop: 18, lineHeight: 1.7 }}>
-            <li><strong>Prepare your birth data</strong> – name, gender, DD-MMM-YYYY, exact time (with AM/PM + 24-hr), birthplace + Google coordinates.</li>
-            <li><strong>List 5–10 thoughtful questions</strong> reflecting real decisions you face right now.</li>
-            <li><strong>Log in and start chat</strong> – tap “Start Chat,” paste your details, submit payment, receive Dropbox link.</li>
-          </ol>
+          <section style={{ marginTop: 18 }}>
+            <h2>Booking Checklist</h2>
+            <ol style={{ paddingLeft: 20, lineHeight: 1.7 }}>
+              <li><strong>Birth data packet</strong> – name, gender, DD-MMM-YYYY, exact time (AM/PM + 24 hr), birthplace + Google coordinates.</li>
+              <li><strong>Life questions</strong> – 5–10 reflective questions covering relationships, vocation, health, dharma, or travel decisions.</li>
+              <li><strong>Preferred delivery style</strong> – audio (MP3) or video plus PDF charts.</li>
+              <li><strong>Dropbox email</strong> – address where you want the final link shared.</li>
+            </ol>
+          </section>
 
-          <section style={{ marginTop: 20 }}>
-            <h2>What you receive</h2>
-            <ul>
-              <li>2+ hour MP3 (or video) lecture with Vimshottari dasha timeline PDF.</li>
-              <li>One post-reading clarification via email or MP3.</li>
-              <li>Guidance that blends classical Jyotishavidya, KP, numerology, and tarot perspectives.</li>
+          <section style={{ marginTop: 22 }}>
+            <h2>Payment & Delivery</h2>
+            <ul style={{ paddingLeft: 20, lineHeight: 1.6 }}>
+              <li>Payments are processed via <a href="https://www.fiverr.com/himanshutiwari" target="_blank" rel="noopener noreferrer" style={{ color: "#1976d2", textDecoration: "underline" }}>Fiverr</a> or custom PayPal invoice (details shared in chat).</li>
+              <li>Turnaround ≈ 7–10 business days unless otherwise noted in the Services calendar.</li>
+              <li>Dropbox folder includes MP3/video lecture + Vimshottari dasha timeline PDF.</li>
+              <li>One follow-up clarification is included (email or short MP3).</li>
             </ul>
           </section>
 
           <section style={{ marginTop: 22, border: "1px solid #d9e8ff", borderRadius: 12, padding: 18, background: "#f4f8ff" }}>
-            <h3 style={{ marginBottom: 10, color: "#0d366e" }}>Need help before booking?</h3>
+            <h3 style={{ marginBottom: 10, color: "#0d366e" }}>Before you send questions</h3>
+            <p style={{ marginBottom: 8 }}>
+              Review the Jyotisha etiquette: no blame, no self-criticism—state the situation, the decision window, and what outcome you hope to understand.
+            </p>
             <p style={{ marginBottom: 12 }}>
-              Email{" "}
+              Need scheduling confirmation? Email{" "}
               <a href="mailto:himanshu.inperson@gmail.com" style={{ color: "#1976d2", textDecoration: "underline" }}>
                 himanshu.inperson@gmail.com
-              </a>{" "}
-              with your questions or to confirm availability.
+              </a>.
             </p>
             <p style={{ fontSize: 14, color: "#4a6071" }}>
-              Hint: thoughtful, self-reflective questions lead to deeper readings.
+              Inspired by BarbaraPijan.com: precise questions make for precise Jyotisha answers.
             </p>
+          </section>
+
+          <section style={{ marginTop: 24 }}>
+            <h2>After you order</h2>
+            <ul style={{ paddingLeft: 20, lineHeight: 1.6 }}>
+              <li>You’ll receive a confirmation in chat plus the estimated delivery window.</li>
+              <li>Dropbox notification arrives when the lecture + PDF are uploaded.</li>
+              <li>Use the same thread for your one clarification question within 14 days.</li>
+            </ul>
           </section>
 
           {!isLoggedIn && (
@@ -128,6 +144,43 @@ export default function HowToOrder() {
           <p style={{ marginTop: 18, fontSize: 14, color: "#60738b" }}>
             Already booked? <a href="/services" style={{ color: "#1976d2", textDecoration: "underline" }}>Go to Services</a> to check chat status.
           </p>
+        </HomeRow>
+
+        <HomeRow
+          label="3. Traditional Vedic Gemstone Recommendation"
+          imgSrc="/images/gemstones.jpg"
+          imgAlt="Navaratna gemstones"
+          imgStyle={{ objectFit: "cover" }}
+        >
+          <h2>Gemstone & Remedial Guidance</h2>
+          <p>
+            Receive a Navaratna-based prescription aligned with your dashā and bhukti periods, covering the metal, carat weight, and mantra activation steps.
+          </p>
+          <ul style={{ paddingLeft: 20 }}>
+            <li>Identifies benefic/detriment planets before recommending a gem.</li>
+            <li>Explains why the remedy supports your current karmic cycle.</li>
+            <li>Includes wear schedule and purification ritual.</li>
+          </ul>
+        </HomeRow>
+
+        <HomeRow
+          label="4. Muhurta & Life Planning"
+          imgSrc="/images/muhurta.jpg"
+          imgAlt="Muhurta planning"
+          imgStyle={{ objectFit: "cover" }}
+        >
+          <h2>Choose the right launch window</h2>
+          <p>Outline your event, wedding, or product launch and get a shortlist of auspicious start times.</p>
+        </HomeRow>
+
+        <HomeRow
+          label="5. Relationship Compatibility"
+          imgSrc="/images/compatibility.jpg"
+          imgAlt="Compatibility charts"
+          imgStyle={{ objectFit: "cover" }}
+        >
+          <h2>Synastry & Guna Milan brief</h2>
+          <p>Upload both birth packets to receive a combined PDF + MP3 covering guna scores, dashā overlaps, and remedial advice.</p>
         </HomeRow>
       </div>
     </main>
