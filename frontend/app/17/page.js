@@ -69,7 +69,6 @@ export default function Page17() {
             Pushyami (Pushya) remains a celebrated lunar mansion; align these planetary results with your Vimshottari timeline for deeper, SEO-friendly Jyotisha insights.
           </p>
         </HomeRow>
-        <HowToOrderPage />
       </div>
     </main>
   );
