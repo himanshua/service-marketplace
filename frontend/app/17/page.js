@@ -1,6 +1,5 @@
 import "../globals.css";
 import "../profile/profile.css";
-import HowToOrderPage from "../how-to-order/page";
 
 function HomeRow({ imgSrc, imgAlt, children }) {
   return (
@@ -50,7 +49,7 @@ export default function Page17() {
           </h1>
           <p style={{ marginBottom: 18, color: "#465a72", lineHeight: 1.6 }}>
             Source:{" "}
-            Pushya is ruled by Saturn and symbolized by the udder of a cow, representing nourishment and growth. It is considered one of the most auspicious nakshatras in Vedic astrology. The following are the results of planets placed in Pushyami according to the Ravana Samhitha:
+            Pushya is ruled by Saturn, lord of Pushya is Jupiter and symbolized by the udder of a cow, representing nourishment and growth. It is considered one of the most auspicious nakshatras in Vedic astrology. The following are the results of planets placed in Pushyami according to the Ravana Samhitha:
             It is associated with nurturing, prosperity, and spiritual growth.
             It is best nakshatra in 27 nakshatras. People born under this nakshatra are believed to be caring, compassionate, and wise.
             However, marriage and relationships may face challenges.
