@@ -3,6 +3,7 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { track } from "@vercel/analytics/react";
 import "./profile/profile.css";
 import "./globals.css";
 
@@ -245,6 +246,28 @@ export default function Home() {
     return () => window.removeEventListener("hashchange", scrollToHash);
   }, []);
 
+  useEffect(() => track("cta_view_home"), []);
+
+  const handlePrimaryCta = () => {
+    track("cta_click_home");
+    if (!loggedInUser) {
+      setShowAuthPrompt(true);
+      return;
+    }
+    router.push("/services");
+  };
+
+  const handleAuth = (provider) => {
+    track("auth_start", { provider });
+    if (provider === "google") {
+      signIn("google", { callbackUrl: "https://aheadterra.com/how-to-order" });
+    } else if (provider === "login") {
+      router.push("/login?redirect=services");
+    } else {
+      router.push("/signup");
+    }
+  };
+
   if (loading || status === "loading") {
     return <main className="profile-main">Loading…</main>;
   }
@@ -356,13 +379,7 @@ Believe in yourself - success is within your reach!
           <div className="home-btn-row">
             <button
               className="profile-btn"
-              onClick={() => {
-                if (!loggedInUser) {
-                  setShowAuthPrompt(true);
-                } else {
-                  window.location.href = "/services";
-                }
-              }}
+              onClick={handlePrimaryCta}
             >
               Order Now on Chat Services
             </button>
