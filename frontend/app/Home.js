@@ -1122,7 +1122,7 @@ Believe in yourself - success is within your reach!
             <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/05mrigashira.htm" target="_blank" rel="noopener noreferrer">Mrigashiras – Invaka</a></li>
             <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/06ardra.htm" target="_blank" rel="noopener noreferrer">Arudra – Betelgeuse</a></li>
             <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/07punarvasu.htm" target="_blank" rel="noopener noreferrer">Punarvasu – Yamaka</a></li>
-            <li><a href="https://aheadterra.com/17" target="_self" rel="noopener noreferrer">Pushya – Sidhya - Ever Progressing</a></li>
+            <li><a href="https://aheadterra.com/17" target="_self" rel="noopener noreferrer">Pushya – Sidhya </a> - Ever Progressing Pushya</li>
             <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/09azlesa.htm" target="_blank" rel="noopener noreferrer">Aśleṣa – Naga</a></li>
             <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/10magha.htm" target="_blank" rel="noopener noreferrer">Magha – Regulus</a></li>
             <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/11purvaphalguni.htm" target="_blank" rel="noopener noreferrer">Pūrvaphalgunī – Yonī</a></li>
