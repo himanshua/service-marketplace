@@ -65,115 +65,69 @@ export default function HowToOrder() {
   const { status } = useSession();
   const isLoggedIn = status === "authenticated";
 
+  const openAuth = (mode) => {
+    if (mode === "google") signIn("google", { callbackUrl: "/services" });
+    else router.push(mode === "login" ? "/login?redirect=/services" : "/signup?redirect=/services");
+  };
+
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
-        <HomeRow
-          imgSrc="images/reading.jpg"
-          imgAlt="Welcome"
-        >
-          <h2></h2>
-          <p>
-            How to order Jyotishavidya Readings<br />
-            offered by{" "}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-
-                // If we're already on home page, just scroll
-                if (window.location.pathname === '/') {
-                  const element = document.getElementById('himanshu-section');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                } else {
-                  // Try router first (faster, no page reload)
-                  router.push('/#himanshu-section');
-
-                  // Multiple delays to ensure scroll
-                  const delays = [300, 600, 900, 1200];
-                  delays.forEach((delay) => {
-                    setTimeout(() => {
-                      const element = document.getElementById('himanshu-section');
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                    }, delay);
-                  });
-
-                  // Fallback to full navigation after delay if router doesn't work
-                  setTimeout(() => {
-                    if (window.location.pathname !== '/' || !document.getElementById('himanshu-section')) {
-                      window.location.href = '/#himanshu-section';
-                    }
-                  }, 1500);
-                }
-              }}
-              style={{
-                color: "#1976d2",
-                textDecoration: "underline",
-                fontWeight: 600,
-                cursor: "pointer"
-              }}
-            >
-              Himanshu Tiwari
-            </a>
+        <HomeRow imgSrc="images/reading.jpg" imgAlt="How to order">
+          <h1 style={{ marginBottom: 8 }}>Request your Jyotishavidya Reading</h1>
+          <p style={{ color: "#385072", lineHeight: 1.6 }}>
+            Follow three quick steps to receive your Dropbox delivery with MP3 + charts.
           </p>
-          <section>
-            <h2>What you’ll receive</h2>
-            <ul>
-              <li>You receive a 2+ hour MP3 audio or video reading (lecture style) and a PDF with your charts and Vimshottari dasha timeline, delivered via Dropbox.</li>
-              <li>
-                Before the reading, please{" "}
-                <a
-                  href="mailto:himanshu.inperson@gmail.com"
-                  style={{ color: "#1976d2", textDecoration: "underline" }}
-                >
-                  email to Himanshu
-                </a>{" "}
-                5–10 thoughtful questions you want answered.
-              </li>
-              <li>After the reading, you may ask one clarification question (answered by email or as an MP3).</li>
-              <li>Required info: name, gender, exact birth date (DD-MMM-YYYY), accurate birth time (AM/PM and 24-hr), and birthplace with Google coordinates.</li>
-              <li>Your questions should be reflective, specific, meaningful, and free from self-criticism.</li>
-              <li>After log in you will see Services page of Himanshu, click on Start Chat button of any expert</li>
-              <li>Type the required details above, click send, complete the payment, and your reading will be prepared and sent to you. Best Wishes!</li>
 
+          <ol style={{ paddingLeft: 20, marginTop: 18, lineHeight: 1.7 }}>
+            <li><strong>Prepare your birth data</strong> – name, gender, DD-MMM-YYYY, exact time (with AM/PM + 24-hr), birthplace + Google coordinates.</li>
+            <li><strong>List 5–10 thoughtful questions</strong> reflecting real decisions you face right now.</li>
+            <li><strong>Log in and start chat</strong> – tap “Start Chat,” paste your details, submit payment, receive Dropbox link.</li>
+          </ol>
+
+          <section style={{ marginTop: 20 }}>
+            <h2>What you receive</h2>
+            <ul>
+              <li>2+ hour MP3 (or video) lecture with Vimshottari dasha timeline PDF.</li>
+              <li>One post-reading clarification via email or MP3.</li>
+              <li>Guidance that blends classical Jyotishavidya, KP, numerology, and tarot perspectives.</li>
             </ul>
           </section>
-          <p style={{ marginTop: 24, fontWeight: 600, color: "#1976d2" }}>
-            Please log in or sign up or use Google login to request your JyotishaVidya reading
-          </p>
+
+          <section style={{ marginTop: 22, border: "1px solid #d9e8ff", borderRadius: 12, padding: 18, background: "#f4f8ff" }}>
+            <h3 style={{ marginBottom: 10, color: "#0d366e" }}>Need help before booking?</h3>
+            <p style={{ marginBottom: 12 }}>
+              Email{" "}
+              <a href="mailto:himanshu.inperson@gmail.com" style={{ color: "#1976d2", textDecoration: "underline" }}>
+                himanshu.inperson@gmail.com
+              </a>{" "}
+              with your questions or to confirm availability.
+            </p>
+            <p style={{ fontSize: 14, color: "#4a6071" }}>
+              Hint: thoughtful, self-reflective questions lead to deeper readings.
+            </p>
+          </section>
+
           {!isLoggedIn && (
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 16, maxWidth: 350 }}>
-              <button
-                className="profile-btn profile-btn-google-blue"
-                style={{ width: "100%" }}
-                onClick={() => signIn("google", { callbackUrl: "/services" })}
-              >
-                <img
-                  src="https://developers.google.com/identity/images/g-logo.png"
-                  alt="Google logo"
-                  className="profile-google-logo"
-                  style={{ marginRight: 8, verticalAlign: "middle", height: 20 }}
-                />
+            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 24, maxWidth: 360 }}>
+              <button className="profile-btn profile-btn-google-blue" onClick={() => openAuth("google")}>
+                <img src="https://developers.google.com/identity/images/g-logo.png" alt="" className="profile-google-logo" />
                 Continue with Google
               </button>
-              <div style={{ display: "flex", gap: 12 }}>
-                <a href="/login" style={{ flex: 1 }}>
-                  <button className="profile-btn profile-btn-outline" style={{ width: "100%" }}>
-                    Log in
-                  </button>
-                </a>
-                <a href="/signup" style={{ flex: 1 }}>
-                  <button className="profile-btn profile-btn-outline" style={{ width: "100%" }}>
-                    Sign up
-                  </button>
-                </a>
+              <div style={{ display: "flex", gap: 10 }}>
+                <button className="profile-btn profile-btn-outline" style={{ flex: 1 }} onClick={() => openAuth("login")}>
+                  Log in
+                </button>
+                <button className="profile-btn profile-btn-outline" style={{ flex: 1 }} onClick={() => openAuth("signup")}>
+                  Sign up
+                </button>
               </div>
             </div>
           )}
+
+          <p style={{ marginTop: 18, fontSize: 14, color: "#60738b" }}>
+            Already booked? <a href="/services" style={{ color: "#1976d2", textDecoration: "underline" }}>Go to Services</a> to check chat status.
+          </p>
         </HomeRow>
       </div>
     </main>
