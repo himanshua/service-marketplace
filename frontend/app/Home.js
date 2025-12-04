@@ -404,32 +404,37 @@ Believe in yourself - success is within your reach!
             )}
           </div>
           {!loggedInUser && (
-            <div className="home-auth-row">
-              <button
-                className="profile-btn profile-btn-google-blue"
-                onClick={() => signIn("google", { callbackUrl: "https://aheadterra.com/how-to-order" })}
-              >
-                <img
-                  src="https://developers.google.com/identity/images/g-logo.png"
-                  alt="Google logo"
-                  className="profile-google-logo"
-                />
-                Continue with Google
-              </button>
-              <div className="home-auth-btns">
-                <Link href="/login">
-                  <button className="profile-btn profile-btn-outline">
-                    Log in
-                  </button>
-                </Link>
-                <Link href="/signup">
-                  <button className="profile-btn profile-btn-outline">
-                    Sign up
-                  </button>
-                </Link>
-              </div>
-            </div>
+            <ul style={{ marginTop: 14, paddingLeft: 20, color: "#0b2a55", lineHeight: 1.6 }}>
+              <li>Save your Jyotishavidya questions for later replies.</li>
+              <li>Unlock the Services page and start chat instantly.</li>
+              <li>Receive Dropbox delivery updates in one dashboard.</li>
+            </ul>
           )}
+          <div className="home-auth-row">
+            <button
+              className="profile-btn profile-btn-google-blue"
+              onClick={() => signIn("google", { callbackUrl: "https://aheadterra.com/how-to-order" })}
+            >
+              <img
+                src="https://developers.google.com/identity/images/g-logo.png"
+                alt="Google logo"
+                className="profile-google-logo"
+              />
+              Continue with Google
+            </button>
+            <div className="home-auth-btns">
+              <Link href="/login">
+                <button className="profile-btn profile-btn-outline">
+                  Log in
+                </button>
+              </Link>
+              <Link href="/signup">
+                <button className="profile-btn profile-btn-outline">
+                  Sign up
+                </button>
+              </Link>
+            </div>
+          </div>
           <div className="home-social-row">
             <a
               href="https://www.fiverr.com/himanshutiwari"
