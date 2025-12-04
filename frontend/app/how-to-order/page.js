@@ -70,6 +70,30 @@ export default function HowToOrder() {
     else router.push(mode === "login" ? "/login?redirect=/services" : "/signup?redirect=/services");
   };
 
+  const AuthCta = ({ isLoggedIn, openAuth }) => (
+    <>
+      {!isLoggedIn && (
+        <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 24, maxWidth: 360 }}>
+          <button className="profile-btn profile-btn-google-blue" onClick={() => openAuth("google")}>
+            <img src="https://developers.google.com/identity/images/g-logo.png" alt="" className="profile-google-logo" />
+            Continue with Google
+          </button>
+          <div style={{ display: "flex", gap: 10 }}>
+            <button className="profile-btn profile-btn-outline" style={{ flex: 1 }} onClick={() => openAuth("login")}>
+              Log in
+            </button>
+            <button className="profile-btn profile-btn-outline" style={{ flex: 1 }} onClick={() => openAuth("signup")}>
+              Sign up
+            </button>
+          </div>
+        </div>
+      )}
+      <p style={{ marginTop: 18, fontSize: 14, color: "#60738b" }}>
+        Already booked? <a href="/services" style={{ color: "#1976d2", textDecoration: "underline" }}>Go to Services</a> to check chat status.
+      </p>
+    </>
+  );
+
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
@@ -151,26 +175,7 @@ export default function HowToOrder() {
             </ul>
           </section>
 
-          {!isLoggedIn && (
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 24, maxWidth: 360 }}>
-              <button className="profile-btn profile-btn-google-blue" onClick={() => openAuth("google")}>
-                <img src="https://developers.google.com/identity/images/g-logo.png" alt="" className="profile-google-logo" />
-                Continue with Google
-              </button>
-              <div style={{ display: "flex", gap: 10 }}>
-                <button className="profile-btn profile-btn-outline" style={{ flex: 1 }} onClick={() => openAuth("login")}>
-                  Log in
-                </button>
-                <button className="profile-btn profile-btn-outline" style={{ flex: 1 }} onClick={() => openAuth("signup")}>
-                  Sign up
-                </button>
-              </div>
-            </div>
-          )}
-
-          <p style={{ marginTop: 18, fontSize: 14, color: "#60738b" }}>
-            Already booked? <a href="/services" style={{ color: "#1976d2", textDecoration: "underline" }}>Go to Services</a> to check chat status.
-          </p>
+          <AuthCta isLoggedIn={isLoggedIn} openAuth={openAuth} />
         </HomeRow>     
 
         <HomeRow
@@ -191,11 +196,22 @@ export default function HowToOrder() {
 
         <HomeRow
           label="4. Muhurta & Life Planning"
-          imgSrc="/images/ganesha-notebook.jpg"
+          imgSrc="/images/reading.jpg"
           imgAlt="Muhurta planning"
         >
           <h2>Choose the right launch window</h2>
           <p>Outline your event, wedding, or product launch and get a shortlist of auspicious start times.</p>
+          <p>
+            Like learn{" "}
+            <a
+              href="https://komilla.com/lib-pushkara-part-two.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#1976d2", textDecoration: "underline" }}
+            >
+              Pushkara Navamsa
+            </a>
+          </p>
         </HomeRow>
 
         <HomeRow
