@@ -1042,6 +1042,64 @@ Believe in yourself - success is within your reach!
         </HomeRow>
 
         <HomeRow
+          label="Jyotisha Topics"
+          imgSrc="/images/jyotisha-topics.jpg"
+          imgAlt="Jyotisha overview"
+        >
+          <h2>
+            <a
+              href="https://barbarapijan.com/bpa/bAstrHom.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#1976d2", textDecoration: "underline" }}
+            >
+              Explore Jyotisha Topics
+            </a>
+          </h2>
+          <ul style={{ paddingLeft: 20, lineHeight: 1.6 }}>
+            <li>
+              <a href="https://barbarapijan.com/bpa/Graha/1Graha_mainpage.htm" target="_blank" rel="noopener noreferrer">
+                9 Graha = 7 classical planets plus Rahu–Ketu
+              </a>
+            </li>
+            <li>
+              <a href="https://barbarapijan.com/bpa/Rashi_Lagna/1Rashi_MainPage.htm" target="_blank" rel="noopener noreferrer">
+                12 Rashi = 12 zodiacal signs
+              </a>
+            </li>
+            <li>
+              <a href="https://barbarapijan.com/bpa/Bhava/0_Bhava_mainpage.htm" target="_blank" rel="noopener noreferrer">
+                12 Bhava = 12 houses
+              </a>
+            </li>
+            <li>
+              <a href="https://barbarapijan.com/bpa/Amsha/karaka_bhava_NamaAdhipati.htm" target="_blank" rel="noopener noreferrer">
+                Names of the 12 houses in Sanskrit and English
+              </a>
+            </li>
+            <li>
+              <a href="https://barbarapijan.com/bpa/bAstrHom.htm#twenty-seven%20nakshtras" target="_blank" rel="noopener noreferrer">
+                27 Nakshatra (lunar constellations)
+              </a>
+            </li>
+            <li>
+              <a href="https://barbarapijan.com/bpa/Graha/Chandra/Chandra_index_27_nakshatra.htm" target="_blank" rel="noopener noreferrer">
+                Chandra in 27 Nakshatra
+              </a>
+            </li>
+            <li>
+              <a href="https://barbarapijan.com/bpa/Graha/Chakra_planets.htm" target="_blank" rel="noopener noreferrer">
+                Chakra references
+              </a>
+            </li>
+            <li>
+              <a href="https://barbarapijan.com/bpa/VimshottariDasha/1VimshottariDasha_mainpage.htm" target="_blank" rel="noopener noreferrer">
+                Vimshottari Dasha Timeline
+              </a>
+            </li>
+          </ul>
+        </HomeRow>
+        <HomeRow
           imgSrc="/images/signup-reminder.jpg"
           imgAlt="Join AheadTerra"
         >

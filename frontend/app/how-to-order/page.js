@@ -100,7 +100,7 @@ export default function HowToOrder() {
         <HomeRow imgSrc="images/reading.jpg" imgAlt="How to order">
           <h1 style={{ marginBottom: 8 }}>Request your Jyotishavidya Reading</h1>
           <p style={{ color: "#385072", lineHeight: 1.6 }}>
-          Follow the steps, complete the payment, and receive your Jyotish Vidya reading through Dropbox, email, and on your dashboard/home page of your AheadTerra account.          </p>
+          Follow the steps, complete the payment, and receive your Jyotish Vidya reading through Dropbox, email, and on dashboard/home page of your AheadTerra account.          </p>
 
           <section style={{ marginTop: 18 }}>
             <h2>Required information</h2>
