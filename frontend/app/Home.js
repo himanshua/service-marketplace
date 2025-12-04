@@ -1030,6 +1030,17 @@ Believe in yourself - success is within your reach!
           </div>
         </HomeRow>
 
+        <HomeRow
+          imgSrc="/images/signup-reminder.jpg"
+          imgAlt="Join AheadTerra"
+        >
+          <h2>Ready to request your reading?</h2>
+          <p>Log in to save your birth details, track delivery dates, and message Himanshu directly.</p>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <button className="profile-btn" onClick={handlePrimaryCta}>Access Services</button>
+            <button className="profile-btn profile-btn-outline" onClick={() => handleAuth("signup")}>Create account</button>
+          </div>
+        </HomeRow>
       </div>
 
       {!loggedInUser && showSignupReminder && (
