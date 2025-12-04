@@ -80,6 +80,26 @@ export default function HowToOrder() {
           </p>
 
           <section style={{ marginTop: 18 }}>
+            <h2>Required information</h2>
+            <ul style={{ paddingLeft: 20, lineHeight: 1.7 }}>
+              <li><strong>BIRTH-DATE</strong> - format DD-MMM-YYYY - example: 24-Apr-2001</li>
+              <li><strong>delivered via email or via dropbox.com</strong></li>
+              <li>
+                <strong>BIRTH-TIME</strong> - format HH:MM please mention AM or PM * Please mention the time in am/pm AND in 24-hr format
+                (example: 8:20pm = 20:20) Yes it's redundant but using both formats helps to reduce mistakes :)) Time must be accurate to the minute.
+                Ideally, when possible, birth time should be known from an official birth certificate.
+              </li>
+              <li>
+                <strong>BIRTH-PLACE</strong> name of your city, town, or village * AND its Google coordinates (example: Bengaluru, Karnataka, India 12°59′N 77°35′E )
+              </li>
+              <li>
+                Five-to-ten questions that you would like to have answered from a Jyotisha perspective. Please take some time to compose reflective, thoughtful questions.
+                Questions should be as free of self-criticism as possible, specific, and meaningful for you.
+              </li>
+            </ul>
+          </section>
+
+          <section style={{ marginTop: 18 }}>
             <h2>Booking Checklist</h2>
             <ol style={{ paddingLeft: 20, lineHeight: 1.7 }}>
               <li><strong>Birth data packet</strong> – name, gender, DD-MMM-YYYY, exact time (AM/PM + 24 hr), birthplace + Google coordinates.</li>
@@ -107,11 +127,11 @@ export default function HowToOrder() {
             <p style={{ marginBottom: 12 }}>
               Need scheduling confirmation? Email{" "}
               <a href="mailto:himanshu.inperson@gmail.com" style={{ color: "#1976d2", textDecoration: "underline" }}>
-                himanshu.inperson@gmail.com
+                Email to Himanshu
               </a>.
             </p>
             <p style={{ fontSize: 14, color: "#4a6071" }}>
-              Inspired by BarbaraPijan.com: precise questions make for precise Jyotisha answers.
+              As per Barbara from BarbaraPijan.com: precise questions make for precise Jyotisha answers.
             </p>
           </section>
 
