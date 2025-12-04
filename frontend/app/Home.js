@@ -318,7 +318,6 @@ export default function Home() {
               Likely, most of Jan-Feb-Mar of 2026 will also be available.<br /><br />
               Please feel welcome to <a
                 href="https://aheadterra.com/how-to-order"
-                target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "#1976d2", textDecoration: "underline" }}
               >order a Jyotishavidya reading</a> at your convenience.

@@ -175,11 +175,19 @@ export default function HowToOrder() {
             </ul>
           </section>
 
+          <section style={{ marginTop: 24 }}>
+            <h2>How it works</h2>
+            <ul style={{ paddingLeft: 20, lineHeight: 1.6 }}>
+              <li>After log in you will see Services page of Himanshu, click on Start Chat button of any expert.</li>
+              <li>Type the required details above, click send, complete the payment, and your reading will be prepared and sent to you. Best Wishes!</li>
+            </ul>
+          </section>
+
           <AuthCta isLoggedIn={isLoggedIn} openAuth={openAuth} />
         </HomeRow>     
 
         <HomeRow
-          label="3. Traditional Vedic Gemstone Recommendation"
+          label="Traditional Vedic Gemstone Recommendation"
           imgSrc="/images/reading.jpg"
           imgAlt="Navaratna gemstones"
         >
@@ -196,7 +204,7 @@ export default function HowToOrder() {
         </HomeRow>
 
         <HomeRow
-          label="4. Muhurta & Life Planning"
+          label="Muhurta & Life Planning"
           imgSrc="/images/reading.jpg"
           imgAlt="Muhurta planning"
         >
@@ -217,7 +225,7 @@ export default function HowToOrder() {
         </HomeRow>
 
         <HomeRow
-          label="5. Relationship Compatibility"
+          label="Relationship Compatibility"
           imgSrc="/images/reading.jpg"
           imgAlt="Compatibility charts"
         >
