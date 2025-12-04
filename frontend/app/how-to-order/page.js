@@ -171,111 +171,11 @@ export default function HowToOrder() {
           <p style={{ marginTop: 18, fontSize: 14, color: "#60738b" }}>
             Already booked? <a href="/services" style={{ color: "#1976d2", textDecoration: "underline" }}>Go to Services</a> to check chat status.
           </p>
-        </HomeRow>
-
-        <HomeRow imgSrc="/images/ganesha-notebook.jpg" imgAlt="How to order">
-          <h1 style={{ marginBottom: 8 }}>Request your Jyotishavidya Reading</h1>
-          <p style={{ color: "#385072", lineHeight: 1.6 }}>
-          Follow the steps, complete the payment, and receive your Jyotish Vidya reading through Dropbox, email, and on your dashboard/home page of your AheadTerra account.          </p>
-
-          <section style={{ marginTop: 18 }}>
-            <h2>Required information</h2>
-            <ul style={{ paddingLeft: 20, lineHeight: 1.7 }}>
-              <li><strong>BIRTH-DATE</strong> - format DD-MMM-YYYY - example: 24-Apr-2001</li>
-              <li>
-                <strong>BIRTH-TIME</strong> - format HH:MM please mention AM or PM * Please mention the time in am/pm AND in 24-hr format
-                (example: 8:20pm = 20:20) Yes it's redundant but using both formats helps to reduce mistakes :)) Time must be accurate to the minute.
-                Ideally, when possible, birth time should be known from an official birth certificate.
-              </li>
-              <li>
-                <strong>BIRTH-PLACE</strong> name of your city, town, or village * AND its Google coordinates (example: Bengaluru, Karnataka, India 12°59′N 77°35′E )
-              </li>
-              <li>
-                Five-to-ten questions that you would like to have answered from a Jyotisha perspective. Please take some time to compose reflective, thoughtful questions.
-                Questions should be as free of self-criticism as possible, specific, and meaningful for you.
-              </li>
-            </ul>
-          </section>
-
-          <section style={{ marginTop: 18 }}>
-            <h2>Booking Checklist</h2>
-            <ol style={{ paddingLeft: 20, lineHeight: 1.7 }}>
-              <li><strong>Birth details</strong> – name, gender, DD-MMM-YYYY, exact time (AM/PM + 24 hr), birthplace + Google coordinates.</li>
-              <li><strong>Life questions</strong> – 5–10 reflective questions covering relationships, vocation, health, dharma, or travel decisions.</li>
-              <li><strong>Preferred delivery style</strong> – audio (MP3) or video plus PDF charts.</li>
-              <li><strong>Dropbox, email or download from your AheadTerra Dashboard</strong> – address where you want the final link shared.</li>
-            </ol>
-          </section>
-
-          <section style={{ marginTop: 22 }}>
-            <h2>Payment & Delivery</h2>
-            <ul style={{ paddingLeft: 20, lineHeight: 1.6 }}>
-              <li>Payments are processed via <a href="https://www.fiverr.com/himanshutiwari" target="_blank" rel="noopener noreferrer" style={{ color: "#1976d2", textDecoration: "underline" }}>Fiverr</a> or custom PayPal invoice (details shared in chat).</li>
-              <li>Turnaround ≈ 2–3 business days unless otherwise noted in the Services calendar.</li>
-              <li>Dropbox folder includes MP3/video lecture + Vimshottari dasha timeline PDF.</li>
-              <li>One follow-up clarification is included (email or short MP3).</li>
-            </ul>
-          </section>
-
-          <section style={{ marginTop: 22, border: "1px solid #d9e8ff", borderRadius: 12, padding: 18, background: "#f4f8ff" }}>
-            <h3 style={{ marginBottom: 10, color: "#0d366e" }}>Before you send questions</h3>
-            <p style={{ marginBottom: 8 }}>
-              Review the Jyotisha etiquette: no blame, no self-criticism—state the situation, the decision window, and what outcome you hope to understand.
-            </p>
-            <p style={{ marginBottom: 12 }}>
-              Need scheduling confirmation? {" "}
-              <a href="mailto:himanshu.inperson@gmail.com" style={{ color: "#1976d2", textDecoration: "underline" }}>
-                Email to Himanshu
-              </a>.
-            </p>
-            <p style={{ fontSize: 14, color: "#4a6071" }}>
-              As per Barbara from{" "}
-              <a
-                href="https://barbarapijan.com/bpa/payment_Jyotisha_services.htm"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#1976d2", textDecoration: "underline" }}
-              >
-                BarbaraPijan.com
-              </a>
-              : precise questions make for precise Jyotisha answers.
-            </p>
-          </section>
-
-          <section style={{ marginTop: 24 }}>
-            <h2>After you order</h2>
-            <ul style={{ paddingLeft: 20, lineHeight: 1.6 }}>
-              <li>You’ll receive a confirmation in chat plus the estimated delivery window.</li>
-              <li>Dropbox notification arrives when the lecture + PDF are uploaded.</li>
-              <li>Use the same thread for your one clarification question within 14 days.</li>
-            </ul>
-          </section>
-
-          {!isLoggedIn && (
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 24, maxWidth: 360 }}>
-              <button className="profile-btn profile-btn-google-blue" onClick={() => openAuth("google")}>
-                <img src="https://developers.google.com/identity/images/g-logo.png" alt="" className="profile-google-logo" />
-                Continue with Google
-              </button>
-              <div style={{ display: "flex", gap: 10 }}>
-                <button className="profile-btn profile-btn-outline" style={{ flex: 1 }} onClick={() => openAuth("login")}>
-                  Log in
-                </button>
-                <button className="profile-btn profile-btn-outline" style={{ flex: 1 }} onClick={() => openAuth("signup")}>
-                  Sign up
-                </button>
-              </div>
-            </div>
-          )}
-
-          <p style={{ marginTop: 18, fontSize: 14, color: "#60738b" }}>
-            Already booked? <a href="/services" style={{ color: "#1976d2", textDecoration: "underline" }}>Go to Services</a> to check chat status.
-          </p>
-        </HomeRow>
+        </HomeRow>     
 
         <HomeRow
           label="3. Traditional Vedic Gemstone Recommendation"
-          imgSrc="/images/ganesha-notebook.jpg"
+          imgSrc="/images/reading.jpg"
           imgAlt="Navaratna gemstones"
         >
           <h2>Gemstone & Remedial Guidance</h2>
@@ -300,7 +200,7 @@ export default function HowToOrder() {
 
         <HomeRow
           label="5. Relationship Compatibility"
-          imgSrc="/images/ganesha-notebook.jpg"
+          imgSrc="/images/reading.jpg"
           imgAlt="Compatibility charts"
         >
           <h2>Synastry & Guna Milan brief</h2>
