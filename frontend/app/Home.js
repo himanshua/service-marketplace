@@ -939,7 +939,7 @@ Believe in yourself - success is within your reach!
             width: "100%",
             maxWidth: 360,
             height: 340,
-            maxHeight: 240,
+            maxHeight: 340,
             objectFit: "cover",
             borderRadius: "12px",
             background: "#fff",
