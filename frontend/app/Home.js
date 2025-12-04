@@ -938,7 +938,7 @@ Believe in yourself - success is within your reach!
           imgStyle={{
             width: "100%",
             maxWidth: 360,
-            height: 240,
+            height: 340,
             maxHeight: 240,
             objectFit: "cover",
             borderRadius: "12px",
