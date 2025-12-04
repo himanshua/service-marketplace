@@ -984,6 +984,17 @@ Believe in yourself - success is within your reach!
               “A trip to Mars normally takes about 6–9 months. Future human missions are expected in the late 2030s or early 2040s, and they will take the same travel time. The good news is that human travel to Mars is becoming more real every year. Rockets are getting stronger, life-support systems are improving, and both NASA and SpaceX are making fast progress. For the first time in history, humans have a real chance to walk on Mars in our lifetime.”
             </strong>
           </p>
+          <p style={{ marginTop: 8, color: "#0d366e" }}>
+            Follow the breakthroughs at{" "}
+            <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" style={{ color: "#1976d2", textDecoration: "underline" }}>
+              NASA
+            </a>{" "}
+            and{" "}
+            <a href="https://www.spacex.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#1976d2", textDecoration: "underline" }}>
+              SpaceX
+            </a>{" "}
+            as they bring Mars within reach.
+          </p>
           <div className="best-seller-gallery">
             <figure className="best-seller-card">
               <a
