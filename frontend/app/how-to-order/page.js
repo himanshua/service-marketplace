@@ -192,6 +192,7 @@ export default function HowToOrder() {
             <li>Explains why the remedy supports your current karmic cycle.</li>
             <li>Includes wear schedule and purification ritual.</li>
           </ul>
+          <AuthCta isLoggedIn={isLoggedIn} openAuth={openAuth} />
         </HomeRow>
 
         <HomeRow
@@ -212,6 +213,7 @@ export default function HowToOrder() {
               Pushkara Navamsa
             </a>
           </p>
+          <AuthCta isLoggedIn={isLoggedIn} openAuth={openAuth} />
         </HomeRow>
 
         <HomeRow
@@ -221,6 +223,7 @@ export default function HowToOrder() {
         >
           <h2>Synastry & Guna Milan brief</h2>
           <p>Upload both birth packets to receive a combined PDF + MP3 covering guna scores, dashā overlaps, and remedial advice.</p>
+          <AuthCta isLoggedIn={isLoggedIn} openAuth={openAuth} />
         </HomeRow>
       </div>
     </main>
