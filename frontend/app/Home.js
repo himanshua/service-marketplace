@@ -788,7 +788,8 @@ Believe in yourself - success is within your reach!
          
           <p style={{ textAlign: "right" }}>...</p>
         </HomeRow>
-         <HomeRow
+                // insert after the “Who is Himanshu Tiwari?” row
+        <HomeRow
           imgSrc="/images/signup-reminder.jpg"
           imgAlt="Join AheadTerra"
         >
@@ -799,7 +800,6 @@ Believe in yourself - success is within your reach!
             <button className="profile-btn profile-btn-outline" onClick={() => handleAuth("signup")}>Create account</button>
           </div>
         </HomeRow>
-      </div>
         <HomeRow
           label="How to order Jyotishavidya Readings?"
           imgSrc="/images/reading.jpg"
