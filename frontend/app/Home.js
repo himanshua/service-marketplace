@@ -1100,6 +1100,51 @@ Believe in yourself - success is within your reach!
           </ul>
         </HomeRow>
         <HomeRow
+          label="27 Nakshatra"
+          imgSrc="/images/nakshatra-wheel.png"
+          imgAlt="Lunar houses"
+        >
+          <h2>
+            <a
+              href="https://barbarapijan.com/bpa/bAstrHom.htm#twenty-seven%20nakshtras"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#1976d2", textDecoration: "underline" }}
+            >
+              27 Nakshatra — lunar houses / lunar constellations
+            </a>
+          </h2>
+          <ol style={{ paddingLeft: 20, lineHeight: 1.6 }}>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/01ashvini.htm" target="_blank" rel="noopener noreferrer">Aśvini – Dasra</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/02bharani.htm" target="_blank" rel="noopener noreferrer">Bharani – Yamuna</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/03krittika.htm" target="_blank" rel="noopener noreferrer">Kṛttikā – Pleiades</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/04rohini.htm" target="_blank" rel="noopener noreferrer">Rohiṇī – Aldebaran</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/05mrigashira.htm" target="_blank" rel="noopener noreferrer">Mrigashiras – Invaka</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/06ardra.htm" target="_blank" rel="noopener noreferrer">Arudra – Betelgeuse</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/07punarvasu.htm" target="_blank" rel="noopener noreferrer">Punarvasu – Yamaka</a></li>
+            <li><a href="https://aheadterra.com/17" target="_self" rel="noopener noreferrer">Pushya – Sidhya - Ever Progressing</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/09azlesa.htm" target="_blank" rel="noopener noreferrer">Aśleṣa – Naga</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/10magha.htm" target="_blank" rel="noopener noreferrer">Magha – Regulus</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/11purvaphalguni.htm" target="_blank" rel="noopener noreferrer">Pūrvaphalgunī – Yonī</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/12uttaraphalguni.htm" target="_blank" rel="noopener noreferrer">Uttaraphalgunī – Aryaman</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/13hasta.htm" target="_blank" rel="noopener noreferrer">Hasta – Savitri</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/14chitra.htm" target="_blank" rel="noopener noreferrer">Chitra – Spica</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/15swati.htm" target="_blank" rel="noopener noreferrer">Svati – Arcturus</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/16visaka.htm" target="_blank" rel="noopener noreferrer">Viśākha – Rādhā</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/17anuradha.htm" target="_blank" rel="noopener noreferrer">Anuradha – Maitreya</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/18jyestha.htm" target="_blank" rel="noopener noreferrer">Jyeṣṭha – Antares</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/19mula.htm" target="_blank" rel="noopener noreferrer">Mula – Nirṛti</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/20purvazadha.htm" target="_blank" rel="noopener noreferrer">Pūrvāṣāḍhā – Apah</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/21uttarazadha.htm" target="_blank" rel="noopener noreferrer">Uttarāṣāḍha – Vaishva</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/22shravana.htm" target="_blank" rel="noopener noreferrer">Śrāvaṇa – Hari</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/23dhaniztha.htm" target="_blank" rel="noopener noreferrer">Dhaniṣṭha – Delphinus</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/24shatataraka.htm" target="_blank" rel="noopener noreferrer">Sadachbia – Varuna</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/25purvabhadra.htm" target="_blank" rel="noopener noreferrer">Pūrvābhādra – Pegasus</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/26uttarabhadra.htm" target="_blank" rel="noopener noreferrer">Uttarabhadra – Andromeda</a></li>
+            <li><a href="https://barbarapijan.com/bpa/Nakshatra_radical/27revati.htm" target="_blank" rel="noopener noreferrer">Revatī – Pushana</a></li>
+          </ol>
+        </HomeRow>
+        <HomeRow
           imgSrc="/images/signup-reminder.jpg"
           imgAlt="Join AheadTerra"
         >
