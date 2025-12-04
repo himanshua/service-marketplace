@@ -789,7 +789,6 @@ Believe in yourself - success is within your reach!
           <p style={{ textAlign: "right" }}>...</p>
         </HomeRow>
 
-                // insert after the “Who is Himanshu Tiwari?” row
         <HomeRow
           imgSrc="/images/signup-reminder.jpg"
           imgAlt="Join AheadTerra"
