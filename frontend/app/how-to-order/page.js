@@ -129,7 +129,16 @@ export default function HowToOrder() {
               </a>.
             </p>
             <p style={{ fontSize: 14, color: "#4a6071" }}>
-              As per Barbara from BarbaraPijan.com: precise questions make for precise Jyotisha answers.
+              As per Barbara from{" "}
+              <a
+                href="https://barbarapijan.com/bpa/payment_Jyotisha_services.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#1976d2", textDecoration: "underline" }}
+              >
+                BarbaraPijan.com
+              </a>
+              : precise questions make for precise Jyotisha answers.
             </p>
           </section>
 
@@ -214,13 +223,22 @@ export default function HowToOrder() {
               Review the Jyotisha etiquette: no blame, no self-criticism—state the situation, the decision window, and what outcome you hope to understand.
             </p>
             <p style={{ marginBottom: 12 }}>
-              Need scheduling confirmation? Email{" "}
+              Need scheduling confirmation? {" "}
               <a href="mailto:himanshu.inperson@gmail.com" style={{ color: "#1976d2", textDecoration: "underline" }}>
                 Email to Himanshu
               </a>.
             </p>
             <p style={{ fontSize: 14, color: "#4a6071" }}>
-              As per Barbara from BarbaraPijan.com: precise questions make for precise Jyotisha answers.
+              As per Barbara from{" "}
+              <a
+                href="https://barbarapijan.com/bpa/payment_Jyotisha_services.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#1976d2", textDecoration: "underline" }}
+              >
+                BarbaraPijan.com
+              </a>
+              : precise questions make for precise Jyotisha answers.
             </p>
           </section>
 
