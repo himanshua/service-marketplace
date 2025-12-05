@@ -548,11 +548,11 @@ Believe in yourself - success is within your reach!
           <p>Houses 1 to 12</p>
           <ol>
             <li>
-              <a href="https://barbarapijan.com/bpa/Bhava/1tanu_bhava.htm" target="_blank" rel="noopener noreferrer">
+              <a href="https://aheadterra.com/10" target="_blank" rel="noopener noreferrer">
                 1st House – Lagna / Tanu Bhava
               </a>
-              – Governs the body and self.
-            </li>
+              – Governs the body and self. It shows your identity, appearance, and overall life path. 
+              </li>
             <li>
               <a href="https://barbarapijan.com/bpa/Bhava/2dhana_bhava.htm" target="_blank" rel="noopener noreferrer">
                 2nd House – Dhana Bhava
