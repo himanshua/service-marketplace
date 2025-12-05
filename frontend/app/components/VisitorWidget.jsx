@@ -1,19 +1,35 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const mockVisitors = [
-  { id: "mock-us", country: "United States", countryCode: "US", city: "Washington, D.C." },
-  { id: "mock-in", country: "India", countryCode: "IN", city: "New Delhi" },
-];
+const STORAGE_KEY = "aheadterra_recent_visitors";
+const LIMIT = 10;
+
+const fetchVisitor = async () => {
+  const res = await fetch("https://ipapi.co/json/");
+  if (!res.ok) throw new Error("geo lookup failed");
+  const data = await res.json();
+  return {
+    id: `visit-${Date.now()}`,
+    country: data.country_name || "Unknown",
+    countryCode: data.country || "",
+    city: data.city || "",
+  };
+};
 
 export default function VisitorWidget() {
   const [visitors, setVisitors] = useState([]);
 
   useEffect(() => {
-    fetch("/api/visitors?limit=10")
-      .then((res) => (res.ok ? res.json() : Promise.reject()))
-      .then((data) => setVisitors(data.visitors?.slice(0, 10) || mockVisitors))
-      .catch(() => setVisitors(mockVisitors));
+    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    setVisitors(stored);
+
+    fetchVisitor()
+      .then((current) => {
+        const updated = [current, ...stored].slice(0, LIMIT);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+        setVisitors(updated);
+      })
+      .catch(() => {});
   }, []);
 
   if (!visitors.length) return null;
@@ -27,14 +43,14 @@ export default function VisitorWidget() {
             {visit.countryCode ? (
               <img
                 src={`https://flagcdn.com/32x24/${visit.countryCode.toLowerCase()}.png`}
-                alt={visit.country || "Flag"}
+                alt={visit.country}
                 style={{ width: 24, height: 18, marginRight: 8, borderRadius: 4, boxShadow: "0 0 4px rgba(0,0,0,0.2)" }}
               />
             ) : (
               <div style={{ width: 24, height: 18, marginRight: 8, borderRadius: 4, background: "#e0e0e0" }} />
             )}
             <div style={{ fontSize: 14 }}>
-              <strong>{visit.country || "Unknown"}</strong>
+              <strong>{visit.country}</strong>
               <div style={{ fontSize: 12, color: "#6b7a8c" }}>{visit.city || "—"}</div>
             </div>
           </li>
