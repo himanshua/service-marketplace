@@ -33,7 +33,7 @@ export default function Page17() {
               style={{
                 width: "100%",
                 maxWidth: 320,
-                height: 220,
+                height: 320,
                 objectFit: "cover",
                 borderRadius: 12,
                 boxShadow: "0 12px 26px rgba(0,0,0,0.18)",
