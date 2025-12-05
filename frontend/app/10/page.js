@@ -1,6 +1,5 @@
 import "../globals.css";
 import "../profile/profile.css";
-import HowToOrderPage from "../how-to-order/page";
 
 function HomeRow({ imgSrc, imgAlt, children }) {
   return (
@@ -44,30 +43,17 @@ export default function Page10() {
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
-        <HowToOrderPage />
-        <HomeRow imgSrc="/images/lagna-wheel.jpg" imgAlt="Lagna / Tanu Bhava">
+        <HomeRow imgSrc="/images/First.png" imgAlt="Lagna / Tanu Bhava">
           <h1 style={{ marginBottom: 12 }}>1st House – Lagna / Tanu Bhava</h1>
           <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
-            The First House describes your embodied identity: vitality, complexion, mannerisms, and the way life chapters begin. It is the point of sunrise in
-            every chart and sets the tone for how you meet the world.
+            The First House describes your embodied identity: vitality, complexion, mannerisms, and the way life chapters begin. It is the point of sunrise in every chart and sets the tone for how you meet the world.
           </p>
           <ul style={{ paddingLeft: 20, lineHeight: 1.6, color: "#24334a" }}>
-            <li>
-              <strong>Keywords:</strong> physical body, character, courage, head, personality imprint.
-            </li>
-            <li>
-              <strong>Lagna lord strength:</strong> wellness, stamina, charisma, and resilience track directly with how dignified the Lagna lord is across all varga.
-            </li>
-            <li>
-              <strong>Aspects & yogas:</strong> benefics bring confidence and vitality, while malefic pressure can trigger self-doubt, inflammation, or restless
-              identity shifts.
-            </li>
-            <li>
-              <strong>Career hints:</strong> planets stationed here often mark lifelong vocations because the first house constantly broadcasts their themes.
-            </li>
-            <li>
-              <strong>Remedies:</strong> support the Lagna lord via mantra, color therapy, gemstones, and daily routines that honor the planet’s tattva.
-            </li>
+            <li><strong>Keywords:</strong> physical body, character, courage, head, personality imprint.</li>
+            <li><strong>Lagna lord strength:</strong> wellness, stamina, charisma, and resilience track directly with how dignified the Lagna lord is across all varga.</li>
+            <li><strong>Aspects & yogas:</strong> benefics bring confidence and vitality, while malefic pressure can trigger self-doubt, inflammation, or restless identity shifts.</li>
+            <li><strong>Career hints:</strong> planets stationed here often mark lifelong vocations because the first house constantly broadcasts their themes.</li>
+            <li><strong>Remedies:</strong> support the Lagna lord via mantra, color therapy, gemstones, and daily routines that honor the planet’s tattva.</li>
           </ul>
           <p style={{ marginTop: 18, color: "#60738b" }}>
             Study additional interpretations at{" "}
