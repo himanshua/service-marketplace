@@ -22,7 +22,7 @@ export default function Page10() {
               display: "flex",
               flexDirection: "column",
               gap: 16,
-              justifyContent: "center",
+              justifyContent: "flex-start", // was "center"
             }}
           >
             <img
@@ -62,7 +62,7 @@ export default function Page10() {
               As Lord Rama has Soft Cancer rising Swa/First Bhava in his natal chart. With Moon in own sign with exalted Jupiter in his Swa/First Bhavs.
               The Lagna lord (Ascendant ruler) is a key indicator of your physical constitution, personality imprint, and overall life path.
               A strong Lagna lord across varga charts often signals robust health, charisma, and resilience.
-Lagna or the First House shows success — it means chal paṛnā, the ability to rise and move forward in life. The planet placed here and ruler of this house will help native to move forwaed!            </p>
+              Lagna or the First House shows success — it means chal paṛnā, the ability to rise and move forward in life. The planet placed here and ruler of this house will help native to move forwaed!            </p>
             <figure style={{ margin: "0 0 18px 0", textAlign: "center" }}>
               <img
                 src="/images/Rama.JPG"
