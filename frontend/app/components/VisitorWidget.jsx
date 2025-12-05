@@ -40,7 +40,7 @@ export default function VisitorWidget() {
       style={{
         position: "fixed",
         right: 24,
-        bottom: 140, // lifted to avoid overlapping signup reminder
+        bottom: 240, // lifted to avoid overlapping signup reminder
         width: 260,
         padding: "16px 18px 14px 18px",
         borderRadius: 16,
