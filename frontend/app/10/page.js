@@ -44,7 +44,9 @@ export default function Page10() {
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
         <HomeRow imgSrc="/images/First.png" imgAlt="Lagna / Tanu Bhava">
-          <h1 style={{ marginBottom: 12 }}>1st House – Lagna / Tanu Bhava</h1>
+          <h1 style={{ marginBottom: 12 }}>1st House – Lagna / Tanu Bhava / Swa Bhava / Identity / Who you truly are?
+
+          </h1>
           <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
             The First House describes your embodied identity: vitality, complexion, mannerisms, and the way life chapters begin. It is the point of sunrise in every chart and sets the tone for how you meet the world.
           </p>

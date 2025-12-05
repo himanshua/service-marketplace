@@ -7,9 +7,12 @@ function HomeRow({ imgSrc, imgAlt, children }) {
       style={{
         display: "flex",
         flexWrap: "wrap",
-        borderBottom: "2px solid #bdbdbd",
+        border: "2px solid #dfe4f0",
+        borderRadius: 16,
+        overflow: "hidden",
         background: "#fff",
         minHeight: 260,
+        marginBottom: 18,
       }}
     >
       <div
@@ -20,6 +23,8 @@ function HomeRow({ imgSrc, imgAlt, children }) {
           flexDirection: "column",
           justifyContent: "flex-start",
           gap: 16,
+          borderRight: "2px solid #dfe4f0",
+          background: "#f9fbff",
         }}
       >
         <img
@@ -34,7 +39,16 @@ function HomeRow({ imgSrc, imgAlt, children }) {
           }}
         />
       </div>
-      <div style={{ flex: "1 1 320px", padding: "24px 32px" }}>{children}</div>
+      <div
+        style={{
+          flex: "1 1 320px",
+          padding: "24px 32px",
+          borderLeft: "2px solid #dfe4f0",
+          background: "#fff",
+        }}
+      >
+        {children}
+      </div>
     </section>
   );
 }
