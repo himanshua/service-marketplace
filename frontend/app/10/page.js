@@ -55,14 +55,14 @@ export default function Page10() {
             <p style={{ color: "#4a6071", lineHeight: 1.7, marginBottom: 16 }}>
               The First House describes your embodied identity: vitality, complexion, mannerisms, and the way life chapters begin.
               It is the point of sunrise in every chart and sets the tone for how you meet the world. Or how your circle perceives you at first glance.
-              Like Lord Rama is seen as very sift swabhav (nature) in Ramayana.
+              Like Lord Rama is seen as very soft swabhav (nature) in Ramayana.
               This line is from Goswami Tulsidas's Ramcharitmanas.
-              Meaning: Lord Ram's swabhav (inherent nature) is extremely gentle, compassionate, and tender.
+              Meaning: Lord Ram's swa-bhav (inherent nature) is extremely gentle, compassionate, and tender.
               This line describes how Ram's natural disposition and temperament are soft, kind, and merciful - that his swabhav is free from harshness or cruelty and is filled with immense love and gentleness towards his devotees.
               As Lord Rama has Soft Cancer rising Swa/First Bhava in his natal chart. With Moon in own sign with exalted Jupiter in his Swa/First Bhavs.
               The Lagna lord (Ascendant ruler) is a key indicator of your physical constitution, personality imprint, and overall life path.
               A strong Lagna lord across varga charts often signals robust health, charisma, and resilience.
-            </p>
+Lagna or the First House shows success — it means chal paṛnā, the ability to rise and move forward in life. The planet placed here and ruler of this house will help native to move forwaed!            </p>
             <figure style={{ margin: "0 0 18px 0", textAlign: "center" }}>
               <img
                 src="/images/Rama.JPG"
