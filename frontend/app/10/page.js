@@ -30,7 +30,7 @@ export default function Page10() {
               Embodied identity, vitality, complexion, and the first impression you cast.
             </p>
             <img
-              src="/images/lagna-wheel.jpg"
+              src="/images/First.png"
               alt="Lagna / Tanu Bhava"
               style={{
                 width: "100%",
