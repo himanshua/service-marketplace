@@ -25,10 +25,6 @@ export default function Page10() {
               justifyContent: "center",
             }}
           >
-            <h2 style={{ color: "#0d47a1", margin: 0 }}>1st House – Lagna / Tanu Bhava</h2>
-            <p style={{ margin: 0, color: "#555" }}>
-              Embodied identity, vitality, complexion, and the first impression you cast.
-            </p>
             <img
               src="/images/First.png"
               alt="Lagna / Tanu Bhava"
@@ -41,6 +37,10 @@ export default function Page10() {
                 boxShadow: "0 12px 26px rgba(0,0,0,0.18)",
               }}
             />
+            <h2 style={{ color: "#0d47a1", margin: 0 }}>1st House – Lagna / Tanu Bhava</h2>
+            <p style={{ margin: 0, color: "#555" }}>
+              Embodied identity, vitality, complexion, and the first impression you cast.
+            </p>
           </div>
           <div
             className="home-content-col"
