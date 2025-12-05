@@ -62,12 +62,7 @@ export default function Page17() {
             Ravana Samhitha – Results of Planets in Pushyami (Pushya Nakshatra)
           </h1>
           <p style={{ marginBottom: 18, color: "#465a72", lineHeight: 1.6 }}>
-            Source:{" "}
-            Pushya is ruled by Saturn, lord of Pushya is Jupiter and symbolized by the udder of a cow, representing nourishment and growth. It is considered one of the most auspicious nakshatras in Vedic astrology. The following are the results of planets placed in Pushyami according to the Ravana Samhitha:
-            It is associated with nurturing, prosperity, and spiritual growth.
-            It is best nakshatra in 27 nakshatras. People born under this nakshatra are believed to be caring, compassionate, and wise.
-            However, marriage and relationships may face challenges.
-            But overall, Pushya is seen as a favorable nakshatra that brings positive outcomes in various aspects of life.
+            Source: Pushya is ruled by Saturn, lord of Pushya is Jupiter and symbolized by the udder of a cow, representing nourishment and growth. It is considered one of the most auspicious nakshatras in Vedic astrology. The following are the results of planets placed in Pushyami according to the Ravana Samhitha: It is associated with nurturing, prosperity, and spiritual growth. It is best nakshatra in 27 nakshatras. People born under this nakshatra are believed to be caring, compassionate, and wise. However, marriage and relationships may face challenges. But overall, Pushya is seen as a favorable nakshatra that brings positive outcomes in various aspects of life.
           </p>
           <ul style={{ paddingLeft: 20, lineHeight: 1.6 }}>
             <li><strong>Sun in Pushyami</strong> – good character, vāta ailments, steady mentality, illness to spouse, misfortune via spouse.</li>
