@@ -1,14 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
 
+const mockVisitors = [
+  { id: "mock-us", country: "United States", countryCode: "US", city: "Washington, D.C." },
+  { id: "mock-in", country: "India", countryCode: "IN", city: "New Delhi" },
+];
+
 export default function VisitorWidget() {
   const [visitors, setVisitors] = useState([]);
 
   useEffect(() => {
     fetch("/api/visitors?limit=10")
-      .then((res) => res.json())
-      .then((data) => setVisitors(data.visitors || []))
-      .catch(() => {});
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((data) => setVisitors(data.visitors?.slice(0, 10) || mockVisitors))
+      .catch(() => setVisitors(mockVisitors));
   }, []);
 
   if (!visitors.length) return null;
@@ -19,7 +24,15 @@ export default function VisitorWidget() {
       <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
         {visitors.map((visit) => (
           <li key={visit.id} style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
-            <img src={`https://flagcdn.com/32x24/${visit.countryCode?.toLowerCase()}.png`} alt={visit.country || "Flag"} style={{ width: 24, height: 18, marginRight: 8, borderRadius: 4, boxShadow: "0 0 4px rgba(0,0,0,0.2)" }} />
+            {visit.countryCode ? (
+              <img
+                src={`https://flagcdn.com/32x24/${visit.countryCode.toLowerCase()}.png`}
+                alt={visit.country || "Flag"}
+                style={{ width: 24, height: 18, marginRight: 8, borderRadius: 4, boxShadow: "0 0 4px rgba(0,0,0,0.2)" }}
+              />
+            ) : (
+              <div style={{ width: 24, height: 18, marginRight: 8, borderRadius: 4, background: "#e0e0e0" }} />
+            )}
             <div style={{ fontSize: 14 }}>
               <strong>{visit.country || "Unknown"}</strong>
               <div style={{ fontSize: 12, color: "#6b7a8c" }}>{visit.city || "—"}</div>
