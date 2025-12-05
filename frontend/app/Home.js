@@ -549,9 +549,10 @@ Believe in yourself - success is within your reach!
           <ol>
             <li>
               <a href="https://aheadterra.com/10" target="_blank" rel="noopener noreferrer">
-                1st House – Lagna / Tanu Bhava
+                1st House – Lagna / Tanu Bhava - The First House is about your physical self and your inner self.
+
               </a>
-              – Governs the body and self. It shows your identity, appearance, and overall life path. 
+              – It shows your identity — what you are inside and who you are to others. It explains your natural look, your personality, how you begin things, and the direction your life wants to go.
               </li>
             <li>
               <a href="https://barbarapijan.com/bpa/Bhava/2dhana_bhava.htm" target="_blank" rel="noopener noreferrer">
