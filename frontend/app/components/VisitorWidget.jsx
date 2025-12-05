@@ -18,6 +18,7 @@ const fetchVisitor = async () => {
 
 export default function VisitorWidget() {
   const [visitors, setVisitors] = useState([]);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
@@ -32,10 +33,38 @@ export default function VisitorWidget() {
       .catch(() => {});
   }, []);
 
-  if (!visitors.length) return null;
+  if (!visible || !visitors.length) return null;
 
   return (
-    <aside style={{ position: "fixed", right: 24, bottom: 24, width: 260, padding: "16px 18px", borderRadius: 16, background: "#fff", boxShadow: "0 18px 40px rgba(0,0,0,0.15)", zIndex: 2000 }}>
+    <aside
+      style={{
+        position: "fixed",
+        right: 24,
+        bottom: 140, // lifted to avoid overlapping signup reminder
+        width: 260,
+        padding: "16px 18px 14px 18px",
+        borderRadius: 16,
+        background: "#fff",
+        boxShadow: "0 18px 40px rgba(0,0,0,0.15)",
+        zIndex: 2000,
+      }}
+    >
+      <button
+        onClick={() => setVisible(false)}
+        aria-label="Close visitor widget"
+        style={{
+          position: "absolute",
+          top: 10,
+          right: 12,
+          border: "none",
+          background: "transparent",
+          fontSize: 16,
+          cursor: "pointer",
+          color: "#7a8797",
+        }}
+      >
+        ×
+      </button>
       <h4 style={{ margin: "0 0 12px 0", color: "#0c3c7a" }}>Recent visitors</h4>
       <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
         {visitors.map((visit) => (
