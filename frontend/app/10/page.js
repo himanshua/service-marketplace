@@ -143,6 +143,42 @@ export default function Page10() {
                   }}
                 />
               </div>
+              <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                <iframe
+                  src="https://www.youtube.com/embed/528FNZne0O8"
+                  title="सुतीक्ष्ण मुनि कृत श्रीराम-स्तुति (sutīkṣṇa muni kr̥ta śrīrāma-stuti) #RamcharitManas"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: 12,
+                    boxShadow: "0 12px 26px rgba(0,0,0,0.18)",
+                  }}
+                />
+              </div>
+               <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                <iframe
+                  src="https://www.youtube.com/embed/AERqMlH3ddU"
+                  title="अत्रि मुनि कृत श्रीराम स्तुति (atri muni kṛta śrīrāma stuti) #RamcharitManas"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: 12,
+                    boxShadow: "0 12px 26px rgba(0,0,0,0.18)",
+                  }}
+                />
+              </div>
             </div>
           </div>
         </section>
