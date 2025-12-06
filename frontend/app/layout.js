@@ -51,15 +51,11 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64" />
       </head>
       <body>
-        <ClientProvider>
-          <SessionSyncProvider>
-            <NavBar />
-            <main style={{ minHeight: "100vh" }}>{children}</main>
-          </SessionSyncProvider>
-        </ClientProvider>
+        <SessionSyncProvider>
+          <ClientProvider>{children}</ClientProvider>
+        </SessionSyncProvider>
         <ClientVisitLogger />
         <VisitorWidget />
-        <Analytics />
       </body>
     </html>
   );
