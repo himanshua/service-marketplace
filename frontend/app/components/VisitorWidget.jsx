@@ -16,6 +16,9 @@ const fetchVisitor = async () => {
   };
 };
 
+const makeLocationKey = (visit) =>
+  `${(visit.city || "").toLowerCase()}-${(visit.countryCode || visit.country || "").toLowerCase()}`;
+
 export default function VisitorWidget() {
   const [visitors, setVisitors] = useState([]);
   const [visible, setVisible] = useState(true);
@@ -26,6 +29,11 @@ export default function VisitorWidget() {
 
     fetchVisitor()
       .then((current) => {
+        const locationKey = makeLocationKey(current);
+        const hasLocation = stored.some((visit) => makeLocationKey(visit) === locationKey);
+
+        if (hasLocation) return; // skip duplicates from same place
+
         const updated = [current, ...stored].slice(0, LIMIT);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
         setVisitors(updated);
