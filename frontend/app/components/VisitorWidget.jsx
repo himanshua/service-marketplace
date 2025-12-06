@@ -1,55 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "aheadterra_recent_visitors";
-const LIMIT = 10;
-
-const fetchVisitor = async () => {
-  const res = await fetch("https://ipapi.co/json/");
-  if (!res.ok) throw new Error("geo lookup failed");
-  const data = await res.json();
-  return {
-    id: `visit-${Date.now()}`,
-    country: data.country_name || "Unknown",
-    countryCode: data.country || "",
-    city: data.city || "",
-  };
-};
-
-const makeLocationKey = (visit) =>
-  `${(visit.city || "").toLowerCase()}-${(visit.countryCode || visit.country || "").toLowerCase()}`;
-
-const dedupeVisitors = (list) => {
-  const seen = new Set();
-  const unique = [];
-  list.forEach((visit) => {
-    const key = makeLocationKey(visit);
-    if (!key || seen.has(key)) return;
-    seen.add(key);
-    unique.push(visit);
-  });
-  return unique.slice(0, LIMIT);
-};
-
 export default function VisitorWidget() {
   const [visitors, setVisitors] = useState([]);
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    const cleaned = dedupeVisitors(stored);
-    if (cleaned.length !== stored.length) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(cleaned));
-    }
-    setVisitors(cleaned);
-
-    fetchVisitor()
-      .then((current) => {
-        const updated = dedupeVisitors([current, ...cleaned]);
-        if (updated.length === cleaned.length && makeLocationKey(updated[0]) === makeLocationKey(cleaned[0])) return;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-        setVisitors(updated);
-      })
+    fetch("/api/visitors")
+      .then((res) => res.json())
+      .then((data) => setVisitors(data.visitors || []))
       .catch(() => {});
   }, []);
 
@@ -88,7 +47,7 @@ export default function VisitorWidget() {
       <h4 style={{ margin: "0 0 12px 0", color: "#0c3c7a" }}>Recent visitors</h4>
       <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
         {visitors.map((visit) => (
-          <li key={visit.id} style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
+          <li key={visit._id} style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
             {visit.countryCode ? (
               <img
                 src={`https://flagcdn.com/32x24/${visit.countryCode.toLowerCase()}.png`}
@@ -99,7 +58,7 @@ export default function VisitorWidget() {
               <div style={{ width: 24, height: 18, marginRight: 8, borderRadius: 4, background: "#e0e0e0" }} />
             )}
             <div style={{ fontSize: 14 }}>
-              <strong>{visit.country}</strong>
+              <strong>{visit.country || "Unknown"}</strong>
               <div style={{ fontSize: 12, color: "#6b7a8c" }}>{visit.city || "—"}</div>
             </div>
           </li>

@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import ClientProvider from "./client-provider";
 import SessionSyncProvider from "./SessionSyncProvider";
 import VisitorWidget from "./components/VisitorWidget";
+import ClientVisitLogger from "./ClientVisitLogger";
 
 export const metadata = {
   metadataBase: new URL("https://aheadterra.com"),
@@ -56,8 +57,9 @@ export default function RootLayout({ children }) {
             <main style={{ minHeight: "100vh" }}>{children}</main>
           </SessionSyncProvider>
         </ClientProvider>
-        <Analytics />
+        <ClientVisitLogger />
         <VisitorWidget />
+        <Analytics />
       </body>
     </html>
   );
