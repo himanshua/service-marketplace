@@ -69,8 +69,8 @@ export default function Page10() {
           >
             <h1>First House (Lagna) in Astrology</h1>
             <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
-              The First House describes your embodied identity: vitality, complexion, mannerisms, and the way life chapters begin. It is the point of sunrise
-              in every chart and sets the tone for how you meet the world, or how your circle perceives you at first glance.
+              The First House (Lagna) in astrology shows your Swa-Bhava — your nature, and identity (स्वभाव, व्यक्तित्व), and character.
+              शील" (Sheel) का अर्थ आचरण या व्यवहार (demeanor/conduct) है, जबकि "सहज गुण" (Sahaj Gun) जन्मजात या अंतर्निहित विशेषता (innate quality/inherent trait) को संदर्भित करता है।
             </p>
 
             <h2>Lord Rama's Gentle Swabhav</h2>
