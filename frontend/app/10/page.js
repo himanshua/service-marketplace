@@ -1,6 +1,20 @@
 import "../globals.css";
 import "../profile/profile.css";
 
+export const metadata = {
+  title: "First House (Lagna) Meaning | Lord Rama Swabhav",
+  description:
+    "First House (Lagna) in astrology explains identity, personality, health, and success. Learn Lord Rama's swabhav, chart, and Lagna influence.",
+  keywords: [
+    "First House meaning",
+    "Lagna astrology",
+    "Lord Rama chart",
+    "Swabhav of Lord Rama",
+    "astrology personality traits",
+    "Pushya Nakshatra",
+  ],
+};
+
 export default function Page10() {
   return (
     <main className="profile-main home-main">
@@ -49,21 +63,44 @@ export default function Page10() {
               padding: "24px 32px",
               display: "flex",
               flexDirection: "column",
+              gap: 18,
               justifyContent: "center",
             }}
           >
-            <p style={{ color: "#4a6071", lineHeight: 1.7, marginBottom: 16 }}>
-              The First House describes your embodied identity: vitality, complexion, mannerisms, and the way life chapters begin.
-              It is the point of sunrise in every chart and sets the tone for how you meet the world. Or how your circle perceives you at first glance.
-              Like Lord Rama is seen as very soft swabhav (nature) in Ramayana.
-              This line is from Goswami Tulsidas's Ramcharitmanas.
-              Meaning: Lord Ram's swa-bhav (inherent nature) is extremely gentle, compassionate, and tender.
-              This line describes how Ram's natural disposition and temperament are soft, kind, and merciful - that his swabhav is free from harshness or cruelty and is filled with immense love and gentleness towards his devotees.
-              As Lord Rama has Soft Cancer rising Swa/First Bhava in his natal chart. With Moon in own sign with exalted Jupiter in his Swa/First Bhavs.
-              The Lagna lord (Ascendant ruler) is a key indicator of your physical constitution, personality imprint, and overall life path.
-              A strong Lagna lord across varga charts often signals robust health, charisma, and resilience.
-              Lagna or the First House shows success — it means chal paṛnā, the ability to rise and move forward in life. The planet placed here and ruler of this house will help native to move forwaed!            </p>
-            <figure style={{ margin: "0 0 18px 0", textAlign: "center" }}>
+            <h1>First House (Lagna) in Astrology</h1>
+            <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
+              The First House describes your embodied identity: vitality, complexion, mannerisms, and the way life chapters begin. It is the point of sunrise
+              in every chart and sets the tone for how you meet the world, or how your circle perceives you at first glance.
+            </p>
+
+            <h2>Lord Rama's Gentle Swabhav</h2>
+            <p>
+              Like Lord Rama, who is seen as very soft swabhav (nature) in Ramayana. This line is from Goswami Tulsidas's Ramcharitmanas:
+              <br />
+              <strong>अति कोमल रघुवीर स्वभाव</strong> – भगवान राम का स्वभाव बहुत कोमल, सौम्य और दयालु है।
+              <br />
+              <em>Ati komal Raghuveer swabhav – Lord Rama’s nature is extremely gentle, soft, and compassionate.</em>
+            </p>
+            <p>
+              This verse describes how Ram's natural disposition and temperament are soft, kind, and merciful—free from harshness or cruelty and filled with
+              immense love toward devotees.
+            </p>
+
+            <h2>Lord Rama’s First House</h2>
+            <p>
+              Lord Rama holds a soft Cancer rising (Swa/First Bhava) with Moon in its own sign and exalted Jupiter in the Lagna. The Lagna lord (Ascendant
+              ruler) signals your physical constitution, personality imprint, and overall life path. A strong Lagna lord across varga charts often brings
+              robust health, charisma, and resilience.
+            </p>
+            <p>
+              His birth chart features Jupiter exalted in Cancer within{" "}
+              <a href="https://aheadterra.com/17" target="_blank" rel="noopener noreferrer">
+                Pushya Nakshatra
+              </a>
+              . Study Pushya to understand its nourishing influence.
+            </p>
+
+            <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
                 src="/images/Rama.JPG"
                 alt="Birth chart of Lord Rama highlighting Lagna"
@@ -76,28 +113,37 @@ export default function Page10() {
                 }}
               />
               <figcaption style={{ marginTop: 10, fontSize: 14, color: "#4a6071" }}>
-                Birth chart of Lord Rama — note the two most benefic planets (Moon and exalted Jupiter) blessing his Swa Bhava / First House.
+                Birth chart of Lord Rama – see the First House with two most benefic planets blessing his Swabhava.
               </figcaption>
             </figure>
-            <ul style={{ paddingLeft: 20, lineHeight: 1.6, color: "#24334a" }}>
-              <li><strong>Keywords:</strong> physical body, character, courage, head, personality imprint.</li>
-              <li><strong>Lagna lord strength:</strong> wellness, stamina, charisma, and resilience follow the Lagna lord’s dignity across varga.</li>
-              <li><strong>Aspects & yogas:</strong> benefics add confidence and vitality; malefics may stir self-doubt or inflammation.</li>
-              <li><strong>Career hints:</strong> planets stationed here broadcast their themes, often defining lifelong vocations.</li>
-              <li><strong>Remedies:</strong> support the Lagna lord via mantra, color therapy, gemstones, and routines aligned with its tattva.</li>
-            </ul>
-            <p style={{ marginTop: 18, color: "#60738b" }}>
-              Study more at{" "}
-              <a
-                href="https://barbarapijan.com/bpa/Bhava/1tanu_bhava.htm"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#1976d2", textDecoration: "underline" }}
-              >
-                BarbaraPijan.com – Tanu Bhava
-              </a>
-              .
+
+            <h2>First House and Success</h2>
+            <p>
+              Lagna shows success—known as <strong>chal paṛnā (चल पड़ना)</strong>, meaning the ability to rise, move forward, and take initiative. Planets in
+              the First House plus the Ascendant ruler guide personal growth and forward momentum.
             </p>
+
+            <div style={{ marginTop: 10 }}>
+              <h2>Watch Related Video</h2>
+              <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                <iframe
+                  src="https://www.youtube.com/embed/kyZ4_ugtZPA"
+                  title="रामचरितमानसरुपी आकाश में पुष्य नक्षत्ररुपी वाल्मीकि मुनि कृत श्रीराम-स्तुति"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: 12,
+                    boxShadow: "0 12px 26px rgba(0,0,0,0.18)",
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </section>
       </div>
