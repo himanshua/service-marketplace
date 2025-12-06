@@ -125,7 +125,7 @@ export default function Page10() {
 
             <div style={{ marginTop: 10 }}>
               <h2>Watch Related Video</h2>
-           <h3> रामचरितमानसरुपी आकाश में पुष्य नक्षत्ररुपी वाल्मीकि मुनि कृत श्रीराम-स्तुति</h3>
+           <h3> रामचरितमानसरुपी आकाश में पुष्य नक्षत्ररुपी वाल्मीकि मुनि कृत श्रीराम-स्तुति – ‘Shri Ram Stuti by Valmiki Muni in the sky in the form of Ramcharitmanas and Pushya Nakshatra.’</h3>
 
               <div style={{ position: "relative", paddingTop: "56.25%" }}>                                  
                 <iframe
