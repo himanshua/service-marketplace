@@ -19,22 +19,34 @@ const fetchVisitor = async () => {
 const makeLocationKey = (visit) =>
   `${(visit.city || "").toLowerCase()}-${(visit.countryCode || visit.country || "").toLowerCase()}`;
 
+const dedupeVisitors = (list) => {
+  const seen = new Set();
+  const unique = [];
+  list.forEach((visit) => {
+    const key = makeLocationKey(visit);
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    unique.push(visit);
+  });
+  return unique.slice(0, LIMIT);
+};
+
 export default function VisitorWidget() {
   const [visitors, setVisitors] = useState([]);
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    setVisitors(stored);
+    const cleaned = dedupeVisitors(stored);
+    if (cleaned.length !== stored.length) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cleaned));
+    }
+    setVisitors(cleaned);
 
     fetchVisitor()
       .then((current) => {
-        const locationKey = makeLocationKey(current);
-        const hasLocation = stored.some((visit) => makeLocationKey(visit) === locationKey);
-
-        if (hasLocation) return; // skip duplicates from same place
-
-        const updated = [current, ...stored].slice(0, LIMIT);
+        const updated = dedupeVisitors([current, ...cleaned]);
+        if (updated.length === cleaned.length && makeLocationKey(updated[0]) === makeLocationKey(cleaned[0])) return;
         localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
         setVisitors(updated);
       })
