@@ -1,6 +1,6 @@
 import "../globals.css";
 import "../profile/profile.css";
-
+"use client";
 export const metadata = {
   title: "First House (Lagna) Meaning | Lord Rama Swabhav",
   description:

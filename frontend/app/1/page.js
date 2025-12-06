@@ -1,7 +1,7 @@
 import "../globals.css";
 import "../profile/profile.css";
 import HowToOrderPage from "../how-to-order/page";
-
+"use client";
 export default function Page1() {
   return (
     <main className="profile-main home-main">
