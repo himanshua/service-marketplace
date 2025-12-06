@@ -12,7 +12,11 @@ export default function VisitorWidget() {
       .catch(() => {});
   }, []);
 
-  if (!visible || !visitors.length) return null;
+  if (!visible) return null;
+
+  const list = visitors.length
+    ? visitors
+    : [{ _id: "placeholder", country: "— No visitors yet —", city: "Check back soon", countryCode: "" }];
 
   return (
     <aside
@@ -46,7 +50,7 @@ export default function VisitorWidget() {
       </button>
       <h4 style={{ margin: "0 0 12px 0", color: "#0c3c7a" }}>Recent visitors</h4>
       <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-        {visitors.map((visit) => (
+        {list.map((visit) => (
           <li key={visit._id} style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
             {visit.countryCode ? (
               <img
@@ -58,8 +62,8 @@ export default function VisitorWidget() {
               <div style={{ width: 24, height: 18, marginRight: 8, borderRadius: 4, background: "#e0e0e0" }} />
             )}
             <div style={{ fontSize: 14 }}>
-              <strong>{visit.country || "Unknown"}</strong>
-              <div style={{ fontSize: 12, color: "#6b7a8c" }}>{visit.city || "—"}</div>
+              <strong>{visit.country}</strong>
+              <div style={{ fontSize: 12, color: "#6b7a8c" }}>{visit.city}</div>
             </div>
           </li>
         ))}
