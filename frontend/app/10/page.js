@@ -125,8 +125,9 @@ export default function Page10() {
 
             <div style={{ marginTop: 10 }}>
               <h2>Watch Related Video</h2>
+            रामचरितमानसरुपी आकाश में पुष्य नक्षत्ररुपी वाल्मीकि मुनि कृत श्रीराम-स्तुति
+
               <div style={{ position: "relative", paddingTop: "56.25%" }}>                                  
-              रामचरितमानसरुपी आकाश में पुष्य नक्षत्ररुपी वाल्मीकि मुनि कृत श्रीराम-स्तुति
                 <iframe
                   src="https://www.youtube.com/embed/kyZ4_ugtZPA"
                   title="रामचरितमानसरुपी आकाश में पुष्य नक्षत्ररुपी वाल्मीकि मुनि कृत श्रीराम-स्तुति"
@@ -144,8 +145,9 @@ export default function Page10() {
                   }}
                 />
               </div>
+              सुतीक्ष्ण मुनि कृत श्रीराम-स्तुति (sutīkṣṇa muni kr̥ta śrīrāma-stuti) #RamcharitManas              
+
               <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                सुतीक्ष्ण मुनि कृत श्रीराम-स्तुति (sutīkṣṇa muni kr̥ta śrīrāma-stuti) #RamcharitManas              
                   <iframe
                   src="https://www.youtube.com/embed/528FNZne0O8"
                   title="सुतीक्ष्ण मुनि कृत श्रीराम-स्तुति (sutīkṣṇa muni kr̥ta śrīrāma-stuti) #RamcharitManas"
@@ -163,8 +165,8 @@ export default function Page10() {
                   }}
                 />
               </div>
+              अत्रि मुनि कृत श्रीराम स्तुति (atri muni kṛta śrīrāma stuti) #RamcharitManas
                <div style={{ position: "relative", paddingTop: "56.25%" }}>
-               अत्रि मुनि कृत श्रीराम स्तुति (atri muni kṛta śrīrāma stuti) #RamcharitManas
                 <iframe
                   src="https://www.youtube.com/embed/AERqMlH3ddU"
                   title="अत्रि मुनि कृत श्रीराम स्तुति (atri muni kṛta śrīrāma stuti) #RamcharitManas"
