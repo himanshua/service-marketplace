@@ -67,7 +67,7 @@ export default function Page10() {
               justifyContent: "center",
             }}
           >
-            <h1>First House (Lagna) in Astrology</h1>
+            <h1>First House (Lagna) in Astrology Swa-Bhava or स्व-भाव or Self-Bhava </h1>
             <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
               The First House (Lagna) in astrology shows your Swa-Bhava — your nature, and identity (स्वभाव, व्यक्तित्व), and character.
               शील" (Sheel) का अर्थ आचरण या व्यवहार (demeanor/conduct) है, जबकि "सहज गुण" (Sahaj Gun) जन्मजात या अंतर्निहित विशेषता (innate quality/inherent trait) को संदर्भित करता है।
