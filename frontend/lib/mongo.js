@@ -1,7 +1,7 @@
 // filepath: c:\Users\Dell\Documents\ServiceMarketplace\frontend\lib\mongo.js
 import { MongoClient } from "mongodb";
 
-let clientPromise;
+let clientPromise;//
 
 async function getClient() {
   const uri = process.env.MONGODB_URI;
