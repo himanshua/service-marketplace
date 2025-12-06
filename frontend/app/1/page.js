@@ -1,3 +1,4 @@
+"use client";
 import "../globals.css";
 import "../profile/profile.css";
 import HowToOrderPage from "../how-to-order/page";

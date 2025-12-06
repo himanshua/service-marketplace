@@ -1,6 +1,6 @@
+"use client";
 import "../globals.css";
 import "../profile/profile.css";
-"use client";
 function HomeRow({ imgSrc, imgAlt, children }) {
   return (
     <section
