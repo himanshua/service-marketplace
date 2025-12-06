@@ -73,9 +73,9 @@ export default function Page10() {
               शील" (Sheel) का अर्थ आचरण या व्यवहार (demeanor/conduct) है, जबकि "सहज गुण" (Sahaj Gun) जन्मजात या अंतर्निहित विशेषता (innate quality/inherent trait) को संदर्भित करता है।
             </p>
 
-            <h2>Lord Rama's Gentle Swabhav</h2>
+            <h2>Lord Rama’s soft and gentle nature comes from his First House (Lagna), which reflects his Swa-Bhava.</h2>
             <p>
-              Like Lord Rama, who is seen as very soft swabhav (nature) in Ramayana. This line is from Goswami Tulsidas's Ramcharitmanas:
+              Lord Rama, who is seen as very soft swabhav (nature) in Ramayana. This line is from Goswami Tulsidas's Ramcharitmanas:
               <br />
               <strong>अति कोमल रघुवीर स्वभाव</strong> – भगवान राम का स्वभाव बहुत कोमल, सौम्य और दयालु है।
               <br />
