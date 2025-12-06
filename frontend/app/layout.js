@@ -5,7 +5,6 @@ import ClientProvider from "./client-provider";
 import SessionSyncProvider from "./SessionSyncProvider";
 import VisitorWidget from "./components/VisitorWidget";
 import ClientVisitLogger from "./ClientVisitLogger";
-import { useEffect } from "react";
 
 export const metadata = {
   metadataBase: new URL("https://aheadterra.com"),
@@ -35,12 +34,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  useEffect(() => {
-    if (sessionStorage.getItem("aheadterra_visit_logged")) return;
-    fetch("/api/visitors", { method: "POST" }).catch(() => {});
-    sessionStorage.setItem("aheadterra_visit_logged", "1");
-  }, []);
-
   return (
     <html lang="en">
       <head>
