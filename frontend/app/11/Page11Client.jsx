@@ -28,7 +28,7 @@ export default function Page11Client() {
             }}
           >
             <img
-              src="/images/Second.png"
+              src="/images/raghuvansh.jpg"
               alt="Dhana / Kutumb / Vani Bhava"
               style={{
                 width: "100%",
@@ -121,69 +121,7 @@ export default function Page11Client() {
               Saturn Sagittarius, Rahu Aries. Regardless of exact chart, her voice + wealth + lineage highlight pure 2nd-house magic.
             </p>
 
-            <div style={{ marginTop: 10 }}>
-              <h2>Watch Related Video</h2>
-
-              <h3>धन और परिवार के महत्व पर रामायण का दृष्टिकोण</h3>
-              <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                <iframe
-                  src="https://www.youtube.com/embed/kyZ4_ugtZPA"
-                  title="धन और परिवार"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: 12,
-                    boxShadow: "0 12px 26px rgba(0,0,0,0.18)",
-                  }}
-                />
-              </div>
-
-              <h3>Kutumb Bhava rituals for wealth & speech</h3>
-              <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                <iframe
-                  src="https://www.youtube.com/embed/528FNZne0O8"
-                  title="Kutumb Bhava rituals"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: 12,
-                    boxShadow: "0 12px 26px rgba(0,0,0,0.18)",
-                  }}
-                />
-              </div>
-
-              <h3>Voice, family values, and Venus balance</h3>
-              <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                <iframe
-                  src="https://www.youtube.com/embed/AERqMlH3ddU"
-                  title="Voice and family values"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: 12,
-                    boxShadow: "0 12px 26px rgba(0,0,0,0.18)",
-                  }}
-                />
-              </div>
-            </div>
+            
           </div>
         </section>
       </div>
