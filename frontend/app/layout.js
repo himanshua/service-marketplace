@@ -5,6 +5,7 @@ import ClientProvider from "./client-provider";
 import SessionSyncProvider from "./SessionSyncProvider";
 import VisitorWidget from "./components/VisitorWidget";
 import ClientVisitLogger from "./ClientVisitLogger";
+import Header from "./components/Header";
 
 export const metadata = {
   metadataBase: new URL("https://aheadterra.com"),
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ClientProvider>
+          <Header />
           <SessionSyncProvider>{children}</SessionSyncProvider>
         </ClientProvider>
         <ClientVisitLogger />
