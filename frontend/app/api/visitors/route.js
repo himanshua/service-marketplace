@@ -15,11 +15,23 @@ export async function POST(request) {
   if (!res.ok) return NextResponse.json({ error: "geo failed" }, { status: 500 });
 
   const data = await res.json();
+  const createdAt = new Date();
+
   const payload = {
     city: data.city || "",
+    region: data.region || data.region_code || "",
     country: data.country_name || "",
     countryCode: data.country || "",
-    createdAt: new Date(),
+    latitude: data.latitude || null,
+    longitude: data.longitude || null,
+    timezone: data.timezone || "",
+    postal: data.postal || "",
+    ip,
+    userAgent: request.headers.get("user-agent") || "",
+    referrer: request.headers.get("referer") || "",
+    path: request.nextUrl.pathname,
+    createdAt,
+    createdAtIST: createdAt.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
   };
   if (!payload.city && !payload.country) return NextResponse.json({ ok: true });
 
