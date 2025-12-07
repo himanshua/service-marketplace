@@ -1,5 +1,4 @@
 "use client";
-// filepath: c:\Users\Dell\Documents\ServiceMarketplace\frontend\app\admin\services\AdminServicesClient.jsx
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -10,7 +9,7 @@ export default function AdminServicesClient() {
   const [error, setError] = useState("");
   const [editId, setEditId] = useState(null);
   const [editTitle, setEditTitle] = useState("");
-  the [editDesc, setEditDesc] = useState("");
+  const [editDesc, setEditDesc] = useState("");
   const [editOwner, setEditOwner] = useState("");
   const [editApproved, setEditApproved] = useState(false);
   const [editStatus, setEditStatus] = useState("available");

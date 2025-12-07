@@ -51,9 +51,9 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64" />
       </head>
       <body>
-        <SessionSyncProvider>
-          <ClientProvider>{children}</ClientProvider>
-        </SessionSyncProvider>
+        <ClientProvider>
+          <SessionSyncProvider>{children}</SessionSyncProvider>
+        </ClientProvider>
         <ClientVisitLogger />
         <VisitorWidget />
       </body>

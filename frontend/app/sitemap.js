@@ -1,4 +1,3 @@
-import { MetadataRoute } from "next";
 
 const baseUrl = "https://aheadterra.com";
 
