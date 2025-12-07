@@ -3,7 +3,7 @@
 import "../globals.css";
 import "../profile/profile.css";
 
-export default function Page10Client() {
+export default function Page11Client() {
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
