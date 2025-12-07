@@ -28,3 +28,20 @@ export async function POST(request) {
 
   return NextResponse.json({ ok: true });
 }
+
+export async function GET() {
+  const col = await getVisitorsCollection();
+  const recent = await col.find({}).sort({ createdAt: -1 }).limit(200).toArray();
+
+  const seen = new Set();
+  const unique = [];
+  for (const visit of recent) {
+    const key = `${visit.city?.toLowerCase() || ""}-${visit.countryCode?.toLowerCase() || ""}`;
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    unique.push(visit);
+    if (unique.length === 10) break;
+  }
+
+  return NextResponse.json({ visitors: unique });
+}
