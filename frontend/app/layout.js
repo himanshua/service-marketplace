@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ClientProvider>
-          <Header />
+          <NavBar />
           <SessionSyncProvider>{children}</SessionSyncProvider>
         </ClientProvider>
         <ClientVisitLogger />
