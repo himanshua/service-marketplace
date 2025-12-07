@@ -49,21 +49,17 @@ export default function VisitorWidget() {
         ×
       </button>
       <h4 style={{ margin: "0 0 12px 0", color: "#0c3c7a" }}>Recent visitors</h4>
-      <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-        {list.map((visit) => (
-          <li key={visit._id} style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
-            {visit.countryCode ? (
-              <img
-                src={`https://flagcdn.com/32x24/${visit.countryCode.toLowerCase()}.png`}
-                alt={visit.country}
-                style={{ width: 24, height: 18, marginRight: 8, borderRadius: 4, boxShadow: "0 0 4px rgba(0,0,0,0.2)" }}
-              />
-            ) : (
-              <div style={{ width: 24, height: 18, marginRight: 8, borderRadius: 4, background: "#e0e0e0" }} />
-            )}
-            <div style={{ fontSize: 14 }}>
-              <strong>{visit.country}</strong>
-              <div style={{ fontSize: 12, color: "#6b7a8c" }}>{visit.city}</div>
+      <ul className="visitor-widget__list">
+        {visitors.map((visit) => (
+          <li key={visit._id} className="visitor-widget__item">
+            <div className="visitor-widget__city">
+              {visit.city || "Unknown City"}
+            </div>
+            <div className="visitor-widget__region">
+              {[visit.region, visit.country].filter(Boolean).join(", ") || "Unknown Region"}
+            </div>
+            <div className="visitor-widget__time">
+              {visit.createdAtIST || new Date(visit.createdAt).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}
             </div>
           </li>
         ))}
