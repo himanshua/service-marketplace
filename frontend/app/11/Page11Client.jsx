@@ -23,7 +23,7 @@ export default function Page11Client() {
               padding: 24,
               display: "flex",
               flexDirection: "column",
-              gap: 16,k
+              gap: 16,
               justifyContent: "flex-start",
             }}
           >
