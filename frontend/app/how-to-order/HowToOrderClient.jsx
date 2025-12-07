@@ -92,9 +92,6 @@ export default function HowToOrderClient() {
           </div>
         </div>
       )}
-      <p style={{ marginTop: 18, fontSize: 14, color: "#60738b" }}>
-        Already booked? <a href="/services" style={{ color: "#1976d2", textDecoration: "underline" }}>Go to Services</a> to check chat status.
-      </p>
     </>
   );
 
