@@ -23,12 +23,12 @@ export default function Page11Client() {
               padding: 24,
               display: "flex",
               flexDirection: "column",
-              gap: 16,
+              gap: 16,k
               justifyContent: "flex-start",
             }}
           >
             <img
-              src="/images/raghuvansh.jpg"
+              src="/images/Raghuvansh.jpg"
               alt="Dhana / Kutumb / Vani Bhava"
               style={{
                 width: "100%",
