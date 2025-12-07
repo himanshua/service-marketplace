@@ -1,10 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const toFlag = (code = "") =>
-  code.length === 2
-    ? String.fromCodePoint(...code.toUpperCase().split("").map((c) => c.charCodeAt(0) + 127397))
-    : "🌐";
+const formatGMT = (iso) =>
+  iso
+    ? new Date(iso).toLocaleString("en-GB", {
+        timeZone: "UTC",
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }) + " GMT"
+    : "—";
 
 export default function VisitorWidget() {
   const [visitors, setVisitors] = useState([]);
@@ -19,18 +27,18 @@ export default function VisitorWidget() {
 
   if (!visible) return null;
 
-  const items = visitors.length
+  const list = visitors.length
     ? visitors
-    : [{ _id: "placeholder", country: "— No visitors yet —", city: "Check back soon", countryCode: "" }];
+    : [{ _id: "placeholder", country: "— No visitors yet —", city: "Check back soon", region: "", createdAt: null, countryCode: "" }];
 
   return (
     <aside
       style={{
         position: "fixed",
         right: 24,
-        bottom: 340, // lifted to avoid overlapping signup reminder
-        width: 260,
-        padding: "16px 18px 14px 18px",
+        bottom: 340,
+        width: 280,
+        padding: "16px 18px 14px",
         borderRadius: 16,
         background: "#fff",
         boxShadow: "0 18px 40px rgba(0,0,0,0.15)",
@@ -53,48 +61,27 @@ export default function VisitorWidget() {
       >
         ×
       </button>
-      <h4 style={{ margin: "0 0 12px 0", color: "#0c3c7a" }}>Recent visitors</h4>
-      <ul
-        style={{
-          listStyle: "none",
-          margin: 0,
-          padding: 0,
-          display: "flex",
-          flexDirection: "column",
-          gap: 10,
-        }}
-      >
-        {items.map((visit) => (
-          <li
-            key={visit._id}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "32px 1fr",
-              gap: 8,
-              alignItems: "center",
-              borderBottom: "1px solid #eef2f7",
-              paddingBottom: 8,
-            }}
-          >
-            <div style={{ fontSize: 22 }}>{toFlag(visit.countryCode)}</div>
-            <div>
-              <div style={{ fontWeight: 600 }}>{visit.city || "Unknown City"}</div>
+      <h4 style={{ margin: "0 0 12px", color: "#0c3c7a" }}>Recent visitors</h4>
+      <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+        {list.map((visit) => (
+          <li key={visit._id} style={{ display: "flex", gap: 10, marginBottom: 12 }}>
+            {visit.countryCode ? (
+              <img
+                src={`https://flagcdn.com/48x36/${visit.countryCode.toLowerCase()}.png`}
+                width={24}
+                height={18}
+                alt={visit.country || "Flag"}
+                style={{ borderRadius: 4, boxShadow: "0 0 4px rgba(0,0,0,0.2)" }}
+              />
+            ) : (
+              <div style={{ width: 24, height: 18, borderRadius: 4, background: "#e0e6ef" }} />
+            )}
+            <div style={{ flex: 1 }}>
+              <div style={{ fontWeight: 600, fontSize: 14 }}>{visit.city || "Unknown City"}</div>
               <div style={{ fontSize: 12, color: "#6b7483" }}>
                 {[visit.region, visit.country].filter(Boolean).join(", ") || "Unknown Region"}
               </div>
-              <div style={{ fontSize: 11, color: "#9da5b4", marginTop: 4 }}>
-                {visit.createdAt
-                  ? new Date(visit.createdAt).toLocaleString("en-GB", {
-                      timeZone: "UTC",
-                      day: "2-digit",
-                      month: "short",
-                      year: "numeric",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                      second: "2-digit",
-                    }) + " GMT"
-                  : "—"}
-              </div>
+              <div style={{ fontSize: 11, color: "#9da5b4", marginTop: 4 }}>{formatGMT(visit.createdAt)}</div>
             </div>
           </li>
         ))}
