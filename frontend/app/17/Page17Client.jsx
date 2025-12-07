@@ -93,7 +93,7 @@ export default function Page17Client() {
             </li>
           </ul>
           <p style={{ marginTop: 18, color: "#60738b" }}>
-            Pushyami (Pushya) remains a celebrated lunar mansion; align these planetary results with your Vimshottari timeline for deeper, SEO-friendly Jyotisha insights.
+            Pushyami (Pushya) remains a celebrated lunar mansion; align these planetary results with your Vimshottari timeline for deeper Jyotisha insights.
           </p>
         </HomeRow>
       </div>

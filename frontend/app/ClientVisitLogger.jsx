@@ -1,4 +1,3 @@
-// filepath: c:\Users\Dell\Documents\ServiceMarketplace\frontend\app\ClientVisitLogger.jsx
 "use client";
 import { useEffect } from "react";
 
