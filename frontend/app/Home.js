@@ -554,6 +554,12 @@ Believe in yourself - success is within your reach!
               </a>
               – It shows your identity. Tanu Bhava or First Bhava is Swa Bhava — The way you are naturally. It explains your look, personality, how you begin things, and the direction your life wants to go. 
               </li>
+              <li>
+              <a href="https://aheadterra.com/11" target="_self" rel="noopener noreferrer">
+               2nd House – Dhana / Kutumb Bhava – The Second House is about your wealth, family, and voice (धन, कुटुम्ब, वाणी).
+              </a>
+               – It shows your money, savings, speech, face, beauty, food habits, and family background.
+               Dhana Bhava or Second Bhava is Kutumb Bhava — your family and the things you own. It explains your wealth, early learning, values, and how sweet or strong your voice is.              </li>
             <li>
               <a href="https://barbarapijan.com/bpa/Bhava/2dhana_bhava.htm" target="_blank" rel="noopener noreferrer">
                 2nd House – Dhana Bhava
