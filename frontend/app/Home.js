@@ -314,11 +314,12 @@ export default function Home() {
           imgSrc="images/Ganesha1.JPG"
           imgAlt="Welcome"
         >
-<UniversalShareBar
-  title="AheadTerra – Psychic & Jyotishvidya Readings"
-  url="https://aheadterra.com"
-  style={{ float: "right" }}
-/>
+          <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}>
+            <UniversalShareBar
+              title="AheadTerra – Psychic & Jyotishvidya Readings"
+              url="https://aheadterra.com"
+            />
+          </div>
           <h2>Beej Mantra</h2>
           <p>
             Aum Hreem Hraum Suryayeh Namah, Aum Hreem Shreem Chandraya Namah, Aum Eim Hreem Shreem Mangalayeh Namah, Aum Aim Streem Bam Budhayeh Namah, Aum Hreem Brahm Brihaspatayeh Namah, Aum Hreem Shreem Shukrayeh Namah, Aum Hreem Shreem Sam Sanneshcharayeh Namah, Aum Eim Hreem Rahuvey Namah, Aum Eim Hreem Ketuvey Namah.
