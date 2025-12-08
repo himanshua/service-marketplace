@@ -35,8 +35,9 @@ export default function VisitorWidget() {
     <aside
       style={{
         position: "fixed",
+        top: 24,
         right: 24,
-        bottom: 24,
+        bottom: "auto",
         width: "min(260px, calc(100vw - 32px))",
         maxHeight: "calc(100vh - 48px)",
         overflowY: "auto",
