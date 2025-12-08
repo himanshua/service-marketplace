@@ -7,6 +7,7 @@ import { track } from "@vercel/analytics/react";
 import "./profile/profile.css";
 import "./globals.css";
 import UniversalShareBar from "./components/UniversalShareBar";
+import { shareItems } from "./share/data";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -139,6 +140,8 @@ export const metadata = {
   }
 };
 
+const shareChoices = Object.keys(shareItems);
+
 const shareImages = {
   ganesha: {
     label: "Beej Mantra",
@@ -159,12 +162,6 @@ const shareImages = {
     url: "https://aheadterra.com/#jyotish-reminder",
   },
 };
-
-const shareChoices = [
-  { key: "ganesha", label: "Beej Mantra" },
-  { key: "destiny", label: "Destiny Poster" },
-  { key: "naseeb", label: "Jyotish Reminder" },
-];
 
 export default function Home() {
   const router = useRouter();
@@ -286,6 +283,9 @@ export default function Home() {
     fetch(`${API}/api/auth/me`, {
       headers: { Authorization: `Bearer ${token}` },
     })
+    fetch(`${API}/api/auth/me`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.user) setUser(data.user);
@@ -384,7 +384,8 @@ export default function Home() {
               </p>
               <UniversalShareBar
                 shareChoices={shareChoices}
-                shareImages={shareImages}
+                shareImages={shareItems}
+                shareBaseUrl="https://aheadterra.com/share"
               />
             </div>
           </div>

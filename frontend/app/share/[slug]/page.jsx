@@ -1,22 +1,22 @@
-import { notFound } from "next/navigation";
-import { shareImages } from "../data";
+import Image from "next/image";
+import Link from "next/link";
+import { shareItems } from "../data";
 
-export function generateStaticParams() {
-  return Object.keys(shareImages).map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  return Object.keys(shareItems).map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }) {
-  const item = shareImages[params.slug];
-  if (!item) return {};
+export async function generateMetadata({ params }) {
+  const item = shareItems[params.slug];
+  if (!item) return { title: "AheadTerra" };
   return {
     title: item.title,
     description: item.description,
-    alternates: { canonical: item.canonical },
     openGraph: {
       title: item.title,
       description: item.description,
       url: `https://aheadterra.com/share/${params.slug}`,
-      images: [{ url: item.image, width: 1200, height: 630, alt: item.title }],
+      images: [{ url: item.image, width: 1200, height: 630, alt: item.label }],
     },
     twitter: {
       card: "summary_large_image",
@@ -28,28 +28,31 @@ export function generateMetadata({ params }) {
 }
 
 export default function SharePage({ params }) {
-  const item = shareImages[params.slug];
-  if (!item) return notFound();
+  const item = shareItems[params.slug];
+  if (!item) {
+    return (
+      <main style={{ padding: 40 }}>
+        <h1>Content not found</h1>
+        <Link href="/">Return home</Link>
+      </main>
+    );
+  }
 
   return (
-    <main style={{ padding: "64px 24px", textAlign: "center" }}>
-      <h1 style={{ marginBottom: 12 }}>{item.title}</h1>
-      <p style={{ marginBottom: 24, color: "#49596a" }}>{item.description}</p>
-      <img
+    <main style={{ padding: 40, maxWidth: 720, margin: "0 auto", textAlign: "center" }}>
+      <Image
         src={item.image}
-        alt={item.title}
-        style={{ maxWidth: 500, width: "100%", borderRadius: 16, boxShadow: "0 20px 45px rgba(0,0,0,0.2)" }}
+        alt={item.label}
+        width={720}
+        height={405}
+        style={{ width: "100%", height: "auto", borderRadius: 12 }}
       />
-      <p style={{ marginTop: 24, fontSize: 14, color: "#3a4d63" }}>
-        Share link:{" "}
-        <strong>https://aheadterra.com/share/{params.slug}</strong>
-      </p>
-      <a
-        href={item.canonical}
-        style={{ display: "inline-block", marginTop: 10, color: "#1976d2", textDecoration: "underline" }}
-      >
-        View full content
-      </a>
+      <h1 style={{ marginTop: 24 }}>{item.title}</h1>
+      <p style={{ color: "#374045" }}>{item.description}</p>
+      <p style={{ margin: "24px 0", color: "#213247", lineHeight: 1.6 }}>{item.body}</p>
+      <Link href="/" style={{ color: "#1976d2", textDecoration: "underline" }}>
+        View the full AheadTerra site
+      </Link>
     </main>
   );
 }

@@ -1,18 +1,24 @@
-export const shareImages = {
+export const shareItems = {
   ganesha: {
     label: "Beej Mantra",
-    title: "AheadTerra – Psychic & Jyotishvidya Readings",
+    title: "Terra – Psychic & Jyotishvidya Readings",
+    description: "Chant the Beej Mantra and explore the AheadTerra teachings.",
     image: "/images/Ganesha1.JPG",
+    body: "Full write-up or CTA for Beej Mantra.",
   },
   destiny: {
-    label: "Destiny",
+    label: "Destiny Poster",
     title: "ज्योतिषशास्त्र – 2026 Rashifal",
+    description: "Research notes for the 2026 Rashifal project.",
     image: "/images/Destiny.jpg",
+    body: "Details about the Rashifal update.",
   },
   naseeb: {
-    label: "Divination",
-    title: "Jyotish is Divination, not fortune telling",
+    label: "Jyotish Reminder",
+    title: "Jyotish is Divination",
+    description: "Understanding Jyotisha as pure divination.",
     image: "/images/Naseeb.JPG",
+    body: "Explanation text for this reminder.",
   },
   naseebNepal: {
     title: "भाग्य कसैको पेवा होइन – AheadTerra",
