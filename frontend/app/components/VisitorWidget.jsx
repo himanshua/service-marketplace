@@ -36,15 +36,15 @@ export default function VisitorWidget() {
       style={{
         position: "fixed",
         right: 24,
-        bottom: 340,
+        bottom: 24,
         width: "min(260px, calc(100vw - 32px))",
-        maxWidth: "100%",
-        padding: "16px 18px 14px",
+        maxHeight: "calc(100vh - 48px)",
+        overflowY: "auto",
+        padding: "16px 18px 18px",
         borderRadius: 16,
         background: "#fff",
         boxShadow: "0 18px 40px rgba(0,0,0,0.15)",
         zIndex: 2000,
-        left: "auto",
       }}
     >
       <button
@@ -88,6 +88,22 @@ export default function VisitorWidget() {
           </li>
         ))}
       </ul>
+      <button
+        onClick={() => setVisible(false)}
+        style={{
+          marginTop: 12,
+          width: "100%",
+          border: "1px solid #ccd3dd",
+          borderRadius: 8,
+          padding: "8px 0",
+          background: "#f5f7fb",
+          color: "#41506a",
+          fontWeight: 600,
+          cursor: "pointer",
+        }}
+      >
+        Close
+      </button>
     </aside>
   );
 }
