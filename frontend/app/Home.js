@@ -70,34 +70,71 @@ const REMINDER_SNOOZE_DELAY = 60000;
 
 export const metadata = {
   title: "AheadTerra – Psychic & Jyotishvidya Readings",
-  description: "Jyotishavidya insights, Bhava breakdowns, and readings by Himanshu Tiwari.",
+  description:
+    "Beej Mantra meditations, Jyotishashastra lessons, Himanshu Tiwari’s services, 12 Houses, 9 Planets, Nakshatra wheel, and Fiverr best-sellers—everything on AheadTerra.",
   keywords: [
-    "Jyotishavidya",
-    "psychic readings",
+    "AheadTerra",
     "Himanshu Tiwari",
-    "Bhava guides",
-    "USA astrology services",
-    "AheadTerra"
+    "Jyotishavidya readings",
+    "Beej mantra",
+    "12 houses astrology",
+    "nine planets",
+    "Nakshatra list",
+    "Fiverr astrology gigs",
+    "psychic readings USA",
+    "Vedic astrology school"
   ],
   openGraph: {
     title: "AheadTerra – Psychic & Jyotishvidya Readings",
-    description: "Explore Bhava wisdom, Nakshatra lessons, and Terra’s readings.",
+    description: "Explore mantras, Bhava guides, Navamsha career notes, services, and Nakshatra resources.",
     url: "https://aheadterra.com",
     siteName: "AheadTerra",
     images: [
+      { url: "https://aheadterra.com/images/Ganesha1.JPG", width: 1200, height: 630, alt: "Beej Mantra welcome art" },
+      { url: "https://aheadterra.com/images/Destiny.jpg", width: 1200, height: 630, alt: "Jyotishashastra destiny collage" },
+      { url: "https://aheadterra.com/images/Naseeb.JPG", width: 1200, height: 630, alt: "Jyotish is divination reminder" },
+      { url: "https://aheadterra.com/images/Naseeb1.jpg", width: 1200, height: 630, alt: "Nepali fortune proverb poster" },
       { url: "https://aheadterra.com/images/himanshu-tiwari-og.jpg", width: 1200, height: 630, alt: "Himanshu Tiwari portrait" },
-      { url: "https://aheadterra.com/images/Ganesha1.JPG", width: 1200, height: 630, alt: "Ganesha welcome art" },
-      { url: "https://aheadterra.com/images/Destiny.jpg", width: 1200, height: 630, alt: "Destiny collage" }
+      { url: "https://aheadterra.com/images/12-house4.JPG", width: 1200, height: 630, alt: "Twelve houses illustration" },
+      { url: "https://aheadterra.com/images/9-planets.png", width: 1200, height: 630, alt: "Nine planets graphic" },
+      { url: "https://aheadterra.com/images/Earth_flag.jpg", width: 1200, height: 630, alt: "AheadTerra Earth flag" },
+      { url: "https://aheadterra.com/images/signup-reminder.jpg", width: 1200, height: 630, alt: "Join AheadTerra graphic" },
+      { url: "https://aheadterra.com/images/reading.jpg", width: 1200, height: 630, alt: "Jyotishavidya reading instructions" },
+      { url: "https://aheadterra.com/images/Time.jpg", width: 1200, height: 630, alt: "Value of time message" },
+      { url: "https://aheadterra.com/images/person.jpg", width: 1200, height: 630, alt: "Become the person you seek" },
+      { url: "https://aheadterra.com/images/career.jpg", width: 1200, height: 630, alt: "Career from Navamsha insight" },
+      { url: "https://aheadterra.com/images/Himanshu-Tiwari.png", width: 1200, height: 630, alt: "Full-stack services poster" },
+      { url: "https://aheadterra.com/images/bestsellers.jpeg", width: 1200, height: 630, alt: "Best-selling Fiverr readings" },
+      { url: "https://aheadterra.com/images/mars-valley.jpg", width: 1200, height: 630, alt: "Visit the Mars Valley poster" },
+      { url: "https://aheadterra.com/images/mars-spacecraft.jpg", width: 1200, height: 630, alt: "Mars mission spacecraft" },
+      { url: "https://aheadterra.com/images/jyotisha-topics.jpg", width: 1200, height: 630, alt: "Jyotisha topics overview" },
+      { url: "https://aheadterra.com/images/nakshatra-wheel.png", width: 1200, height: 630, alt: "27 Nakshatra wheel" }
     ]
   },
   twitter: {
     card: "summary_large_image",
     title: "AheadTerra – Psychic & Jyotishvidya Readings",
-    description: "Bhava + Nakshatra teachings and services.",
+    description: "Share Beej mantra teachings, Bhava guides, services, and Nakshatra resources with friends.",
     images: [
-      "https://aheadterra.com/images/himanshu-tiwari-og.jpg",
       "https://aheadterra.com/images/Ganesha1.JPG",
-      "https://aheadterra.com/images/Destiny.jpg"
+      "https://aheadterra.com/images/Destiny.jpg",
+      "https://aheadterra.com/images/Naseeb.JPG",
+      "https://aheadterra.com/images/Naseeb1.jpg",
+      "https://aheadterra.com/images/himanshu-tiwari-og.jpg",
+      "https://aheadterra.com/images/12-house4.JPG",
+      "https://aheadterra.com/images/9-planets.png",
+      "https://aheadterra.com/images/Earth_flag.jpg",
+      "https://aheadterra.com/images/signup-reminder.jpg",
+      "https://aheadterra.com/images/reading.jpg",
+      "https://aheadterra.com/images/Time.jpg",
+      "https://aheadterra.com/images/person.jpg",
+      "https://aheadterra.com/images/career.jpg",
+      "https://aheadterra.com/images/Himanshu-Tiwari.png",
+      "https://aheadterra.com/images/bestsellers.jpeg",
+      "https://aheadterra.com/images/mars-valley.jpg",
+      "https://aheadterra.com/images/mars-spacecraft.jpg",
+      "https://aheadterra.com/images/jyotisha-topics.jpg",
+      "https://aheadterra.com/images/nakshatra-wheel.png"
     ]
   }
 };
@@ -315,10 +352,15 @@ export default function Home() {
           imgAlt="Welcome"
         >
           <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}>
-            <UniversalShareBar
-              title="AheadTerra – Psychic & Jyotishvidya Readings"
-              url="https://aheadterra.com"
-            />
+            <div style={{ textAlign: "right" }}>
+              <p style={{ margin: "0 0 6px 0", fontSize: 14, color: "#1f2a44" }}>
+                Share AheadTerra with someone who’d love Jyotishavidya insights:
+              </p>
+              <UniversalShareBar
+                title="AheadTerra – Psychic & Jyotishvidya Readings"
+                url="https://aheadterra.com"
+              />
+            </div>
           </div>
           <h2>Beej Mantra</h2>
           <p>
