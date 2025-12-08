@@ -1260,8 +1260,10 @@ Believe in yourself - success is within your reach!
             bottom: 24,
             right: 16,
             width: "min(420px, calc(100% - 32px))",
+            maxHeight: "calc(100vh - 48px)",
+            overflowY: "auto",
             zIndex: 1000,
-            padding: "18px 20px",
+            padding: "18px 20px 24px",
             borderRadius: 12,
             background: "linear-gradient(135deg, #e0f2ff 0%, #f5fbff 100%)",
             border: "1px solid #b3e0ff",
@@ -1277,6 +1279,7 @@ Believe in yourself - success is within your reach!
               cursor: "pointer",
               color: "#4a6071",
               float: "right",
+              lineHeight: 1,
             }}
             aria-label="Dismiss reminder"
           >
@@ -1298,14 +1301,26 @@ Believe in yourself - success is within your reach!
               style={{ width: "100%" }}
               onClick={() => signIn("google", { callbackUrl: "https://aheadterra.com/how-to-order" })}
             >
-              <img
-                src="https://developers.google.com/identity/images/g-logo.png"
-                alt="Google logo"
-                className="profile-google-logo"
-              />
+              <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" className="profile-google-logo" />
               Continue with Google
             </button>
           </div>
+          <button
+            onClick={handleDismissReminder}
+            style={{
+              marginTop: 16,
+              width: "100%",
+              border: "1px solid #5b7ca0",
+              borderRadius: 8,
+              padding: "9px 12px",
+              background: "#fff",
+              color: "#24445a",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            Close
+          </button>
         </div>
       )}
     </main>
