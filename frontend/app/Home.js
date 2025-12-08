@@ -276,7 +276,7 @@ export default function Home() {
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
         <HomeRow
-          imgSrc="images/Ganesha.jpeg"
+          imgSrc="images/Ganesha1.JPG"
           imgAlt="Welcome"
         >
           <h2>Beej Mantra</h2>
