@@ -139,6 +139,24 @@ export const metadata = {
   }
 };
 
+const shareImages = {
+  ganesha: {
+    label: "Beej Mantra",
+    title: "AheadTerra – Psychic & Jyotishvidya Readings",
+    image: "/images/Ganesha1.JPG",
+  },
+  destiny: {
+    label: "Destiny Poster",
+    title: "ज्योतिषशास्त्र – 2026 Rashifal",
+    image: "/images/Destiny.jpg",
+  },
+  naseeb: {
+    label: "Jyotish Reminder",
+    title: "Jyotish is Divination",
+    image: "/images/Naseeb.JPG",
+  },
+};
+
 const shareChoices = [
   { key: "ganesha", label: "Beej Mantra" },
   { key: "destiny", label: "Destiny Poster" },
