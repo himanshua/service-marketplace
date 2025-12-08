@@ -314,7 +314,7 @@ export default function Home() {
           imgSrc="images/Ganesha1.JPG"
           imgAlt="Welcome"
         >
-      <UniversalShareBar title="AheadTerra – Psychic & Jyotishvidya Readings" url="https://aheadterra.com" />
+      <UniversalShareBar title="AheadTerra – Psychic & Jyotishvidya Readings" url="https://aheadterra.com" align="right" />
 
           <h2>Beej Mantra</h2>
           <p>
