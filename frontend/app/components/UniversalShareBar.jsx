@@ -1,6 +1,5 @@
 "use client";
-import { useMemo, useState, useEffect } from "react";
-import Script from "next/script";
+import { useMemo, useState } from "react";
 
 const sharePlatforms = [
   {
@@ -38,21 +37,28 @@ const sharePlatforms = [
 ];
 
 export default function UniversalShareBar({
-  shareChoices,
-  shareImages,
-  defaultShareKey,
+  shareChoices = [],
+  shareImages = {},
   shareBaseUrl = "https://aheadterra.com/share",
 }) {
   const [pendingPlatform, setPendingPlatform] = useState(null);
 
+  const normalizedChoices = useMemo(
+    () =>
+      shareChoices
+        .map((choice) => (typeof choice === "string" ? choice : choice?.key))
+        .filter((key) => key && shareImages[key]),
+    [shareChoices, shareImages]
+  );
+
   const platformMeta = useMemo(
-    () => sharePlatforms.reduce((acc, p) => ({ ...acc, [p.key]: p }), {}),
+    () => sharePlatforms.reduce((acc, platform) => ({ ...acc, [platform.key]: platform }), {}),
     []
   );
 
   const openShare = (platformKey, shareKey) => {
     const platform = platformMeta[platformKey];
-    const payload = shareImages?.[shareKey];
+    const payload = shareImages[shareKey];
     if (!platform || !payload) return;
     const targetUrl = payload.url || `${shareBaseUrl}/${shareKey}`;
     const shareHref = platform.buildUrl({
@@ -63,9 +69,9 @@ export default function UniversalShareBar({
   };
 
   const handlePlatformClick = (platformKey) => {
-    if (!shareChoices?.length) return;
-    if (shareChoices.length === 1) {
-      openShare(platformKey, shareChoices[0].key);
+    if (!normalizedChoices.length) return;
+    if (normalizedChoices.length === 1) {
+      openShare(platformKey, normalizedChoices[0]);
       return;
     }
     setPendingPlatform(platformKey);
@@ -77,9 +83,7 @@ export default function UniversalShareBar({
     setPendingPlatform(null);
   };
 
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.a2a) window.a2a.init_all();
-  }, [defaultShareKey]);
+  if (!normalizedChoices.length) return null;
 
   return (
     <div style={styles.bar}>
@@ -102,29 +106,35 @@ export default function UniversalShareBar({
               Choose what to share on {platformMeta[pendingPlatform].label}
             </h4>
             <div style={styles.choiceGrid}>
-              {shareChoices.map((choice) => {
-                const data = shareImages[choice.key];
-                if (!data) return null;
+              {normalizedChoices.map((choiceKey) => {
+                const data = shareImages[choiceKey];
                 return (
                   <button
-                    key={choice.key}
+                    key={choiceKey}
                     type="button"
                     style={styles.choiceCard}
-                    onClick={() => handleChoiceSelect(choice.key)}
+                    onClick={() => handleChoiceSelect(choiceKey)}
                   >
                     <img
                       src={data.image}
-                      alt={data.label}
+                      alt={data.label || data.title}
                       style={styles.choiceImage}
                     />
-                    <span style={styles.choiceLabel}>{data.label}</span>
+                    {data.label && (
+                      <span style={styles.choiceLabel}>{data.label}</span>
+                    )}
                   </button>
                 );
               })}
             </div>
             <button
               type="button"
-              style={{ ...styles.iconBtn, backgroundColor: "#ccc", width: "100%", marginTop: 12 }}
+              style={{
+                ...styles.iconBtn,
+                backgroundColor: "#ccc",
+                width: "100%",
+                marginTop: 12,
+              }}
               onClick={() => setPendingPlatform(null)}
             >
               Cancel
@@ -132,7 +142,6 @@ export default function UniversalShareBar({
           </div>
         </div>
       )}
-      <Script src="https://static.addtoany.com/menu/page.js" strategy="lazyOnload" />
     </div>
   );
 }
