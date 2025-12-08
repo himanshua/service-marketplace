@@ -6,6 +6,7 @@ import Link from "next/link";
 import { track } from "@vercel/analytics/react";
 import "./profile/profile.css";
 import "./globals.css";
+import UniversalShareBar from "./components/UniversalShareBar";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -66,6 +67,40 @@ function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, leftContent, children }
 
 const REMINDER_INITIAL_DELAY = 6000;
 const REMINDER_SNOOZE_DELAY = 60000;
+
+export const metadata = {
+  title: "AheadTerra – Psychic & Jyotishvidya Readings",
+  description: "Jyotishavidya insights, Bhava breakdowns, and readings by Himanshu Tiwari.",
+  keywords: [
+    "Jyotishavidya",
+    "psychic readings",
+    "Himanshu Tiwari",
+    "Bhava guides",
+    "USA astrology services",
+    "AheadTerra"
+  ],
+  openGraph: {
+    title: "AheadTerra – Psychic & Jyotishvidya Readings",
+    description: "Explore Bhava wisdom, Nakshatra lessons, and Terra’s readings.",
+    url: "https://aheadterra.com",
+    siteName: "AheadTerra",
+    images: [
+      { url: "https://aheadterra.com/images/himanshu-tiwari-og.jpg", width: 1200, height: 630, alt: "Himanshu Tiwari portrait" },
+      { url: "https://aheadterra.com/images/Ganesha1.JPG", width: 1200, height: 630, alt: "Ganesha welcome art" },
+      { url: "https://aheadterra.com/images/Destiny.jpg", width: 1200, height: 630, alt: "Destiny collage" }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AheadTerra – Psychic & Jyotishvidya Readings",
+    description: "Bhava + Nakshatra teachings and services.",
+    images: [
+      "https://aheadterra.com/images/himanshu-tiwari-og.jpg",
+      "https://aheadterra.com/images/Ganesha1.JPG",
+      "https://aheadterra.com/images/Destiny.jpg"
+    ]
+  }
+};
 
 export default function Home() {
   const router = useRouter();
@@ -274,6 +309,7 @@ export default function Home() {
 
   return (
     <main className="profile-main home-main">
+      <UniversalShareBar title="AheadTerra – Psychic & Jyotishvidya Readings" url="https://aheadterra.com" />
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
         <HomeRow
           imgSrc="images/Ganesha1.JPG"
