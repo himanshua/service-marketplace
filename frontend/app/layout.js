@@ -1,6 +1,6 @@
 import "./globals.css";
 import NavBar from "./components/NavBar";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 import ClientProvider from "./client-provider";
 import SessionSyncProvider from "./SessionSyncProvider";
 import VisitorWidget from "./components/VisitorWidget";
@@ -58,6 +58,7 @@ export default function RootLayout({ children }) {
         </ClientProvider>
         <ClientVisitLogger />
         <VisitorWidget />
+        <Analytics />
       </body>
     </html>
   );
