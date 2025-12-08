@@ -390,7 +390,11 @@ export default function Home() {
               <p style={{ margin: "0 0 6px 0", fontSize: 16, color: "#1f2a44" }}>
                 Share Terra with someone who’d love Jyotishavidya or Psychic insights:
               </p>
-              <UniversalShareBar shareKey={activeShareKey} />
+              <UniversalShareBar
+                shareChoices={shareChoices}
+                shareImages={shareImages}
+                defaultShareKey={activeShareKey}
+              />
             </div>
           </div>
           <h2>{shareImages[activeShareKey].label}</h2>
