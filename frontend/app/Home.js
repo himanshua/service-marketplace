@@ -139,6 +139,12 @@ export const metadata = {
   }
 };
 
+const shareChoices = [
+  { key: "ganesha", label: "Beej Mantra" },
+  { key: "destiny", label: "Destiny Poster" },
+  { key: "naseeb", label: "Jyotish Reminder" },
+];
+
 export default function Home() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -147,6 +153,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [showAuthPrompt, setShowAuthPrompt] = useState(false);
   const [showSignupReminder, setShowSignupReminder] = useState(false);
+  const [activeShareKey, setActiveShareKey] = useState(shareChoices[0].key);
   const reminderAudioRef = useRef(null);
   const reminderTimerRef = useRef(null);
   const reminderAudioUnlockedRef = useRef(false);
@@ -347,19 +354,28 @@ export default function Home() {
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
-        <HomeRow
-          imgSrc="images/Ganesha1.JPG"
-          imgAlt="Welcome"
-        >
-          <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}>
+        <HomeRow imgSrc={shareImages[activeShareKey].image} imgAlt="Welcome">
+          <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
+            <div style={{ display: "flex", gap: 8, justifyContent: "flex-end", flexWrap: "wrap" }}>
+              {shareChoices.map(({ key, label }) => (
+                <button
+                  key={key}
+                  onClick={() => setActiveShareKey(key)}
+                  className={`profile-btn ${activeShareKey === key ? "" : "profile-btn-outline"}`}
+                  style={{ padding: "6px 12px" }}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
             <div style={{ textAlign: "right" }}>
               <p style={{ margin: "0 0 6px 0", fontSize: 16, color: "#1f2a44" }}>
                 Share Terra with someone who’d love Jyotishavidya or Psychic insights:
               </p>
-              <UniversalShareBar shareKey="ganesha" />
+              <UniversalShareBar shareKey={activeShareKey} />
             </div>
           </div>
-          <h2>Beej Mantra</h2>
+          <h2>{shareImages[activeShareKey].label}</h2>
           <p>
             Aum Hreem Hraum Suryayeh Namah, Aum Hreem Shreem Chandraya Namah, Aum Eim Hreem Shreem Mangalayeh Namah, Aum Aim Streem Bam Budhayeh Namah, Aum Hreem Brahm Brihaspatayeh Namah, Aum Hreem Shreem Shukrayeh Namah, Aum Hreem Shreem Sam Sanneshcharayeh Namah, Aum Eim Hreem Rahuvey Namah, Aum Eim Hreem Ketuvey Namah.
           </p>

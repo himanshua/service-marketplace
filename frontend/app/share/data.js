@@ -1,21 +1,18 @@
 export const shareImages = {
   ganesha: {
-    title: "Beej Mantra Blessing – AheadTerra",
-    description: "Share the Beej Mantra welcome that opens Terra’s homepage.",
-    canonical: "https://aheadterra.com/#beej-mantra",
-    image: "https://aheadterra.com/images/Ganesha1.JPG"
+    label: "Beej Mantra",
+    title: "AheadTerra – Psychic & Jyotishvidya Readings",
+    image: "/images/Ganesha1.JPG",
   },
   destiny: {
-    title: "Destiny Collage – AheadTerra",
-    description: "Jyotishashastra destiny inspiration from Terra.",
-    canonical: "https://aheadterra.com/#jyotish",
-    image: "https://aheadterra.com/images/Destiny.jpg"
+    label: "Destiny",
+    title: "ज्योतिषशास्त्र – 2026 Rashifal",
+    image: "/images/Destiny.jpg",
   },
   naseeb: {
-    title: "Jyotish is Divination – AheadTerra",
-    description: "Reminder that Jyotish = Light of God.",
-    canonical: "https://aheadterra.com/#naseeb",
-    image: "https://aheadterra.com/images/Naseeb.JPG"
+    label: "Divination",
+    title: "Jyotish is Divination, not fortune telling",
+    image: "/images/Naseeb.JPG",
   },
   naseebNepal: {
     title: "भाग्य कसैको पेवा होइन – AheadTerra",
