@@ -37,12 +37,14 @@ export default function VisitorWidget() {
         position: "fixed",
         right: 24,
         bottom: 340,
-        width: 280,
+        width: "min(260px, calc(100vw - 32px))",
+        maxWidth: "100%",
         padding: "16px 18px 14px",
         borderRadius: 16,
         background: "#fff",
         boxShadow: "0 18px 40px rgba(0,0,0,0.15)",
         zIndex: 2000,
+        left: "auto",
       }}
     >
       <button

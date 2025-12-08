@@ -333,3 +333,18 @@ html, body {
     display: none !important;
   }
 }
+
+.visitor-widget {
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+@media (max-width: 640px) {
+  .visitor-widget {
+    left: 50%;
+    right: auto;
+    bottom: 16px;
+    transform: translateX(-50%);
+    max-height: calc(100vh - 32px);
+  }
+}

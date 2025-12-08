@@ -353,13 +353,10 @@ export default function Home() {
         >
           <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}>
             <div style={{ textAlign: "right" }}>
-              <p style={{ margin: "0 0 6px 0", fontSize: 14, color: "#1f2a44" }}>
-                Share AheadTerra with someone who’d love Jyotishavidya insights:
+              <p style={{ margin: "0 0 6px 0", fontSize: 16, color: "#1f2a44" }}>
+                Share Terra with someone who’d love Jyotishavidya or Psychic insights:
               </p>
-              <UniversalShareBar
-                title="AheadTerra – Psychic & Jyotishvidya Readings"
-                url="https://aheadterra.com"
-              />
+              <UniversalShareBar shareKey="ganesha" />
             </div>
           </div>
           <h2>Beej Mantra</h2>
