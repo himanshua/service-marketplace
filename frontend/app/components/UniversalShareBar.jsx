@@ -54,10 +54,10 @@ export default function UniversalShareBar({
     const platform = platformMeta[platformKey];
     const payload = shareImages?.[shareKey];
     if (!platform || !payload) return;
-    const url = `${shareBaseUrl}/${shareKey}`;
+    const targetUrl = payload.url || `${shareBaseUrl}/${shareKey}`;
     const shareHref = platform.buildUrl({
-      url,
-      title: payload.title || payload.label,
+      url: targetUrl,
+      title: payload.title || payload.label || "AheadTerra",
     });
     window.open(shareHref, "_blank", "noopener,noreferrer");
   };

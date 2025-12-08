@@ -144,16 +144,19 @@ const shareImages = {
     label: "Beej Mantra",
     title: "AheadTerra – Psychic & Jyotishvidya Readings",
     image: "/images/Ganesha1.JPG",
+    url: "https://aheadterra.com/#beej-mantra",
   },
   destiny: {
     label: "Destiny Poster",
     title: "ज्योतिषशास्त्र – 2026 Rashifal",
     image: "/images/Destiny.jpg",
+    url: "https://aheadterra.com/how-to-order",
   },
   naseeb: {
     label: "Jyotish Reminder",
     title: "Jyotish is Divination",
     image: "/images/Naseeb.JPG",
+    url: "https://aheadterra.com/#jyotish-reminder",
   },
 };
 
@@ -172,6 +175,7 @@ export default function Home() {
   const [showAuthPrompt, setShowAuthPrompt] = useState(false);
   const [showSignupReminder, setShowSignupReminder] = useState(false);
   const [activeShareKey, setActiveShareKey] = useState(shareChoices[0].key);
+  const heroShareKey = shareChoices[0].key;
   const reminderAudioRef = useRef(null);
   const reminderTimerRef = useRef(null);
   const reminderAudioUnlockedRef = useRef(false);
@@ -372,20 +376,8 @@ export default function Home() {
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
-        <HomeRow imgSrc={shareImages[activeShareKey].image} imgAlt="Welcome">
+        <HomeRow imgSrc={shareImages[heroShareKey].image} imgAlt="Welcome">
           <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
-            <div style={{ display: "flex", gap: 8, justifyContent: "flex-end", flexWrap: "wrap" }}>
-              {shareChoices.map(({ key, label }) => (
-                <button
-                  key={key}
-                  onClick={() => setActiveShareKey(key)}
-                  className={`profile-btn ${activeShareKey === key ? "" : "profile-btn-outline"}`}
-                  style={{ padding: "6px 12px" }}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
             <div style={{ textAlign: "right" }}>
               <p style={{ margin: "0 0 6px 0", fontSize: 16, color: "#1f2a44" }}>
                 Share Terra with someone who’d love Jyotishavidya or Psychic insights:
@@ -393,11 +385,10 @@ export default function Home() {
               <UniversalShareBar
                 shareChoices={shareChoices}
                 shareImages={shareImages}
-                defaultShareKey={activeShareKey}
               />
             </div>
           </div>
-          <h2>{shareImages[activeShareKey].label}</h2>
+          <h2>{shareImages[heroShareKey].label}</h2>
           <p>
             Aum Hreem Hraum Suryayeh Namah, Aum Hreem Shreem Chandraya Namah, Aum Eim Hreem Shreem Mangalayeh Namah, Aum Aim Streem Bam Budhayeh Namah, Aum Hreem Brahm Brihaspatayeh Namah, Aum Hreem Shreem Shukrayeh Namah, Aum Hreem Shreem Sam Sanneshcharayeh Namah, Aum Eim Hreem Rahuvey Namah, Aum Eim Hreem Ketuvey Namah.
           </p>
