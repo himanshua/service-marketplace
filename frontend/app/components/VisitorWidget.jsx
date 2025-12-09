@@ -43,12 +43,10 @@ export default function VisitorWidget() {
     if (!dragging) return;
     const clientX = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
     const clientY = e.type === "touchmove" ? e.touches[0].clientY : e.clientY;
-    let newX = clientX - dragOffset.current.x;
-    let newY = clientY - dragOffset.current.y;
-    // Keep inside viewport
-    newX = Math.max(0, Math.min(window.innerWidth - 260, newX));
-    newY = Math.max(0, Math.min(window.innerHeight - 80, newY));
-    setPos({ x: newX, y: newY });
+    // Calculate new right and top so widget stays in viewport
+    let newRight = Math.max(0, Math.min(window.innerWidth - 260, window.innerWidth - clientX - (window.innerWidth - pos.x)));
+    let newTop = Math.max(0, Math.min(window.innerHeight - 80, clientY - dragOffset.current.y));
+    setPos({ x: newRight, y: newTop });
   };
 
   const onDragEnd = () => {
@@ -86,9 +84,9 @@ export default function VisitorWidget() {
         right: pos.x,
         top: pos.y,
         width: "min(260px, calc(100vw - 32px))",
-        maxHeight: "calc(80vh - 38px)", // reduced height by 20%
+        maxHeight: "calc(80vh - 38px)",
         overflowY: "auto",
-        padding: "13px 14px 14px", // reduced padding
+        padding: "13px 14px 14px",
         borderRadius: 16,
         background: "#fff",
         boxShadow: "0 18px 40px rgba(0,0,0,0.15)",
