@@ -17,7 +17,8 @@ const formatGMT = (iso) =>
 export default function VisitorWidget() {
   const [visitors, setVisitors] = useState([]);
   const [visible, setVisible] = useState(true);
-  const [pos, setPos] = useState({ x: 24, y: 24 });
+  // Start at top right
+  const [pos, setPos] = useState({ x: 24, y: 24 }); // x = right, y = top
   const [dragging, setDragging] = useState(false);
   const dragOffset = useRef({ x: 0, y: 0 });
 
@@ -32,9 +33,11 @@ export default function VisitorWidget() {
     setDragging(true);
     const clientX = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
     const clientY = e.type === "touchstart" ? e.touches[0].clientY : e.clientY;
+    // Calculate offset from the widget's top-right corner
+    const widget = e.currentTarget.getBoundingClientRect();
     dragOffset.current = {
-      x: clientX - pos.x,
-      y: clientY - pos.y,
+      x: widget.right - clientX,
+      y: clientY - widget.top,
     };
     document.body.style.userSelect = "none";
   };
@@ -43,12 +46,10 @@ export default function VisitorWidget() {
     if (!dragging) return;
     const clientX = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
     const clientY = e.type === "touchmove" ? e.touches[0].clientY : e.clientY;
-    let newX = clientX - dragOffset.current.x;
-    let newY = clientY - dragOffset.current.y;
-    // Keep inside viewport
-    newX = Math.max(0, Math.min(window.innerWidth - 260, newX));
-    newY = Math.max(0, Math.min(window.innerHeight - 80, newY));
-    setPos({ x: newX, y: newY });
+    // Calculate new right and top
+    let newRight = Math.max(0, Math.min(window.innerWidth - 260, window.innerWidth - clientX - dragOffset.current.x));
+    let newTop = Math.max(0, Math.min(window.innerHeight - 80, clientY - dragOffset.current.y));
+    setPos({ x: newRight, y: newTop });
   };
 
   const onDragEnd = () => {
@@ -83,7 +84,7 @@ export default function VisitorWidget() {
     <aside
       style={{
         position: "fixed",
-        left: pos.x,
+        right: pos.x,
         top: pos.y,
         width: "min(260px, calc(100vw - 32px))",
         maxHeight: "calc(80vh - 38px)",
@@ -93,41 +94,30 @@ export default function VisitorWidget() {
         background: "#fff",
         boxShadow: "0 18px 40px rgba(0,0,0,0.15)",
         zIndex: 2000,
-        cursor: dragging ? "grabbing" : "default",
+        cursor: dragging ? "grabbing" : "grab",
         userSelect: dragging ? "none" : "auto",
       }}
+      onMouseDown={onDragStart}
+      onTouchStart={onDragStart}
+      aria-label="Drag visitor widget"
     >
-      <div
+      <button
+        onClick={() => setVisible(false)}
+        aria-label="Close visitor widget"
         style={{
-          cursor: "grab",
-          margin: "-13px -14px 6px",
-          padding: "9px 14px 6px",
-          borderTopLeftRadius: 16,
-          borderTopRightRadius: 16,
-          background: "rgba(240,245,255,0.85)",
+          position: "absolute",
+          top: 8,
+          right: 10,
+          border: "none",
+          background: "transparent",
+          fontSize: 16,
+          cursor: "pointer",
+          color: "#7a8797",
         }}
-        onMouseDown={onDragStart}
-        onTouchStart={onDragStart}
-        aria-label="Drag visitor widget"
       >
-        <button
-          onClick={() => setVisible(false)}
-          aria-label="Close visitor widget"
-          style={{
-            position: "absolute",
-            top: 8,
-            right: 10,
-            border: "none",
-            background: "transparent",
-            fontSize: 16,
-            cursor: "pointer",
-            color: "#7a8797",
-          }}
-        >
-          ×
-        </button>
-        <h4 style={{ margin: 0, color: "#0c3c7a", fontSize: 15 }}>Recent visitors</h4>
-      </div>
+        ×
+      </button>
+      <h4 style={{ margin: "0 0 12px", color: "#0c3c7a", fontSize: 15 }}>Recent visitors</h4>
       <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
         {list.map((visit) => (
           <li key={visit._id} style={{ display: "flex", gap: 8, marginBottom: 8 }}>
