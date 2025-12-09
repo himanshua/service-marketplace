@@ -94,7 +94,7 @@ export default function VisitorWidget() {
   const reducedMaxHeight = viewport.height ? viewport.height * 0.80 - 38 : undefined;
 
   // Move widget left by 20% of viewport width
-  const leftShift = viewport.width ? viewport.width * 0.20 : 0;
+  const leftShift = viewport.width ? viewport.width * 0.23 : 0;
 
   return (
     <aside
