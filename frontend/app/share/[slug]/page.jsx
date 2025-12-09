@@ -41,7 +41,7 @@ export default function SharePage({ params }) {
   return (
     <main style={{ padding: 40, maxWidth: 720, margin: "0 auto", textAlign: "center" }}>
       <Image
-        src={item.image}
+        src={item.image.startsWith("http") ? item.image : `https://aheadterra.com${item.image}`}
         alt={item.label}
         width={720}
         height={405}
