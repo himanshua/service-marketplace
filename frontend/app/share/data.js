@@ -21,99 +21,115 @@ export const shareItems = {
     body: "Explanation text for this reminder.",
   },
   naseebNepal: {
+    label: "भाग्य कसैको पेवा होइन",
     title: "भाग्य कसैको पेवा होइन – AheadTerra",
     description: "Nepali proverb: everyone can create fortune.",
-    canonical: "https://aheadterra.com/#naseeb-nepal",
-    image: "https://aheadterra.com/images/Naseeb1.jpg"
+    image: "https://aheadterra.com/images/Naseeb1.jpg",
+    body: "Nepali wisdom: fortune is not anyone's property.",
   },
   himanshu: {
+    label: "Himanshu Tiwari",
     title: "Himanshu Tiwari – AheadTerra",
     description: "Top-rated psychic & Jyotishavidya guide.",
-    canonical: "https://aheadterra.com/#himanshu-section",
-    image: "https://aheadterra.com/images/himanshu-tiwari-og.jpg"
+    image: "https://aheadterra.com/images/himanshu-tiwari-og.jpg",
+    body: "Meet Himanshu Tiwari, your Jyotishavidya guide.",
   },
   houses12: {
+    label: "12 Houses",
     title: "12 Houses Overview – AheadTerra",
     description: "Visual guide to 12 zodiac houses.",
-    canonical: "https://aheadterra.com/#twelve-houses",
-    image: "https://aheadterra.com/images/12-house4.JPG"
+    image: "https://aheadterra.com/images/12-house4.JPG",
+    body: "Learn about the 12 houses in Jyotish.",
   },
   planets9: {
+    label: "Nine Graha",
     title: "Nine Graha – AheadTerra",
     description: "Learn the 9 graha dimensions.",
-    canonical: "https://aheadterra.com/#nine-planets",
-    image: "https://aheadterra.com/images/9-planets.png"
+    image: "https://aheadterra.com/images/9-planets.png",
+    body: "Explore the nine graha (planets) in Vedic astrology.",
   },
   earthFlag: {
+    label: "Earth Flag",
     title: "AheadTerra Earth Flag",
     description: "AheadTerra represents progress on Earth.",
-    canonical: "https://aheadterra.com/#aheadterra",
-    image: "https://aheadterra.com/images/Earth_flag.jpg"
+    image: "https://aheadterra.com/images/Earth_flag.jpg",
+    body: "The Earth Flag symbolizes unity and progress.",
   },
   signupReminder: {
+    label: "Join AheadTerra",
     title: "Join AheadTerra",
     description: "Ready to request your reading?",
-    canonical: "https://aheadterra.com/#join",
-    image: "https://aheadterra.com/images/signup-reminder.jpg"
+    image: "https://aheadterra.com/images/signup-reminder.jpg",
+    body: "Sign up to access personalized readings.",
   },
   howToOrder: {
+    label: "How to Order",
     title: "How to Order Jyotishavidya Readings",
     description: "Step-by-step guide to request readings.",
-    canonical: "https://aheadterra.com/how-to-order",
-    image: "https://aheadterra.com/images/reading.jpg"
+    image: "https://aheadterra.com/images/reading.jpg",
+    body: "Follow these steps to order your reading.",
   },
   valueOfTime: {
+    label: "Value of Time",
     title: "समय का महत्व समझें",
     description: "Understand the value of time.",
-    canonical: "https://aheadterra.com/#value-of-time",
-    image: "https://aheadterra.com/images/Time.jpg"
+    image: "https://aheadterra.com/images/Time.jpg",
+    body: "Time is the most valuable resource.",
   },
   becomePerson: {
+    label: "Become the Person",
     title: "Become the Person You Seek",
     description: "Your marriage success starts with you.",
-    canonical: "https://aheadterra.com/#marriage-success",
-    image: "https://aheadterra.com/images/person.jpg"
+    image: "https://aheadterra.com/images/person.jpg",
+    body: "Personal growth is the key to relationship success.",
   },
   careerD9: {
+    label: "Career in D-9",
     title: "Career in D-9 – Skill is Wealth",
     description: "Navamsha insights for vocation.",
-    canonical: "https://aheadterra.com/#career-d9",
-    image: "https://aheadterra.com/images/career.jpg"
+    image: "https://aheadterra.com/images/career.jpg",
+    body: "Discover your career path through D-9.",
   },
   fullStack: {
+    label: "Full Stack Services",
     title: "Full Stack Web App Services",
     description: "Hire Himanshu Tiwari for MERN apps.",
-    canonical: "https://aheadterra.com/#full-stack",
-    image: "https://aheadterra.com/images/Himanshu-Tiwari.png"
+    image: "https://aheadterra.com/images/Himanshu-Tiwari.png",
+    body: "Professional MERN stack web app development.",
   },
   bestsellers: {
+    label: "Bestsellers",
     title: "Best-Selling Fiverr Readings",
     description: "Predict your future & spouse insights.",
-    canonical: "https://aheadterra.com/#best-sellers",
-    image: "https://aheadterra.com/images/bestsellers.jpeg"
+    image: "https://aheadterra.com/images/bestsellers.jpeg",
+    body: "Our most popular readings on Fiverr.",
   },
   marsValley: {
+    label: "Mars Valley Poster",
     title: "Visit the Mars Valley Poster",
     description: "NASA space tour inspiration.",
-    canonical: "https://aheadterra.com/#best-sellers",
-    image: "https://aheadterra.com/images/mars-valley.jpg"
+    image: "https://aheadterra.com/images/mars-valley.jpg",
+    body: "Inspired by NASA's Mars Valley poster.",
   },
   marsSpacecraft: {
+    label: "Mars Spacecraft",
     title: "Mars Mission Spacecraft",
     description: "SpaceX/NASA mission inspiration.",
-    canonical: "https://aheadterra.com/#best-sellers",
-    image: "https://aheadterra.com/images/mars-spacecraft.jpg"
+    image: "https://aheadterra.com/images/mars-spacecraft.jpg",
+    body: "Celebrate Mars exploration missions.",
   },
   jyotishaTopics: {
+    label: "Jyotisha Topics",
     title: "Jyotisha Topics Overview",
     description: "Explore graha, rashi, bhava, dasha.",
-    canonical: "https://aheadterra.com/#jyotisha-topics",
-    image: "https://aheadterra.com/images/jyotisha-topics.jpg"
+    image: "https://aheadterra.com/images/jyotisha-topics.jpg",
+    body: "A quick guide to Jyotisha's core topics.",
   },
   nakshatraWheel: {
+    label: "Nakshatra Wheel",
     title: "27 Nakshatra Wheel",
     description: "Lunar houses / constellations.",
-    canonical: "https://aheadterra.com/#nakshatra",
-    image: "https://aheadterra.com/images/nakshatra-wheel.png"
+    image: "https://aheadterra.com/images/nakshatra-wheel.png",
+    body: "See all 27 nakshatras in one wheel.",
   }
 };
