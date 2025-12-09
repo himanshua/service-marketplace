@@ -197,7 +197,7 @@ const styles = {
     overflowY: "auto",
     background: "#fff",
     borderRadius: 12,
-    padding: 18,
+    padding: "38px 18px 18px 18px", // increased top padding for x button
     boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
   },
   choiceGrid: {
