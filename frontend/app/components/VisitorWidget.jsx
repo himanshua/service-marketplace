@@ -43,10 +43,12 @@ export default function VisitorWidget() {
     if (!dragging) return;
     const clientX = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
     const clientY = e.type === "touchmove" ? e.touches[0].clientY : e.clientY;
-    // Calculate new right and top so widget stays in viewport
-    let newRight = Math.max(0, Math.min(window.innerWidth - 260, window.innerWidth - clientX - (window.innerWidth - pos.x)));
-    let newTop = Math.max(0, Math.min(window.innerHeight - 80, clientY - dragOffset.current.y));
-    setPos({ x: newRight, y: newTop });
+    let newX = clientX - dragOffset.current.x;
+    let newY = clientY - dragOffset.current.y;
+    // Keep inside viewport
+    newX = Math.max(0, Math.min(window.innerWidth - 260, newX));
+    newY = Math.max(0, Math.min(window.innerHeight - 80, newY));
+    setPos({ x: newX, y: newY });
   };
 
   const onDragEnd = () => {
@@ -81,7 +83,7 @@ export default function VisitorWidget() {
     <aside
       style={{
         position: "fixed",
-        right: pos.x,
+        left: pos.x,
         top: pos.y,
         width: "min(260px, calc(100vw - 32px))",
         maxHeight: "calc(80vh - 38px)",
