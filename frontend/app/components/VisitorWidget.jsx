@@ -85,9 +85,9 @@ export default function VisitorWidget() {
       style={{
         position: "fixed",
         right: pos.x,
-        top: pos.y,
+        top: pos.y + window.innerHeight * 0.10, // reduce top by 10% of viewport height
         width: "min(260px, calc(100vw - 32px))",
-        maxHeight: "calc(80vh - 38px)",
+        maxHeight: "calc(80vh - 38px - 10vh)", // reduce bottom by 10% of viewport height
         overflowY: "auto",
         padding: "13px 14px 14px",
         borderRadius: 16,
