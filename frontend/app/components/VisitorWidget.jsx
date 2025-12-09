@@ -21,12 +21,21 @@ export default function VisitorWidget() {
   const [pos, setPos] = useState({ x: 24, y: 24 }); // x = right, y = top
   const [dragging, setDragging] = useState(false);
   const dragOffset = useRef({ x: 0, y: 0 });
+  const [viewport, setViewport] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     fetch("/api/visitors")
       .then((res) => res.json())
       .then((data) => setVisitors(data.visitors || []))
       .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    // Only runs in browser
+    const update = () => setViewport({ width: window.innerWidth, height: window.innerHeight });
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
   const onDragStart = (e) => {
@@ -80,14 +89,18 @@ export default function VisitorWidget() {
     ? visitors
     : [{ _id: "placeholder", country: "— No visitors yet —", city: "Check back soon", region: "", createdAt: null, countryCode: "" }];
 
+  // Calculate reduced top and maxHeight
+  const reducedTop = pos.y + (viewport.height ? viewport.height * 0.10 : 0);
+  const reducedMaxHeight = viewport.height ? viewport.height * 0.80 - 38 : undefined;
+
   return (
     <aside
       style={{
         position: "fixed",
         right: pos.x,
-        top: pos.y + window.innerHeight * 0.10, // reduce top by 10% of viewport height
+        top: reducedTop,
         width: "min(260px, calc(100vw - 32px))",
-        maxHeight: "calc(80vh - 38px - 10vh)", // reduce bottom by 10% of viewport height
+        maxHeight: reducedMaxHeight,
         overflowY: "auto",
         padding: "13px 14px 14px",
         borderRadius: 16,
