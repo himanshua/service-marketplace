@@ -101,7 +101,10 @@ export default function UniversalShareBar({
 
       {pendingPlatform && (
         <div style={styles.backdrop} onClick={() => setPendingPlatform(null)}>
-          <div style={styles.modal} onClick={(e) => e.stopPropagation()}>
+          <div
+            style={styles.modal}
+            onClick={(e) => e.stopPropagation()}
+          >
             <h4 style={{ marginBottom: 12 }}>
               Choose what to share on {platformMeta[pendingPlatform].label}
             </h4>
@@ -139,6 +142,20 @@ export default function UniversalShareBar({
             >
               Cancel
             </button>
+            <button
+              type="button"
+              style={{
+                ...styles.iconBtn,
+                backgroundColor: "#e0e6ef",
+                color: "#41506a",
+                width: "100%",
+                marginTop: 8,
+                fontWeight: 600,
+              }}
+              onClick={() => setPendingPlatform(null)}
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
@@ -169,6 +186,8 @@ const styles = {
   },
   modal: {
     width: "min(520px, 100%)",
+    maxHeight: "calc(100vh - 48px)", // ensures modal never exceeds viewport
+    overflowY: "auto",
     background: "#fff",
     borderRadius: 12,
     padding: 18,
