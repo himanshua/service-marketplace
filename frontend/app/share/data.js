@@ -20,7 +20,7 @@ export const shareItems = {
     image: "/images/Naseeb.JPG",
     body: "Explanation text for this reminder.",
   },
-  naseebNepal: {
+  naseeb: {
     label: "भाग्य कसैको पेवा होइन",
     title: "भाग्य कसैको पेवा होइन – AheadTerra",
     description: "Nepali proverb: everyone can create fortune.",
@@ -62,7 +62,7 @@ export const shareItems = {
     image: "https://aheadterra.com/images/signup-reminder.jpg",
     body: "Sign up to access personalized readings.",
   },
-  howToOrder: {
+  reading: {
     label: "How to Order",
     title: "How to Order Jyotishavidya Readings",
     description: "Step-by-step guide to request readings.",
