@@ -105,7 +105,25 @@ export default function UniversalShareBar({
             style={styles.modal}
             onClick={(e) => e.stopPropagation()}
           >
-            <h4 style={{ marginBottom: 12 }}>
+            <button
+              onClick={() => setPendingPlatform(null)}
+              aria-label="Close share modal"
+              style={{
+                position: "absolute",
+                top: 12,
+                right: 16,
+                border: "none",
+                background: "transparent",
+                fontSize: 22,
+                fontWeight: 700,
+                color: "#7a8797",
+                cursor: "pointer",
+                zIndex: 1,
+              }}
+            >
+              ×
+            </button>
+            <h4 style={{ marginBottom: 12, marginTop: 0 }}>
               Choose what to share on {platformMeta[pendingPlatform].label}
             </h4>
             <div style={styles.choiceGrid}>
@@ -134,22 +152,10 @@ export default function UniversalShareBar({
               type="button"
               style={{
                 ...styles.iconBtn,
-                backgroundColor: "#ccc",
-                width: "100%",
-                marginTop: 12,
-              }}
-              onClick={() => setPendingPlatform(null)}
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              style={{
-                ...styles.iconBtn,
                 backgroundColor: "#e0e6ef",
                 color: "#41506a",
                 width: "100%",
-                marginTop: 8,
+                marginTop: 16,
                 fontWeight: 600,
               }}
               onClick={() => setPendingPlatform(null)}
@@ -185,8 +191,9 @@ const styles = {
     padding: 16,
   },
   modal: {
+    position: "relative",
     width: "min(520px, 100%)",
-    maxHeight: "calc(100vh - 48px)", // ensures modal never exceeds viewport
+    maxHeight: "calc(100vh - 68px)",
     overflowY: "auto",
     background: "#fff",
     borderRadius: 12,
