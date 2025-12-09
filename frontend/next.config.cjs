@@ -6,7 +6,10 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true
-  }
+  },
+  images: {
+    domains: ['aheadterra.com'],
+  },
 };
 
 module.exports = nextConfig;

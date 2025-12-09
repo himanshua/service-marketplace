@@ -14,8 +14,9 @@
     "react-dom": "18.2.0"
   },
   "scripts": {
-    "test": "node --experimental-vm-modules ../../node_modules/.bin/jest",
-    "prepare": "echo skip prepare"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",

@@ -62,7 +62,7 @@ export const shareItems = {
     image: "https://aheadterra.com/images/signup-reminder.jpg",
     body: "Sign up to access personalized readings.",
   },
-  reading: {
+  howToOrder: {
     label: "How to Order",
     title: "How to Order Jyotishavidya Readings",
     description: "Step-by-step guide to request readings.",
