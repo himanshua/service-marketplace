@@ -29,10 +29,10 @@ export async function generateMetadata({ params }) {
 
 // Helper: map slug to section id
 const sectionMap = {
-  "mars-valley": "Mars",                // Best Seller: Mars Valley
-  "mars-spacecraft": "Mars",            // Best Seller: Mars Spacecraft
+  "mars-valley": "mars-section",                // Best Seller: Mars Valley
+  "mars-spacecraft": "mars-section",            // Best Seller: Mars Spacecraft
   "himanshu-tiwari": "himanshu-section",// Himanshu Tiwari main section
-  "earth-flag": "Earth",                // Who is AheadTerra? (Earth flag)
+  "earth-flag": "earth-section",                // Who is AheadTerra? (Earth flag)
   "12-house4": "12-houses-section",     // 12 Houses
   "9-planets": "nine-planets-section",  // Nine Planets
   "nakshatra-wheel": "nakshatra-section", // 27 Nakshatra
@@ -151,7 +151,7 @@ export default function SharePage({ params }) {
       </div>
 
       <Link
-        href={`/${sectionId}`}
+        href={`/#${sectionId}`}
         style={{ color: "#1976d2", textDecoration: "underline" }}
       >
       View the full article on AheadTerra

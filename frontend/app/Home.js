@@ -1107,7 +1107,7 @@ Believe in yourself - success is within your reach!
   <p style={{ marginTop: 10 }}>
     Every consultation brings fresh perspectives for life's ever-changing journey—because while certain moments in life pass and never return, new opportunities and challenges always emerge. Like humanity's Mars missions reaching unprecedented frontiers, your path forward holds possibilities you've never encountered before.
   </p>
-  <p style={{ marginTop: 16, fontWeight: 600, lineHeight: 1.6 }}>
+  <p id="mars-section" style={{ marginTop: 16, fontWeight: 600, lineHeight: 1.6 }}>
     <strong>
       “A trip to Mars normally takes about 6–9 months. Future human missions are expected in the late 2030s or early 2040s, and they will take the same travel time. The good news is that human travel to Mars is becoming more real every year. Rockets are getting stronger, life-support systems are improving, and both NASA and SpaceX are making fast progress. For the first time in history, humans have a real chance to walk on Mars in our lifetime.”
     </strong>
