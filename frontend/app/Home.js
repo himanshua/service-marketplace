@@ -315,9 +315,10 @@ export default function Home() {
             }
           }, delay);
         });
-        setTimeout(() => {
-          window.history.replaceState(null, "", window.location.pathname);
-        }, 1200);
+        // Commented out to keep the #section-id in the URL after scroll
+        // setTimeout(() => {
+        //   window.history.replaceState(null, "", window.location.pathname);
+        // }, 1200);
       }
     };
 
