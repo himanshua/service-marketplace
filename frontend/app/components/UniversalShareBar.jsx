@@ -44,12 +44,28 @@ const sharePlatforms = [
       `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
   },
   {
-    key: "instagram",
-    label: "Instagram",
-    color: "#E1306C",
-    icon: "instagram",
-    buildUrl: ({ url }) =>
-      `https://www.instagram.com/`, // Instagram does not support direct share links
+    key: "reddit",
+    label: "Reddit",
+    color: "#FF4500",
+    icon: "reddit",
+    buildUrl: ({ url, title }) =>
+      `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
+  },
+  {
+    key: "pinterest",
+    label: "Pinterest",
+    color: "#E60023",
+    icon: "pinterest",
+    buildUrl: ({ url, title }) =>
+      `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(title)}`,
+  },
+  {
+    key: "email",
+    label: "Email",
+    color: "#7a8797",
+    icon: "email",
+    buildUrl: ({ url, title }) =>
+      `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`,
   },
 ];
 
@@ -89,12 +105,30 @@ const platformIcons = {
       <path d="M21.5 10h-2l-3.5 5-3.5-5h-2l4.5 6.5-4.5 6.5h2l3.5-5 3.5 5h2l-4.5-6.5z" fill="#fff"/>
     </svg>
   ),
-  instagram: (
+  reddit: (
     <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
-      <circle cx="16" cy="16" r="16" fill="#E1306C"/>
-      <rect x="10" y="10" width="12" height="12" rx="4" fill="#fff"/>
-      <circle cx="16" cy="16" r="3" fill="#E1306C"/>
-      <circle cx="21" cy="11" r="1" fill="#E1306C"/>
+      <circle cx="16" cy="16" r="16" fill="#FF4500"/>
+      <ellipse cx="16" cy="20" rx="7" ry="4" fill="#fff"/>
+      <circle cx="12.5" cy="18" r="1.5" fill="#FF4500"/>
+      <circle cx="19.5" cy="18" r="1.5" fill="#FF4500"/>
+      <ellipse cx="16" cy="21" rx="2" ry="1" fill="#FF4500"/>
+      <circle cx="10" cy="12" r="2" fill="#fff"/>
+      <circle cx="22" cy="12" r="2" fill="#fff"/>
+      <circle cx="10" cy="12" r="1" fill="#FF4500"/>
+      <circle cx="22" cy="12" r="1" fill="#FF4500"/>
+    </svg>
+  ),
+  pinterest: (
+    <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="16" fill="#E60023"/>
+      <path d="M16 10c-3.3 0-6 2.5-6 5.7 0 2.1 1.3 3.3 2.1 3.3.3 0 .5-.2.5-.5 0-.2-.1-.8-.1-1.1 0-.4-.2-.5-.4-.8-.3-.4-.1-1 .2-1.2.3-.2.7-.1 1 .2.3.4.5 1 .5 1.4 0 .5-.2 1.1-.2 1.4 0 .3.2.5.5.5 1.2 0 2.1-1.2 2.1-2.7 0-2.2-1.8-4-4-4z" fill="#fff"/>
+    </svg>
+  ),
+  email: (
+    <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="16" fill="#7a8797"/>
+      <rect x="8" y="12" width="16" height="8" rx="2" fill="#fff"/>
+      <path d="M8 12l8 6 8-6" stroke="#7a8797" strokeWidth="1.5"/>
     </svg>
   ),
 };
