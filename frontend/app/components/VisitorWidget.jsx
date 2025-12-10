@@ -23,7 +23,7 @@ export default function VisitorWidget() {
   const [viewport, setViewport] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
-  setPos({ x: window.innerWidth / 1.5, y: 24 });
+  setPos({ x: window.innerWidth / 1.7, y: 24 });
 }, []);
   useEffect(() => {
     fetch("/api/visitors")
