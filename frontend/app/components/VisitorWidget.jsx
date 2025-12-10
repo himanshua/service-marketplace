@@ -17,8 +17,7 @@ const formatGMT = (iso) =>
 export default function VisitorWidget() {
   const [visitors, setVisitors] = useState([]);
   const [visible, setVisible] = useState(true);
-  // Start at top right
-  const [pos, setPos] = useState({ x: 24, y: 24 }); // x = right, y = top
+  const [pos, setPos] = useState({ x: 24, y: 24 }); // x = left, y = top
   const [dragging, setDragging] = useState(false);
   const dragOffset = useRef({ x: 0, y: 0 });
   const [viewport, setViewport] = useState({ width: 0, height: 0 });
@@ -31,7 +30,6 @@ export default function VisitorWidget() {
   }, []);
 
   useEffect(() => {
-    // Only runs in browser
     const update = () => setViewport({ width: window.innerWidth, height: window.innerHeight });
     update();
     window.addEventListener("resize", update);
@@ -42,11 +40,9 @@ export default function VisitorWidget() {
     setDragging(true);
     const clientX = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
     const clientY = e.type === "touchstart" ? e.touches[0].clientY : e.clientY;
-    // Calculate offset from the widget's top-right corner
-    const widget = e.currentTarget.getBoundingClientRect();
     dragOffset.current = {
-      x: widget.right - clientX,
-      y: clientY - widget.top,
+      x: clientX - pos.x,
+      y: clientY - pos.y,
     };
     document.body.style.userSelect = "none";
   };
@@ -55,10 +51,10 @@ export default function VisitorWidget() {
     if (!dragging) return;
     const clientX = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
     const clientY = e.type === "touchmove" ? e.touches[0].clientY : e.clientY;
-    // Calculate new right and top
-    let newRight = Math.max(0, Math.min(window.innerWidth - 260, window.innerWidth - clientX - dragOffset.current.x));
-    let newTop = Math.max(0, Math.min(window.innerHeight - 80, clientY - dragOffset.current.y));
-    setPos({ x: newRight, y: newTop });
+    // Constrain to viewport
+    let newX = Math.max(0, Math.min(window.innerWidth - 260, clientX - dragOffset.current.x));
+    let newY = Math.max(0, Math.min(window.innerHeight - 80, clientY - dragOffset.current.y));
+    setPos({ x: newX, y: newY });
   };
 
   const onDragEnd = () => {
@@ -93,14 +89,11 @@ export default function VisitorWidget() {
   const reducedTop = pos.y + (viewport.height ? viewport.height * 0.10 : 0);
   const reducedMaxHeight = viewport.height ? viewport.height * 0.80 - 38 : undefined;
 
-  // Move widget left by 20% of viewport width
-  const leftShift = viewport.width ? viewport.width * 0.23 : 0;
-
   return (
     <aside
       style={{
         position: "fixed",
-        right: pos.x + leftShift,
+        left: pos.x,
         top: reducedTop,
         width: "min(260px, calc(100vw - 32px))",
         maxHeight: reducedMaxHeight,
