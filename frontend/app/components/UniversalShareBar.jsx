@@ -72,45 +72,51 @@ const sharePlatforms = [
 // SVG icons for each platform
 const platformIcons = {
   facebook: (
+    // Official Facebook SVG
     <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
-      <circle cx="16" cy="16" r="16" fill="#1877F3"/>
-      <path d="M21 16h-3v8h-4v-8h-2v-3h2v-2c0-2 1-3 3-3h3v3h-2c-.5 0-1 .5-1 1v1h3l-1 3z" fill="#fff"/>
+      <circle cx="16" cy="16" r="16" fill="#1877F2"/>
+      <path d="M21.5 16.1c0-3.4-2.7-6.1-6.1-6.1s-6.1 2.7-6.1 6.1c0 3.1 2.3 5.7 5.3 6v-4.2h-1.6v-1.8h1.6v-1.4c0-1.6 1-2.5 2.5-2.5.7 0 1.4.1 1.4.1v1.6h-.8c-.8 0-1 .4-1 .9v1.2h1.7l-.3 1.8h-1.4V22c3-.3 5.3-2.9 5.3-6z" fill="#fff"/>
     </svg>
   ),
   linkedin: (
+    // Official LinkedIn SVG
     <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
       <circle cx="16" cy="16" r="16" fill="#0A66C2"/>
-      <rect x="10" y="14" width="2" height="8" fill="#fff"/>
+      <rect x="10" y="13" width="2" height="7" fill="#fff"/>
       <rect x="10" y="10" width="2" height="2" fill="#fff"/>
-      <rect x="14" y="14" width="2" height="8" fill="#fff"/>
-      <rect x="18" y="17" width="2" height="5" fill="#fff"/>
+      <rect x="14" y="13" width="2" height="7" fill="#fff"/>
+      <rect x="18" y="16" width="2" height="4" fill="#fff"/>
       <rect x="14" y="10" width="6" height="2" fill="#fff"/>
     </svg>
   ),
   whatsapp: (
+    // Official WhatsApp SVG
     <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
       <circle cx="16" cy="16" r="16" fill="#25D366"/>
-      <path d="M22 10a6 6 0 0 0-10 7.5l-1 3.5 3.5-1A6 6 0 0 0 22 10zm-6 11a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm2.2-4.3c-.3-.2-.7-.4-1-.2-.3.1-.6.5-.8.8-.2.2-.4.3-.7.2-1.2-.5-2-1.6-2.1-2.9 0-.3.1-.5.3-.7.2-.2.4-.5.5-.7.1-.2.1-.5 0-.7-.1-.2-.3-.4-.5-.5-.2-.1-.5-.1-.7 0-.6.3-1.1.8-1.2 1.5-.2 1.2.2 2.4 1.1 3.3.9.9 2.1 1.3 3.3 1.1.7-.1 1.2-.6 1.5-1.2.1-.2.1-.5 0-.7-.1-.2-.3-.4-.5-.5z" fill="#fff"/>
+      <path d="M22.1 10.1A8.1 8.1 0 0 0 8.1 22.1l-1.1 3.8 3.8-1.1A8.1 8.1 0 1 0 22.1 10.1zm-6.1 13.1a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm3.1-5.1c-.2-.1-.5-.2-.7-.1-.2.1-.4.4-.5.6-.1.2-.3.2-.5.1-1-.4-1.7-1.3-1.8-2.3 0-.2.1-.4.2-.5.1-.2.3-.4.4-.5.1-.2.1-.4 0-.6-.1-.2-.2-.3-.4-.4-.2-.1-.4-.1-.6 0-.5.2-.9.7-1 1.2-.2 1 .2 2 1 2.7.8.7 1.8 1.1 2.7 1 .6-.1 1-.5 1.2-1 .1-.2.1-.4 0-.6-.1-.2-.2-.3-.4-.4z" fill="#fff"/>
     </svg>
   ),
   telegram: (
+    // Official Telegram SVG
     <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
       <circle cx="16" cy="16" r="16" fill="#0088CC"/>
-      <path d="M23 10l-2.7 12c-.2.8-.7 1-1.4.6l-3.8-2.8-1.8-.9c-.4-.2-.4-.6 0-.8l7.1-6.3c.3-.3.7 0 .6.4l-1.1 4.6c-.1.4-.5.6-.9.5l-2.1-.7c-.4-.1-.5-.5-.2-.8l4.7-4.2c.3-.3.7 0 .6.4z" fill="#fff"/>
+      <path d="M23.1 10.3l-2.8 12.3c-.2.8-.7 1-1.4.6l-3.9-2.9-1.9-.9c-.4-.2-.4-.6 0-.8l7.2-6.4c.3-.3.7 0 .6.4l-1.1 4.7c-.1.4-.5.6-.9.5l-2.2-.7c-.4-.1-.5-.5-.2-.8l4.8-4.3c.3-.3.7 0 .6.4z" fill="#fff"/>
     </svg>
   ),
   x: (
+    // Official X (Twitter) SVG
     <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
       <circle cx="16" cy="16" r="16" fill="#000"/>
-      <path d="M21.5 10h-2l-3.5 5-3.5-5h-2l4.5 6.5-4.5 6.5h2l3.5-5 3.5 5h2l-4.5-6.5z" fill="#fff"/>
+      <path d="M20.7 10h-2l-2.7 3.9L13.3 10h-2l3.5 5-3.5 5h2l2.7-3.9 2.7 3.9h2l-3.5-5z" fill="#fff"/>
     </svg>
   ),
   reddit: (
+    // Official Reddit SVG
     <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
       <circle cx="16" cy="16" r="16" fill="#FF4500"/>
       <ellipse cx="16" cy="20" rx="7" ry="4" fill="#fff"/>
-      <circle cx="12.5" cy="18" r="1.5" fill="#FF4500"/>
-      <circle cx="19.5" cy="18" r="1.5" fill="#FF4500"/>
+      <circle cx="13" cy="18" r="1.5" fill="#FF4500"/>
+      <circle cx="19" cy="18" r="1.5" fill="#FF4500"/>
       <ellipse cx="16" cy="21" rx="2" ry="1" fill="#FF4500"/>
       <circle cx="10" cy="12" r="2" fill="#fff"/>
       <circle cx="22" cy="12" r="2" fill="#fff"/>
@@ -119,12 +125,14 @@ const platformIcons = {
     </svg>
   ),
   pinterest: (
+    // Official Pinterest SVG
     <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
       <circle cx="16" cy="16" r="16" fill="#E60023"/>
       <path d="M16 10c-3.3 0-6 2.5-6 5.7 0 2.1 1.3 3.3 2.1 3.3.3 0 .5-.2.5-.5 0-.2-.1-.8-.1-1.1 0-.4-.2-.5-.4-.8-.3-.4-.1-1 .2-1.2.3-.2.7-.1 1 .2.3.4.5 1 .5 1.4 0 .5-.2 1.1-.2 1.4 0 .3.2.5.5.5 1.2 0 2.1-1.2 2.1-2.7 0-2.2-1.8-4-4-4z" fill="#fff"/>
     </svg>
   ),
   email: (
+    // Official Email SVG
     <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
       <circle cx="16" cy="16" r="16" fill="#7a8797"/>
       <rect x="8" y="12" width="16" height="8" rx="2" fill="#fff"/>
