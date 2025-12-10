@@ -40,7 +40,7 @@ const sectionMap = {
   "bestsellers": "best-seller-section", // My Best Sellers
   "jyotisha-topics": "jyotisha-topics-section", // Jyotisha Topics
   "reading": "how-to-order-section",    // How to order Jyotishavidya Readings
-  "career": "career-section",           // Career in D-9
+  "careerD9": "career-section",           // Career in D-9
   "person": "person-section",           // Marriage/Relationship Success
   "Time": "time-section",               // Value of Time
   "Destiny": "destiny-section",         // Jyotishashastra Destiny
