@@ -17,7 +17,7 @@ const formatGMT = (iso) =>
 export default function VisitorWidget() {
   const [visitors, setVisitors] = useState([]);
   const [visible, setVisible] = useState(true);
-  const [pos, setPos] = useState({ x: 24, y: 24 }); // x = left, y = top
+  const [pos, setPos] = useState({ x: 100, y: 24 }); // x = left, y = top
   const [dragging, setDragging] = useState(false);
   const dragOffset = useRef({ x: 0, y: 0 });
   const [viewport, setViewport] = useState({ width: 0, height: 0 });
