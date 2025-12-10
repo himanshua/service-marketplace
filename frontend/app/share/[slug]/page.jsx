@@ -73,9 +73,17 @@ export default function SharePage({ params }) {
         <a href={`https://twitter.com/intent/tweet?url=https://aheadterra.com/share/${params.slug}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#000"/><path d="M21.5 10h-2l-3.5 5-3.5-5h-2l4.5 6.5-4.5 6.5h2l3.5-5 3.5 5h2l-4.5-6.5z" fill="#fff"/></svg>
         </a>
-        {/* Instagram */}
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Share on Instagram">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#E1306C"/><rect x="10" y="10" width="12" height="12" rx="4" fill="#fff"/><circle cx="16" cy="16" r="3" fill="#E1306C"/><circle cx="21" cy="11" r="1" fill="#E1306C"/></svg>
+        {/* Reddit */}
+        <a href={`https://www.reddit.com/submit?url=https://aheadterra.com/share/${params.slug}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Reddit">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#FF4500"/><ellipse cx="16" cy="20" rx="7" ry="4" fill="#fff"/><circle cx="12.5" cy="18" r="1.5" fill="#FF4500"/><circle cx="19.5" cy="18" r="1.5" fill="#FF4500"/><ellipse cx="16" cy="21" rx="2" ry="1" fill="#FF4500"/><circle cx="10" cy="12" r="2" fill="#fff"/><circle cx="22" cy="12" r="2" fill="#fff"/><circle cx="10" cy="12" r="1" fill="#FF4500"/><circle cx="22" cy="12" r="1" fill="#FF4500"/></svg>
+        </a>
+        {/* Pinterest */}
+        <a href={`https://pinterest.com/pin/create/button/?url=https://aheadterra.com/share/${params.slug}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Pinterest">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#E60023"/><path d="M16 10c-3.3 0-6 2.5-6 5.7 0 2.1 1.3 3.3 2.1 3.3.3 0 .5-.2.5-.5 0-.2-.1-.8-.1-1.1 0-.4-.2-.5-.4-.8-.3-.4-.1-1 .2-1.2.3-.2.7-.1 1 .2.3.4.5 1 .5 1.4 0 .5-.2 1.1-.2 1.4 0 .3.2.5.5.5 1.2 0 2.1-1.2 2.1-2.7 0-2.2-1.8-4-4-4z" fill="#fff"/></svg>
+        </a>
+        {/* Email */}
+        <a href={`mailto:?subject=${encodeURIComponent(item.title)}&body=${encodeURIComponent(`Check this out: https://aheadterra.com/share/${params.slug}`)}`} target="_blank" rel="noopener noreferrer" aria-label="Share by Email">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#7a8797"/><rect x="8" y="12" width="16" height="8" rx="2" fill="#fff"/><path d="M8 12l8 6 8-6" stroke="#7a8797" strokeWidth="1.5"/></svg>
         </a>
       </div>
 

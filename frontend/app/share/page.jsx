@@ -27,6 +27,7 @@ export default function SharePage() {
     <main style={{ padding: "4rem 1.5rem", maxWidth: 720, margin: "0 auto" }}>
       <h1>Terra – Psychic & Jyotishvidya Readings</h1>
       <p>Get your unique reading from Himanshu Tiwari! Connect now.</p>
+      <a href="https://aheadterra.com/images/himanshu-tiwari-og.jpg" target="_self" rel="noopener noreferrer">Terra Psychic Reading</a>
     </main>
   );
 }

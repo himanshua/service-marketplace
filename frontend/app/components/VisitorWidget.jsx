@@ -98,7 +98,7 @@ export default function VisitorWidget() {
         position: "fixed",
         left: pos.x,
         top: reducedTop,
-        width: "min(260px, calc(100vw - 32px))",
+        width: "min(156px, calc(60vw - 32px))", // 260px * 0.6 = 156px (40% less)
         maxHeight: reducedMaxHeight,
         overflowY: "auto",
         padding: "13px 14px 14px",
