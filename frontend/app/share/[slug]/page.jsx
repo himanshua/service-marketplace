@@ -27,6 +27,30 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// Helper: map slug to section id
+const sectionMap = {
+  "mars-valley": "Mars",                // Best Seller: Mars Valley
+  "mars-spacecraft": "Mars",            // Best Seller: Mars Spacecraft
+  "himanshu-tiwari": "himanshu-section",// Himanshu Tiwari main section
+  "earth-flag": "Earth",                // Who is AheadTerra? (Earth flag)
+  "12-house4": "12-houses-section",     // 12 Houses
+  "9-planets": "nine-planets-section",  // Nine Planets
+  "nakshatra-wheel": "nakshatra-section", // 27 Nakshatra
+  "signup-reminder": "signup-reminder-section", // Signup Reminder
+  "bestsellers": "best-seller-section", // My Best Sellers
+  "jyotisha-topics": "jyotisha-topics-section", // Jyotisha Topics
+  "reading": "how-to-order-section",    // How to order Jyotishavidya Readings
+  "career": "career-section",           // Career in D-9
+  "person": "person-section",           // Marriage/Relationship Success
+  "Time": "time-section",               // Value of Time
+  "Destiny": "destiny-section",         // Jyotishashastra Destiny
+  "Naseeb": "naseeb-section",           // Divination Reminder
+  "Naseeb1": "naseeb1-section",         // Nepali Fortune Proverb
+  "Himanshu-Tiwari": "full-stack-web-app-section", // Full Stack Web App Services
+  "bestsellers": "best-seller-section", // Best Sellers
+  // Add more as needed
+};
+
 export default function SharePage({ params }) {
   const item = shareItems[params.slug];
   if (!item) {
@@ -37,6 +61,9 @@ export default function SharePage({ params }) {
       </main>
     );
   }
+
+  // Get section anchor for this slug, fallback to home
+  const sectionId = sectionMap[params.slug] || "";
 
   return (
     <main style={{ padding: 40, maxWidth: 720, margin: "0 auto", textAlign: "center" }}>
@@ -123,8 +150,11 @@ export default function SharePage({ params }) {
         </a>
       </div>
 
-      <Link href="/" style={{ color: "#1976d2", textDecoration: "underline" }}>
-        View the full AheadTerra site
+      <Link
+        href={`/${sectionId}`}
+        style={{ color: "#1976d2", textDecoration: "underline" }}
+      >
+      View the full article on AheadTerra
       </Link>
     </main>
   );
