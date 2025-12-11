@@ -651,7 +651,7 @@ Believe in yourself - success is within your reach!
        – It shows your money, savings, speech, face, beauty, food habits, and family background.
        Dhana Bhava or Second Bhava is Kutumb Bhava — your family and the things you own. It explains your wealth, early learning, values, and how sweet or strong your voice is.              </li>
        <li>
-      <a href="https://barbarapijan.com/12" target="_blank" rel="noopener noreferrer">
+      <a href="https://aheadterra.com/12" target="_self" rel="noopener noreferrer">
         3rd House – Sahaja Bhava
       </a>
       – Governs siblings, courage, and communication.
