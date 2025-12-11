@@ -966,13 +966,13 @@ Believe in yourself - success is within your reach!
   </p>
 </HomeRow>
 
+<div id="career-section" style={{ height: 1 }}></div>
 <HomeRow
   imgSrc="/images/career.jpg"
   imgAlt="करियर D-9 से: हुनर ही सच्ची संपत्ति है"
-  id="career-section"
-  leftContent={
-    <>
-      <h2 style={{ color: "#1976d2", marginBottom: 8 }}>
+  // Remove id here for test
+>
+  <h2 style={{ color: "#1976d2", marginBottom: 8 }}>
         💰 Career in D-9: Skill is a True Form of Wealth
         💰 करियर D-9 से: हुनर ही सच्ची संपत्ति है
       </h2>
