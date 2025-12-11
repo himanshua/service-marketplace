@@ -651,10 +651,12 @@ Believe in yourself - success is within your reach!
        – It shows your money, savings, speech, face, beauty, food habits, and family background.
        Dhana Bhava or Second Bhava is Kutumb Bhava — your family and the things you own. It explains your wealth, early learning, values, and how sweet or strong your voice is.              </li>
        <li>
-      <a href="https://barbarapijan.com/bpa/Bhava/3sahaja_bhava.htm" target="_blank" rel="noopener noreferrer">
+      <a href="https://barbarapijan.com/12" target="_blank" rel="noopener noreferrer">
         3rd House – Sahaja Bhava
       </a>
       – Governs siblings, courage, and communication.
+      Effort, courage, skills, and progress through one’s own actions. An Upachaya house that grows with time.
+प्रयास, साहस, कौशल, और अपने कर्मों से प्रगति। यह उपचय भाव है जो समय के साथ बढ़ता है।
     </li>
     <li>
       <a href="https://barbarapijan.com/bpa/Bhava/4bandhu_bhava.htm" target="_blank" rel="noopener noreferrer">
