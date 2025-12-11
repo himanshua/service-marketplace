@@ -29,26 +29,24 @@ export async function generateMetadata({ params }) {
 
 // Helper: map slug to section id
 const sectionMap = {
-  "mars-valley": "mars-section",                // Best Seller: Mars Valley
-  "mars-spacecraft": "mars-section",            // Best Seller: Mars Spacecraft
-  "himanshu-tiwari": "himanshu-section",// Himanshu Tiwari main section
-  "earth-flag": "earth-section",                // Who is AheadTerra? (Earth flag)
-  "12-house4": "12-houses-section",     // 12 Houses
-  "9-planets": "nine-planets-section",  // Nine Planets
-  "nakshatra-wheel": "nakshatra-section", // 27 Nakshatra
-  "signup-reminder": "signup-reminder-section", // Signup Reminder
-  "bestsellers": "best-seller-section", // My Best Sellers
-  "jyotisha-topics": "jyotisha-topics-section", // Jyotisha Topics
-  "reading": "how-to-order-section",    // How to order Jyotishavidya Readings
-  "careerD9": "career-section",           // Career in D-9
-  "person": "person-section",           // Marriage/Relationship Success
-  "Time": "time-section",               // Value of Time
-  "Destiny": "destiny-section",         // Jyotishashastra Destiny
-  "Naseeb": "naseeb-section",           // Divination Reminder
-  "Naseeb1": "naseeb1-section",         // Nepali Fortune Proverb
-  "Himanshu-Tiwari": "full-stack-web-app-section", // Full Stack Web App Services
-  "bestsellers": "best-seller-section", // Best Sellers
-  // Add more as needed
+  ganesha: "welcome-section",                // Beej Mantra
+  destiny: "destiny-section",                // Destiny Poster
+  naseeb: "naseeb-section",                  // Jyotish Reminder (first naseeb)
+  himanshu: "himanshu-section",              // Himanshu Tiwari
+  houses12: "12-houses-section",             // 12 Houses
+  planets9: "nine-planets-section",          // Nine Graha
+  earthFlag: "earth-section",                // Earth Flag
+  signupReminder: "signup-reminder-section", // Signup Reminder
+  howToOrder: "how-to-order-section",        // How to Order
+  valueOfTime: "time-section",               // Value of Time
+  becomePerson: "person-section",            // Become the Person
+  careerD9: "career-section",                // Career in D-9
+  fullStack: "full-stack-web-app-section",   // Full Stack Services
+  bestsellers: "best-seller-section",        // Bestsellers
+  marsValley: "mars-section",                // Mars Valley Poster
+  marsSpacecraft: "mars-section1",           // Mars Spacecraft
+  jyotishaTopics: "jyotisha-topics-section", // Jyotisha Topics
+  nakshatraWheel: "nakshatra-section",       // Nakshatra Wheel
 };
 
 export default function SharePage({ params }) {

@@ -1132,7 +1132,7 @@ Believe in yourself - success is within your reach!
       >
         🔮 Predict Your Future with Vedic Astrology (Jyotish)
       </a>
-      <img src="/images/mars-valley.jpg" alt="Visit the Mars Valley poster" />
+      <img src="/images/mars-valley.jpg" alt="Visit the Mars Valley poster" id="mars-section1" />
       <figcaption>Exclusive 2014 NASA Space Tour Poster</figcaption>
     </figure>
     <figure className="best-seller-card">
