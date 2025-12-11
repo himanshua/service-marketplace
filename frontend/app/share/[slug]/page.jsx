@@ -37,7 +37,7 @@ const sectionMap = {
   planets9: "nine-planets-section",          // Nine Graha
   earthFlag: "earth-section",                // Earth Flag
   signupReminder: "signup-reminder-section", // Signup Reminder
-  howToOrder: "how-to-order-section",        // How to Order
+  howToOrder: "how-to-order-section",        // How to order Jyotishavidya Readings
   valueOfTime: "time-section",               // Value of Time
   becomePerson: "person-section",            // Become the Person
   careerD9: "career-section",                // Career in D-9
