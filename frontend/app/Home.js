@@ -306,7 +306,7 @@ export default function Home() {
       const hash = window.location.hash;
       if (hash) {
         const id = hash.substring(1);
-        const delays = [100, 300, 600, 900];
+        const delays = [100, 300, 600, 900, 1500, 2500]; // Add longer delays
         delays.forEach((delay) => {
           setTimeout(() => {
             const element = document.getElementById(id);
@@ -315,10 +315,6 @@ export default function Home() {
             }
           }, delay);
         });
-        // Commented out to keep the #section-id in the URL after scroll
-        // setTimeout(() => {
-        //   window.history.replaceState(null, "", window.location.pathname);
-        // }, 1200);
       }
     };
 

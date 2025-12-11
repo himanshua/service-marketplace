@@ -154,7 +154,7 @@ export default function SharePage({ params }) {
         href={`/#${sectionId}`}
         style={{ color: "#1976d2", textDecoration: "underline" }}
       >
-      View the full article on AheadTerra
+        View the full article on AheadTerra
       </Link>
     </main>
   );
