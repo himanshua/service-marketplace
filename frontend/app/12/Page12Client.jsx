@@ -85,7 +85,7 @@ export default function Page12Client() {
             </p>
             <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
-                src="/images/Rama3rdHouse.jpg"
+                src="/images/Rama.JPG"
                 alt="Birth chart of Lord Rama highlighting Third House"
                 style={{
                   width: "100%",
