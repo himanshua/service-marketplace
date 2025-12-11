@@ -9,6 +9,6 @@ export const metadata = {
 
   };
 
-export default function Page11() {
+export default function Page12() {
   return <Page11Client />;
 }

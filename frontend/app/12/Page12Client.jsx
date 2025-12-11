@@ -28,7 +28,7 @@ export default function Page12Client() {
             }}
           >
             <img
-              src="/images/Sahaj.jpg"
+              src="/images/sahaj1.png"
               alt="Sahaja Bhava – 3rd House"
               style={{
                 width: "100%",
