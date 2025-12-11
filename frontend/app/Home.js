@@ -966,7 +966,7 @@ Believe in yourself - success is within your reach!
   </p>
 </HomeRow>
 
-<div id="career-section" style={{ height: 1 }}></div>
+<div id="career-section" style={{ height: 0 }}></div>
 <HomeRow
   imgSrc="/images/career.jpg"
   imgAlt="करियर D-9 से: हुनर ही सच्ची संपत्ति है"
