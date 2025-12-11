@@ -13,9 +13,9 @@ const shareChoices = Object.keys(shareItems);
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
-function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, leftContent, children }) {
+function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, leftContent, children, id }) {
   return (
-    <div style={{ display: "flex", borderBottom: "2px solid #bdbdbd", alignItems: "stretch", minHeight: 250 }}>
+    <div id={id} style={{ display: "flex", borderBottom: "2px solid #bdbdbd", alignItems: "stretch", minHeight: 250 }}>
       <div className="home-image-col">
         <div
           style={{
@@ -966,8 +966,8 @@ Believe in yourself - success is within your reach!
   </p>
 </HomeRow>
 
-<div id="career-section" style={{ height: 0 }}></div>
 <HomeRow
+  id="career-section"
   imgSrc="/images/career.jpg"
   imgAlt="करियर D-9 से: हुनर ही सच्ची संपत्ति है"
   //id="career-section"   // Remove id here for test
