@@ -4,7 +4,7 @@ export const shareItems = {
     title: "Terra – Psychic & Jyotishvidya Readings",
     description: "Chant the Beej Mantra and explore the AheadTerra teachings.",
     image: "/images/Ganesha1.JPG",
-    body: "Full write-up or CTA for Beej Mantra.",
+    body: "9 Graha Beej Mantra.",
   },
   destiny: {
     label: "Destiny Poster",
