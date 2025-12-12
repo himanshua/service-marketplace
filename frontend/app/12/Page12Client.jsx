@@ -2,10 +2,26 @@
 
 import "../globals.css";
 import "../profile/profile.css";
+import UniversalShareBar from "../components/UniversalShareBar";
 
 export default function Page12Client() {
+  const shareChoices = ["facebook", "whatsapp", "linkedin", "telegram", "twitter", "reddit", "pinterest", "email"];
+  const shareBaseUrl = "https://aheadterra.com/12";
+  const shareImages = {
+    "12-house3": {
+      label: "3rd House – Sahaja Bhava",
+      image: "/images/sahaj1.png",
+      description: "Effort, courage, skills, siblings, and progress through one’s own actions.",
+    }
+  };
+
   return (
     <main className="profile-main home-main">
+      <UniversalShareBar
+        shareChoices={shareChoices}
+        shareImages={shareImages}
+        shareBaseUrl={shareBaseUrl}
+      />
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
         <section
           style={{
