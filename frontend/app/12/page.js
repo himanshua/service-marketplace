@@ -18,6 +18,13 @@ export const metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "3rd House – Sahaja Bhava",
+    description: "Effort, courage, skills, siblings, and progress through one’s own actions.",
+    images: ["https://aheadterra.com/images/sahaj1.png"],
+    site: "@your_twitter_handle", // optional, replace with your X handle
+  },
 };
 
 export default function Page12() {
