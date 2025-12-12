@@ -7,7 +7,7 @@ import UniversalShareBar from "../components/UniversalShareBar";
 export default function Page12Client() {
   // Only include the share item key(s) here, not platform names!
   const shareChoices = ["12-house3"];
-  const shareBaseUrl = "https://aheadterra.com/12";
+  const shareBaseUrl = "https://aheadterra.com/";
   const shareImages = {
     "12-house3": {
       label: "3rd House – Sahaja Bhava",
