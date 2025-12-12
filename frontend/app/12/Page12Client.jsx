@@ -11,8 +11,9 @@ export default function Page12Client() {
   const shareImages = {
     "12-house3": {
       label: "3rd House – Sahaja Bhava",
-      image: "https://aheadterra.com/images/sahaj1.png", // absolute URL
+      image: "https://aheadterra.com/images/sahaj1.png",
       description: "Effort, courage, skills, siblings, and progress through one’s own actions.",
+      url: "https://aheadterra.com/12", // This ensures the correct URL is shared!
     }
   };
 
