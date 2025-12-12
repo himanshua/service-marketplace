@@ -5,7 +5,8 @@ import "../profile/profile.css";
 import UniversalShareBar from "../components/UniversalShareBar";
 
 export default function Page12Client() {
-  const shareChoices = ["facebook", "whatsapp", "linkedin", "telegram", "twitter", "reddit", "pinterest", "email"];
+  // Only include the share item key(s) here, not platform names!
+  const shareChoices = ["12-house3"];
   const shareBaseUrl = "https://aheadterra.com/12";
   const shareImages = {
     "12-house3": {
