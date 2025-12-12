@@ -134,5 +134,4 @@ export default function Page12Client() {
   );
 }
 
-<meta property="og:image" content="https://aheadterra.com/images/sahaj1.png" />
 
