@@ -13,7 +13,7 @@ export default function Page12Client() {
       label: "3rd House – Sahaja Bhava",
       image: "https://aheadterra.com/images/sahaj1.png", // absolute URL
       description: "Effort, courage, skills, siblings, and progress through one’s own actions.",
-    9
+    }
   };
 
   return (
