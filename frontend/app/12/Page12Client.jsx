@@ -4,6 +4,24 @@ import "../globals.css";
 import "../profile/profile.css";
 import UniversalShareBar from "../components/UniversalShareBar";
 
+export const metadata = {
+  title: "3rd House – Sahaja Bhava",
+  description: "Effort, courage, skills, siblings, and progress through one’s own actions.",
+  openGraph: {
+    title: "3rd House – Sahaja Bhava",
+    description: "Effort, courage, skills, siblings, and progress through one’s own actions.",
+    url: "https://aheadterra.com/12",
+    images: [
+      {
+        url: "https://aheadterra.com/images/sahaj1.png",
+        width: 1200,
+        height: 630,
+        alt: "3rd House – Sahaja Bhava",
+      },
+    ],
+  },
+};
+
 export default function Page12Client() {
   // Only include the share item key(s) here, not platform names!
   const shareChoices = ["12-house3"];
@@ -18,6 +36,7 @@ export default function Page12Client() {
   };
 
   return (
+    
     <main className="profile-main home-main">
       
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
@@ -132,3 +151,6 @@ export default function Page12Client() {
     </main>
   );
 }
+
+<meta property="og:image" content="https://aheadterra.com/images/sahaj1.png" />
+
