@@ -18,11 +18,7 @@ export default function Page12Client() {
 
   return (
     <main className="profile-main home-main">
-      <UniversalShareBar
-        shareChoices={shareChoices}
-        shareImages={shareImages}
-        shareBaseUrl={shareBaseUrl}
-      />
+      
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
         <section
           style={{
@@ -73,6 +69,11 @@ export default function Page12Client() {
               justifyContent: "center",
             }}
           >
+            <UniversalShareBar
+        shareChoices={shareChoices}
+        shareImages={shareImages}
+        shareBaseUrl={shareBaseUrl}
+      />
             <h1>Third House (Sahaja Bhava) in Astrology: तृतीय भाव</h1>
             <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
               Sahaj / सहज (सह + अज) = born together, natural, inborn; जन्म से साथ आया, स्वाभाविक, जन्मजात; सहज (सह + अज) = “सहजन्म, स्वभावतः, जन्मतः सिद्धम्。
