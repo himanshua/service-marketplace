@@ -1,6 +1,6 @@
 import "../globals.css";
 import "../profile/profile.css";
-import Page11Client from "./Page12Client";
+import Page12Client from "./Page12Client";
 
 export const metadata = {
   title: "3rd House – Sahaja Bhava (तृतीय भाव) in Astrology siblings, courage, communication, manager, teammates, short travel, skills, communication",
