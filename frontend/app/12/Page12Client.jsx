@@ -2,7 +2,7 @@
 
 import "../globals.css";
 import "../profile/profile.css";
-import UniversalShareBar from "./components/UniversalShareBar";
+import UniversalShareBar from "../components/UniversalShareBar";
 
 export default function Page12Client() {
   const shareChoices = ["facebook", "whatsapp", "linkedin", "telegram", "twitter", "reddit", "pinterest", "email"];
