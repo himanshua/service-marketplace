@@ -11,7 +11,7 @@ export default function Page12Client() {
   const shareImages = {
     "12-house3": {
       label: "3rd House – Sahaja Bhava",
-      image: "/images/sahaj1.png",
+      image: "https://aheadterra.com/images/sahaj1.png", // absolute URL
       description: "Effort, courage, skills, siblings, and progress through one’s own actions.",
     }
   };
@@ -70,10 +70,10 @@ export default function Page12Client() {
             }}
           >
             <UniversalShareBar
-        shareChoices={shareChoices}
-        shareImages={shareImages}
-        shareBaseUrl={shareBaseUrl}
-      />
+            shareChoices={shareChoices}
+            shareImages={shareImages}
+            shareBaseUrl={shareBaseUrl}
+             />
             <h1>Third House (Sahaja Bhava) in Astrology: तृतीय भाव</h1>
             <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
               Sahaj / सहज (सह + अज) = born together, natural, inborn; जन्म से साथ आया, स्वाभाविक, जन्मजात; सहज (सह + अज) = “सहजन्म, स्वभावतः, जन्मतः सिद्धम्。
