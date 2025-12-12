@@ -3,11 +3,22 @@ import "../profile/profile.css";
 import Page12Client from "./Page12Client";
 
 export const metadata = {
-  title: "3rd House – Sahaja Bhava (तृतीय भाव) in Astrology siblings, courage, communication, manager, teammates, short travel, skills, communication",
-  description:
-    "Sahaj / सहज (सह + अज) = born together, natural, inborn; जन्म से साथ आया, स्वाभाविक, जन्मजात; सहज (सह + अज) = “सहजन्म, स्वभावतः, जन्मतः सिद्धम्।",
-
-  };
+  title: "3rd House – Sahaja Bhava",
+  description: "Effort, courage, skills, siblings, and progress through one’s own actions.",
+  openGraph: {
+    title: "3rd House – Sahaja Bhava",
+    description: "Effort, courage, skills, siblings, and progress through one’s own actions.",
+    url: "https://aheadterra.com/12",
+    images: [
+      {
+        url: "https://aheadterra.com/images/sahaj1.png",
+        width: 1200,
+        height: 630,
+        alt: "3rd House – Sahaja Bhava",
+      },
+    ],
+  },
+};
 
 export default function Page12() {
   return <Page12Client />;
