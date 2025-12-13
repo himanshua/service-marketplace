@@ -122,7 +122,7 @@ export default function Page13Client() {
             </p>
             <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
-                src="/images/Rama4thHouse.jpg"
+                src="/images/Rama.JPG"
                 alt="Birth chart of Lord Rama highlighting Fourth House"
                 style={{
                   width: "100%",
