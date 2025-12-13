@@ -30,8 +30,3 @@ export const metadata = {
 export default function Page12() {
   return <Page12Client />;
 }
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="3rd House – Sahaja Bhava">
-<meta name="twitter:description" content="Effort, courage, skills, siblings, and progress through one’s own actions.">
-<meta name="twitter:image" content="https://aheadterra.com/images/sahaj1.png">
