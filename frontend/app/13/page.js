@@ -11,7 +11,7 @@ export const metadata = {
     url: "https://aheadterra.com/13",
     images: [
       {
-        url: "https://aheadterra.com/images/sukha1.png",
+        url: "https://aheadterra.com/images/sukha.jpg", // <-- Make sure this matches your Sukha Bhava image!
         width: 1200,
         height: 630,
         alt: "4th House – Sukha Bhava",
@@ -22,8 +22,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "4th House – Sukha Bhava",
     description: "Home, happiness, mother, property, inner peace, and emotional foundation.",
-    images: ["https://aheadterra.com/images/sukha1.png"],
-    site: "@your_twitter_handle", // optional, replace with your X handle
+    images: ["https://aheadterra.com/images/sukha.jpg"], // <-- Same here
+    site: "@your_twitter_handle", // optional
   },
 };
 
