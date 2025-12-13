@@ -5,15 +5,14 @@ import "../profile/profile.css";
 import UniversalShareBar from "../components/UniversalShareBar";
 
 export default function Page13Client() {
-  // Only include the share item key(s) here, not platform names!
   const shareChoices = ["13-house4"];
   const shareBaseUrl = "https://aheadterra.com/13";
   const shareImages = {
     "13-house4": {
       label: "4th House – Sukha Bhava",
-      image: "https://aheadterra.com/images/sukha.jpg",
+      image: "https://aheadterra.com/images/sukha.png",
       description: "Home, happiness, mother, property, inner peace, and emotional foundation.",
-      url: "https://aheadterra.com/13", // This ensures the correct URL is shared!
+      url: "https://aheadterra.com/13",
     }
   };
 
@@ -41,7 +40,7 @@ export default function Page13Client() {
             }}
           >
             <img
-              src="/images/sukha.jpg"
+              src="/images/sukha1.png"
               alt="Sukha Bhava – 4th House"
               style={{
                 width: "100%",
@@ -97,13 +96,33 @@ export default function Page13Client() {
               <li>Heart – हृदय – hridaya</li>
               <li>Education (basic) – प्रारंभिक शिक्षा – prarambhik shiksha</li>
             </ul>
+            <h2>Sampatti (सम्पत्ति) & Sukh (सुख)</h2>
+            <p>
+              <strong>Sampatti (सम्पत्ति)</strong><br />
+              <em>Sam + Patti</em> (from root “pad / pattoti”)<br />
+              <strong>Sam</strong> = well, complete, together<br />
+              <strong>Patti / Pad</strong> = to obtain, to gain<br />
+              👉 <strong>Sampatti</strong> = that which is well obtained → wealth, possessions, prosperity.
+            </p>
+            <p>
+              <strong>Sukh (सुख)</strong><br />
+              <em>Su + Kh</em><br />
+              <strong>Su</strong> = good, pleasant<br />
+              <strong>Kh</strong> = state, condition, space<br />
+              👉 <strong>Sukh</strong> = a good state of being → happiness, comfort, inner peace.
+            </p>
+            <p style={{ marginTop: 12, fontStyle: "italic", color: "#0d47a1" }}>
+              ✨ In simple words:<br />
+              <strong>Sampatti</strong> = outer prosperity (what you have)<br />
+              <strong>Sukh</strong> = inner happiness (how you feel)
+            </p>
             <h2>Lord Rama’s Fourth House Example</h2>
             <p>
               In Lord Rama’s birth chart, the 4th house (Libra) represents his deep connection to home, mother, and inner peace. The strength of this house is reflected in his devotion to his mother Kaushalya, his sense of duty towards his homeland Ayodhya, and his ability to maintain inner calm and righteousness even in adversity. The 4th house highlights the importance of emotional stability and the nurturing influence of the mother in shaping one’s life.
             </p>
             <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
-                src="/images/Rama.JPG"
+                src="/images/Rama4thHouse.jpg"
                 alt="Birth chart of Lord Rama highlighting Fourth House"
                 style={{
                   width: "100%",
