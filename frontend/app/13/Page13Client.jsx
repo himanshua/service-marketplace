@@ -11,7 +11,7 @@ export default function Page13Client() {
   const shareImages = {
     "13-house4": {
       label: "4th House – Sukha Bhava",
-      image: "https://aheadterra.com/images/sukha1.png",
+      image: "https://aheadterra.com/images/sukha.JPG",
       description: "Home, happiness, mother, property, inner peace, and emotional foundation.",
       url: "https://aheadterra.com/13", // This ensures the correct URL is shared!
     }
@@ -41,7 +41,7 @@ export default function Page13Client() {
             }}
           >
             <img
-              src="/images/sukha1.png"
+              src="/images/sukha.JPG"
               alt="Sukha Bhava – 4th House"
               style={{
                 width: "100%",
@@ -103,7 +103,7 @@ export default function Page13Client() {
             </p>
             <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
-                src="/images/Rama4thHouse.jpg"
+                src="/images/Rama.JPG"
                 alt="Birth chart of Lord Rama highlighting Fourth House"
                 style={{
                   width: "100%",
