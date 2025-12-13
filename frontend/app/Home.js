@@ -656,13 +656,15 @@ Believe in yourself - success is within your reach!
       </a>
       – Governs siblings, courage, and communication.
       Effort, courage, skills, and progress through one’s own actions. An Upachaya house that grows with time.
-प्रयास, साहस, कौशल, और अपने कर्मों से प्रगति। यह उपचय भाव है जो समय के साथ बढ़ता है।
+प्    रयास, साहस, कौशल, और अपने कर्मों से प्रगति। यह उपचय भाव है जो समय के साथ बढ़ता है।
     </li>
     <li>
-      <a href="https://barbarapijan.com/bpa/Bhava/4bandhu_bhava.htm" target="_blank" rel="noopener noreferrer">
-        4th House – Bandhu Bhava
+      <a href="https://aheadterra.com/13" target="_blank" rel="noopener noreferrer">
+        4th House – Sukha Bhava
       </a>
-      – Governs mother, home, and comforts.
+      – Governs home, mother, father (पिता), peace, emotions, and property.
+      Inner happiness, emotional security, and foundation of life.
+     गृह, माता-पिता, सुख, मन की शांति और संपत्ति का भाव।
     </li>
     <li>
       <a href="https://barbarapijan.com/bpa/Bhava/5putra_bhava.htm" target="_blank" rel="noopener noreferrer">
