@@ -10,7 +10,7 @@ export default function Page13Client() {
   const shareImages = {
     "13-house4": {
       label: "4th House – Sukha Bhava",
-      image: "https://aheadterra.com/images/sukha.png",
+      image: "https://aheadterra.com/images/sukha.jpg",
       description: "Home, happiness, mother, property, inner peace, and emotional foundation.",
       url: "https://aheadterra.com/13",
     }
@@ -40,7 +40,7 @@ export default function Page13Client() {
             }}
           >
             <img
-              src="/images/sukha1.png"
+              src="/images/sukha.jpg"
               alt="Sukha Bhava – 4th House"
               style={{
                 width: "100%",
