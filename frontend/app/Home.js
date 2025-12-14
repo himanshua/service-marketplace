@@ -659,7 +659,7 @@ Believe in yourself - success is within your reach!
 प्    रयास, साहस, कौशल, और अपने कर्मों से प्रगति। यह उपचय भाव है जो समय के साथ बढ़ता है।
     </li>
     <li>
-      <a href="https://aheadterra.com/13" target="_blank" rel="noopener noreferrer">
+      <a href="https://aheadterra.com/13" target="_self" rel="noopener noreferrer">
         4th House – Sukha Bhava
       </a>
       – Governs home, mother, father (पिता), peace, emotions, and property.
