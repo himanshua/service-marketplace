@@ -118,7 +118,7 @@ export default function Page13Client() {
             </p>
             <h2>Lord Rama’s Fourth House Example</h2>
             <p>
-              In Lord Rama’s birth chart, the 4th house (Libra) represents with exalted Saturn(Sasa Raja Yoga - <a href="https://barbarapijan.com/bpa/Yoga/Panchmahapurusha_yoga.htm">Panchata Maha Purushya Yoga</a> ) his deep connection to home, mother, and inner peace. The strength of this house is reflected in his devotion to his mother Kaushalya, his sense of duty towards his homeland Ayodhya, and his ability to maintain inner calm and righteousness even in adversity. The 4th house highlights the importance of emotional stability and the nurturing influence of the mother in shaping one’s life.
+              In Lord Rama’s birth chart, the 4th house (Libra) represents with exalted Saturn (Sasa Raja Yoga) - <a href="https://barbarapijan.com/bpa/Yoga/Panchmahapurusha_yoga.htm" target="_blank">Panchata Maha Purushya Yoga</a> ) his deep connection to home, mother, and inner peace. The strength of this house is reflected in his devotion to his mother Kaushalya, his sense of duty towards his homeland Ayodhya, and his ability to maintain inner calm and righteousness even in adversity. The 4th house highlights the importance of emotional stability and the nurturing influence of the mother in shaping one’s life.
             </p>
             <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
