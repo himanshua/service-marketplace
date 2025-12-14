@@ -121,7 +121,7 @@ export default function Page14Client() {
             </p>
             <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
-                src="/images/Rama5thHouse.jpg"
+                src="/images/Rama.jpg"
                 alt="Birth chart of Lord Rama highlighting Fifth House"
                 style={{
                   width: "100%",
