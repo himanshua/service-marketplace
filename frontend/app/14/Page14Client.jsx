@@ -79,7 +79,7 @@ export default function Page14Client() {
             </p>
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
               The Fifth House governs creativity, children, intelligence, learning, romance, and self-expression. It is the house of joy, play, and the fruits of past actions.<br />
-              रचनात्मकता, संतान, बुद्धि, शिक्षा, प्रेम, और आत्म-अभिव्यक्ति का भाव।
+              रचनात्मकता, संतान, बुद्धि, शिक्षा, प्रेम, और आत्म-अभिव्यक्ति का भाव。
             </p>
             <h2>Keywords & Concepts</h2>
             <ul style={{ marginLeft: 20, color: "#1f2a44" }}>
@@ -117,11 +117,14 @@ export default function Page14Client() {
             </p>
             <h2>Lord Rama’s Fifth House Example</h2>
             <p>
-              In Lord Rama’s birth chart, the 5th house (Scorpio) represents his intelligence, devotion, and the blessings of children. The strength of this house is reflected in his wisdom, his devotion to dharma, and his role as a father. The 5th house highlights the importance of creativity, learning, and the fruits of one’s actions.
+              In Lord Rama’s birth chart, the 5th house (Scorpio) represents his Charisma, brilliance, intelligence, devotion, and the blessings of two highly creative children. The strength of this house is reflected in his wisdom, his devotion to dharma, and his role as a father. The 5th house highlights the importance of creativity, learning, and the fruits of one’s actions from past births.
+            </p>
+            <p>
+              In Lord Rama's chart: His Lord of the fifth house, is exalted in the seventh house. The fifth house is powerfully aspected by Jupiter and Moon. Again, these outstanding combinations are reflected by the birth of Luva and Kusa. The two sons brought up by Sage Valmiki excelled their own father in courage and valour.
             </p>
             <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
-                src="/images/Rama.jpg"
+                src="/images/Rama.JPG"
                 alt="Birth chart of Lord Rama highlighting Fifth House"
                 style={{
                   width: "100%",
