@@ -666,11 +666,13 @@ Believe in yourself - success is within your reach!
       Inner happiness, emotional security, and foundation of life.
      गृह, माता-पिता, सुख, मन की शांति और संपत्ति का भाव।
     </li>
-    <li>
-      <a href="https://barbarapijan.com/bpa/Bhava/5putra_bhava.htm" target="_blank" rel="noopener noreferrer">
+       <li>
+      <a href="https://aheadterra.com/14" target="_self" rel="noopener noreferrer">
         5th House – Putra Bhava
       </a>
       – Governs children, creativity, and intelligence.
+      Joy, learning, romance, self-expression, and the fruits of past actions.<br />
+      संतान, रचनात्मकता, बुद्धि, शिक्षा, प्रेम, और आत्म-अभिव्यक्ति का भाव।
     </li>
     <li>
       <a href="https://barbarapijan.com/bpa/Bhava/6ari_bhava.htm" target="_blank" rel="noopener noreferrer">
