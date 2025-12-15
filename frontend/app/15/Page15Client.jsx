@@ -39,13 +39,13 @@ export default function Page15Client() {
               justifyContent: "flex-start",
             }}
           >
-            <div style={{ display: "flex", gap: 12 }}>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-start" }}>
               <img
-                src="/images/ari1.png"
+                src="/images/ari.png"
                 alt="Ari Bhava – 6th House"
                 style={{
-                  width: "100%",
-                  maxWidth: 160,
+                  flex: "0 0 160px",
+                  width: 160,
                   height: 110,
                   objectFit: "cover",
                   borderRadius: 12,
@@ -53,11 +53,11 @@ export default function Page15Client() {
                 }}
               />
               <img
-                src="/images/ari2.jpg"
+                src="/images/ari1.png"
                 alt="Ari Bhava – service & health"
                 style={{
-                  width: "100%",
-                  maxWidth: 160,
+                  flex: "0 0 160px",
+                  width: 160,
                   height: 110,
                   objectFit: "cover",
                   borderRadius: 12,
@@ -144,9 +144,14 @@ export default function Page15Client() {
               </figcaption>
             </figure>
 
+            <h2>🛠️ Sixth House + Health, Debt & Service</h2>
+            <p>
+              Planets in Ripu Bhava determine your experience with health (illness), debt, enemies, service to others, and daily routines. Benefics may indicate good health, successful handling of debts, or service-oriented work; malefics can bring chronic illness, legal battles, financial burdens, or conflicts with colleagues/enemies.
+            </p>
+
             <h2>🌟 Example of Strong Sixth House</h2>
             <p>
-              <strong>Person with a strong 6th house:</strong> Handles competition well, recovers quickly from illness, is disciplined in work and service, and can successfully manage debts or legal disputes.
+              <strong>Person with a strong 6th house:</strong> Highly disciplined, excels in their job or service, successfully manages debts or overcomes legal opposition, and is often dedicated to a health regimen or helping the marginalized. They have the power to conquer their enemies (internal or external).
             </p>
 
             <h2>✨ In simple words — 6th House (षष्ठ भाव)</h2>

@@ -678,7 +678,8 @@ Believe in yourself - success is within your reach!
       <a href="https://aheadterra.com/15" target="_self" rel="noopener noreferrer">
         6th House – Ari (Enemy) Bhava
       </a>
-      – Governs enemies, health, and service.
+      – Governs enemies, disease, debt, service, and daily work. Struggle, discipline, healing, competition, problem-solving, and victory over obstacles.
+       शत्रु, रोग, ऋण, सेवा, नौकरी, संघर्ष, अनुशासन, उपचार, प्रतिस्पर्धा और बाधाओं पर विजय का भाव।
     </li>
     <li>
       <a href="https://barbarapijan.com/bpa/Bhava/7yuvati_bhava.htm" target="_blank" rel="noopener noreferrer">
