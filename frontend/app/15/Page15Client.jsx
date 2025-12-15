@@ -39,14 +39,14 @@ export default function Page15Client() {
               justifyContent: "flex-start",
             }}
           >
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-start" }}>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-start", justifyContent: "center" }}>
               <img
                 src="/images/ari.png"
                 alt="Ari Bhava – 6th House"
                 style={{
-                  flex: "0 0 160px",
-                  width: 160,
-                  height: 110,
+                  width: "100%",
+                  maxWidth: 360,     // increased size
+                  height: "auto",    // preserve aspect ratio (portrait works)
                   objectFit: "cover",
                   borderRadius: 12,
                   boxShadow: "0 12px 26px rgba(0,0,0,0.12)",
@@ -56,9 +56,9 @@ export default function Page15Client() {
                 src="/images/ari1.png"
                 alt="Ari Bhava – service & health"
                 style={{
-                  flex: "0 0 160px",
-                  width: 160,
-                  height: 110,
+                  width: "100%",
+                  maxWidth: 360,     // increased size
+                  height: "auto",    // preserve aspect ratio
                   objectFit: "cover",
                   borderRadius: 12,
                   boxShadow: "0 12px 26px rgba(0,0,0,0.12)",
