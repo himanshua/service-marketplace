@@ -37,10 +37,10 @@ function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, leftContent, children, 
               style={{
                 borderRadius: "12px",
                 width: "100%",
-                maxWidth: 340,
-                height: 260,
-                maxHeight: 260,
-                objectFit: "contain",
+                maxWidth: 420,
+                height: "auto",       // <-- allow portrait to keep natural aspect
+                maxHeight: 520,       // <-- limit so extremely tall images don't break layout
+                objectFit: "contain", // keep full image visible
                 background: "#fff",
                 display: "block",
                 margin: "0 auto",
