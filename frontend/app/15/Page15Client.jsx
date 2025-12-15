@@ -149,6 +149,14 @@ export default function Page15Client() {
               Planets in Ripu Bhava determine your experience with health (illness), debt, enemies, service to others, and daily routines. Benefics may indicate good health, successful handling of debts, or service-oriented work; malefics can bring chronic illness, legal battles, financial burdens, or conflicts with colleagues/enemies.
             </p>
 
+            <h3>Essence</h3>
+            <p>
+              👉 The 6th house does not break you—it trains you.<br />
+              👉 यह भाव गिराता नहीं, गिराने की शक्ति देता है。
+            </p>
+
+            {/* moved blocks inserted below */}
+
             <h2>🌟 Example of Strong Sixth House</h2>
             <p>
               <strong>Person with a strong 6th house:</strong> Highly disciplined, excels in their job or service, successfully manages debts or overcomes legal opposition, and is often dedicated to a health regimen or helping the marginalized. They have the power to conquer their enemies (internal or external).
@@ -226,7 +234,7 @@ export default function Page15Client() {
             <h3>Essence</h3>
             <p>
               👉 The 6th house does not break you—it trains you.<br />
-              👉 यह भाव गिराता नहीं, गिराने की शक्ति देता है।
+              👉 यह भाव गिराता नहीं, गिराने की शक्ति देता है。
             </p>
           </div>
         </section>
