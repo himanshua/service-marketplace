@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import "../globals.css";
 import "../profile/profile.css";
 import UniversalShareBar from "../components/UniversalShareBar";
