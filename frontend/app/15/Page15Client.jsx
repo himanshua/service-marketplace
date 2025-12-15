@@ -154,19 +154,7 @@ The Sixth House, known as Ari Bhava, governs your encounters with enemies, debt,
               👉 यह भाव गिराता नहीं, गिराने की शक्ति देता है。
             </p>
 
-            {/* moved blocks inserted below */}
-
-            <h2>🌟 Example of Strong Sixth House</h2>
-            <p>
-              <strong>Person with a strong 6th house:</strong> Highly disciplined, excels in their job or service, successfully manages debts or overcomes legal opposition, and is often dedicated to a health regimen or helping the marginalized. They have the power to conquer their enemies (internal or external).
-            </p>
-
-            <h2>✨ In simple words — 6th House (षष्ठ भाव)</h2>
-            <p style={{ color: "#274153", lineHeight: 1.6 }}>
-              <strong>Good first (Positive nature):</strong><br />
-              👉 The 6th house gives strength through struggle and protection through discipline.<br />
-              👉 It creates fighters, healers, problem-solvers, and survivors—such as surgeons, doctors, lawyers, police, soldiers, athletes, and service professionals.
-            </p>
+           
 
             <h3>Ari (अरि)</h3>
             <p>A + Ri (अ + ऋ) = against + rise<br />
@@ -234,6 +222,20 @@ The Sixth House, known as Ari Bhava, governs your encounters with enemies, debt,
             <p>
               👉 The 6th house does not break you—it trains you.<br />
               👉 यह भाव गिराता नहीं, गिराने की शक्ति देता है。
+            </p>
+
+             {/* moved blocks inserted below */}
+
+            <h2>🌟 Example of Strong Sixth House</h2>
+            <p>
+              <strong>Person with a strong 6th house:</strong> Highly disciplined, excels in their job or service, successfully manages debts or overcomes legal opposition, and is often dedicated to a health regimen or helping the marginalized. They have the power to conquer their enemies (internal or external).
+            </p>
+
+            <h2>✨ In simple words — 6th House (षष्ठ भाव)</h2>
+            <p style={{ color: "#274153", lineHeight: 1.6 }}>
+              <strong>Good first (Positive nature):</strong><br />
+              👉 The 6th house gives strength through struggle and protection through discipline.<br />
+              👉 It creates fighters, healers, problem-solvers, and survivors—such as surgeons, doctors, lawyers, police, soldiers, athletes, and service professionals.
             </p>
           </div>
         </section>
