@@ -120,9 +120,13 @@ export default function Page15Client() {
             </p>
 
             <p>
-              After correcting and adjusting the chart, Lord Rama’s 6th bhava ruler is <strong>Jupiter</strong>, which also rules his <strong>9th house</strong> of higher learning. This dual role makes Jupiter a mixed-result planet: as 9th lord it grants higher knowledge, status, and guidance (reflected in the Ramayana and his teachers), while as exalted 6th lord it indicates a powerful, highly intelligent enemy (Ravana) and intense challenges. Jupiter’s influence links Rishi Vashistha and Vishwamitra—teachers who provided Vedic and warfare knowledge—and explains how higher learning (9th) helps overcome obstacles (6th). Being 6th lord in lagna can also point to enemies near one’s birthplace; Jupiter’s drishti to the 7th house supports brahmacharya tendencies, especially when Mangal occupies the 7th.
+              Lord Rama’s 6th bhava ruler is <strong>Jupiter</strong>, which also rules his <strong>9th house</strong> of higher learning. On one hand, as 9th lord Jupiter grants higher knowledge, status, and learned teachers: his father King Dasharatha, and gurus Vashishtha (family priest and educator), Vishvamitra (who taught advanced martial arts and divine weaponry), Agastya (who provided celestial weapons), Bharadwaj (who offered sanctuary and guidance during exile), and Valmiki (who later taught his sons Lava and Kusha and recorded the Ramayana). This role links Jupiter to kingship, respect from brahmins and sages, and the transmission of Vedic wisdom.
             </p>
 
+            <p>
+              On the other hand, as exalted 6th lord Jupiter brings strong enemies and obstacles: powerful adversaries such as Ravana, Kumbhakarna, Indrajit, Khara, Dushana, Tataka, and Maricha; and major trials like Kaikeyi’s fourteen‑year exile, Sita’s abduction, the ocean barrier, and the boons protecting his foes. Jupiter’s dual role (9th and exalted 6th lord in lagna) explains why he both attracts learned allies and faces formidable enemies, and why higher learning and dharma ultimately help overcome those challenges. Jupiter’s drishti to the 7th house also supports brahmacharya tendencies, especially when Mangal occupies the 7th.
+            </p>
+            
             <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
                 src="/images/Rama.JPG"
@@ -143,6 +147,81 @@ export default function Page15Client() {
             <h2>🌟 Example of Strong Sixth House</h2>
             <p>
               <strong>Person with a strong 6th house:</strong> Handles competition well, recovers quickly from illness, is disciplined in work and service, and can successfully manage debts or legal disputes.
+            </p>
+
+            <h2>✨ In simple words — 6th House (षष्ठ भाव)</h2>
+            <p style={{ color: "#274153", lineHeight: 1.6 }}>
+              <strong>Good first (Positive nature):</strong><br />
+              👉 The 6th house gives strength through struggle and protection through discipline.<br />
+              👉 It creates fighters, healers, problem-solvers, and survivors—such as surgeons, doctors, lawyers, police, soldiers, athletes, and service professionals.
+            </p>
+
+            <h3>Ari (अरि)</h3>
+            <p>A + Ri (अ + ऋ) = against + rise<br />
+            👉 Enemy, rival, envy, hostility (also denotes number six)</p>
+
+            <h3>Śatru (शत्रु)</h3>
+            <p>Śa + Tru (श + त्रु) = restrain + harm<br />
+            👉 One who harms but can be controlled</p>
+
+            <h3>Ripu (रिपु)</h3>
+            <p>Ri + Pu (रि + पु) = deceive + spoil<br />
+            👉 Enemy, cheat, inner vices, hidden opposition</p>
+
+            <h3>Zatru / Śatru (जत्रु / शत्रु)</h3>
+            <p>👉 Overthrower, destroyer of stability</p>
+
+            <h3>Roga (रोग)</h3>
+            <p>Ro + Ga (रो + ग) = blockage + flow<br />
+            👉 Sickness, imbalance</p>
+
+            <h3>Vyādhi (व्याधि)</h3>
+            <p>Vi + Ādhi = spread + affliction<br />
+            👉 Chronic or deep-rooted disease</p>
+
+            <h3>Kṣata (क्षत)</h3>
+            <p>Kṣa + Ta (क्ष + त) = damage + state<br />
+            👉 Wound, injury, trauma</p>
+
+            <h3>Girāna (गिराना)</h3>
+            <p>Gir = to fall<br />
+            👉 To bring down, defeat, subdue enemies or problems</p>
+
+            <h3>Ṛṇa (ऋण)</h3>
+            <p>Ṛ + Ṇa (ऋ + ण) = duty + bond<br />
+            👉 Debt, obligation, karmic dues</p>
+
+            <h3>Sevā (सेवा)</h3>
+            <p>Se + Vā (से + वा) = dedication + action<br />
+            👉 Service, job, disciplined daily work</p>
+
+            <h3>Yuddha (युद्ध)</h3>
+            <p>Yu + Dha (यु + ध) = united effort + hold firm<br />
+            👉 Struggle, competition, legal battles</p>
+
+            <h3>Ṣaṭkoṇa (षट्कोण)</h3>
+            <p>Ṣaṭ (six) + Koṇa (angle)<br />
+            👉 Sixth angle of the chart—house of conflict and correction</p>
+
+            <h3>Śatrur-gṛha (शत्रुर्गृह)</h3>
+            <p>👉 House of enemies, disease, debt—and victory over them</p>
+
+            <h3>Protective Power of the 6th House</h3>
+            <p>
+              👉 The 6th house protects against enemy, sickness, sorrow, and debt by giving resilience, discipline, and fighting spirit.<br />
+              👉 यह भाव कष्ट से रक्षा करना सिखाता है।
+            </p>
+
+            <h3>Career & Work Significance</h3>
+            <p>
+              👉 The 6th house is very good for jobs and service, because it is 9th from the 10th Bhāva (fortune of career).<br />
+              👉 इसलिए यह भाव नौकरी, सेवा, और मेहनत से सफलता देता है।
+            </p>
+
+            <h3>Essence</h3>
+            <p>
+              👉 The 6th house does not break you—it trains you.<br />
+              👉 यह भाव गिराता नहीं, गिराने की शक्ति देता है।
             </p>
           </div>
         </section>
