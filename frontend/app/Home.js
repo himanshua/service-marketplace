@@ -675,7 +675,7 @@ Believe in yourself - success is within your reach!
       संतान, रचनात्मकता, बुद्धि, शिक्षा, प्रेम, और आत्म-अभिव्यक्ति का भाव।
     </li>
     <li>
-      <a href="https://barbarapijan.com/bpa/Bhava/6ari_bhava.htm" target="_blank" rel="noopener noreferrer">
+      <a href="https://aheadterra.com/15" target="_self" rel="noopener noreferrer">
         6th House – Ari (Enemy) Bhava
       </a>
       – Governs enemies, health, and service.
