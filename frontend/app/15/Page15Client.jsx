@@ -39,27 +39,29 @@ export default function Page15Client() {
       const item = shareImages[selected];
       const file = await fetchFileFromUrl(item.image, selected);
 
-      // build a URL that carries selection info so recipients can see which image was shared
-      const shareUrl = item.url + (item.url.includes("?") ? "&" : "?") + "img=" + encodeURIComponent(selected);
+      // use the actual image URL in the shared page link
+      const shareUrl =
+        shareBaseUrl +
+        (shareBaseUrl.includes("?") ? "&" : "?") +
+        "img=" +
+        encodeURIComponent(item.image);
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: item.label,
           text: item.description,
           files: [file],
-          url: shareUrl, // use selection-specific URL
+          url: shareUrl,
         });
         return;
       }
 
-      // fallback: open image page / direct image with query so recipient sees selection
       window.open(shareUrl, "_blank", "noopener");
       return;
     } catch (e) {
       console.error(e);
     }
 
-    // final fallback: open direct image
     window.open(shareImages[selected].image, "_blank", "noopener");
   }
 
@@ -70,8 +72,9 @@ export default function Page15Client() {
         keys.map((k) => fetchFileFromUrl(shareImages[k].image, k))
       );
 
-      // build share URL that indicates both images
-      const shareUrl = shareBaseUrl + "?imgs=" + encodeURIComponent(keys.join(","));
+      // include both image URLs in the shared page link
+      const imgsParam = keys.map((k) => shareImages[k].image).join(",");
+      const shareUrl = shareBaseUrl + (shareBaseUrl.includes("?") ? "&" : "?") + "imgs=" + encodeURIComponent(imgsParam);
 
       if (navigator.canShare && navigator.canShare({ files })) {
         await navigator.share({
@@ -86,8 +89,7 @@ export default function Page15Client() {
       console.error(e);
     }
 
-    // fallback: open both image links (and also open a page URL that indicates both)
-    window.open(shareBaseUrl + "?imgs=15-house6-a,15-house6-b", "_blank", "noopener");
+    window.open(shareBaseUrl + "?imgs=" + encodeURIComponent("https://aheadterra.com/images/ari.png,https://aheadterra.com/images/ari1.png"), "_blank", "noopener");
     window.open(shareImages["15-house6-a"].image, "_blank", "noopener");
     window.open(shareImages["15-house6-b"].image, "_blank", "noopener");
   }
