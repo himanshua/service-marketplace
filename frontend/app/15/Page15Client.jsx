@@ -121,7 +121,7 @@ export default function Page15Client() {
 
             <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
-                src="/images/Rama6thHouse.jpg"
+                src="/images/Rama.JPG"
                 alt="Lord Rama - Sixth House example"
                 style={{
                   width: "100%",
