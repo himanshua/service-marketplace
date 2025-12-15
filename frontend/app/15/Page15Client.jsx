@@ -26,6 +26,58 @@ export default function Page15Client() {
 
   const [selected, setSelected] = useState("15-house6-a"); // default to ari (image A)
 
+  // --- INSERT: small helpers (place BEFORE return) ---
+  async function fetchFileFromUrl(url, name) {
+    const res = await fetch(url);
+    const blob = await res.blob();
+    const ext = (url.split(".").pop() || "png").split("?")[0];
+    return new File([blob], `${name}.${ext}`, { type: blob.type });
+  }
+
+  async function shareSelected() {
+    try {
+      const item = shareImages[selected];
+      const file = await fetchFileFromUrl(item.image, selected);
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          title: item.label,
+          text: item.description,
+          files: [file],
+          url: item.url,
+        });
+        return;
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    // fallback
+    window.open(shareImages[selected].image, "_blank", "noopener");
+  }
+
+  async function shareBoth() {
+    try {
+      const keys = ["15-house6-a", "15-house6-b"];
+      const files = await Promise.all(
+        keys.map((k) => fetchFileFromUrl(shareImages[k].image, k))
+      );
+      if (navigator.canShare && navigator.canShare({ files })) {
+        await navigator.share({
+          title: "6th House – Ari Bhava (Images)",
+          text: "Ari Bhava illustrations",
+          files,
+          url: shareBaseUrl,
+        });
+        return;
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    // fallback: open both
+    window.open(shareImages["15-house6-a"].image, "_blank", "noopener");
+    window.open(shareImages["15-house6-b"].image, "_blank", "noopener");
+  }
+  // --- END INSERT ---
+
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
