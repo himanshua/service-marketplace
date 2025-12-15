@@ -38,19 +38,28 @@ export default function Page15Client() {
     try {
       const item = shareImages[selected];
       const file = await fetchFileFromUrl(item.image, selected);
+
+      // build a URL that carries selection info so recipients can see which image was shared
+      const shareUrl = item.url + (item.url.includes("?") ? "&" : "?") + "img=" + encodeURIComponent(selected);
+
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: item.label,
           text: item.description,
           files: [file],
-          url: item.url,
+          url: shareUrl, // use selection-specific URL
         });
         return;
       }
+
+      // fallback: open image page / direct image with query so recipient sees selection
+      window.open(shareUrl, "_blank", "noopener");
+      return;
     } catch (e) {
       console.error(e);
     }
-    // fallback
+
+    // final fallback: open direct image
     window.open(shareImages[selected].image, "_blank", "noopener");
   }
 
@@ -60,19 +69,25 @@ export default function Page15Client() {
       const files = await Promise.all(
         keys.map((k) => fetchFileFromUrl(shareImages[k].image, k))
       );
+
+      // build share URL that indicates both images
+      const shareUrl = shareBaseUrl + "?imgs=" + encodeURIComponent(keys.join(","));
+
       if (navigator.canShare && navigator.canShare({ files })) {
         await navigator.share({
           title: "6th House – Ari Bhava (Images)",
           text: "Ari Bhava illustrations",
           files,
-          url: shareBaseUrl,
+          url: shareUrl,
         });
         return;
       }
     } catch (e) {
       console.error(e);
     }
-    // fallback: open both
+
+    // fallback: open both image links (and also open a page URL that indicates both)
+    window.open(shareBaseUrl + "?imgs=15-house6-a,15-house6-b", "_blank", "noopener");
     window.open(shareImages["15-house6-a"].image, "_blank", "noopener");
     window.open(shareImages["15-house6-b"].image, "_blank", "noopener");
   }
