@@ -111,8 +111,7 @@ export default function Page15Client() {
 
             <h2>Practical Notes</h2>
             <p>
-              Planets in Ari Bhava indicate how you handle competition, work under pressure, health routines, and service. Benefics here can help you overcome enemies and recover from illness; malefics can create chronic challenges unless disciplined remedies or service is applied.
-            </p>
+The Sixth House, known as Ari Bhava, governs your encounters with enemies, debt, illness, and daily service/work environment. In a notable exception to general rules, malefic planets (like Mars, Saturn, or Rahu) are considered good here, as their powerful, aggressive nature helps a person conquer enemies, overcome litigation, manage debt, and resist disease, effectively making them "conquerors" of their struggles. Conversely, benefic planets (like Jupiter or Venus) can sometimes struggle in this "dusthana" house, potentially making the native more susceptible to the very issues the house represents, such as lingering health problems or difficulties overcoming opposition, unless they are very well-placed or aspected.            </p>
 
             <h2>Lord Rama’s Sixth House Example</h2>
             <p>
