@@ -5,14 +5,20 @@ import "../profile/profile.css";
 import UniversalShareBar from "../components/UniversalShareBar";
 
 export default function Page15Client() {
-  const shareChoices = ["15-house6"];
+  const shareChoices = ["15-house6-a", "15-house6-b"];
   const shareBaseUrl = "https://aheadterra.com/15";
   const shareImages = {
-    "15-house6": {
-      label: "6th House – Ari Bhava",
+    "15-house6-a": {
+      label: "6th House – Ari Bhava (Image 1)",
       image: "https://aheadterra.com/images/ari.png",
       description: "Enemies, health, service, debts, daily work, litigation, and obstacles.",
-      url: "https://aheadterra.com/15",
+      url: shareBaseUrl,
+    },
+    "15-house6-b": {
+      label: "6th House – Ari Bhava (Image 2)",
+      image: "https://aheadterra.com/images/ari1.png",
+      description: "Alternate illustration for Ari Bhava — service & health.",
+      url: shareBaseUrl,
     },
   };
 
