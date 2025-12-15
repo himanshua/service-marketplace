@@ -14,13 +14,13 @@ export default function Page15Client() {
       label: "6th House – Ari Bhava (Image 1)",
       image: "https://aheadterra.com/images/ari.png",
       description: "Enemies, health, service, debts, daily work, litigation, and obstacles.",
-      url: shareBaseUrl,
+      url: shareBaseUrl + "?img=15-house6-a", // ensure share link includes selection
     },
     "15-house6-b": {
       label: "6th House – Ari Bhava (Image 2)",
       image: "https://aheadterra.com/images/ari1.png",
       description: "Alternate illustration for Ari Bhava — service & health.",
-      url: shareBaseUrl,
+      url: shareBaseUrl + "?img=15-house6-b", // ensure share link includes selection
     },
   };
 
