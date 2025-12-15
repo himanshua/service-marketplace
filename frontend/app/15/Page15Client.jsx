@@ -10,7 +10,7 @@ export default function Page15Client() {
   const shareImages = {
     "15-house6": {
       label: "6th House – Ari Bhava",
-      image: "https://aheadterra.com/images/ari1.png",
+      image: "https://aheadterra.com/images/ari.png",
       description: "Enemies, health, service, debts, daily work, litigation, and obstacles.",
       url: "https://aheadterra.com/15",
     },
