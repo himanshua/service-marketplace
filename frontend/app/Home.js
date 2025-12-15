@@ -38,9 +38,9 @@ function HomeRow({ label, imgSrc, imgAlt, imgStyle = {}, leftContent, children, 
                 borderRadius: "12px",
                 width: "100%",
                 maxWidth: 420,
-                height: "auto",       // <-- allow portrait to keep natural aspect
-                maxHeight: 520,       // <-- limit so extremely tall images don't break layout
-                objectFit: "contain", // keep full image visible
+                height: 320,
+                maxHeight: 320,
+                objectFit: "contain",
                 background: "#fff",
                 display: "block",
                 margin: "0 auto",
