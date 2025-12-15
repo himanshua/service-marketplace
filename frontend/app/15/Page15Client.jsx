@@ -9,18 +9,21 @@ import React, { useState } from "react";
 export default function Page15Client() {
   const shareChoices = ["15-house6-a", "15-house6-b"];
   const shareBaseUrl = "https://aheadterra.com/15";
+  const sharePageBase = "https://aheadterra.com/share"; // use /share/<slug> for readable links
   const shareImages = {
     "15-house6-a": {
       label: "6th House – Ari Bhava (Image 1)",
       image: "https://aheadterra.com/images/ari.png",
       description: "Enemies, health, service, debts, daily work, litigation, and obstacles.",
-      url: shareBaseUrl + "?img=15-house6-a", // ensure share link includes selection
+      slug: "ari-bhava", // human-readable share path -> /share/ari-bhava
+      url: shareBaseUrl,
     },
     "15-house6-b": {
       label: "6th House – Ari Bhava (Image 2)",
       image: "https://aheadterra.com/images/ari1.png",
       description: "Alternate illustration for Ari Bhava — service & health.",
-      url: shareBaseUrl + "?img=15-house6-b", // ensure share link includes selection
+      slug: "ari-bhava-2", // human-readable share path -> /share/ari-bhava-2
+      url: shareBaseUrl,
     },
   };
 
@@ -39,12 +42,8 @@ export default function Page15Client() {
       const item = shareImages[selected];
       const file = await fetchFileFromUrl(item.image, selected);
 
-      // use the actual image URL in the shared page link
-      const shareUrl =
-        shareBaseUrl +
-        (shareBaseUrl.includes("?") ? "&" : "?") +
-        "img=" +
-        encodeURIComponent(item.image);
+      // use human-readable share page: https://aheadterra.com/share/<slug>
+      const shareUrl = `${sharePageBase}/${encodeURIComponent(item.slug || selected)}`;
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
@@ -72,9 +71,9 @@ export default function Page15Client() {
         keys.map((k) => fetchFileFromUrl(shareImages[k].image, k))
       );
 
-      // include both image URLs in the shared page link
-      const imgsParam = keys.map((k) => shareImages[k].image).join(",");
-      const shareUrl = shareBaseUrl + (shareBaseUrl.includes("?") ? "&" : "?") + "imgs=" + encodeURIComponent(imgsParam);
+      // use a combined human-readable share page: /share/ari-bhava-ari-bhava-2
+      const shareSlug = keys.map((k) => shareImages[k].slug || k).join("-");
+      const shareUrl = `${sharePageBase}/${encodeURIComponent(shareSlug)}`;
 
       if (navigator.canShare && navigator.canShare({ files })) {
         await navigator.share({
@@ -89,7 +88,7 @@ export default function Page15Client() {
       console.error(e);
     }
 
-    window.open(shareBaseUrl + "?imgs=" + encodeURIComponent("https://aheadterra.com/images/ari.png,https://aheadterra.com/images/ari1.png"), "_blank", "noopener");
+    window.open(`${sharePageBase}/${encodeURIComponent("ari-bhava,ari-bhava-2")}`, "_blank", "noopener");
     window.open(shareImages["15-house6-a"].image, "_blank", "noopener");
     window.open(shareImages["15-house6-b"].image, "_blank", "noopener");
   }
