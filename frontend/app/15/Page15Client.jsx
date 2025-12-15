@@ -119,6 +119,10 @@ export default function Page15Client() {
               In Lord Rama’s chart, the 6th house placements show how he faced opponents and overcame obstacles through discipline and duty. The house also reflects service and challenges that shaped his capacity for endurance and righteousness.
             </p>
 
+            <p>
+              After correcting and adjusting the chart, Lord Rama’s 6th bhava ruler is <strong>Jupiter</strong>, which also rules his <strong>9th house</strong> of higher learning. This dual role makes Jupiter a mixed-result planet: as 9th lord it grants higher knowledge, status, and guidance (reflected in the Ramayana and his teachers), while as exalted 6th lord it indicates a powerful, highly intelligent enemy (Ravana) and intense challenges. Jupiter’s influence links Rishi Vashistha and Vishwamitra—teachers who provided Vedic and warfare knowledge—and explains how higher learning (9th) helps overcome obstacles (6th). Being 6th lord in lagna can also point to enemies near one’s birthplace; Jupiter’s drishti to the 7th house supports brahmacharya tendencies, especially when Mangal occupies the 7th.
+            </p>
+
             <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
                 src="/images/Rama.JPG"
