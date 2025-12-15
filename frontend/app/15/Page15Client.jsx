@@ -15,15 +15,15 @@ export default function Page15Client() {
       label: "6th House – Ari Bhava (Image 1)",
       image: "https://aheadterra.com/images/ari.png",
       description: "Enemies, health, service, debts, daily work, litigation, and obstacles.",
-      slug: "ari-bhava", // human-readable share path -> /share/ari-bhava
-      url: shareBaseUrl,
+      slug: "ari-bhava",
+      url: sharePageBase + "/ari-bhava",
     },
     "15-house6-b": {
       label: "6th House – Ari Bhava (Image 2)",
       image: "https://aheadterra.com/images/ari1.png",
       description: "Alternate illustration for Ari Bhava — service & health.",
-      slug: "ari-bhava-2", // human-readable share path -> /share/ari-bhava-2
-      url: shareBaseUrl,
+      slug: "ari-bhava-2",
+      url: sharePageBase + "/ari-bhava-2",
     },
   };
 
@@ -42,19 +42,23 @@ export default function Page15Client() {
       const item = shareImages[selected];
       const file = await fetchFileFromUrl(item.image, selected);
 
-      // use human-readable share page: https://aheadterra.com/share/<slug>
+      // human readable share page
       const shareUrl = `${sharePageBase}/${encodeURIComponent(item.slug || selected)}`;
+
+      // include the human-readable link in the text body (some share targets ignore `url`)
+      const shareText = `${item.description}\n\n${shareUrl}`;
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: item.label,
-          text: item.description,
+          text: shareText,   // ensure link is visible in shared text
           files: [file],
           url: shareUrl,
         });
         return;
       }
 
+      // fallback: open the human-readable share page
       window.open(shareUrl, "_blank", "noopener");
       return;
     } catch (e) {
@@ -71,14 +75,15 @@ export default function Page15Client() {
         keys.map((k) => fetchFileFromUrl(shareImages[k].image, k))
       );
 
-      // use a combined human-readable share page: /share/ari-bhava-ari-bhava-2
       const shareSlug = keys.map((k) => shareImages[k].slug || k).join("-");
       const shareUrl = `${sharePageBase}/${encodeURIComponent(shareSlug)}`;
+
+      const shareText = `Ari Bhava illustrations\n\n${shareUrl}`;
 
       if (navigator.canShare && navigator.canShare({ files })) {
         await navigator.share({
           title: "6th House – Ari Bhava (Images)",
-          text: "Ari Bhava illustrations",
+          text: shareText,   // include link in text for reliability
           files,
           url: shareUrl,
         });
