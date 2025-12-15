@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import "../globals.css";
 import "../profile/profile.css";
 import UniversalShareBar from "../components/UniversalShareBar";
+import React, { useState } from "react";
+
 
 export default function Page15Client() {
   const shareChoices = ["15-house6-a", "15-house6-b"];
@@ -23,116 +25,80 @@ export default function Page15Client() {
     },
   };
 
-  const [selected, setSelected] = useState("15-house6-a");
-
-  async function fetchFileFromUrl(url, name) {
-    const res = await fetch(url);
-    const blob = await res.blob();
-    const ext = (url.split(".").pop() || "png").split("?")[0];
-    return new File([blob], `${name}.${ext}`, { type: blob.type });
-  }
-
-  async function nativeShareSingle(key) {
-    const item = shareImages[key];
-    if (!item) return;
-    try {
-      const file = await fetchFileFromUrl(item.image, key);
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          title: item.label,
-          text: item.description,
-          files: [file],
-          url: item.url,
-        });
-      } else {
-        // fallback: open image in new tab so user can manually share/save
-        window.open(item.image, "_blank", "noopener");
-      }
-    } catch (e) {
-      console.error(e);
-      window.open(item.image, "_blank", "noopener");
-    }
-  }
-
-  async function nativeShareBoth() {
-    try {
-      const keys = ["15-house6-a", "15-house6-b"];
-      const files = await Promise.all(
-        keys.map((k) => fetchFileFromUrl(shareImages[k].image, k))
-      );
-      if (navigator.canShare && navigator.canShare({ files })) {
-        await navigator.share({
-          title: "6th House – Ari Bhava (Images)",
-          text: "Ari Bhava illustrations — health, debt & service.",
-          files,
-          url: shareBaseUrl,
-        });
-      } else {
-        // fallback: open both images in new tabs for manual sharing
-        keys.forEach((k) => window.open(shareImages[k].image, "_blank", "noopener"));
-      }
-    } catch (e) {
-      console.error(e);
-      Object.values(shareImages).forEach((it) => window.open(it.image, "_blank", "noopener"));
-    }
-  }
-
-  function openShareComposer(platform, key) {
-    // Simple web composer fallbacks (note: social preview on platforms uses OG tags from page URL)
-    const item = shareImages[key];
-    const text = encodeURIComponent(`${item.label} — ${item.description}`);
-    const url = encodeURIComponent(item.url);
-    if (platform === "x") {
-      // X (Twitter) — cannot attach image via URL; include image link in text
-      window.open(`https://x.com/intent/tweet?text=${text}%20${encodeURIComponent(item.image)}%20${url}`, "_blank", "noopener");
-    } else if (platform === "linkedin") {
-      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, "_blank", "noopener");
-    } else if (platform === "facebook") {
-      window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, "_blank", "noopener");
-    } else if (platform === "whatsapp") {
-      window.open(`https://api.whatsapp.com/send?text=${text}%20${url}`, "_blank", "noopener");
-    }
-  }
+  const [selected, setSelected] = useState("15-house6-a"); // default to ari (image A)
 
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
-        <section style={{ display: "flex", flexWrap: "wrap", minHeight: 260, background: "#f9f9f9", borderBottom: "2px solid #bdbdbd" }}>
-          <div className="home-image-col" style={{ flex: "0 0 360px", padding: 24, display: "flex", flexDirection: "column", gap: 16, justifyContent: "flex-start" }}>
+        <section
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            minHeight: 260,
+            background: "#f9f9f9",
+            borderBottom: "2px solid #bdbdbd",
+          }}
+        >
+          <div
+            className="home-image-col"
+            style={{
+              flex: "0 0 360px",
+              padding: 24,
+              display: "flex",
+              flexDirection: "column",
+              gap: 16,
+              justifyContent: "flex-start",
+            }}
+          >
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-start", justifyContent: "center" }}>
-              <img src="/images/ari.png" alt="Ari Bhava – 6th House" style={{ width: "100%", maxWidth: 360, height: "auto", objectFit: "cover", borderRadius: 12, boxShadow: "0 12px 26px rgba(0,0,0,0.12)" }} />
-              <img src="/images/ari1.png" alt="Ari Bhava – service & health" style={{ width: "100%", maxWidth: 360, height: "auto", objectFit: "cover", borderRadius: 12, boxShadow: "0 12px 26px rgba(0,0,0,0.12)" }} />
+              <img
+                src="/images/ari.png"
+                alt="Ari Bhava – 6th House"
+                style={{
+                  width: "100%",
+                  maxWidth: 360,     // increased size
+                  height: "auto",    // preserve aspect ratio (portrait works)
+                  objectFit: "cover",
+                  borderRadius: 12,
+                  boxShadow: "0 12px 26px rgba(0,0,0,0.12)",
+                }}
+              />
+              <img
+                src="/images/ari1.png"
+                alt="Ari Bhava – service & health"
+                style={{
+                  width: "100%",
+                  maxWidth: 360,     // increased size
+                  height: "auto",    // preserve aspect ratio
+                  objectFit: "cover",
+                  borderRadius: 12,
+                  boxShadow: "0 12px 26px rgba(0,0,0,0.12)",
+                }}
+              />
             </div>
 
             <h2 style={{ color: "#0d47a1", margin: 0 }}>6th House – Ari Bhava (षष्ठ भाव)</h2>
-            <p style={{ margin: 0, color: "#555" }}>Enemies, illness, service, debts, daily work, litigation, and overcoming obstacles.</p>
+            <p style={{ margin: 0, color: "#555" }}>
+              Enemies, illness, service, debts, daily work, litigation, and overcoming obstacles.
+            </p>
           </div>
 
-          <div className="home-content-col" style={{ flex: "1 1 260px", padding: "24px 32px", display: "flex", flexDirection: "column", gap: 18, justifyContent: "center" }}>
-            <UniversalShareBar shareChoices={shareChoices} shareImages={shareImages} shareBaseUrl={shareBaseUrl} />
-
-            {/* NEW: simple selector and share controls */}
-            <div style={{ display: "flex", gap: 8, alignItems: "center", marginTop: 6 }}>
-              <label style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                <input type="radio" name="share" value="15-house6-a" checked={selected === "15-house6-a"} onChange={() => setSelected("15-house6-a")} />
-                {shareImages["15-house6-a"].label}
-              </label>
-              <label style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                <input type="radio" name="share" value="15-house6-b" checked={selected === "15-house6-b"} onChange={() => setSelected("15-house6-b")} />
-                {shareImages["15-house6-b"].label}
-              </label>
-
-              <button className="profile-btn" onClick={() => nativeShareSingle(selected)} style={{ marginLeft: 12 }}>Share (native)</button>
-              <button className="profile-btn profile-btn-outline" onClick={() => nativeShareBoth()}>Share Both (native)</button>
-            </div>
-
-            <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-              <button className="profile-btn" onClick={() => openShareComposer("x", selected)}>Share to X</button>
-              <button className="profile-btn" onClick={() => openShareComposer("linkedin", selected)}>Share to LinkedIn</button>
-              <button className="profile-btn" onClick={() => openShareComposer("facebook", selected)}>Share to Facebook</button>
-              <button className="profile-btn" onClick={() => openShareComposer("whatsapp", selected)}>Share to WhatsApp</button>
-              <a className="profile-btn profile-btn-outline" href={shareImages[selected].image} target="_blank" rel="noopener noreferrer">Open Image</a>
-            </div>
+          <div
+            className="home-content-col"
+            style={{
+              flex: "1 1 260px",
+              padding: "24px 32px",
+              display: "flex",
+              flexDirection: "column",
+              gap: 18,
+              justifyContent: "center",
+            }}
+          >
+            <UniversalShareBar
+              shareChoices={shareChoices}
+              shareImages={shareImages}
+              shareBaseUrl={shareBaseUrl}
+            />
 
             <h1>Sixth House (Ari Bhava) in Astrology: षष्ठ भाव</h1>
             <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
