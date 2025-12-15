@@ -131,5 +131,23 @@ export const shareItems = {
     description: "Lunar houses / constellations.",
     image: "https://aheadterra.com/images/nakshatra-wheel.png",
     body: "See all 27 nakshatras in one wheel.",
+  },
+
+  // Add / fix Ari Bhava share entries
+  "ari-bhava": {
+    title: "6th House – Ari Bhava (षष्ठ भाव)",
+    label: "6th House – Ari Bhava",
+    description: "Enemies, illness, service, debts, daily work — Ari Bhava.",
+    // use absolute URL so OG and metadata use the correct image
+    image: "https://aheadterra.com/images/ari.png",
+    body: "Ari Bhava — enemies, health, debt, service and routine work.",
+  },
+
+  "ari-bhava-2": {
+    title: "6th House – Ari Bhava (Alternate)",
+    label: "6th House – Ari Bhava (Alt)",
+    description: "Alternate illustration for Ari Bhava — service & health.",
+    image: "https://aheadterra.com/images/ari1.png",
+    body: "Alternate Ari Bhava illustration — service & health.",
   }
 };

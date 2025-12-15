@@ -4,6 +4,7 @@ import "../globals.css";
 import "../profile/profile.css";
 import UniversalShareBar from "../components/UniversalShareBar";
 import React, { useState } from "react";
+import { shareItems } from "../share/data"; // add this near top with other imports
 
 
 export default function Page15Client() {
@@ -42,23 +43,28 @@ export default function Page15Client() {
       const item = shareImages[selected];
       const file = await fetchFileFromUrl(item.image, selected);
 
-      // human readable share page
-      const shareUrl = `${sharePageBase}/${encodeURIComponent(item.slug || selected)}`;
+      // Resolve a human-readable slug:
+      const slug =
+        item.slug || // prefer slug on local shareImages entry
+        Object.keys(shareItems).find((k) => {
+          // try to match by image URL if no slug
+          const si = shareItems[k];
+          return si && (si.image === item.image || (`https://aheadterra.com${si.image}`) === item.image);
+        }) ||
+        selected;
 
-      // include the human-readable link in the text body (some share targets ignore `url`)
-      const shareText = `${item.description}\n\n${shareUrl}`;
+      const shareUrl = `${sharePageBase}/${encodeURIComponent(slug)}`;
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: item.label,
-          text: shareText,   // ensure link is visible in shared text
+          text: item.description + "\n\n" + shareUrl,
           files: [file],
           url: shareUrl,
         });
         return;
       }
 
-      // fallback: open the human-readable share page
       window.open(shareUrl, "_blank", "noopener");
       return;
     } catch (e) {
