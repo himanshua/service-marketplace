@@ -125,7 +125,7 @@ export default function Page16Client() {
           >
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-start", justifyContent: "center" }}>
               <img
-                src="/images/saptam.jpeg"
+                src="/images/saptam.jpg"
                 alt="Saptam Bhava – 7th House"
                 style={{
                   width: "100%",
@@ -137,7 +137,7 @@ export default function Page16Client() {
                 }}
               />
               <img
-                src="/images/saptam1.jpg"
+                src="/images/saptam1.jpeg"
                 alt="Saptam Bhava – partners & marriage"
                 style={{
                   width: "100%",
