@@ -29,7 +29,7 @@ export default function Page16Client() {
 
   const [selected, setSelected] = useState("16-house7-a");
 
-  // --- helpers (same pattern as Page15Client) ---
+  // --- small helpers (copied from 6th-house file) ---
   async function fetchFileFromUrl(url, name) {
     const res = await fetch(url);
     const blob = await res.blob();
@@ -167,14 +167,18 @@ export default function Page16Client() {
               justifyContent: "center",
             }}
           >
-            <UniversalShareBar shareChoices={shareChoices} shareImages={shareImages} shareBaseUrl={shareBaseUrl} />
+            <UniversalShareBar
+              shareChoices={shareChoices}
+              shareImages={shareImages}
+              shareBaseUrl={shareBaseUrl}
+            />
 
             <h1>Seventh House (Saptam Bhava) in Astrology: सप्तम भाव</h1>
             <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
-              The 7th house governs partnerships, marriage, open foes, and public relationships — the world you meet across from you.
+              Saptam / सप्तम = partnership, spouse, public other; governs marriage, open partnership, and one‑to‑one public dealings.
             </p>
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
-              The Seventh House describes one‑to‑one relationships, contracts, marriage, and how you appear in public partnerships. It shows patterns of compromise, negotiation, and balance with others.
+              The Seventh House describes one‑to‑one relationships, marriage, contracts, and how you appear in public partnerships. It shows patterns of compromise, negotiation, and balance with others.
             </p>
 
             <h2>Keywords & Concepts</h2>
@@ -188,7 +192,93 @@ export default function Page16Client() {
 
             <h2>Practical Notes</h2>
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
-              Benefic planets in the 7th often support harmonious partnerships and successful unions; malefics can create conflict but also bring decisive action. The house ruler, aspects, and dignity determine relationship quality, contract outcomes, and public dealings.
+              Benefic planets in the 7th often support harmonious partnerships and successful unions; malefics can create conflict but also bring decisive action and clarity. The house ruler, aspects, and dignity determine relationship quality, contract outcomes, and public dealings.
+            </p>
+
+            <h2>Lord Rama’s Seventh House Example</h2>
+            <p>
+              In Lord Rama’s chart, the 7th house placements reflect public partnerships and marriage potential. The house shows how relationships are negotiated in public life and the native’s approach to one‑to‑one bonds.
+            </p>
+
+            <p>
+              As 7th‑bhava considerations, the 7th lord and aspects from malefics or benefics will colour marriage outcomes, public disputes, and contractual success. Rulers and yogas involving the 7th often indicate marriage timing, spouse qualities, and business partnership dynamics.
+            </p>
+
+            <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
+              <img
+                src="/images/Rama.JPG"
+                alt="Lord Rama - Seventh House example"
+                style={{
+                  width: "100%",
+                  maxWidth: 360,
+                  height: "auto",
+                  borderRadius: 12,
+                  boxShadow: "0 12px 26px rgba(0,0,0,0.12)",
+                }}
+              />
+              <figcaption style={{ marginTop: 10, fontSize: 14, color: "#4a6071" }}>
+                Seventh house examples show partnership dynamics, public marriage patterns, and contractual relationships.
+              </figcaption>
+            </figure>
+
+            <h2>🛠️ Seventh House + Marriage, Contracts & Public Relations</h2>
+            <p>
+              The Seventh House governs marriage, partnerships, and public contracts. Planets here show the nature of your partnerships—whether harmonious, challenging, or karmically charged. Benefics promote ease and cooperation; malefics may bring turbulence but also decisive resolution.
+            </p>
+
+            <h3>Essence</h3>
+            <p>
+              👉 The 7th house expresses how you relate across the table — partnership, marriage, and public one‑to‑one dealings.<br />
+              👉 सप्तम भाव सार्वजनिक साझेदारी और विवाह का प्रतिनिधित्व करता है।
+            </p>
+
+            <h3>Saptam (सप्तम)</h3>
+            <p>
+              Sap + Tam<br />
+              Sap = pair / relationship (root sense)<br />
+              Tam = position / place<br />
+              👉 Saptam = the place of pairing → house of partners and marriage
+            </p>
+
+            <h3>Vivāha (विवाह)</h3>
+            <p>
+              Vi + Vāha<br />
+              Vi = joining across<br />
+              Vāha = carrier / bond<br />
+              👉 Vivāha = social joining → marriage, committed union
+            </p>
+
+            <h3>Bandhu (बन्धु)</h3>
+            <p>
+              Ba + Ndhu<br />
+              Ba = relation<br />
+              Ndhu = bond<br />
+              👉 Bandhu = allied relation → spouse, partner, ally
+            </p>
+
+            <h3>Dharma & Social Contract</h3>
+            <p>
+              The 7th house also intersects with societal duty and public contract—marriage can be a dharmic bond as well as a legal one. Consider the 7th lord, aspects, and functional nature of planets to judge whether partnerships are karmic, contractual, or both.
+            </p>
+
+            <h3>Open Enemies (प्रत्यक्ष शत्रु)</h3>
+            <p>
+              The 7th also rules open enemies — those you meet face‑to‑face in public life, litigation with partners, or adversarial business dealings. Planets here show how conflict appears in public relationships.
+            </p>
+
+            <h3>Timing & Marriage</h3>
+            <p>
+              Transit and dashā timings involving the 7th house or its lord often trigger marriage or major partnership events. Yogas to the 7th or its ruler indicate timing windows for unions or contractual changes.
+            </p>
+
+            <h3>Career & Partnership Significance</h3>
+            <p>
+              👉 The 7th house is important for business partners, client relationships, and contracts. Strong 7th placements help form lasting business alliances and public cooperation.
+            </p>
+
+            <h2>🌟 Example of Strong Seventh House</h2>
+            <p>
+              <strong>Person with a strong 7th house:</strong> Harmonious in partnerships, forms lasting marriages or business alliances, skilled negotiator, and publicly respected in one‑to‑one dealings.
             </p>
 
             <h2>✨ In simple words — 7th House (सप्तम भाव)</h2>
@@ -204,8 +294,6 @@ export default function Page16Client() {
             <p>
               👉 The 7th house shows how you meet the world in pairs — marriage, contracts, and the public partner. It reflects compromise, balance, and public negotiation.
             </p>
-
-            {/* You can copy/add additional blocks from the 6th-house file and adapt them here if needed */}
           </div>
         </section>
       </div>
