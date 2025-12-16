@@ -1,36 +1,4 @@
 export const shareItems = {
-  // 7th house items (absolute URLs so Facebook can fetch)
-  "saptam-bhava": {
-    title: "7th House – Saptam Bhava",
-    description: "Partnerships, marriage, contracts, open enemies, public relationships.",
-    image: "https://aheadterra.com/images/saptam.jpg",
-    ogImage: "https://aheadterra.com/images/saptam.jpg",
-    ogWidth: 1200,
-    ogHeight: 630,
-    slug: "saptam-bhava",
-  },
-
-  "saptam-bhava-2": {
-    title: "7th House – Saptam Bhava (alt)",
-    description: "Alternate illustration for Saptam Bhava — spouse, partners, public relations.",
-    image: "https://aheadterra.com/images/saptam1.jpg",
-    ogImage: "https://aheadterra.com/images/saptam1.jpg",
-    ogWidth: 1200,
-    ogHeight: 630,
-    slug: "saptam-bhava-2",
-  },
-
-  // default fallback
-  "default": {
-    title: "AheadTerra",
-    description: "AheadTerra astrology content",
-    image: "https://aheadterra.com/images/default-share.png",
-    ogImage: "https://aheadterra.com/images/default-share.png",
-    ogWidth: 1200,
-    ogHeight: 630,
-    slug: "default",
-  },
-
   ganesha: {
     label: "Beej Mantra",
     title: "Terra – Psychic & Jyotishvidya Readings",
@@ -38,6 +6,20 @@ export const shareItems = {
     image: "/images/Ganesha1.JPG",
     body: "9 Graha Beej Mantra.",
   },
+
+  // default fallback
+  // default fallback
+  "default": {
+    title: "AheadTerra",
+    description: "AheadTerra astrology content",
+    image: "https://aheadterra.com/images/Rama.JPG",
+    ogImage: "https://aheadterra.com/images/Rama.JPG",
+    ogWidth: 1200,
+    ogHeight: 630,
+    slug: "default",
+  },
+
+  
   destiny: {
     label: "Destiny Poster",
     title: "ज्योतिषशास्त्र – 2026 Rashifal",
@@ -203,14 +185,26 @@ export const shareItems = {
     slug: "saptam-bhava-2",
   },
 
-  // default fallback
-  "default": {
-    title: "AheadTerra",
-    description: "AheadTerra astrology content",
-    image: "https://aheadterra.com/images/default-share.png",
-    ogImage: "https://aheadterra.com/images/default-share.png",
+  
+
+// 7th house items (absolute URLs so Facebook can fetch)
+  "saptam-bhava": {
+    title: "7th House – Saptam Bhava",
+    description: "Partnerships, marriage, contracts, open enemies, public relationships.",
+    image: "https://aheadterra.com/images/saptam.jpg",
+    ogImage: "https://aheadterra.com/images/saptam.jpg",
     ogWidth: 1200,
     ogHeight: 630,
-    slug: "default",
+    slug: "saptam-bhava",
+  },
+
+  "saptam-bhava-2": {
+    title: "7th House – Saptam Bhava (alt)",
+    description: "Alternate illustration for Saptam Bhava — spouse, partners, public relations.",
+    image: "https://aheadterra.com/images/saptam1.jpg",
+    ogImage: "https://aheadterra.com/images/saptam1.jpg",
+    ogWidth: 1200,
+    ogHeight: 630,
+    slug: "saptam-bhava-2",
   },
 };
