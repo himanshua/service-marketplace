@@ -683,9 +683,10 @@ Believe in yourself - success is within your reach!
     </li>
     <li>
       <a href="https://aheadterra.com/16" target="_self" rel="noopener noreferrer">
-        7th House – Yuvati Bhava
+        7th House – Yuvati (Union) Bhava
       </a>
-      – Governs spouse, partnerships, and marriage.
+      – Governs marriage, spouse, partnerships, contracts, public dealings, clients, and open enemies. Union, commitment, cooperation, agreements, conflicts with others, and one-to-one relationships.
+       विवाह, जीवनसाथी, साझेदारी, अनुबंध, सार्वजनिक संबंध, ग्राहक और प्रत्यक्ष शत्रु — मेल-मिलाप, प्रतिबद्धता, सहयोग, समझौते और आमने-सामने के संबंधों का भाव।
     </li>
     <li>
       <a href="https://barbarapijan.com/bpa/Bhava/8randhra_bhava.htm" target="_blank" rel="noopener noreferrer">
