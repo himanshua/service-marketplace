@@ -682,7 +682,7 @@ Believe in yourself - success is within your reach!
        शत्रु, रोग, ऋण, सेवा, नौकरी, संघर्ष, अनुशासन, उपचार, प्रतिस्पर्धा और बाधाओं पर विजय का भाव।
     </li>
     <li>
-      <a href="https://aheadterra.com/16" target="_blank" rel="noopener noreferrer">
+      <a href="https://aheadterra.com/16" target="_self" rel="noopener noreferrer">
         7th House – Yuvati Bhava
       </a>
       – Governs spouse, partnerships, and marriage.
