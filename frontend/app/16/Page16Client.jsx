@@ -13,14 +13,14 @@ export default function Page16Client() {
   const shareImages = {
     "16-house7-a": {
       label: "7th House – Saptam Bhava (Image 1)",
-      image: "https://aheadterra.com/images/saptam.png",
+      image: "https://aheadterra.com/images/saptam.jpeg",
       description: "Partnerships, marriage, contracts, open enemies, public relationships.",
       slug: "saptam-bhava",
       url: sharePageBase + "/saptam-bhava",
     },
     "16-house7-b": {
       label: "7th House – Saptam Bhava (Image 2)",
-      image: "https://aheadterra.com/images/saptam1.png",
+      image: "https://aheadterra.com/images/saptam1.jpeg",
       description: "Alternate illustration for Saptam Bhava — spouse, partners, public relations.",
       slug: "saptam-bhava-2",
       url: sharePageBase + "/saptam-bhava-2",
@@ -125,7 +125,7 @@ export default function Page16Client() {
           >
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-start", justifyContent: "center" }}>
               <img
-                src="/images/saptam.png"
+                src="/images/saptam.jpeg"
                 alt="Saptam Bhava – 7th House"
                 style={{
                   width: "100%",
@@ -137,7 +137,7 @@ export default function Page16Client() {
                 }}
               />
               <img
-                src="/images/saptam1.png"
+                src="/images/saptam1.jpeg"
                 alt="Saptam Bhava – partners & marriage"
                 style={{
                   width: "100%",
