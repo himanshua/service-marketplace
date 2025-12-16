@@ -376,9 +376,13 @@ In contrast, strong benefic planets like Jupiter or the Moon may struggle here, 
 
             <h2>✨ In simple words — 6th House (षष्ठ भाव)</h2>
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
-              <strong>Good first (Positive nature):</strong><br />
-              👉 The 6th house gives strength through struggle and protection through discipline.<br />
-              👉 It creates fighters, healers, problem-solvers, and survivors—such as surgeons, doctors, lawyers, police, soldiers, athletes, and service professionals.
+              The 6th House (Ari Bhava / Ripu Bhava) governs enemies, debts, illness, daily work, and service.
+              <br /><br />
+              <strong>Positive effects:</strong> Resilience, discipline, problem‑solving, ability to overcome struggles, and success in competitive or service‑oriented fields (healers, lawyers, soldiers, athletes, etc.).
+              <br /><br />
+              <strong>Negative effects:</strong> Chronic illness, stress, debts, legal or workplace conflicts, and ongoing struggles with rivals; poorly placed benefics may reduce natural strength in these areas.
+              <br /><br />
+              <strong>Note:</strong> Malefics (Mars, Saturn, Rahu, Ketu) often perform well here, helping the native “conquer” difficulties. Benefics may struggle unless well‑placed.
             </p>
           </div>
         </section>
