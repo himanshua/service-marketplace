@@ -149,5 +149,21 @@ export const shareItems = {
     description: "Alternate illustration for Ari Bhava — service & health.",
     image: "https://aheadterra.com/images/ari1.png",
     body: "Alternate Ari Bhava illustration — service & health.",
+  },
+
+  "saptam-bhava": {
+    title: "7th House – Saptam Bhava (सप्तम भाव)",
+    label: "7th House – Saptam Bhava",
+    description: "Partnerships, marriage, contracts, open enemies, public relationships.",
+    image: "https://aheadterra.com/images/saptam.png",
+    body: "Saptam Bhava — partnerships, marriage, contracts and public relationships.",
+  },
+
+  "saptam-bhava-2": {
+    title: "7th House – Saptam Bhava (Alternate)",
+    label: "7th House – Saptam Bhava (Alt)",
+    description: "Alternate illustration for Saptam Bhava — spouse, partners, public relations.",
+    image: "https://aheadterra.com/images/saptam1.png",
+    body: "Alternate Saptam Bhava illustration — partners & public relations.",
   }
 };
