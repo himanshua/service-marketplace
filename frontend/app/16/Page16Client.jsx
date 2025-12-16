@@ -50,12 +50,11 @@ export default function Page16Client() {
         selected;
 
       const shareUrl = `${sharePageBase}/${encodeURIComponent(slug)}`;
-      const shareText = `${item.description}\n\n${shareUrl}`;
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: item.label,
-          text: shareText,
+          text: item.description + "\n\n" + shareUrl,
           files: [file],
           url: shareUrl,
         });
@@ -78,6 +77,7 @@ export default function Page16Client() {
 
       const shareSlug = keys.map((k) => shareImages[k].slug || k).join("-");
       const shareUrl = `${sharePageBase}/${encodeURIComponent(shareSlug)}`;
+
       const shareText = `Saptam Bhava illustrations\n\n${shareUrl}`;
 
       if (navigator.canShare && navigator.canShare({ files })) {
@@ -171,6 +171,9 @@ export default function Page16Client() {
             <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
               The 7th house governs partnerships, marriage, open foes, and public relationships — the world you meet across from you.
             </p>
+            <p style={{ color: "#274153", lineHeight: 1.6 }}>
+              The Seventh House describes one‑to‑one relationships, contracts, marriage, and how you appear in public partnerships. It shows patterns of compromise, negotiation, and balance with others.
+            </p>
 
             <h2>Keywords & Concepts</h2>
             <ul style={{ marginLeft: 20, color: "#1f2a44" }}>
@@ -183,7 +186,7 @@ export default function Page16Client() {
 
             <h2>Practical Notes</h2>
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
-              The 7th house describes one-to-one relationships and how you relate publicly. Benefics here often support harmonious partnerships; malefics can create conflict but also bring decisive action. Planetary lordship and aspects determine the experience in marriage and business contracts.
+              Benefic planets in the 7th often support harmonious partnerships and successful unions; malefics can create conflict but also bring decisive action and clarity. The house ruler, aspects, and dignity determine relationship quality, contract outcomes, and public dealings.
             </p>
 
             <div style={{ display: "flex", gap: 8, alignItems: "center", marginTop: 8, flexWrap: "wrap" }}>
@@ -205,6 +208,16 @@ export default function Page16Client() {
             <p>
               👉 The 7th house shows how you meet the world in pairs — marriage, contracts, and the public partner. It reflects compromise, balance, and public negotiation.
             </p>
+
+            <h2>✨ In simple words — 7th House (सप्तम भाव)</h2>
+            <p style={{ color: "#274153", lineHeight: 1.6 }}>
+              The 7th House governs committed partnerships, marriage, open relationships, and public contracts.
+              <br /><br />
+              <strong>Positive effects:</strong> Harmonious relationships, successful partnerships, cooperation, and productive business alliances.
+              <br /><br />
+              <strong>Negative effects:</strong> Conflicts in marriage or business, open rivals, litigation, and imbalance in one‑to‑one dealings.
+            </p>
+
           </div>
         </section>
       </div>
