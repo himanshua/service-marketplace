@@ -200,7 +200,8 @@ export default function Page15Client() {
 
             <h2>Practical Notes</h2>
             <p>
-The Sixth House, known as Ari Bhava, governs your encounters with enemies, debt, illness, and daily service/work environment. In a notable exception to general rules, malefic planets (like Mars, Saturn, or Rahu) are considered good here, as their powerful, aggressive nature helps a person conquer enemies, overcome litigation, manage debt, and resist disease, effectively making them "conquerors" of their struggles. Conversely, benefic planets (like Jupiter or Venus) can sometimes struggle in this "dusthana" house, potentially making the native more susceptible to the very issues the house represents, such as lingering health problems or difficulties overcoming opposition, unless they are very well-placed or aspected.            </p>
+The Sixth House (Ari Bhava) governs enemies, competition, debt, illness, and the daily service or work environment. Uniquely, this is a dusthāna where malefic planets such as Mars, Saturn, Rahu, or Ketu often perform well. Their aggressive and resilient nature helps the native fight enemies, overcome litigation, manage debt, and resist disease, making them effective conquerors of challenges.
+In contrast, strong benefic planets like Jupiter or the Moon may struggle here, sometimes increasing sensitivity to illness or making it harder to overcome opposition unless they are very well placed or strongly aspected. Venus, however, is often considered a functional benefic exception in the 6th house—especially when unafflicted—supporting harmony at work, recovery, and service without weakening competitive strength.</p>
 
             <h2>Lord Rama’s Sixth House Example</h2>
             <p>
@@ -234,8 +235,7 @@ The Sixth House, known as Ari Bhava, governs your encounters with enemies, debt,
 
             <h2>🛠️ Sixth House + Health, Debt & Service</h2>
             <p>
-              Planets in Ripu Bhava determine your experience with health (illness), debt, enemies, service to others, and daily routines. Benefics may indicate good health, successful handling of debts, or service-oriented work; malefics can bring chronic illness, legal battles, financial burdens, or conflicts with colleagues/enemies.
-            </p>
+            Planets in Ripu Bhava (the Sixth House) shape experiences related to illness, debt, enemies, service, and daily routines. Malefic planets often perform well here, helping one confront enemies, overcome debt and legal issues, and build resilience against disease. Strong benefic planets may sometimes struggle in this house, potentially increasing sensitivity to illness or difficulty overcoming opposition, unless very well placed or supported by aspects.            </p>
 
             <h3>Essence</h3>
             <p>
