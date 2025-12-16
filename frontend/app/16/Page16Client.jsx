@@ -29,6 +29,7 @@ export default function Page16Client() {
 
   const [selected, setSelected] = useState("16-house7-a");
 
+  // small helpers
   async function fetchFileFromUrl(url, name) {
     const res = await fetch(url);
     const blob = await res.blob();
@@ -50,11 +51,12 @@ export default function Page16Client() {
         selected;
 
       const shareUrl = `${sharePageBase}/${encodeURIComponent(slug)}`;
+      const shareText = `${item.description}\n\n${shareUrl}`;
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: item.label,
-          text: item.description + "\n\n" + shareUrl,
+          text: shareText,
           files: [file],
           url: shareUrl,
         });
@@ -77,7 +79,6 @@ export default function Page16Client() {
 
       const shareSlug = keys.map((k) => shareImages[k].slug || k).join("-");
       const shareUrl = `${sharePageBase}/${encodeURIComponent(shareSlug)}`;
-
       const shareText = `Saptam Bhava illustrations\n\n${shareUrl}`;
 
       if (navigator.canShare && navigator.canShare({ files })) {
@@ -150,7 +151,7 @@ export default function Page16Client() {
 
             <h2 style={{ color: "#0d47a1", margin: 0 }}>7th House – Saptam Bhava (सप्तम भाव)</h2>
             <p style={{ margin: 0, color: "#555" }}>
-              Partnerships, marriage, open enemies, contracts, business partners, public relationships.
+              Partnerships, marriage, contracts, open enemies, business partners, public relationships.
             </p>
           </div>
 
@@ -167,12 +168,36 @@ export default function Page16Client() {
           >
             <UniversalShareBar shareChoices={shareChoices} shareImages={shareImages} shareBaseUrl={shareBaseUrl} />
 
+            <div style={{ display: "flex", gap: 10, alignItems: "center", marginTop: 12, flexWrap: "wrap" }}>
+              <label style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                <input
+                  type="radio"
+                  name="shareImg"
+                  value="16-house7-a"
+                  checked={selected === "16-house7-a"}
+                  onChange={(e) => setSelected(e.target.value)}
+                />
+                {shareImages["16-house7-a"].label}
+              </label>
+
+              <label style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                <input
+                  type="radio"
+                  name="shareImg"
+                  value="16-house7-b"
+                  checked={selected === "16-house7-b"}
+                  onChange={(e) => setSelected(e.target.value)}
+                />
+                {shareImages["16-house7-b"].label}
+              </label>
+
+              <button className="profile-btn" onClick={shareSelected}>Share Selected (native)</button>
+              <button className="profile-btn profile-btn-outline" onClick={shareBoth}>Share Both (native)</button>
+            </div>
+
             <h1>Seventh House (Saptam Bhava) in Astrology: सप्तम भाव</h1>
             <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
               The 7th house governs partnerships, marriage, open foes, and public relationships — the world you meet across from you.
-            </p>
-            <p style={{ color: "#274153", lineHeight: 1.6 }}>
-              The Seventh House describes one‑to‑one relationships, contracts, marriage, and how you appear in public partnerships. It shows patterns of compromise, negotiation, and balance with others.
             </p>
 
             <h2>Keywords & Concepts</h2>
@@ -186,27 +211,7 @@ export default function Page16Client() {
 
             <h2>Practical Notes</h2>
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
-              Benefic planets in the 7th often support harmonious partnerships and successful unions; malefics can create conflict but also bring decisive action and clarity. The house ruler, aspects, and dignity determine relationship quality, contract outcomes, and public dealings.
-            </p>
-
-            <div style={{ display: "flex", gap: 8, alignItems: "center", marginTop: 8, flexWrap: "wrap" }}>
-              <label style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                <input type="radio" name="share" value="16-house7-a" checked={selected === "16-house7-a"} onChange={(e) => setSelected(e.target.value)} />
-                {shareImages["16-house7-a"].label}
-              </label>
-
-              <label style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                <input type="radio" name="share" value="16-house7-b" checked={selected === "16-house7-b"} onChange={(e) => setSelected(e.target.value)} />
-                {shareImages["16-house7-b"].label}
-              </label>
-
-              <button className="profile-btn" onClick={shareSelected}>Share Selected (native)</button>
-              <button className="profile-btn profile-btn-outline" onClick={shareBoth}>Share Both (native)</button>
-            </div>
-
-            <h2>Essence</h2>
-            <p>
-              👉 The 7th house shows how you meet the world in pairs — marriage, contracts, and the public partner. It reflects compromise, balance, and public negotiation.
+              Benefic planets in the 7th often support harmonious partnerships and successful unions; malefics can create conflict but also bring decisive action. The house ruler, aspects, and dignity determine the experience in marriage and business contracts.
             </p>
 
             <h2>✨ In simple words — 7th House (सप्तम भाव)</h2>
@@ -218,6 +223,10 @@ export default function Page16Client() {
               <strong>Negative effects:</strong> Conflicts in marriage or business, open rivals, litigation, and imbalance in one‑to‑one dealings.
             </p>
 
+            <h2>Essence</h2>
+            <p>
+              👉 The 7th house shows how you meet the world in pairs — marriage, contracts, and the public partner. It reflects compromise, balance, and public negotiation.
+            </p>
           </div>
         </section>
       </div>
