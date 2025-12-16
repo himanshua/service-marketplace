@@ -246,54 +246,108 @@ In contrast, strong benefic planets like Jupiter or the Moon may struggle here, 
            
 
             <h3>Ari (अरि)</h3>
-            <p>A + Ri (अ + ऋ) = against + rise<br />
-            👉 Enemy, rival, envy, hostility (also denotes number six)</p>
+            <p>
+              A + Ri<br />
+              A = against<br />
+              Ri = rise / movement<br />
+              👉 Ari = one who rises against → enemy, rival, opposition
+            </p>
 
             <h3>Śatru (शत्रु)</h3>
-            <p>Śa + Tru (श + त्रु) = restrain + harm<br />
-            👉 One who harms but can be controlled</p>
+            <p>
+              Śa + Tru<br />
+              Śa = harm<br />
+              Tru = restrain / bind<br />
+              👉 Śatru = one who harms but can be restrained → controllable enemy
+            </p>
 
             <h3>Ripu (रिपु)</h3>
-            <p>Ri + Pu (रि + पु) = deceive + spoil<br />
-            👉 Enemy, cheat, inner vices, hidden opposition</p>
+            <p>
+              Ri + Pu<br />
+              Ri = deceive / corrupt<br />
+              Pu = spoil / weaken<br />
+              👉 Ripu = corrupting enemy → inner vices, hidden opposition
+            </p>
 
             <h3>Zatru / Śatru (जत्रु / शत्रु)</h3>
-            <p>👉 Overthrower, destroyer of stability</p>
+            <p>
+              Za / Śa = strike / harm<br />
+              Tru = restrain<br />
+              👉 Zatru / Śatru = harmful opponent → destroyer of stability
+            </p>
 
             <h3>Roga (रोग)</h3>
-            <p>Ro + Ga (रो + ग) = blockage + flow<br />
-            👉 Sickness, imbalance</p>
+            <p>
+              Ro + Ga<br />
+              Ro = blockage<br />
+              Ga = flow / movement<br />
+              👉 Roga = blocked flow → illness, disease
+            </p>
 
             <h3>Vyādhi (व्याधि)</h3>
-            <p>Vi + Ādhi = spread + affliction<br />
-            👉 Chronic or deep-rooted disease</p>
+            <p>
+              Vi + Ādhi<br />
+              Vi = spread<br />
+              Ādhi = affliction<br />
+              👉 Vyādhi = spreading affliction → chronic disease
+            </p>
 
             <h3>Kṣata (क्षत)</h3>
-            <p>Kṣa + Ta (क्ष + त) = damage + state<br />
-            👉 Wound, injury, trauma</p>
+            <p>
+              Kṣa + Ta<br />
+              Kṣa = damage<br />
+              Ta = state / condition<br />
+              👉 Kṣata = damaged state → wound, injury, trauma
+            </p>
 
             <h3>Girāna (गिराना)</h3>
-            <p>Gir = to fall<br />
-            👉 To bring down, defeat, subdue enemies or problems</p>
+            <p>
+              Gi + Rā + Na<br />
+              Gi = fall<br />
+              Rā = force<br />
+              Na = act<br />
+              👉 Girāna = act of causing a fall → defeat, subdue
+            </p>
 
             <h3>Ṛṇa (ऋण)</h3>
-            <p>Ṛ + Ṇa (ऋ + ण) = duty + bond<br />
-            👉 Debt, obligation, karmic dues</p>
+            <p>
+              Ṛ + Ṇa<br />
+              Ṛ = duty<br />
+              Ṇa = bond<br />
+              👉 Ṛṇa = bonded duty → debt, karmic obligation
+            </p>
 
             <h3>Sevā (सेवा)</h3>
-            <p>Se + Vā (से + वा) = dedication + action<br />
-            👉 Service, job, disciplined daily work</p>
+            <p>
+              Se + Vā<br />
+              Se = dedication<br />
+              Vā = action<br />
+              👉 Sevā = dedicated action → service, daily work
+            </p>
 
             <h3>Yuddha (युद्ध)</h3>
-            <p>Yu + Dha (यु + ध) = united effort + hold firm<br />
-            👉 Struggle, competition, legal battles</p>
+            <p>
+              Yu + Dha<br />
+              Yu = join / engage<br />
+              Dha = hold firm<br />
+              👉 Yuddha = engaged struggle → battle, competition, litigation
+            </p>
 
             <h3>Ṣaṭkoṇa (षट्कोण)</h3>
-            <p>Ṣaṭ (six) + Koṇa (angle)<br />
-            👉 Sixth angle of the chart—house of conflict and correction</p>
+            <p>
+              Ṣaṭ + Koṇa<br />
+              Ṣaṭ = six<br />
+              Koṇa = angle<br />
+              👉 Ṣaṭkoṇa = sixth angle → house of conflict and correction
+            </p>
 
             <h3>Śatrur-gṛha (शत्रुर्गृह)</h3>
-            <p>👉 House of enemies, disease, debt—and victory over them</p>
+            <p>
+              Śatru + Gṛha<br />
+              Śatru = enemy<br />
+              Gṛha = house<br />
+              👉 Śatrur-gṛha = house of enemies → Sixth House
+            </p>
 
             <h3>Protective Power of the 6th House</h3>
             <p>
