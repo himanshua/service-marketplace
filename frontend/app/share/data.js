@@ -14,6 +14,8 @@ export const shareItems = {
     description: "AheadTerra astrology content",
     image: "https://aheadterra.com/images/Rama.JPG",
     ogImage: "https://aheadterra.com/images/Rama.JPG",
+    description: "Rama and Sita under the tree of horoscope.",
+
     ogWidth: 1200,
     ogHeight: 630,
     slug: "default",
