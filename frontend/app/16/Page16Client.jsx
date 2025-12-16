@@ -27,9 +27,9 @@ export default function Page16Client() {
     },
   };
 
-  const [selected, setSelected] = useState("16-house7-a");
+  const [selected, setSelected] = useState("16-house7-a"); // default to image A
 
-  // small helpers
+  // --- helpers (same as 6th house) ---
   async function fetchFileFromUrl(url, name) {
     const res = await fetch(url);
     const blob = await res.blob();
@@ -51,12 +51,11 @@ export default function Page16Client() {
         selected;
 
       const shareUrl = `${sharePageBase}/${encodeURIComponent(slug)}`;
-      const shareText = `${item.description}\n\n${shareUrl}`;
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: item.label,
-          text: shareText,
+          text: item.description + "\n\n" + shareUrl,
           files: [file],
           url: shareUrl,
         });
@@ -79,6 +78,7 @@ export default function Page16Client() {
 
       const shareSlug = keys.map((k) => shareImages[k].slug || k).join("-");
       const shareUrl = `${sharePageBase}/${encodeURIComponent(shareSlug)}`;
+
       const shareText = `Saptam Bhava illustrations\n\n${shareUrl}`;
 
       if (navigator.canShare && navigator.canShare({ files })) {
@@ -98,6 +98,7 @@ export default function Page16Client() {
     window.open(shareImages["16-house7-a"].image, "_blank", "noopener");
     window.open(shareImages["16-house7-b"].image, "_blank", "noopener");
   }
+  // --- end helpers ---
 
   return (
     <main className="profile-main home-main">
@@ -166,7 +167,33 @@ export default function Page16Client() {
               justifyContent: "center",
             }}
           >
-            <UniversalShareBar shareChoices={shareChoices} shareImages={shareImages} shareBaseUrl={shareBaseUrl} />
+            <UniversalShareBar
+              shareChoices={shareChoices}
+              shareImages={shareImages}
+              shareBaseUrl={shareBaseUrl}
+            />
+
+            <h1>Seventh House (Saptam Bhava) in Astrology: सप्तम भाव</h1>
+            <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
+              The 7th house governs partnerships, marriage, open foes, and public relationships — the world you meet across from you.
+            </p>
+            <p style={{ color: "#274153", lineHeight: 1.6 }}>
+              The Seventh House describes one‑to‑one relationships, contracts, marriage, and how you appear in public partnerships. It shows patterns of compromise, negotiation, and balance with others.
+            </p>
+
+            <h2>Keywords & Concepts</h2>
+            <ul style={{ marginLeft: 20, color: "#1f2a44" }}>
+              <li>Marriage / Spouse – विवाह / जीवनसाथी</li>
+              <li>Partnerships – साझेदारी / contracts</li>
+              <li>Open Enemies – प्रत्यक्ष शत्रु</li>
+              <li>Business Partners & Clients</li>
+              <li>Public Image in Relationships</li>
+            </ul>
+
+            <h2>Practical Notes</h2>
+            <p style={{ color: "#274153", lineHeight: 1.6 }}>
+              Benefic planets in the 7th often support harmonious partnerships and successful unions; malefics can create conflict but also bring decisive action. The house ruler, aspects, and dignity determine relationship quality, contract outcomes, and public dealings.
+            </p>
 
             <div style={{ display: "flex", gap: 10, alignItems: "center", marginTop: 12, flexWrap: "wrap" }}>
               <label style={{ display: "flex", gap: 8, alignItems: "center" }}>
@@ -194,25 +221,6 @@ export default function Page16Client() {
               <button className="profile-btn" onClick={shareSelected}>Share Selected (native)</button>
               <button className="profile-btn profile-btn-outline" onClick={shareBoth}>Share Both (native)</button>
             </div>
-
-            <h1>Seventh House (Saptam Bhava) in Astrology: सप्तम भाव</h1>
-            <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
-              The 7th house governs partnerships, marriage, open foes, and public relationships — the world you meet across from you.
-            </p>
-
-            <h2>Keywords & Concepts</h2>
-            <ul style={{ marginLeft: 20, color: "#1f2a44" }}>
-              <li>Marriage / Spouse – विवाह / जीवनसाथी</li>
-              <li>Partnerships – साझेदारी / contracts</li>
-              <li>Open Enemies – प्रत्यक्ष शत्रु</li>
-              <li>Business Partners & Clients</li>
-              <li>Public Image in Relationships</li>
-            </ul>
-
-            <h2>Practical Notes</h2>
-            <p style={{ color: "#274153", lineHeight: 1.6 }}>
-              Benefic planets in the 7th often support harmonious partnerships and successful unions; malefics can create conflict but also bring decisive action. The house ruler, aspects, and dignity determine the experience in marriage and business contracts.
-            </p>
 
             <h2>✨ In simple words — 7th House (सप्तम भाव)</h2>
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
