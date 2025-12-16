@@ -352,7 +352,7 @@ export default function Home() {
   return (
     <main className="profile-main home-main">
       <div className="home-container" style={{ flexDirection: "column", padding: 0 }}>
-        <HomeRow imgSrc={shareItems[heroShareKey]?.image} imgAlt="Welcome" id="welcome-section">
+        <HomeRow imgSrc="/images/Ganesha1.JPG" imgAlt="Welcome" id="welcome-section">
           <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
             <div style={{ textAlign: "right" }}>
               <p style={{ margin: "0 0 6px 0", fontSize: 16, color: "#1f2a44" }}>
