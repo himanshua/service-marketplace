@@ -173,32 +173,46 @@ export default function Page16Client() {
               shareBaseUrl={shareBaseUrl}
             />
 
-          <h1>Seventh House (Saptam Bhava) in Astrology: सप्तम भाव</h1>
-
-          <div style={{ color: "#4a6071", lineHeight: 1.7 }}>
-            <strong>Seventh House / सप्तम भाव</strong>
-            <ul>
-              <li>Contracts & Justice (Fairness in partnerships and relationships, as it is 11th from the 9th bhava - the primary Justice or Dharma bhava)</li>
-              <li>शुक्रगृह / śukra-gṛha / Shukra-griha – The house of Shukra (Venus), representing love, beauty, and harmony</li>
-              <li>Partnership</li>
+            <h1>Seventh House (Saptam Bhava) in Astrology: सप्तम भाव</h1>
+            <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
+              <strong>Seventh House / सप्तम भाव</strong>
+            </p>
+            <ul style={{ marginLeft: 20, color: "#1f2a44", lineHeight: 1.6 }}>
+              <li style={{
+                background: "#fff8e1",
+                borderLeft: "4px solid #ffb300",
+                padding: "10px 12px",
+                marginBottom: 8,
+                borderRadius: 6,
+                display: "flex",
+                flexDirection: "column",
+              }}>
+                <span style={{ fontWeight: 700, color: "#0d47a1", fontSize: "1.03em" }}>Contracts & Justice</span>
+                <span style={{ color: "#1f2a44", marginTop: 6 }}>
+                  fairness in partnerships and relationships; <em>11th from the 9th bhava — the primary Justice / Dharma bhava</em>
+                </span>
+              </li>
+              <li>शुक्रगृह / śukra-gṛha / Shukra-griha — the house of Shukra (Venus): love, beauty, harmony</li>
+              <li>Partnerships</li>
               <li>Romantic relationships</li>
               <li>Spouse & mate</li>
               <li>Marriage & long-term relationships</li>
               <li>Business partners & clients</li>
-              <li>Connection with everyone else</li>
+              <li>Connections with others</li>
               <li>Open collaboration</li>
               <li>Contracts</li>
               <li>Public dealings</li>
             </ul>
 
-            <strong>Intimate themes:</strong>
-            <ul>
+            <p>
+              <strong>Intimate themes:</strong>
+            </p>
+            <ul style={{ marginLeft: 20, color: "#1f2a44", lineHeight: 1.6 }}>
               <li>Vulnerable exchange / संवेदनशील आदान-प्रदान</li>
               <li>Sacred union / पवित्र मिलन</li>
               <li>Authentic presence / प्रामाणिक उपस्थिति</li>
               <li>Shared trust / साझा विश्वास</li>
             </ul>
-          </div>
 
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
           The Seventh House (सप्तम भाव) is the house of partnership and marriage
