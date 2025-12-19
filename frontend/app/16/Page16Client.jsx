@@ -184,11 +184,11 @@ export default function Page16Client() {
                 padding: "10px 12px",
                 marginBottom: 8,
                 borderRadius: 6,
-                display: "flex",
-                flexDirection: "column",
+                listStylePosition: "outside",
+                display: "list-item",
               }}>
-                <span style={{ fontWeight: 700, color: "#0d47a1", fontSize: "1.03em" }}>Contracts & Justice</span>
-                <span style={{ color: "#1f2a44", marginTop: 6 }}>
+                <strong style={{ fontWeight: 700, color: "#0d47a1", fontSize: "1.03em", display: "inline" }}>Contracts & Justice —</strong>
+                <span style={{ color: "#1f2a44", marginLeft: 8 }}>
                   fairness in partnerships and relationships; <em>11th from the 9th bhava — the primary Justice / Dharma bhava</em>
                 </span>
               </li>
