@@ -256,6 +256,12 @@ export default function Page16Client() {
             <li>Open Enemies – साफ़ शत्रु (or स्पष्ट विरोधी)</li>
             <li>Business Partners & Clients – व्यावसायिक साथी और ग्राहक</li>
             <li>Public Image in Relationships – सार्वजनिक संबंधों में छवि</li>
+            <li>One-to-One Interactions – एक से एक बातचीत</li>
+            <li>Balance & Harmony – संतुलन और सामंजस्य</li>
+            <li>Justice & Fairness – न्याय और निष्पक्षता</li>
+            <li>Venus (Shukra) Influence – शुक्र ग्रह का प्रभाव</li>  
+            <li>Daily Income - दैनिक आय - आमदनी - दैनिक आमदनी / रोज़ाना आय - revenue</li>
+            <li>Shows opponents, rivals, winners, and losers in one-to-one games, partnerships, and relationships.</li>
           </ul>
 
             <h2>Practical Notes</h2>
