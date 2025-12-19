@@ -250,13 +250,13 @@ export default function Page16Client() {
 
 
             <h2>Keywords & Concepts</h2>
-            <ul style={{ marginLeft: 20, color: "#1f2a44" }}>
-              <li>Marriage / Spouse – विवाह / जीवनसाथी</li>
-              <li>Partnerships – साझेदारी / contracts</li>
-              <li>Open Enemies – प्रत्यक्ष शत्रु</li>
-              <li>Business Partners & Clients</li>
-              <li>Public Image in Relationships</li>
-            </ul>
+          <ul style={{ marginLeft: 20, color: "#1f2a44" }}>
+            <li>Marriage / Spouse – विवाह / जीवनसाथी</li>
+            <li>Partnerships / Contracts – साझेदारी / अनुबंध</li>
+            <li>Open Enemies – साफ़ शत्रु (or स्पष्ट विरोधी)</li>
+            <li>Business Partners & Clients – व्यावसायिक साथी और ग्राहक</li>
+            <li>Public Image in Relationships – सार्वजनिक संबंधों में छवि</li>
+          </ul>
 
             <h2>Practical Notes</h2>
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
