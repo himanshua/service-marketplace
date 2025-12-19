@@ -189,10 +189,11 @@ export default function Page16Client() {
               }}>
                 <strong style={{ fontWeight: 700, color: "#0d47a1", fontSize: "1.03em", display: "inline" }}>Contracts & Justice —</strong>
                 <span style={{ color: "#1f2a44", marginLeft: 8 }}>
-                  fairness in partnerships and relationships; <em>11th from the 9th bhava — the primary Justice / Dharma bhava</em>
+                  fairness in partnerships and relationships; <em>11th (Gains) from the 9th bhava — the primary Justice / Dharma bhava</em>
                 </span>
               </li>
-              <li>शुक्रगृह / śukra-gṛha / Shukra-griha — the house of Venus - (Shukra / शुक्र) – The revered planet of wealth, knowledge, devotion, and pleasures, blessed by Goddesses Lakshmi, Saraswati, and Parvati.</li>
+              <li><strong>शुक्रगृह / śukra-gṛha / Shukra-griha</strong> — the house of Venus (Shukra / शुक्र)</li>
+              <li>The revered planet of wealth, knowledge, devotion, and pleasures; blessed by Goddesses Lakshmi, Saraswati, and Parvati.</li>
               <li>Attraction/ आकर्षण, Love, beauty, equity, balance (Tula - Libra - तुला - तराजू - Weighing scale - संतुलन ⚖♎👩‍⚖️👨‍⚖️🤍 ), and harmony</li>
               <li>Partnerships & Deals </li>
               <li>Romantic relationships</li>
