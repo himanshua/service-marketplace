@@ -27,7 +27,7 @@ export default function Page16Client() {
     },
     "16-house7-c": {
       label: "Deals — Michael Jordan (Image 3)",
-      image: "/images/MichaelJordan.jpg",
+      image: "https://aheadterra.com/images/MichaelJordan.jpg",
       description: "Deals – 7th House: One-to-one agreements, contracts, auctions, and collectibles—e.g., Upper Deck Authentic Michael Jordan Autograph Basketball.",
       slug: "michael-jordan-deal",
       url: sharePageBase + "/michael-jordan-deal",

@@ -219,4 +219,5 @@ export const shareItems = {
     ogHeight: 630,
     slug: "michael-jordan-deal",
   },
+ 
 };
