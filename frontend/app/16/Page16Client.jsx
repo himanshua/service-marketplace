@@ -192,13 +192,24 @@ export default function Page16Client() {
                   fairness in partnerships and relationships; <em>11th from the 9th bhava — the primary Justice / Dharma bhava</em>
                 </span>
               </li>
-              <li>शुक्रगृह / śukra-gṛha / Shukra-griha — the house of Shukra (Venus): love, beauty, harmony</li>
+              <li>शुक्रगृह / śukra-gṛha / Shukra-griha — the house of Shukra (Venus): love, beauty, equity, balance (Tula - Libra - तुला - तराजू - Weighing scale - संतुलन  ), and harmony</li>
               <li>Partnerships</li>
               <li>Romantic relationships</li>
               <li>Spouse & mate</li>
               <li>Marriage & long-term relationships</li>
               <li>Business partners & clients</li>
-              <li>Connections with others</li>
+              <li style={{
+                background: "#fff8e1",
+                borderLeft: "4px solid #ffb300",
+                padding: "10px 12px",
+                marginBottom: 8,
+                borderRadius: 6,
+                listStylePosition: "outside",
+                display: "list-item",
+              }}>
+                <strong style={{ fontWeight: 700, color: "#0d47a1", fontSize: "1.03em", display: "inline" }}>Connections with others —</strong>
+                <span style={{ color: "#1f2a44", marginLeft: 8 }}>social ties, networks, and public linkages</span>
+              </li>
               <li>Open collaboration</li>
               <li>Contracts</li>
               <li>Public dealings</li>
