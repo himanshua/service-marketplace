@@ -175,7 +175,7 @@ export default function Page16Client() {
 
             <h1>Seventh House (Saptam Bhava) in Astrology: सप्तम भाव</h1>
             <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
-              Saptam / सप्तम = partnership, spouse, public other; governs marriage, open partnership, and one‑to‑one public dealings.
+              Seventh House / सप्तम भाव = partnership, spouse, public other; governs marriage, open partnership, and one‑to‑one public dealings.
             </p>
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
               The Seventh House describes one‑to‑one relationships, marriage, contracts, and how you appear in public partnerships. It shows patterns of compromise, negotiation, and balance with others.
