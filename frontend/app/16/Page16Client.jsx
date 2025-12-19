@@ -175,12 +175,43 @@ export default function Page16Client() {
 
             <h1>Seventh House (Saptam Bhava) in Astrology: सप्तम भाव</h1>
             <p style={{ color: "#4a6071", lineHeight: 1.7 }}>
-              Seventh House / सप्तम भाव = partnership, spouse, public other; governs marriage, open partnership, and one‑to‑one public dealings.
+            <p>
+            <strong>Seventh House / सप्तम भाव</strong> =
+            •Contracts & Justice (Fairness in partnerships and relationships, as it is 11th from the 9th bhava - the primary Justice or Dharma bhava)
+            •शुक्रगृह / śukra-gṛha / Shukra-griha – The house of Shukra (Venus), representing love, beauty, and harmony
+            •Partnership
+            • Romantic relationships
+            • Spouse & mate
+            • Spouse & mate
+            • Marriage & long-term relationships
+            • Business partners & clients
+            • Connection with everyone else
+            • Open collaboration
+            • Contracts
+            • Public dealings
+          </p>
+
+          <p>
+            <strong>Intimate themes:</strong>
+            • Vulnerable exchange / संवेदनशील आदान-प्रदान
+            • Sacred union / पवित्र मिलन
+            • Authentic presence / प्रामाणिक उपस्थिति
+            • Shared trust / साझा विश्वास
+          </p>
+
             </p>
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
-              The Seventh House describes one‑to‑one relationships, marriage, contracts, and how you appear in public partnerships. It shows patterns of compromise, negotiation, and balance with others.
-            </p>
+          The Seventh House (सप्तम भाव) is the house of partnership and marriage
+          (विवाह और साझेदारी). It primarily governs the bond with one’s spouse
+          (जीवनसाथी), romantic partner, and business associates. This house manages
+          all one-to-one public dealings (सार्वजनिक संबंध), including legal alliances,
+          contracts, and open collaborations. It reflects how we relate to others on
+          both personal and professional levels and represents the “other” in our lives,
+          highlighting marriage, committed partnerships, public interactions, and
+          professional agreements (विवाह, साझेदारी, और व्यावसायिक अनुबंध).
+        </p>
 
+            </p>
             <h2>Keywords & Concepts</h2>
             <ul style={{ marginLeft: 20, color: "#1f2a44" }}>
               <li>Marriage / Spouse – विवाह / जीवनसाथी</li>
