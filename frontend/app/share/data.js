@@ -210,7 +210,7 @@ export const shareItems = {
     slug: "saptam-bhava-2",
   },
 
-  "saptam-bhava-3": {
+  "michael-jordan-deal": {
     title: "7th House – Saptam Bhava (alt)",
     description: "Alternate illustration for Saptam Bhava — spouse, partners, public relations.",
     image: "https://aheadterra.com/images/MichaelJordan.jpg",
