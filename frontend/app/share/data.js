@@ -213,10 +213,10 @@ export const shareItems = {
   "saptam-bhava-3": {
     title: "7th House – Saptam Bhava (alt)",
     description: "Alternate illustration for Saptam Bhava — spouse, partners, public relations.",
-    image: "https://aheadterra.com/images/michaeljordan.jpeg",
-    ogImage: "https://aheadterra.com/images/michaeljordan.jpeg",
+    image: "https://aheadterra.com/images/michaeljordan.jpg",
+    ogImage: "https://aheadterra.com/images/michaeljordan.jpg",
     ogWidth: 1200,
     ogHeight: 630,
-    slug: "michael-jordan-deal.jpg",
+    slug: "michael-jordan-deal",
   },
 };
