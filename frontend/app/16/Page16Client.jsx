@@ -211,7 +211,7 @@ export default function Page16Client() {
           professional agreements (विवाह, साझेदारी, और व्यावसायिक अनुबंध).
         </p>
 
-            </p>
+
             <h2>Keywords & Concepts</h2>
             <ul style={{ marginLeft: 20, color: "#1f2a44" }}>
               <li>Marriage / Spouse – विवाह / जीवनसाथी</li>
