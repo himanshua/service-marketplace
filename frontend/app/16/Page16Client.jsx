@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import { shareItems } from "../share/data";
 
 export default function Page16Client() {
-  const shareChoices = ["16-house7-a", "16-house7-b"];
+  const shareChoices = ["16-house7-a", "16-house7-b", "16-house7-c"];
   const shareBaseUrl = "https://aheadterra.com/16";
   const sharePageBase = "https://aheadterra.com/share";
   const shareImages = {
@@ -24,6 +24,13 @@ export default function Page16Client() {
       description: "Alternate illustration for Saptam Bhava — spouse, partners, public relations.",
       slug: "saptam-bhava-2",
       url: sharePageBase + "/saptam-bhava-2",
+    },
+    "16-house7-c": {
+      label: "Deals — Michael Jordan (Image 3)",
+      image: "/images/MichaelJordan.jpg",
+      description: "Upper Deck Authentic Michael Jordan Autograph Basketball — deals, collectibles, auctions.",
+      slug: "michael-jordan-deal",
+      url: sharePageBase + "/michael-jordan-deal",
     },
   };
 
@@ -73,7 +80,7 @@ export default function Page16Client() {
 
   async function shareBoth() {
     try {
-      const keys = ["16-house7-a", "16-house7-b"];
+      const keys = Object.keys(shareImages);
       const files = await Promise.all(keys.map((k) => fetchFileFromUrl(shareImages[k].image, k)));
 
       const shareSlug = keys.map((k) => shareImages[k].slug || k).join("-");
@@ -93,10 +100,13 @@ export default function Page16Client() {
     } catch (e) {
       console.error(e);
     }
-
-    window.open(`${sharePageBase}/${encodeURIComponent("saptam-bhava,saptam-bhava-2")}`, "_blank", "noopener");
-    window.open(shareImages["16-house7-a"].image, "_blank", "noopener");
-    window.open(shareImages["16-house7-b"].image, "_blank", "noopener");
+    const fallbackKeys = Object.keys(shareImages);
+    const fallbackSlugs = fallbackKeys.map((k) => shareImages[k].slug || k).join(",");
+    window.open(`${sharePageBase}/${encodeURIComponent(fallbackSlugs)}`, "_blank", "noopener");
+    fallbackKeys.forEach((k) => {
+      const img = shareImages[k].image;
+      if (img) window.open(img, "_blank", "noopener");
+    });
   }
   // --- end helpers ---
 
