@@ -222,7 +222,17 @@ export default function Page16Client() {
             </p>
             <ul style={{ marginLeft: 20, color: "#1f2a44", lineHeight: 1.6 }}>
               <li>Vulnerable exchange / संवेदनशील आदान-प्रदान</li>
-              <li>Sacred union / पवित्र मिलन</li>
+              <li style={{
+                background: "#fff8f0",
+                borderLeft: "4px solid #8e24aa",
+                padding: "8px 12px",
+                marginBottom: 8,
+                borderRadius: 6,
+                listStylePosition: "outside",
+                display: "list-item",
+              }}>
+                <strong style={{ color: "#6a1b9a", fontSize: "1.02em" }}>Sacred union / पवित्र मिलन</strong>
+              </li>
               <li>Authentic presence / प्रामाणिक उपस्थिति</li>
               <li>Shared trust / साझा विश्वास</li>
             </ul>
