@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Attraction, Balance, Libra and Harmony">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#f6fbff" />
+      <stop offset="1" stop-color="#f0f7f3" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffd186"/>
+      <stop offset="1" stop-color="#ffb3c6"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="18" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bg)" />
+
+  <!-- Left: Heart (Attraction) -->
+  <g transform="translate(200,210) scale(1.25)">
+    <g filter="url(#softShadow)">
+      <path d="M50 15 C50 -5 15 -5 15 20 C15 40 50 65 50 65 C50 65 85 40 85 20 C85 -5 50 -5 50 15 Z" fill="url(#accent)"/>
+    </g>
+    <text x="50" y="110" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle" fill="#1f2a44">Attraction</text>
+  </g>
+
+  <!-- Center: Scales (Balance) -->
+  <g transform="translate(520,120) scale(1.3)">
+    <g filter="url(#softShadow)">
+      <rect x="-80" y="-12" width="360" height="220" rx="22" fill="#ffffff" stroke="#e6eef0" stroke-width="2"/>
+    </g>
+
+    <!-- Balance stand -->
+    <g transform="translate(100,40)">
+      <path d="M100 12 L100 140" stroke="#5d6d7a" stroke-width="6" stroke-linecap="round"/>
+      <path d="M20 40 L180 40" stroke="#5d6d7a" stroke-width="6" stroke-linecap="round"/>
+
+      <!-- left pan -->
+      <g transform="translate(20,40)">
+        <circle cx="0" cy="0" r="2" fill="#5d6d7a"/>
+        <path d="M-48 -10 Q -24 18 0 -6" fill="#fff9f6" stroke="#ffb3a7" stroke-width="2"/>
+        <circle cx="-24" cy="6" r="22" fill="#ffd6de"/>
+      </g>
+
+      <!-- right pan -->
+      <g transform="translate(180,40)">
+        <circle cx="0" cy="0" r="2" fill="#5d6d7a"/>
+        <path d="M48 -10 Q 24 18 0 -6" fill="#f6fff8" stroke="#bfe7d6" stroke-width="2"/>
+        <circle cx="24" cy="6" r="22" fill="#bff0db"/>
+      </g>
+
+      <!-- base -->
+      <path d="M40 140 L160 140" stroke="#3b4a59" stroke-width="8" stroke-linecap="round"/>
+    </g>
+
+    <text x="100" y="210" font-family="Inter, Arial, sans-serif" font-size="22" text-anchor="middle" fill="#1f2a44">Balance • Equilibrium</text>
+  </g>
+
+  <!-- Right: Libra glyph + Harmony -->
+  <g transform="translate(930,200) scale(1.1)">
+    <g filter="url(#softShadow)">
+      <circle cx="0" cy="0" r="76" fill="#ffffff" stroke="#efe7ff" stroke-width="2"/>
+    </g>
+    <g transform="translate(-6,-6)">
+      <path d="M-46 18 Q -1 -26 46 18" fill="none" stroke="#6a1b9a" stroke-width="8" stroke-linecap="round"/>
+      <path d="M-62 40 L62 40" stroke="#6a1b9a" stroke-width="6" stroke-linecap="round"/>
+      <path d="M-26 -8 L26 -8" stroke="#6a1b9a" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <text x="0" y="110" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle" fill="#1f2a44">Libra • Harmony</text>
+  </g>
+
+  <!-- Footer label -->
+  <text x="600" y="580" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle" fill="#6b7280">Attraction — Balance — Love — Harmony</text>
+</svg>

@@ -260,7 +260,7 @@ export default function Page16Client() {
             <li>Balance & Harmony – संतुलन और सामंजस्य</li>
             <li>Justice & Fairness – न्याय और निष्पक्षता</li>
             <li>Venus (Shukra) Influence – शुक्र ग्रह का प्रभाव</li>  
-            <li>Daily Income - दैनिक आय - आमदनी - दैनिक आमदनी / रोज़ाना आय - revenue</li>
+            <li>Daily Income – दैनिक आय / आमदनी / दैनिक आमदनी / रोज़ाना आय; Earnings, wages, pay (business context: revenue).</li>
             <li>Shows opponents, rivals, winners, and losers in one-to-one games, partnerships, and relationships.</li>
           </ul>
 
@@ -269,14 +269,81 @@ export default function Page16Client() {
               Benefic planets in the 7th often support harmonious partnerships and successful unions; malefics can create conflict but also bring decisive action and clarity. The house ruler, aspects, and dignity determine relationship quality, contract outcomes, and public dealings.
             </p>
 
-            <h2>Lord Rama’s Seventh House Example</h2>
-            <p>
-              In Lord Rama’s chart, the 7th house placements reflect public partnerships and marriage potential. The house shows how relationships are negotiated in public life and the native’s approach to one‑to‑one bonds.
-            </p>
+            <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
+              <img
+                src="/images/MichaelJordan.jpg"
+                alt="Michael Jordan - Upper Deck Authentic Autograph Basketball"
+                style={{
+                  width: "100%",
+                  maxWidth: 360,
+                  height: "auto",
+                  borderRadius: 12,
+                  boxShadow: "0 12px 26px rgba(0,0,0,0.12)",
+                }}
+              />
+              <figcaption style={{ marginTop: 10, fontSize: 14, color: "#4a6071" }}>
+                Deals — <a href="https://www.amazon.com/Authentic-Autograph-Official-Spalding-Basketball/dp/B0CGMMHXYC/ref=sr_1_27?dib=eyJ2IjoiMSJ9.Gicmy5uRzsxs9RGC1tz0UB3KlMrS2bagklOy8Ne7FRpJG45NbpCEaLaUHQo4mc0wGrIac_KcbkmfNUG9cPp_mpKrJnJ5hJsxPi3L52stEjMe_Cjf3XBCS6UU__ubUDe1KfAki9lSY9vw7NKKu4laJzagzQ2S6kVzbKEgw8Err7tcCVhoeo3DqDtNjJ3Vm-fsLbsK63y_bLLZ6DL4D1XXZmvcLNRhLA2HeIontcNCvYb1tegYshQZZQmFLKF3ecct5KER-o7dE8KH_cOvsrJPDGAC3meY3nKmANyInltBiAk.813eOcsEELI6uq2uGS6mqAq5EsFj5IkAouF1MrLro2U&dib_tag=se&qid=1766172138&refinements=p_athlete%3AMichael+Jordan&s=trading-cards&sr=1-27" target="_blank" rel="noopener noreferrer">Upper Deck Authentic Michael Jordan Autograph Official NBA Spalding Basketball</a>
+              </figcaption>
+            </figure>
 
-            <p>
-              As 7th‑bhava considerations, the 7th lord and aspects from malefics or benefics will colour marriage outcomes, public disputes, and contractual success. Rulers and yogas involving the 7th often indicate marriage timing, spouse qualities, and business partnership dynamics.
-            </p>
+            <h2>Lord Rama’s Seventh House Example</h2>
+           <p>
+            In Lord Rama’s chart, the 7th House placement is strong, with exalted Mars forming
+            <a
+              href="https://barbarapijan.com/bpa/Yoga/Panchmahapurusha_yoga.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}Ruchaka Yoga
+            </a>,
+            reflecting powerful public partnerships and marriage potential. This house shows
+            how relationships are negotiated in public life and the native’s approach to
+            one-to-one bonds.
+          </p>
+
+          <p>
+            From a 7th-bhava perspective, the 7th lord and aspects from malefic or benefic planets
+            color marriage outcomes, public disputes, and contractual success. Planets and yogas
+            connected to the 7th House often indicate marriage timing, spouse qualities, and
+            business partnership dynamics.
+          </p>
+
+          <p style={{ color: "#274153", lineHeight: 1.6 }}>
+            In Lord Rama’s birth chart, the 7th House of marriage, partnerships, and public
+            relationships is very strong and dharmic.
+            <a
+              href="https://barbarapijan.com/bpa/Yoga/Panchmahapurusha_yoga.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}Ruchaka Yoga
+            </a>,
+            formed by a powerful Mars, gives him courage, discipline, protection of others,
+            and a true warrior spirit, reflected in his righteous conduct in public and
+            one-to-one dealings. The 7th House also receives the benefic aspect of Jupiter,
+            bringing wisdom, fairness, moral judgment, and divine guidance to his relationships.
+            The lord of the 7th House, Saturn, is exalted in the 4th House (Libra), forming
+            <a
+              href="https://barbarapijan.com/bpa/Yoga/Panchmahapurusha_yoga.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}Śaśa Yoga
+            </a>,
+            one of the
+            <a
+              href="https://barbarapijan.com/bpa/Yoga/Panchmahapurusha_yoga.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}Pancha Mahapurusha Yogas
+            </a>.
+            This placement shows emotional stability, responsibility, respect for home and
+            mother, and strong inner discipline. Together, these influences make Lord Rama an
+            ideal husband, a just ruler, and a timeless symbol of balanced, righteous, and
+            duty-bound relationships.
+          </p>
+
 
             <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
               <img
