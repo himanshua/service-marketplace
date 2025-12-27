@@ -8,6 +8,7 @@ export default function Header() {
           <Link href="/services">Services</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
+          <a href="mailto:himanshu@aheadterra.com" style={{ marginLeft: 12, color: "#1976d2", textDecoration: "none" }}>himanshu@aheadterra.com</a>
           <Link href="/login" className="login-btn">Login</Link>
         </nav>
       </div>

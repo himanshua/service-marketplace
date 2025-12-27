@@ -146,7 +146,7 @@ export default function HowToOrderClient() {
             </p>
             <p style={{ marginBottom: 12 }}>
               Need scheduling confirmation? Email{" "}
-              <a href="mailto:himanshu.inperson@gmail.com" style={{ color: "#1976d2", textDecoration: "underline" }}>
+              <a href="mailto:himanshu@aheadterra.com" style={{ color: "#1976d2", textDecoration: "underline" }}>
                 Email to Himanshu
               </a>.
             </p>
