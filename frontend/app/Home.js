@@ -363,6 +363,9 @@ export default function Home() {
                 shareImages={shareItems}
                 shareBaseUrl="https://aheadterra.com/share"
               />
+              <p style={{ margin: "8px 0 0 0", fontSize: 14, color: "#374045" }}>
+                Contact: <a href="mailto:himanshu@aheadterra.com" style={{ color: "#1976d2" }}>himanshu@aheadterra.com</a>
+              </p>
             </div>
           </div>
           <h2>{shareItems[heroShareKey]?.label}</h2>
