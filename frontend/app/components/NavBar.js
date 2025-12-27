@@ -176,6 +176,9 @@ export default function NavBar() {
             </>
           ) : (
             <>
+              <a href="mailto:himanshu@aheadterra.com" style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0", display: "block" }} onClick={() => setMenuOpen(false)}>
+                himanshu@aheadterra.com
+              </a>
               <Link
                 href="/login"
                 style={{ textDecoration: "none", color: "#1f2937", width: "100%", padding: "8px 0" }}
