@@ -269,9 +269,7 @@ export default function Page18Client() {
                 For eleven thousand years, the Lord of Lakshmi ruled the earth, and thereafter, Lord Rama departed for Vaikuntha.
               </p>
 
-              <p>
-                क्या आप जानना चाहेंगे कि उनकी कुंडली का 11वां भाव उनके इस लंबी अवधि के शासन को कैसे दर्शाता है?
-              </p>
+            
             </div>
 
             <h2>🛠️ Eight House: Practicalities</h2>
