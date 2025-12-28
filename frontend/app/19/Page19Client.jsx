@@ -259,7 +259,7 @@ export default function Page19Client() {
             <h2>Travel & Car Services for you</h2>
             <div style={{ color: "#1f2a44", lineHeight: 1.6, marginBottom: 18 }}>
               <p>
-                The 9th house is the domain of travel, learning, and long journeys. As your professional travel coach, I offer you chauffeur-driven car services for personalized tours, family trips, corporate travel, airport transfers, and outstation journeys.
+                The 9th house is the domain of travel, learning, and long journeys. As your professional travel coach, I offer you chauffeur-driven car services for personalized tours, family trips, corporate travel, airport transfers, and outstation journeys in India.
               </p>
               <ul>
                 <li>Private Chauffeur Service</li>
