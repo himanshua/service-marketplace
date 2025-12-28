@@ -250,19 +250,29 @@ export default function Page18Client() {
               In Lord Rama’s birth chart, the 8th house falls in Aquarius and is ruled by Saturn, which is positioned in an exalted state in the 4th house. This strong 8th house influence granted him extraordinary longevity and the power to overcome massive life transformations. However, because the 8th lord is the planet of sorrow, it brought sudden, painful upheavals, most notably his 14-year exile on the eve of his coronation. It also linked his marriage (7th house) to deep suffering (8th house), resulting in his long separation from Sita. Ultimately, the 8th house represents his divine endurance, proving his ability to uphold Dharma despite facing "Mrityu-Tulya Kashta" (suffering equivalent to death).
             </p>
 
-            <p style={{ color: "#274153", lineHeight: 1.6 }}>
-              We can see how strong his 8th house was in granting longevity, just as per the Valmiki Ramayana, Lord Rama ruled for 11,000 years.
+            <div style={{ color: "#274153", lineHeight: 1.6 }}>
+              <p>
+                We can see how strong his 8th house was in granting longevity — as per the Valmiki Ramayana, Lord Rama ruled for 11,000 years.
+              </p>
 
-              <a href="https://hindusfestivals.com/ramayan-manka-108/" target="_blank" rel="noopener noreferrer">"ग्यारह हजार वर्ष पर्यन्ता, राज कीन्हा श्री लक्ष्मी कंता | फिर वैकुण्ठ पधारे राम, पतितपावन सीताराम ||"</a>
+              <p>
+                <a href="https://hindusfestivals.com/ramayan-manka-108/" target="_blank" rel="noopener noreferrer">
+                  "ग्यारह हजार वर्ष पर्यन्ता, राज कीन्हा श्री लक्ष्मी कंता | फिर वैकुण्ठ पधारे राम, पतितपावन सीताराम ||"
+                </a>
+                <br />
+                दश वर्ष सहस्त्राणि दश वर्ष शतानि च | रामो राज्यमुपासित्वा ब्रह्मलोकं प्रयास्यति ||
+                <br />
+                பதினொன்றாயிரம் ஆண்டுகள் லட்சுமி காந்தனாகிய ஸ்ரீ ராமர் ஆட்சி புரிந்தார், அதன் பின் வைகுண்டம் ஏகினர்.
+              </p>
 
-              दश वर्ष सहस्त्राणि दश वर्ष शतानि च | रामो राज्यमुपासित्वा ब्रह्मलोकं प्रयास्यति ||
+              <p>
+                For eleven thousand years, the Lord of Lakshmi ruled the earth, and thereafter, Lord Rama departed for Vaikuntha.
+              </p>
 
-              பதினொன்றாயிரம் ஆண்டுகள் லட்சுமி காந்தனாகிய ஸ்ரீ ராமர் ஆட்சி புரிந்தார், அதன் பின் வைகுண்டம் ஏகினர்.
-
-              For eleven thousand years, the Lord of Lakshmi ruled the earth, and thereafter, Lord Rama departed for Vaikuntha.
-
-              क्या आप जानना चाहेंगे कि उनकी कुंडली का 11वां भाव उनके इस लंबी अवधि के शासन को कैसे दर्शाता है?
-            </p>
+              <p>
+                क्या आप जानना चाहेंगे कि उनकी कुंडली का 11वां भाव उनके इस लंबी अवधि के शासन को कैसे दर्शाता है?
+              </p>
+            </div>
 
             <h2>🛠️ Eight House: Practicalities</h2>
             <p>
