@@ -219,6 +219,28 @@ export const shareItems = {
     ogHeight: 630,
     slug: "michael-jordan-deal",
   },
+  // 9th house (Navam) share entries
+  "navam-bhava": {
+    title: "9th House – Navam Bhava",
+    label: "9th House – Navam Bhava",
+    description: "Luck, dharma, higher learning, long journeys, father and fortune.",
+    image: "https://aheadterra.com/images/navam.jpg",
+    ogImage: "https://aheadterra.com/images/navam.jpg",
+    ogWidth: 1200,
+    ogHeight: 630,
+    slug: "navam-bhava",
+  },
+
+  "navam-bhava-2": {
+    title: "9th House – Navam Bhava (Alt)",
+    label: "9th House – Navam Bhava (Alt)",
+    description: "Alternate illustration for Navam Bhava — spirituality, pilgrimage, and higher learning.",
+    image: "https://aheadterra.com/images/navam1.jpeg",
+    ogImage: "https://aheadterra.com/images/navam1.jpeg",
+    ogWidth: 1200,
+    ogHeight: 630,
+    slug: "navam-bhava-2",
+  },
   // 8th house (Ashtam) share entries
   "ashtam-bhava": {
     title: "8th House – Ashtam Bhava",
