@@ -253,7 +253,7 @@ export default function Page18Client() {
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
               We can see how strong his 8th house was in granting longevity, just as per the Valmiki Ramayana, Lord Rama ruled for 11,000 years.
 
-              "ग्यारह हजार वर्ष पर्यन्ता, राज कीन्हा श्री लक्ष्मी कंता | फिर वैकुण्ठ पधारे राम, पतितपावन सीताराम ||"
+              <a href="https://hindusfestivals.com/ramayan-manka-108/" target="_blank" rel="noopener noreferrer">"ग्यारह हजार वर्ष पर्यन्ता, राज कीन्हा श्री लक्ष्मी कंता | फिर वैकुण्ठ पधारे राम, पतितपावन सीताराम ||"</a>
 
               दश वर्ष सहस्त्राणि दश वर्ष शतानि च | रामो राज्यमुपासित्वा ब्रह्मलोकं प्रयास्यति ||
 
