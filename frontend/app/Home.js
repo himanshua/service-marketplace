@@ -698,7 +698,7 @@ Believe in yourself - success is within your reach!
       – Governs longevity, transformation, and mysteries.
     </li>
     <li>
-      <a href="https://barbarapijan.com/bpa/Bhava/9dharma_bhava.htm" target="_blank" rel="noopener noreferrer">
+      <a href="https://aheadterra.com/19" target="_self" rel="noopener noreferrer">
         9th House – Dharma Bhava
       </a>
       – Governs fortune, dharma, and higher learning.
