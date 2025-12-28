@@ -19,3 +19,9 @@ export const metadata = {
     images: ["https://aheadterra.com/images/navam.jpg"],
   },
 };
+
+import Page19Client from "./Page19Client";
+
+export default function Page() {
+  return <Page19Client />;
+}
