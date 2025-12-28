@@ -692,7 +692,7 @@ Believe in yourself - success is within your reach!
        विवाह, जीवनसाथी, साझेदारी, अनुबंध, सार्वजनिक संबंध, ग्राहक और प्रत्यक्ष शत्रु — मेल-मिलाप, प्रतिबद्धता, सहयोग, समझौते और आमने-सामने के संबंधों का भाव।
     </li>
     <li>
-      <a href="https://barbarapijan.com/bpa/Bhava/8randhra_bhava.htm" target="_blank" rel="noopener noreferrer">
+      <a href="https://aheadterra.com/18" target="_self" rel="noopener noreferrer">
         8th House – Randhra Bhava
       </a>
       – Governs longevity, transformation, and mysteries.

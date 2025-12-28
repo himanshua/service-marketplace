@@ -219,5 +219,27 @@ export const shareItems = {
     ogHeight: 630,
     slug: "michael-jordan-deal",
   },
+  // 8th house (Ashtam) share entries
+  "ashtam-bhava": {
+    title: "8th House – Ashtam Bhava",
+    label: "8th House – Ashtam Bhava",
+    description: "Transformation, shared resources, inheritance, occult studies, deep intimacy.",
+    image: "https://aheadterra.com/images/ashtam.jpg",
+    ogImage: "https://aheadterra.com/images/ashtam.jpg",
+    ogWidth: 1200,
+    ogHeight: 630,
+    slug: "ashtam-bhava",
+  },
+
+  "ashtam-bhava-2": {
+    title: "8th House – Ashtam Bhava (Alt)",
+    label: "8th House – Ashtam Bhava (Alt)",
+    description: "Alternate illustration for Ashtam Bhava — transformation, rebirth, and shared wealth.",
+    image: "https://aheadterra.com/images/ashtam1.jpeg",
+    ogImage: "https://aheadterra.com/images/ashtam1.jpeg",
+    ogWidth: 1200,
+    ogHeight: 630,
+    slug: "ashtam-bhava-2",
+  },
  
 };
