@@ -189,7 +189,7 @@ export default function Page18Client() {
 
             <h2>Practical Notes</h2>
             <p style={{ color: "#274153", lineHeight: 1.6 }}>
-              The 8th house reveals how transformations occur in life — through crises, partnerships, and the flow of shared resources. Planets here indicate where deep change is likely and how the native engages with hidden matters.
+              The 8th house reveals how deep transformations occur — often through crisis, partnership, inheritance, or the uncovering of secrets. Planets placed here will show where change is most likely to be intense and how the native navigates hidden matters and joint resources.
             </p>
 
             <h2>Keywords & Concepts</h2>
@@ -199,11 +199,61 @@ export default function Page18Client() {
               <li>Sexual intimacy & secrecy</li>
               <li>Occult knowledge & research</li>
               <li>Joint assets & debts</li>
+              <li>Psychological transformation & therapy</li>
+              <li>Taxes, loans, and other people's money</li>
             </ul>
 
             <h2>Essence</h2>
             <p>
-              👉 The 8th house governs how you transform through others, shared resources, and hidden forces. It asks how you meet dissolution and renewal.
+              👉 The 8th house governs how you encounter endings and how those endings become beginnings — through shared belongings, intimate bonds, and the mysteries that change us.
+            </p>
+
+            <h2>Intimate Themes</h2>
+            <ul style={{ marginLeft: 20, color: "#1f2a44", lineHeight: 1.6 }}>
+              <li>Vulnerability, trust in shared resources, and transformational intimacy</li>
+              <li>Hidden motives, secrets, and investigations</li>
+              <li>Regeneration and recovery after loss</li>
+            </ul>
+
+            <h2>Practical Guidance</h2>
+            <p style={{ color: "#274153", lineHeight: 1.6 }}>
+              When benefic planets occupy the 8th, they can ease transitions and help the native manage joint finances or inheritances responsibly. Malefics can bring sudden events or intense psychological pressure, but also the potential for profound growth when handled consciously.
+            </p>
+
+            <figure style={{ margin: "0 0 12px 0", textAlign: "center" }}>
+              <img
+                src="/images/Rama.JPG"
+                alt="Lord Rama - Eighth House example"
+                style={{
+                  width: "100%",
+                  maxWidth: 360,
+                  height: "auto",
+                  borderRadius: 12,
+                  boxShadow: "0 12px 26px rgba(0,0,0,0.12)",
+                }}
+              />
+              <figcaption style={{ marginTop: 10, fontSize: 14, color: "#4a6071" }}>
+                The Eighth house often appears in classical examples when life undergoes profound change.
+              </figcaption>
+            </figure>
+
+            <h2>Lord Rama’s Eighth House Example</h2>
+            <p>
+              In illustrative charts, a strong 8th house or a well‑placed 8th lord can indicate deep resilience in the face of loss and an ability to regenerate after crises. When benefics support the 8th, shared resources and inheritances may be managed with wisdom and fairness. When malefics influence the 8th, the native may face sudden events or secrecy that require inner strength and careful handling.
+            </p>
+
+            <p style={{ color: "#274153", lineHeight: 1.6 }}>
+              In the context of Lord Rama's mythology and illustrative charts, an activated 8th house can be read as symbolic of trials that transform the hero — periods that demand courage, humility, and a turning toward deeper wisdom. These placements reflect inner purification, confronting hidden enemies, and ultimately, renewal.
+            </p>
+
+            <h2>🛠️ Eight House: Practicalities</h2>
+            <p>
+              The 8th house is important for those working with inheritances, financial partnerships, estate planning, psychology, and occult studies. It also governs long-term recoveries, shared debt, and legal settlements.
+            </p>
+
+            <h3>Essence</h3>
+            <p>
+              👉 The 8th house shows where you meet endings and how those endings catalyze growth — through shared fate, intimate bonds, and the mysteries beneath ordinary life.
             </p>
           </div>
         </section>
