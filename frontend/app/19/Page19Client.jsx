@@ -230,14 +230,54 @@ export default function Page19Client() {
             </figure>
 
             <h2>Lord Rama’s Ninth House Note</h2>
-            <p>
-              In Lord Rama's illustrative charts the 9th house highlights his dharmic role as a righteous king and teacher. Favorable placements here align with his long, auspicious rule and devotion to duty. The 9th connects his kingship to higher law, pilgrimage, and the moral order he upheld.
-            </p>
+            <div style={{ color: "#274153", lineHeight: 1.6, marginBottom: 18 }}>
+              <p>
+                In Lord Rama’s horoscope (Cancer Ascendant), the 9th Bhava (House of Fortune and Dharma) is exceptionally powerful and defines his identity as Maryada Purushottam.
+              </p>
+              <p>
+                <strong>Exalted Lord:</strong> The 9th house is Pisces, and its ruler, Jupiter, is exalted in the 1st house (Ascendant), creating a direct link between his soul and supreme righteousness (Dharma).
+              </p>
+              <p>
+                <strong>Dharmic Foundation:</strong> This placement ensured that every action he took was rooted in divine law, making him the eternal benchmark for duty and ethical conduct.
+              </p>
+              <p>
+                <strong>Father’s Influence:</strong> The 9th house represents the father; although he faced exile due to his father's promise, the strength of this house shows his unwavering obedience to King Dasharatha.
+              </p>
+              <p>
+                <strong>Guru’s Grace:</strong> A strong 9th house brought him under the guidance of great sages like Vishwamitra and Vashistha, who equipped him with divine weapons and spiritual wisdom.
+              </p>
+              <p>
+                <strong>Pilgrimage and Exile:</strong> Since the 9th house also relates to long travels, his 14-year exile became a spiritual journey that cleansed the earth of demonic forces and established Ram Rajya.
+              </p>
+            </div>
 
             <h2>🛠️ Ninth House: Practicalities</h2>
             <p>
               The 9th house is essential for students, pilgrims, clergy, and those seeking purpose through travel, education, or law.
             </p>
+
+            <h2>Travel & Car Services for you</h2>
+            <div style={{ color: "#1f2a44", lineHeight: 1.6, marginBottom: 18 }}>
+              <p>
+                The 9th house is the domain of travel, learning, and long journeys. As your professional travel coach, I offer you chauffeur-driven car services for personalized tours, family trips, corporate travel, airport transfers, and outstation journeys.
+              </p>
+              <ul>
+                <li>Private Chauffeur Service</li>
+                <li>Airport Pickup and Drop</li>
+                <li>Outstation Trips</li>
+                <li>Sightseeing Tours</li>
+                <li>Travel Guide Services</li>
+                <li>Personalized Tour Packages</li>
+                <li>Corporate Travel</li>
+                <li>Family Trips</li>
+              </ul>
+              <p>
+                All services are delivered with a focus on safety, comfort, flexibility, and professionalism. Enjoy a reliable and friendly travel experience for every journey.
+              </p>
+                <p style={{ marginTop: 16 }}>
+                  <strong>Contact:</strong> <a href="mailto:himanshu@aheadterra.com">himanshu@aheadterra.com</a>
+                </p>
+            </div>
 
             <h3>Essence</h3>
             <p>
