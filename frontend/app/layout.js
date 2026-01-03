@@ -12,9 +12,17 @@ export const metadata = {
   title: "Terra – Psychic & Jyotishvidya Readings",
   description: "Get your unique reading from Himanshu Tiwari! Connect now.",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.png",
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "16x16" },
+      { url: "/favicon.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon.png", type: "image/png", sizes: "64x64" },
+    ],
+    shortcut: [
+      { url: "/favicon.ico" },
+    ],
+    apple: [
+      { url: "/favicon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "Terra – Psychic & Jyotishvidya Readings",
